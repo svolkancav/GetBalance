@@ -12,8 +12,7 @@ namespace GetBalance.DATA
 		public string Password { get; set; }
 		public string Email { get; set; }
 		public DateTime RegistrationDate => DateTime.Now;
-
 		public UserDetail UserDetail { get; set; }
 		public ICollection<Meal> Meals { get; set; }
-	}
+    }
 }
