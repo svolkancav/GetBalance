@@ -23,7 +23,7 @@ namespace GetBalance.DAL.Mapping
 
 			builder.Property(x => x.Height).IsRequired().HasColumnType("decimal(4.2)"); 
 
-			builder.Property(x => x.Weight).IsRequired().HasColumnType("decimal(4.2)");
+			builder.Property(x => x.CurrentWeight).IsRequired().HasColumnType("decimal(4.2)");
 
 			builder.HasOne(x => x.User).WithOne(x => x.UserDetail).HasForeignKey<UserDetail>(x => x.UserId);
 
