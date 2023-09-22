@@ -15,9 +15,10 @@ namespace GetBalance.DATA
 		public DateTime BirthDate { get; set; }
 		public Gender Gender { get; set; }
 		public double Height { get; set; }
-		public double Weight { get; set; }
+		public double CurrentWeight { get; set; }
 		public int UserId { get; set; }
 
 		public User User { get; set; }
-	}
+        public UserTarget UserTarget { get; set; }
+    }
 }

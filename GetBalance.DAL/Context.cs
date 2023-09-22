@@ -16,11 +16,12 @@ namespace GetBalance.DAL
 		public DbSet<Meal> Meals { get; set; }
 		public DbSet<FoodCategory> FoodCategories { get; set; }
 		public DbSet<Portion> Portions { get; set; }
+        public DbSet<UserTarget> UserTargets { get; set; }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=Unknown\\SQLESER;Database=GetBalanceDB;Trusted_Connection=True;"); //TODO:Change Connection string
-		}
+			optionsBuilder.UseSqlServer(@"Server=DESKTOP-GUVEN;Database=HS12-GetBalanceDB;User Id=sa;Password=123456;"); //TODO:Change Connection string
+        }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -30,6 +31,7 @@ namespace GetBalance.DAL
 			modelBuilder.ApplyConfiguration(new Mapping.PortionMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.UserDetailMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.UserMapping());
+			modelBuilder.ApplyConfiguration(new Mapping.UserTargetMapping());
 
 			base.OnModelCreating(modelBuilder);
 		}
