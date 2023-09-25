@@ -36,8 +36,10 @@
             btnHome = new PictureBox();
             menuContainer = new FlowLayoutPanel();
             panel2 = new Panel();
+            gunlukControl1 = new GunlukControl();
             btnAnaSayfa = new Button();
             panel5 = new Panel();
+            profilControl1 = new ProfilControl();
             btnRapor = new Button();
             panel3 = new Panel();
             btnBen = new Button();
@@ -46,6 +48,9 @@
             panel6 = new Panel();
             btnCikis = new Button();
             menuTransition = new System.Windows.Forms.Timer(components);
+            anaSayfaControl1 = new AnaSayfaControl();
+            profilControl2 = new ProfilControl();
+            anaSayfaControl2 = new AnaSayfaControl();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
             menuContainer.SuspendLayout();
@@ -130,11 +135,19 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(47, 47, 47);
+            panel2.Controls.Add(gunlukControl1);
             panel2.Controls.Add(btnAnaSayfa);
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(146, 86);
             panel2.TabIndex = 2;
+            // 
+            // gunlukControl1
+            // 
+            gunlukControl1.Location = new Point(145, -3);
+            gunlukControl1.Name = "gunlukControl1";
+            gunlukControl1.Size = new Size(795, 443);
+            gunlukControl1.TabIndex = 1;
             // 
             // btnAnaSayfa
             // 
@@ -155,11 +168,19 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(47, 47, 47);
+            panel5.Controls.Add(profilControl1);
             panel5.Controls.Add(btnRapor);
             panel5.Location = new Point(3, 95);
             panel5.Name = "panel5";
             panel5.Size = new Size(146, 86);
             panel5.TabIndex = 5;
+            // 
+            // profilControl1
+            // 
+            profilControl1.Location = new Point(145, -95);
+            profilControl1.Name = "profilControl1";
+            profilControl1.Size = new Size(792, 440);
+            profilControl1.TabIndex = 1;
             // 
             // btnRapor
             // 
@@ -224,6 +245,7 @@
             btnGunluk.Text = "            Günlük";
             btnGunluk.TextAlign = ContentAlignment.MiddleLeft;
             btnGunluk.UseVisualStyleBackColor = false;
+            btnGunluk.Click += btnGunluk_Click;
             // 
             // panel6
             // 
@@ -248,17 +270,42 @@
             btnCikis.Text = "            Çıkış";
             btnCikis.TextAlign = ContentAlignment.MiddleLeft;
             btnCikis.UseVisualStyleBackColor = false;
+            btnCikis.Click += btnCikis_Click;
             // 
             // menuTransition
             // 
             menuTransition.Interval = 10;
             menuTransition.Tick += menuTransition_Tick;
             // 
+            // anaSayfaControl1
+            // 
+            anaSayfaControl1.Location = new Point(151, 53);
+            anaSayfaControl1.Name = "anaSayfaControl1";
+            anaSayfaControl1.Size = new Size(792, 434);
+            anaSayfaControl1.TabIndex = 3;
+            // 
+            // profilControl2
+            // 
+            profilControl2.Location = new Point(151, 53);
+            profilControl2.Name = "profilControl2";
+            profilControl2.Size = new Size(792, 437);
+            profilControl2.TabIndex = 4;
+            // 
+            // anaSayfaControl2
+            // 
+            anaSayfaControl2.Location = new Point(148, 47);
+            anaSayfaControl2.Name = "anaSayfaControl2";
+            anaSayfaControl2.Size = new Size(795, 443);
+            anaSayfaControl2.TabIndex = 3;
+            // 
             // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(943, 487);
+            Controls.Add(anaSayfaControl2);
+            Controls.Add(profilControl2);
+            Controls.Add(anaSayfaControl1);
             Controls.Add(menuContainer);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -295,5 +342,10 @@
         private Panel panel6;
         private Button btnCikis;
         private System.Windows.Forms.Timer menuTransition;
+        private ProfilControl profilControl1;
+        private AnaSayfaControl anaSayfaControl1;
+        private ProfilControl profilControl2;
+        private AnaSayfaControl anaSayfaControl2;
+        private GunlukControl gunlukControl1;
     }
 }
