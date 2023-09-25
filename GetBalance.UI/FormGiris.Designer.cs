@@ -44,13 +44,13 @@
             btnYeniKullanici.FlatStyle = FlatStyle.Flat;
             btnYeniKullanici.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnYeniKullanici.ForeColor = SystemColors.Control;
-            btnYeniKullanici.Location = new Point(176, 166);
-            btnYeniKullanici.Margin = new Padding(2);
+            btnYeniKullanici.Location = new Point(251, 277);
             btnYeniKullanici.Name = "btnYeniKullanici";
-            btnYeniKullanici.Size = new Size(210, 44);
+            btnYeniKullanici.Size = new Size(300, 73);
             btnYeniKullanici.TabIndex = 1;
             btnYeniKullanici.Text = "Yeni Bir Kullanıcıyım";
             btnYeniKullanici.UseVisualStyleBackColor = false;
+            btnYeniKullanici.Click += btnYeniKullanici_Click;
             // 
             // btnHesapGiris
             // 
@@ -58,10 +58,9 @@
             btnHesapGiris.FlatStyle = FlatStyle.Flat;
             btnHesapGiris.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnHesapGiris.ForeColor = Color.White;
-            btnHesapGiris.Location = new Point(176, 214);
-            btnHesapGiris.Margin = new Padding(2);
+            btnHesapGiris.Location = new Point(251, 357);
             btnHesapGiris.Name = "btnHesapGiris";
-            btnHesapGiris.Size = new Size(210, 44);
+            btnHesapGiris.Size = new Size(300, 73);
             btnHesapGiris.TabIndex = 2;
             btnHesapGiris.Text = "Zaten Bir Hesabım Var";
             btnHesapGiris.UseVisualStyleBackColor = false;
@@ -73,8 +72,9 @@
             panel1.Controls.Add(nightControlBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(551, 35);
+            panel1.Size = new Size(787, 58);
             panel1.TabIndex = 3;
             panel1.Paint += panel1_Paint;
             // 
@@ -92,7 +92,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(412, 0);
+            nightControlBox1.Location = new Point(589, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -104,24 +104,24 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(233, 68);
+            pictureBox1.Location = new Point(333, 113);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(102, 93);
+            pictureBox1.Size = new Size(146, 155);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // FormGiris
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(551, 352);
+            ClientSize = new Size(787, 587);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(btnHesapGiris);
             Controls.Add(btnYeniKullanici);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2);
             Name = "FormGiris";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Healthy Diet";

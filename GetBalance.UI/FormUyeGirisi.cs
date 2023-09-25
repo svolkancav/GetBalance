@@ -66,7 +66,21 @@ namespace GetBalance.UI
 
         private void lnklblHesapOlustur_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            FormYeniKayit formYeniKayit = new FormYeniKayit();
+            formYeniKayit.Show();
+            this.Hide();
+        }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lnklblSifreUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormSifreYenile formSifreYenile = new FormSifreYenile();
+            formSifreYenile.Show();
+            this.Hide();
         }
     }
 }
