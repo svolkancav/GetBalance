@@ -52,12 +52,22 @@ namespace GetBalance.UI
 
         private void btnBen_Click(object sender, EventArgs e)
         {
-            //profilControl1.BringToFront();
+            profilControl1.BringToFront();
         }
 
         private void btnAnaSayfa_Click(object sender, EventArgs e)
         {
-            // anaSayfaControl1.BringToFront();
+            anaSayfaControl1.BringToFront();
+        }
+
+        private void btnGunluk_Click(object sender, EventArgs e)
+        {
+            gunlukControl1.BringToFront();
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

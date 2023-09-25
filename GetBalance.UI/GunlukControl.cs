@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-    public partial class FormYeniKayit : Form
+    public partial class GunlukControl : UserControl
     {
-        public FormYeniKayit()
+        public GunlukControl()
         {
             InitializeComponent();
-        }
-
-        private void btnIleri_Click(object sender, EventArgs e)
-        {
-            FormYeniKayit2 formYeniKayit2 = new FormYeniKayit2();
-            formYeniKayit2.Show();
-            this.Hide();
-
         }
     }
 }

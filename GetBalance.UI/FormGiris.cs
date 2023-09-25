@@ -28,5 +28,12 @@ namespace GetBalance.UI
             formUyeGirisi.Show();
             this.Hide();
         }
+
+        private void btnYeniKullanici_Click(object sender, EventArgs e)
+        {
+            FormYeniKayit formYeniKayit = new FormYeniKayit();
+            formYeniKayit.Show();
+            this.Hide();
+        }
     }
 }
