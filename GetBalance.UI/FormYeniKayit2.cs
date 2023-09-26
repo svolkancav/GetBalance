@@ -12,6 +12,7 @@ using GetBalance.DATA;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
 using Microsoft.VisualBasic.ApplicationServices;
+using User = GetBalance.DATA.User;
 
 namespace GetBalance.UI
 {
