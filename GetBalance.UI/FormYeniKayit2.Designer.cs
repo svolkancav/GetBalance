@@ -1,26 +1,27 @@
 ﻿namespace GetBalance.UI
 {
-    partial class FormYeniKayit2
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class FormYeniKayit2
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
+
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -251,24 +252,25 @@
             PerformLayout();
         }
 
-        #endregion
 
-        private Panel panel1;
-        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-        private Panel panel2;
-        private Label lblYeniHesapOlustur;
-        private TextBox txtBoy;
-        private TextBox txtKilo;
-        private TextBox txtBoyunCevresi;
-        private TextBox txtBelCevresi;
-        private TextBox txtKalcaCevresi;
-        private ComboBox cbxAktiviteSeviyesi;
-        private Button btnKayitOl;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-    }
+		#endregion
+
+		private Panel panel1;
+		private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
+		private Panel panel2;
+		private Label lblYeniHesapOlustur;
+		private TextBox txtBoy;
+		private TextBox txtKilo;
+		private TextBox txtBoyunCevresi;
+		private TextBox txtBelCevresi;
+		private TextBox txtKalcaCevresi;
+		private ComboBox cbxAktiviteSeviyesi;
+		private Button btnKayitOl;
+		private Label label1;
+		private Label label2;
+		private Label label3;
+		private Label label4;
+		private Label label5;
+		private Label label6;
+	}
 }

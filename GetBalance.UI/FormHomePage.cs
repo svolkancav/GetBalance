@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GetBalance.DATA;
 
 namespace GetBalance.UI
 {
@@ -16,12 +17,19 @@ namespace GetBalance.UI
         //GunlukControl gunlukControl;
         Form formGunluk;
         public Point downPoint = Point.Empty;
+
+        User _user;
         public FormHomePage()
         {
             InitializeComponent();
             anaSayfaControl = new AnaSayfaControl();
             //gunlukControl = new GunlukControl();
+        }
 
+        public FormHomePage(User user)
+        {
+            InitializeComponent();
+            _user = user;
         }
 
         private void FormHomePage_Load(object sender, EventArgs e)
