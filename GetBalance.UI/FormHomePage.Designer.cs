@@ -44,14 +44,14 @@
             btnGunluk = new Button();
             pnlRaporlar = new Panel();
             btnRaporlar = new Button();
+            pnlHesaplamalar = new Panel();
+            btnHesaplamalar = new Button();
             pnlAyarlar = new Panel();
             btnAyarlar = new Button();
             pnlCikis = new Panel();
             btnCikis = new Button();
             menuTransition = new System.Windows.Forms.Timer(components);
             pnlAnaPanel = new Panel();
-            pnlHesaplamalar = new Panel();
-            btnHesaplamalar = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
             menuContainer.SuspendLayout();
@@ -60,9 +60,9 @@
             pnlProfil.SuspendLayout();
             pnlGunluk.SuspendLayout();
             pnlRaporlar.SuspendLayout();
+            pnlHesaplamalar.SuspendLayout();
             pnlAyarlar.SuspendLayout();
             pnlCikis.SuspendLayout();
-            pnlHesaplamalar.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTop
@@ -270,6 +270,32 @@
             btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
             btnRaporlar.UseVisualStyleBackColor = false;
             // 
+            // pnlHesaplamalar
+            // 
+            pnlHesaplamalar.Controls.Add(btnHesaplamalar);
+            pnlHesaplamalar.Location = new Point(3, 264);
+            pnlHesaplamalar.Name = "pnlHesaplamalar";
+            pnlHesaplamalar.Size = new Size(173, 40);
+            pnlHesaplamalar.TabIndex = 1;
+            // 
+            // btnHesaplamalar
+            // 
+            btnHesaplamalar.BackColor = Color.FromArgb(2, 53, 53);
+            btnHesaplamalar.FlatAppearance.BorderSize = 0;
+            btnHesaplamalar.FlatStyle = FlatStyle.Flat;
+            btnHesaplamalar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHesaplamalar.ForeColor = Color.White;
+            btnHesaplamalar.Image = Properties.Resources.calculator_7_32;
+            btnHesaplamalar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHesaplamalar.Location = new Point(-13, -9);
+            btnHesaplamalar.Name = "btnHesaplamalar";
+            btnHesaplamalar.Padding = new Padding(15, 0, 0, 0);
+            btnHesaplamalar.Size = new Size(199, 58);
+            btnHesaplamalar.TabIndex = 0;
+            btnHesaplamalar.Text = "            Hesaplamalar";
+            btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;
+            btnHesaplamalar.UseVisualStyleBackColor = false;
+            // 
             // pnlAyarlar
             // 
             pnlAyarlar.Controls.Add(btnAyarlar);
@@ -313,9 +339,7 @@
             btnCikis.ForeColor = Color.White;
             btnCikis.Image = Properties.Resources.exit_32;
             btnCikis.ImageAlign = ContentAlignment.MiddleLeft;
-
             btnCikis.Location = new Point(-13, -9);
-
             btnCikis.Name = "btnCikis";
             btnCikis.Padding = new Padding(15, 0, 0, 0);
             btnCikis.Size = new Size(199, 58);
@@ -337,32 +361,6 @@
             pnlAnaPanel.Name = "pnlAnaPanel";
             pnlAnaPanel.Size = new Size(1100, 685);
             pnlAnaPanel.TabIndex = 2;
-            // 
-            // pnlHesaplamalar
-            // 
-            pnlHesaplamalar.Controls.Add(btnHesaplamalar);
-            pnlHesaplamalar.Location = new Point(3, 264);
-            pnlHesaplamalar.Name = "pnlHesaplamalar";
-            pnlHesaplamalar.Size = new Size(173, 40);
-            pnlHesaplamalar.TabIndex = 1;
-            // 
-            // btnHesaplamalar
-            // 
-            btnHesaplamalar.BackColor = Color.FromArgb(2, 53, 53);
-            btnHesaplamalar.FlatAppearance.BorderSize = 0;
-            btnHesaplamalar.FlatStyle = FlatStyle.Flat;
-            btnHesaplamalar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnHesaplamalar.ForeColor = Color.White;
-            btnHesaplamalar.Image = Properties.Resources.calculator_7_32;
-            btnHesaplamalar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHesaplamalar.Location = new Point(-13, -9);
-            btnHesaplamalar.Name = "btnHesaplamalar";
-            btnHesaplamalar.Padding = new Padding(15, 0, 0, 0);
-            btnHesaplamalar.Size = new Size(199, 58);
-            btnHesaplamalar.TabIndex = 0;
-            btnHesaplamalar.Text = "            Hesaplamalar";
-            btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;
-            btnHesaplamalar.UseVisualStyleBackColor = false;
             // 
             // FormHomePage
             // 
@@ -389,9 +387,9 @@
             pnlProfil.ResumeLayout(false);
             pnlGunluk.ResumeLayout(false);
             pnlRaporlar.ResumeLayout(false);
+            pnlHesaplamalar.ResumeLayout(false);
             pnlAyarlar.ResumeLayout(false);
             pnlCikis.ResumeLayout(false);
-            pnlHesaplamalar.ResumeLayout(false);
             ResumeLayout(false);
         }
 

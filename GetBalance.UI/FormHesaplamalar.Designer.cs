@@ -54,9 +54,10 @@
             btnVKE.Name = "btnVKE";
             btnVKE.Size = new Size(230, 41);
             btnVKE.TabIndex = 0;
+            btnVKE.Tag = "VKI";
             btnVKE.Text = "        Vücut Kitle Endeksi ( BMI)";
             btnVKE.UseVisualStyleBackColor = false;
-            btnVKE.Click += btnVKE_Click;
+            btnVKE.Click += btnClick;
             // 
             // btnBMH
             // 
@@ -70,8 +71,10 @@
             btnBMH.Name = "btnBMH";
             btnBMH.Size = new Size(230, 41);
             btnBMH.TabIndex = 1;
+            btnBMH.Tag = "BMR";
             btnBMH.Text = "      Bazal Metaboliz Hızı (BMR)";
             btnBMH.UseVisualStyleBackColor = false;
+            btnBMH.Click += btnClick;
             // 
             // panel1
             // 
@@ -103,8 +106,10 @@
             btnMKAH.Name = "btnMKAH";
             btnMKAH.Size = new Size(230, 41);
             btnMKAH.TabIndex = 14;
+            btnMKAH.Tag = "MaksimumKalpHızı";
             btnMKAH.Text = "        Maksimum Kalp Hızı";
             btnMKAH.UseVisualStyleBackColor = false;
+            btnMKAH.Click += btnClick;
             // 
             // btnGSI
             // 
@@ -119,8 +124,10 @@
             btnGSI.Name = "btnGSI";
             btnGSI.Size = new Size(230, 41);
             btnGSI.TabIndex = 13;
+            btnGSI.Tag = "GünlükSuİhtiyacı";
             btnGSI.Text = "        Günlük Su İhtiyacı";
             btnGSI.UseVisualStyleBackColor = false;
+            btnGSI.Click += btnClick;
             // 
             // btnIdealKilo
             // 
@@ -135,8 +142,10 @@
             btnIdealKilo.Name = "btnIdealKilo";
             btnIdealKilo.Size = new Size(230, 41);
             btnIdealKilo.TabIndex = 12;
+            btnIdealKilo.Tag = "İdealKilo";
             btnIdealKilo.Text = "        İdeal Kilo";
             btnIdealKilo.UseVisualStyleBackColor = false;
+            btnIdealKilo.Click += btnClick;
             // 
             // btnVYO
             // 
@@ -151,8 +160,10 @@
             btnVYO.Name = "btnVYO";
             btnVYO.Size = new Size(230, 41);
             btnVYO.TabIndex = 9;
+            btnVYO.Tag = "VücutYağOranı";
             btnVYO.Text = "Vücut Yağ Oranı";
             btnVYO.UseVisualStyleBackColor = false;
+            btnVYO.Click += btnClick;
             // 
             // btnGKİ
             // 
@@ -167,8 +178,10 @@
             btnGKİ.Name = "btnGKİ";
             btnGKİ.Size = new Size(230, 41);
             btnGKİ.TabIndex = 11;
+            btnGKİ.Tag = "GünlükKaloriİhtiyacı";
             btnGKİ.Text = "        Günlük Kalori İhtiyacı";
             btnGKİ.UseVisualStyleBackColor = false;
+            btnGKİ.Click += btnClick;
             // 
             // btnYVK
             // 
@@ -183,8 +196,10 @@
             btnYVK.Name = "btnYVK";
             btnYVK.Size = new Size(230, 41);
             btnYVK.TabIndex = 10;
+            btnYVK.Tag = "FFMI";
             btnYVK.Text = "        Yağsız Vücut Kitlesi (FFMI)";
             btnYVK.UseVisualStyleBackColor = false;
+            btnYVK.Click += btnClick;
             // 
             // FormHesaplamalar
             // 
