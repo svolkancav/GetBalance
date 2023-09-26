@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-    public partial class GunlukControl : UserControl
+    public partial class BazalMetabolizHiziForm : Form
     {
-        public GunlukControl()
+        public BazalMetabolizHiziForm()
         {
             InitializeComponent();
-        }
-
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
