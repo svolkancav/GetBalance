@@ -11,93 +11,96 @@ using GetBalance.DATA;
 
 namespace GetBalance.UI
 {
-	public partial class FormHomePage : Form
-	{
-		AnaSayfaControl anaSayfaControl;
-		//GunlukControl gunlukControl;
-		Form formGunluk;
-		public Point downPoint = Point.Empty;
+    public partial class FormHomePage : Form
+    {
+        AnaSayfaControl anaSayfaControl;
+        //GunlukControl gunlukControl;
+        Form formGunluk;
+        public Point downPoint = Point.Empty;
 
-		User _user;
+        User _user;
+        public FormHomePage()
+        {
+            InitializeComponent();
+            anaSayfaControl = new AnaSayfaControl();
+            //gunlukControl = new GunlukControl();
+        }
 
-		public FormHomePage(User user)
-		{
-			InitializeComponent();
-			_user = user;
-			anaSayfaControl = new AnaSayfaControl();
-			//gunlukControl = new GunlukControl();
+        public FormHomePage(User user)
+        {
+            InitializeComponent();
+            _user = user;
+        }
 
-		}
+        private void FormHomePage_Load(object sender, EventArgs e)
+        {
+            formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
 
-		private void FormHomePage_Load(object sender, EventArgs e)
-		{
-			formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
+        }
 
-		}
+        #region SidePanelTransition
 
-		#region SidePanelTransition
+        bool menuExpand = true;
+        private void menuTransition_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand)
+            {
+                menuContainer.Width -= 10;
+                if (menuContainer.Width <= 51)
+                {
+                    menuExpand = false;
+                    menuTransition.Stop();
+                }
+            }
+            else
+            {
+                menuContainer.Width += 10;
+                if (menuContainer.Width >= 180)
+                {
 
-		bool menuExpand = true;
-		private void menuTransition_Tick(object sender, EventArgs e)
-		{
-			if (menuExpand)
-			{
-				menuContainer.Width -= 10;
-				if (menuContainer.Width <= 51)
-				{
-					menuExpand = false;
-					menuTransition.Stop();
-				}
-			}
-			else
-			{
-				menuContainer.Width += 10;
-				if (menuContainer.Width >= 180)
-				{
+                    menuExpand = true;
+                    menuTransition.Stop();
 
-					menuExpand = true;
-					menuTransition.Stop();
+                }
+            }
+        }
+        #endregion
 
-				}
-			}
-		}
-		#endregion
+        #region MenuButtons
 
-		#region MenuButtons
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            menuTransition.Start();
 
-		private void btnHome_Click(object sender, EventArgs e)
-		{
-			menuTransition.Start();
+        }
+        private void btnProfil_Click(object sender, EventArgs e)
+        {
 
-		}
-		private void btnProfil_Click(object sender, EventArgs e)
-		{
+        }
+        private void btnAnaSayfa_Click(object sender, EventArgs e)
+        {
+            anaSayfaControl.Show();
+            //anaSayfaControl1.BringToFront();
+        }
 
-		}
-		private void btnAnaSayfa_Click(object sender, EventArgs e)
-		{
-			anaSayfaControl.Show();
-			//anaSayfaControl1.BringToFront();
-		}
+        private void btnGunluk_Click(object sender, EventArgs e)
+        {
+            //gunlukControl1.BringToFront();
+            //gunlukControl1.Show();
 
-		private void btnGunluk_Click(object sender, EventArgs e)
-		{
-			//gunlukControl1.BringToFront();
-			//gunlukControl1.Show();
+            pnlAnaPanel.Controls.Add(formGunluk);
+            formGunluk.Show();
+        }
 
-			pnlAnaPanel.Controls.Add(formGunluk);
-			formGunluk.Show();
-		}
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-		private void btnCikis_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
-
-		#endregion
+        #endregion
 
 
 
 
-	}
+    }
 }
