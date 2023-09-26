@@ -29,49 +29,52 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            panel1 = new Panel();
+            pnlTop = new Panel();
             label2 = new Label();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             label1 = new Label();
             btnHome = new PictureBox();
             menuContainer = new FlowLayoutPanel();
-            panel7 = new Panel();
-            panel8 = new Panel();
+            pnlMenu = new Panel();
+            pnlAnaSayfa = new Panel();
             btnAnaSayfa = new Button();
-            panel2 = new Panel();
+            pnlProfil = new Panel();
             btnProfil = new Button();
-            panel9 = new Panel();
+            pnlGunluk = new Panel();
             btnGunluk = new Button();
-            panel10 = new Panel();
+            pnlRaporlar = new Panel();
             btnRaporlar = new Button();
-            panel11 = new Panel();
+            pnlAyarlar = new Panel();
             btnAyarlar = new Button();
-            panel12 = new Panel();
+            pnlCikis = new Panel();
             btnCikis = new Button();
             menuTransition = new System.Windows.Forms.Timer(components);
             pnlAnaPanel = new Panel();
-            panel1.SuspendLayout();
+            pnlHesaplamalar = new Panel();
+            btnHesaplamalar = new Button();
+            pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
             menuContainer.SuspendLayout();
-            panel7.SuspendLayout();
-            panel8.SuspendLayout();
-            panel2.SuspendLayout();
-            panel9.SuspendLayout();
-            panel10.SuspendLayout();
-            panel11.SuspendLayout();
-            panel12.SuspendLayout();
+            pnlMenu.SuspendLayout();
+            pnlAnaSayfa.SuspendLayout();
+            pnlProfil.SuspendLayout();
+            pnlGunluk.SuspendLayout();
+            pnlRaporlar.SuspendLayout();
+            pnlAyarlar.SuspendLayout();
+            pnlCikis.SuspendLayout();
+            pnlHesaplamalar.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.BackColor = Color.FromArgb(2, 53, 53);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(nightControlBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1280, 35);
-            panel1.TabIndex = 0;
+            pnlTop.BackColor = Color.FromArgb(2, 53, 53);
+            pnlTop.Controls.Add(label2);
+            pnlTop.Controls.Add(nightControlBox1);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1280, 35);
+            pnlTop.TabIndex = 0;
             // 
             // label2
             // 
@@ -135,13 +138,14 @@
             // menuContainer
             // 
             menuContainer.BackColor = Color.FromArgb(2, 53, 53);
-            menuContainer.Controls.Add(panel7);
-            menuContainer.Controls.Add(panel8);
-            menuContainer.Controls.Add(panel2);
-            menuContainer.Controls.Add(panel9);
-            menuContainer.Controls.Add(panel10);
-            menuContainer.Controls.Add(panel11);
-            menuContainer.Controls.Add(panel12);
+            menuContainer.Controls.Add(pnlMenu);
+            menuContainer.Controls.Add(pnlAnaSayfa);
+            menuContainer.Controls.Add(pnlProfil);
+            menuContainer.Controls.Add(pnlGunluk);
+            menuContainer.Controls.Add(pnlRaporlar);
+            menuContainer.Controls.Add(pnlHesaplamalar);
+            menuContainer.Controls.Add(pnlAyarlar);
+            menuContainer.Controls.Add(pnlCikis);
             menuContainer.Dock = DockStyle.Left;
             menuContainer.Location = new Point(0, 35);
             menuContainer.MaximumSize = new Size(180, 685);
@@ -150,22 +154,22 @@
             menuContainer.Size = new Size(180, 685);
             menuContainer.TabIndex = 1;
             // 
-            // panel7
+            // pnlMenu
             // 
-            panel7.Controls.Add(label1);
-            panel7.Controls.Add(btnHome);
-            panel7.Location = new Point(3, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(177, 71);
-            panel7.TabIndex = 0;
+            pnlMenu.Controls.Add(label1);
+            pnlMenu.Controls.Add(btnHome);
+            pnlMenu.Location = new Point(3, 3);
+            pnlMenu.Name = "pnlMenu";
+            pnlMenu.Size = new Size(177, 71);
+            pnlMenu.TabIndex = 0;
             // 
-            // panel8
+            // pnlAnaSayfa
             // 
-            panel8.Controls.Add(btnAnaSayfa);
-            panel8.Location = new Point(3, 80);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(173, 40);
-            panel8.TabIndex = 1;
+            pnlAnaSayfa.Controls.Add(btnAnaSayfa);
+            pnlAnaSayfa.Location = new Point(3, 80);
+            pnlAnaSayfa.Name = "pnlAnaSayfa";
+            pnlAnaSayfa.Size = new Size(173, 40);
+            pnlAnaSayfa.TabIndex = 1;
             // 
             // btnAnaSayfa
             // 
@@ -186,13 +190,13 @@
             btnAnaSayfa.UseVisualStyleBackColor = false;
             btnAnaSayfa.Click += btnAnaSayfa_Click;
             // 
-            // panel2
+            // pnlProfil
             // 
-            panel2.Controls.Add(btnProfil);
-            panel2.Location = new Point(3, 126);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(173, 40);
-            panel2.TabIndex = 1;
+            pnlProfil.Controls.Add(btnProfil);
+            pnlProfil.Location = new Point(3, 126);
+            pnlProfil.Name = "pnlProfil";
+            pnlProfil.Size = new Size(173, 40);
+            pnlProfil.TabIndex = 1;
             // 
             // btnProfil
             // 
@@ -213,13 +217,13 @@
             btnProfil.UseVisualStyleBackColor = false;
             btnProfil.Click += btnProfil_Click;
             // 
-            // panel9
+            // pnlGunluk
             // 
-            panel9.Controls.Add(btnGunluk);
-            panel9.Location = new Point(3, 172);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(173, 40);
-            panel9.TabIndex = 1;
+            pnlGunluk.Controls.Add(btnGunluk);
+            pnlGunluk.Location = new Point(3, 172);
+            pnlGunluk.Name = "pnlGunluk";
+            pnlGunluk.Size = new Size(173, 40);
+            pnlGunluk.TabIndex = 1;
             // 
             // btnGunluk
             // 
@@ -240,13 +244,13 @@
             btnGunluk.UseVisualStyleBackColor = false;
             btnGunluk.Click += btnGunluk_Click;
             // 
-            // panel10
+            // pnlRaporlar
             // 
-            panel10.Controls.Add(btnRaporlar);
-            panel10.Location = new Point(3, 218);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(173, 40);
-            panel10.TabIndex = 1;
+            pnlRaporlar.Controls.Add(btnRaporlar);
+            pnlRaporlar.Location = new Point(3, 218);
+            pnlRaporlar.Name = "pnlRaporlar";
+            pnlRaporlar.Size = new Size(173, 40);
+            pnlRaporlar.TabIndex = 1;
             // 
             // btnRaporlar
             // 
@@ -266,13 +270,13 @@
             btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
             btnRaporlar.UseVisualStyleBackColor = false;
             // 
-            // panel11
+            // pnlAyarlar
             // 
-            panel11.Controls.Add(btnAyarlar);
-            panel11.Location = new Point(3, 264);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(173, 40);
-            panel11.TabIndex = 1;
+            pnlAyarlar.Controls.Add(btnAyarlar);
+            pnlAyarlar.Location = new Point(3, 310);
+            pnlAyarlar.Name = "pnlAyarlar";
+            pnlAyarlar.Size = new Size(173, 40);
+            pnlAyarlar.TabIndex = 1;
             // 
             // btnAyarlar
             // 
@@ -292,13 +296,13 @@
             btnAyarlar.TextAlign = ContentAlignment.MiddleLeft;
             btnAyarlar.UseVisualStyleBackColor = false;
             // 
-            // panel12
+            // pnlCikis
             // 
-            panel12.Controls.Add(btnCikis);
-            panel12.Location = new Point(3, 310);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(173, 40);
-            panel12.TabIndex = 1;
+            pnlCikis.Controls.Add(btnCikis);
+            pnlCikis.Location = new Point(3, 356);
+            pnlCikis.Name = "pnlCikis";
+            pnlCikis.Size = new Size(173, 40);
+            pnlCikis.TabIndex = 1;
             // 
             // btnCikis
             // 
@@ -332,6 +336,32 @@
             pnlAnaPanel.Size = new Size(1100, 685);
             pnlAnaPanel.TabIndex = 2;
             // 
+            // pnlHesaplamalar
+            // 
+            pnlHesaplamalar.Controls.Add(btnHesaplamalar);
+            pnlHesaplamalar.Location = new Point(3, 264);
+            pnlHesaplamalar.Name = "pnlHesaplamalar";
+            pnlHesaplamalar.Size = new Size(173, 40);
+            pnlHesaplamalar.TabIndex = 1;
+            // 
+            // btnHesaplamalar
+            // 
+            btnHesaplamalar.BackColor = Color.FromArgb(2, 53, 53);
+            btnHesaplamalar.FlatAppearance.BorderSize = 0;
+            btnHesaplamalar.FlatStyle = FlatStyle.Flat;
+            btnHesaplamalar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHesaplamalar.ForeColor = Color.White;
+            btnHesaplamalar.Image = Properties.Resources.calculator_7_32;
+            btnHesaplamalar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHesaplamalar.Location = new Point(-13, -9);
+            btnHesaplamalar.Name = "btnHesaplamalar";
+            btnHesaplamalar.Padding = new Padding(15, 0, 0, 0);
+            btnHesaplamalar.Size = new Size(199, 58);
+            btnHesaplamalar.TabIndex = 0;
+            btnHesaplamalar.Text = "            Hesaplamalar";
+            btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;
+            btnHesaplamalar.UseVisualStyleBackColor = false;
+            // 
             // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -340,50 +370,53 @@
             ControlBox = false;
             Controls.Add(pnlAnaPanel);
             Controls.Add(menuContainer);
-            Controls.Add(panel1);
+            Controls.Add(pnlTop);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "FormHomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             Load += FormHomePage_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).EndInit();
             menuContainer.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel12.ResumeLayout(false);
+            pnlMenu.ResumeLayout(false);
+            pnlMenu.PerformLayout();
+            pnlAnaSayfa.ResumeLayout(false);
+            pnlProfil.ResumeLayout(false);
+            pnlGunluk.ResumeLayout(false);
+            pnlRaporlar.ResumeLayout(false);
+            pnlAyarlar.ResumeLayout(false);
+            pnlCikis.ResumeLayout(false);
+            pnlHesaplamalar.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel pnlTop;
         private PictureBox btnHome;
         private Label label1;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private FlowLayoutPanel menuContainer;
         private Button btnAnaSayfa;
         private System.Windows.Forms.Timer menuTransition;
-        private Panel panel7;
-        private Panel panel8;
-        private Panel panel2;
+        private Panel pnlMenu;
+        private Panel pnlAnaSayfa;
+        private Panel pnlProfil;
         private Button btnProfil;
-        private Panel panel9;
+        private Panel pnlGunluk;
         private Button btnGunluk;
-        private Panel panel10;
+        private Panel pnlRaporlar;
         private Button btnRaporlar;
-        private Panel panel11;
+        private Panel pnlAyarlar;
         private Button btnAyarlar;
-        private Panel panel12;
+        private Panel pnlCikis;
         private Button btnCikis;
         private Panel pnlAnaPanel;
         private Label label2;
+        private Panel pnlHesaplamalar;
+        private Button btnHesaplamalar;
     }
 }
