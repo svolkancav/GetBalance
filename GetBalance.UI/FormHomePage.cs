@@ -12,12 +12,25 @@ namespace GetBalance.UI
 {
     public partial class FormHomePage : Form
     {
+        AnaSayfaControl anaSayfaControl;
+        //GunlukControl gunlukControl;
+        Form formGunluk;
+        public Point downPoint = Point.Empty;
         public FormHomePage()
         {
             InitializeComponent();
-            AnaSayfaControl anaSayfaControl = new AnaSayfaControl();
-            anaSayfaControl.Show();
+            anaSayfaControl = new AnaSayfaControl();
+            //gunlukControl = new GunlukControl();
+
         }
+
+        private void FormHomePage_Load(object sender, EventArgs e)
+        {
+            formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
+
+        }
+
+        #region SidePanelTransition
 
         bool menuExpand = true;
         private void menuTransition_Tick(object sender, EventArgs e)
@@ -25,7 +38,7 @@ namespace GetBalance.UI
             if (menuExpand)
             {
                 menuContainer.Width -= 10;
-                if (menuContainer.Width <= 45)
+                if (menuContainer.Width <= 51)
                 {
                     menuExpand = false;
                     menuTransition.Stop();
@@ -34,7 +47,7 @@ namespace GetBalance.UI
             else
             {
                 menuContainer.Width += 10;
-                if (menuContainer.Width >= 149)
+                if (menuContainer.Width >= 180)
                 {
 
                     menuExpand = true;
@@ -43,31 +56,43 @@ namespace GetBalance.UI
                 }
             }
         }
+        #endregion
+
+        #region MenuButtons
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             menuTransition.Start();
 
         }
-
-        private void btnBen_Click(object sender, EventArgs e)
+        private void btnProfil_Click(object sender, EventArgs e)
         {
-            profilControl1.BringToFront();
-        }
 
+        }
         private void btnAnaSayfa_Click(object sender, EventArgs e)
         {
-            anaSayfaControl1.BringToFront();
+            anaSayfaControl.Show();
+            //anaSayfaControl1.BringToFront();
         }
 
         private void btnGunluk_Click(object sender, EventArgs e)
         {
-            gunlukControl1.BringToFront();
+            //gunlukControl1.BringToFront();
+            //gunlukControl1.Show();
+
+            pnlAnaPanel.Controls.Add(formGunluk);
+            formGunluk.Show();
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        #endregion
+
+
+
+
     }
 }

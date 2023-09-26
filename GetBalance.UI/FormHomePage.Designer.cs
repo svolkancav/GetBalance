@@ -31,63 +31,77 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHomePage));
             panel1 = new Panel();
+            label2 = new Label();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             label1 = new Label();
             btnHome = new PictureBox();
             menuContainer = new FlowLayoutPanel();
-            panel2 = new Panel();
-            gunlukControl1 = new GunlukControl();
+            panel7 = new Panel();
+            panel8 = new Panel();
             btnAnaSayfa = new Button();
-            panel5 = new Panel();
-            profilControl1 = new ProfilControl();
-            btnRapor = new Button();
-            panel3 = new Panel();
-            btnBen = new Button();
-            panel4 = new Panel();
+            panel2 = new Panel();
+            btnProfil = new Button();
+            panel9 = new Panel();
             btnGunluk = new Button();
-            panel6 = new Panel();
+            panel10 = new Panel();
+            btnRaporlar = new Button();
+            panel11 = new Panel();
+            btnAyarlar = new Button();
+            panel12 = new Panel();
             btnCikis = new Button();
             menuTransition = new System.Windows.Forms.Timer(components);
-            anaSayfaControl1 = new AnaSayfaControl();
-            profilControl2 = new ProfilControl();
-            anaSayfaControl2 = new AnaSayfaControl();
+            pnlAnaPanel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
             menuContainer.SuspendLayout();
+            panel7.SuspendLayout();
+            panel8.SuspendLayout();
             panel2.SuspendLayout();
-            panel5.SuspendLayout();
-            panel3.SuspendLayout();
-            panel4.SuspendLayout();
-            panel6.SuspendLayout();
+            panel9.SuspendLayout();
+            panel10.SuspendLayout();
+            panel11.SuspendLayout();
+            panel12.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(47, 47, 47);
+            panel1.BackColor = Color.FromArgb(2, 53, 53);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(nightControlBox1);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(btnHome);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(943, 47);
+            panel1.Size = new Size(1280, 35);
             panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(583, 6);
+            label2.Name = "label2";
+            label2.Size = new Size(114, 23);
+            label2.TabIndex = 3;
+            label2.Text = "GET BALANCE";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // nightControlBox1
             // 
-            nightControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nightControlBox1.BackColor = Color.Transparent;
             nightControlBox1.CloseHoverColor = Color.FromArgb(199, 80, 80);
             nightControlBox1.CloseHoverForeColor = Color.White;
             nightControlBox1.DefaultLocation = true;
             nightControlBox1.DisableMaximizeColor = Color.FromArgb(105, 105, 105);
             nightControlBox1.DisableMinimizeColor = Color.FromArgb(105, 105, 105);
-            nightControlBox1.EnableCloseColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.Dock = DockStyle.Right;
+            nightControlBox1.EnableCloseColor = Color.White;
             nightControlBox1.EnableMaximizeButton = true;
-            nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
+            nightControlBox1.EnableMaximizeColor = Color.White;
             nightControlBox1.EnableMinimizeButton = true;
-            nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(804, 0);
+            nightControlBox1.EnableMinimizeColor = Color.White;
+            nightControlBox1.Location = new Point(1141, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -99,173 +113,207 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(50, 16);
+            label1.Location = new Point(56, 24);
             label1.Name = "label1";
-            label1.Size = new Size(61, 17);
+            label1.Size = new Size(56, 21);
             label1.TabIndex = 2;
-            label1.Text = "AnaSayfa";
+            label1.Text = "MENU";
             // 
             // btnHome
             // 
+            btnHome.Cursor = Cursors.Hand;
             btnHome.Image = (Image)resources.GetObject("btnHome.Image");
-            btnHome.Location = new Point(12, 12);
+            btnHome.Location = new Point(9, 20);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(33, 27);
-            btnHome.SizeMode = PictureBoxSizeMode.CenterImage;
+            btnHome.Size = new Size(30, 30);
+            btnHome.SizeMode = PictureBoxSizeMode.Zoom;
             btnHome.TabIndex = 1;
             btnHome.TabStop = false;
             btnHome.Click += btnHome_Click;
             // 
             // menuContainer
             // 
-            menuContainer.BackColor = Color.FromArgb(47, 47, 47);
+            menuContainer.BackColor = Color.FromArgb(2, 53, 53);
+            menuContainer.Controls.Add(panel7);
+            menuContainer.Controls.Add(panel8);
             menuContainer.Controls.Add(panel2);
-            menuContainer.Controls.Add(panel5);
-            menuContainer.Controls.Add(panel3);
-            menuContainer.Controls.Add(panel4);
-            menuContainer.Controls.Add(panel6);
+            menuContainer.Controls.Add(panel9);
+            menuContainer.Controls.Add(panel10);
+            menuContainer.Controls.Add(panel11);
+            menuContainer.Controls.Add(panel12);
             menuContainer.Dock = DockStyle.Left;
-            menuContainer.Location = new Point(0, 47);
+            menuContainer.Location = new Point(0, 35);
+            menuContainer.MaximumSize = new Size(180, 685);
+            menuContainer.MinimumSize = new Size(51, 685);
             menuContainer.Name = "menuContainer";
-            menuContainer.Size = new Size(149, 440);
+            menuContainer.Size = new Size(180, 685);
             menuContainer.TabIndex = 1;
             // 
-            // panel2
+            // panel7
             // 
-            panel2.BackColor = Color.FromArgb(47, 47, 47);
-            panel2.Controls.Add(gunlukControl1);
-            panel2.Controls.Add(btnAnaSayfa);
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(146, 86);
-            panel2.TabIndex = 2;
+            panel7.Controls.Add(label1);
+            panel7.Controls.Add(btnHome);
+            panel7.Location = new Point(3, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(177, 71);
+            panel7.TabIndex = 0;
             // 
-            // gunlukControl1
+            // panel8
             // 
-            gunlukControl1.Location = new Point(145, -3);
-            gunlukControl1.Name = "gunlukControl1";
-            gunlukControl1.Size = new Size(795, 443);
-            gunlukControl1.TabIndex = 1;
+            panel8.Controls.Add(btnAnaSayfa);
+            panel8.Location = new Point(3, 80);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(173, 40);
+            panel8.TabIndex = 1;
             // 
             // btnAnaSayfa
             // 
-            btnAnaSayfa.BackColor = Color.FromArgb(15, 179, 35);
-            btnAnaSayfa.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAnaSayfa.BackColor = Color.FromArgb(2, 53, 53);
+            btnAnaSayfa.FlatAppearance.BorderSize = 0;
+            btnAnaSayfa.FlatStyle = FlatStyle.Flat;
+            btnAnaSayfa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnAnaSayfa.ForeColor = Color.White;
             btnAnaSayfa.Image = (Image)resources.GetObject("btnAnaSayfa.Image");
             btnAnaSayfa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAnaSayfa.Location = new Point(0, 17);
+            btnAnaSayfa.Location = new Point(-11, -9);
             btnAnaSayfa.Name = "btnAnaSayfa";
-            btnAnaSayfa.Size = new Size(139, 49);
+            btnAnaSayfa.Padding = new Padding(15, 0, 0, 0);
+            btnAnaSayfa.Size = new Size(199, 58);
             btnAnaSayfa.TabIndex = 0;
             btnAnaSayfa.Text = "            Ana Sayfa";
             btnAnaSayfa.TextAlign = ContentAlignment.MiddleLeft;
             btnAnaSayfa.UseVisualStyleBackColor = false;
             btnAnaSayfa.Click += btnAnaSayfa_Click;
             // 
-            // panel5
+            // panel2
             // 
-            panel5.BackColor = Color.FromArgb(47, 47, 47);
-            panel5.Controls.Add(profilControl1);
-            panel5.Controls.Add(btnRapor);
-            panel5.Location = new Point(3, 95);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(146, 86);
-            panel5.TabIndex = 5;
+            panel2.Controls.Add(btnProfil);
+            panel2.Location = new Point(3, 126);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(173, 40);
+            panel2.TabIndex = 1;
             // 
-            // profilControl1
+            // btnProfil
             // 
-            profilControl1.Location = new Point(145, -95);
-            profilControl1.Name = "profilControl1";
-            profilControl1.Size = new Size(792, 440);
-            profilControl1.TabIndex = 1;
+            btnProfil.BackColor = Color.FromArgb(2, 53, 53);
+            btnProfil.FlatAppearance.BorderSize = 0;
+            btnProfil.FlatStyle = FlatStyle.Flat;
+            btnProfil.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnProfil.ForeColor = Color.White;
+            btnProfil.Image = (Image)resources.GetObject("btnProfil.Image");
+            btnProfil.ImageAlign = ContentAlignment.MiddleLeft;
+            btnProfil.Location = new Point(-11, -9);
+            btnProfil.Name = "btnProfil";
+            btnProfil.Padding = new Padding(15, 0, 0, 0);
+            btnProfil.Size = new Size(199, 58);
+            btnProfil.TabIndex = 0;
+            btnProfil.Text = "            Profil";
+            btnProfil.TextAlign = ContentAlignment.MiddleLeft;
+            btnProfil.UseVisualStyleBackColor = false;
+            btnProfil.Click += btnProfil_Click;
             // 
-            // btnRapor
+            // panel9
             // 
-            btnRapor.BackColor = Color.FromArgb(15, 179, 35);
-            btnRapor.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRapor.ForeColor = Color.White;
-            btnRapor.Image = (Image)resources.GetObject("btnRapor.Image");
-            btnRapor.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRapor.Location = new Point(0, 17);
-            btnRapor.Name = "btnRapor";
-            btnRapor.Size = new Size(139, 49);
-            btnRapor.TabIndex = 0;
-            btnRapor.Text = "            Raporlar";
-            btnRapor.TextAlign = ContentAlignment.MiddleLeft;
-            btnRapor.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(47, 47, 47);
-            panel3.Controls.Add(btnBen);
-            panel3.Location = new Point(3, 187);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(146, 86);
-            panel3.TabIndex = 3;
-            // 
-            // btnBen
-            // 
-            btnBen.BackColor = Color.FromArgb(15, 179, 35);
-            btnBen.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBen.ForeColor = Color.White;
-            btnBen.Image = (Image)resources.GetObject("btnBen.Image");
-            btnBen.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBen.Location = new Point(0, 17);
-            btnBen.Name = "btnBen";
-            btnBen.Size = new Size(139, 49);
-            btnBen.TabIndex = 0;
-            btnBen.Text = "            Profil";
-            btnBen.TextAlign = ContentAlignment.MiddleLeft;
-            btnBen.UseVisualStyleBackColor = false;
-            btnBen.Click += btnBen_Click;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(47, 47, 47);
-            panel4.Controls.Add(btnGunluk);
-            panel4.Location = new Point(3, 279);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(146, 86);
-            panel4.TabIndex = 4;
+            panel9.Controls.Add(btnGunluk);
+            panel9.Location = new Point(3, 172);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(173, 40);
+            panel9.TabIndex = 1;
             // 
             // btnGunluk
             // 
-            btnGunluk.BackColor = Color.FromArgb(15, 179, 35);
-            btnGunluk.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGunluk.BackColor = Color.FromArgb(2, 53, 53);
+            btnGunluk.FlatAppearance.BorderSize = 0;
+            btnGunluk.FlatStyle = FlatStyle.Flat;
+            btnGunluk.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnGunluk.ForeColor = Color.White;
             btnGunluk.Image = (Image)resources.GetObject("btnGunluk.Image");
             btnGunluk.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGunluk.Location = new Point(0, 17);
+            btnGunluk.Location = new Point(-11, -9);
             btnGunluk.Name = "btnGunluk";
-            btnGunluk.Size = new Size(139, 49);
+            btnGunluk.Padding = new Padding(15, 0, 0, 0);
+            btnGunluk.Size = new Size(199, 58);
             btnGunluk.TabIndex = 0;
             btnGunluk.Text = "            Günlük";
             btnGunluk.TextAlign = ContentAlignment.MiddleLeft;
             btnGunluk.UseVisualStyleBackColor = false;
             btnGunluk.Click += btnGunluk_Click;
             // 
-            // panel6
+            // panel10
             // 
-            panel6.BackColor = Color.FromArgb(47, 47, 47);
-            panel6.Controls.Add(btnCikis);
-            panel6.Location = new Point(3, 371);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(146, 86);
-            panel6.TabIndex = 4;
+            panel10.Controls.Add(btnRaporlar);
+            panel10.Location = new Point(3, 218);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(173, 40);
+            panel10.TabIndex = 1;
+            // 
+            // btnRaporlar
+            // 
+            btnRaporlar.BackColor = Color.FromArgb(2, 53, 53);
+            btnRaporlar.FlatAppearance.BorderSize = 0;
+            btnRaporlar.FlatStyle = FlatStyle.Flat;
+            btnRaporlar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRaporlar.ForeColor = Color.White;
+            btnRaporlar.Image = (Image)resources.GetObject("btnRaporlar.Image");
+            btnRaporlar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRaporlar.Location = new Point(-11, -9);
+            btnRaporlar.Name = "btnRaporlar";
+            btnRaporlar.Padding = new Padding(15, 0, 0, 0);
+            btnRaporlar.Size = new Size(199, 58);
+            btnRaporlar.TabIndex = 0;
+            btnRaporlar.Text = "            Raporlar";
+            btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
+            btnRaporlar.UseVisualStyleBackColor = false;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(btnAyarlar);
+            panel11.Location = new Point(3, 264);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(173, 40);
+            panel11.TabIndex = 1;
+            // 
+            // btnAyarlar
+            // 
+            btnAyarlar.BackColor = Color.FromArgb(2, 53, 53);
+            btnAyarlar.FlatAppearance.BorderSize = 0;
+            btnAyarlar.FlatStyle = FlatStyle.Flat;
+            btnAyarlar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAyarlar.ForeColor = Color.White;
+            btnAyarlar.Image = (Image)resources.GetObject("btnAyarlar.Image");
+            btnAyarlar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAyarlar.Location = new Point(-11, -9);
+            btnAyarlar.Name = "btnAyarlar";
+            btnAyarlar.Padding = new Padding(15, 0, 0, 0);
+            btnAyarlar.Size = new Size(199, 58);
+            btnAyarlar.TabIndex = 0;
+            btnAyarlar.Text = "            Ayarlar";
+            btnAyarlar.TextAlign = ContentAlignment.MiddleLeft;
+            btnAyarlar.UseVisualStyleBackColor = false;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(btnCikis);
+            panel12.Location = new Point(3, 310);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(173, 40);
+            panel12.TabIndex = 1;
             // 
             // btnCikis
             // 
-            btnCikis.BackColor = Color.FromArgb(15, 179, 35);
-            btnCikis.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCikis.BackColor = Color.FromArgb(2, 53, 53);
+            btnCikis.FlatAppearance.BorderSize = 0;
+            btnCikis.FlatStyle = FlatStyle.Flat;
+            btnCikis.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnCikis.ForeColor = Color.White;
             btnCikis.Image = (Image)resources.GetObject("btnCikis.Image");
             btnCikis.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCikis.Location = new Point(0, 17);
+            btnCikis.Location = new Point(-11, -9);
             btnCikis.Name = "btnCikis";
-            btnCikis.Size = new Size(139, 49);
+            btnCikis.Padding = new Padding(15, 0, 0, 0);
+            btnCikis.Size = new Size(199, 58);
             btnCikis.TabIndex = 0;
             btnCikis.Text = "            Çıkış";
             btnCikis.TextAlign = ContentAlignment.MiddleLeft;
@@ -277,50 +325,41 @@
             menuTransition.Interval = 10;
             menuTransition.Tick += menuTransition_Tick;
             // 
-            // anaSayfaControl1
+            // pnlAnaPanel
             // 
-            anaSayfaControl1.Location = new Point(151, 53);
-            anaSayfaControl1.Name = "anaSayfaControl1";
-            anaSayfaControl1.Size = new Size(792, 434);
-            anaSayfaControl1.TabIndex = 3;
-            // 
-            // profilControl2
-            // 
-            profilControl2.Location = new Point(151, 53);
-            profilControl2.Name = "profilControl2";
-            profilControl2.Size = new Size(792, 437);
-            profilControl2.TabIndex = 4;
-            // 
-            // anaSayfaControl2
-            // 
-            anaSayfaControl2.Location = new Point(148, 47);
-            anaSayfaControl2.Name = "anaSayfaControl2";
-            anaSayfaControl2.Size = new Size(795, 443);
-            anaSayfaControl2.TabIndex = 3;
+            pnlAnaPanel.Dock = DockStyle.Fill;
+            pnlAnaPanel.Location = new Point(180, 35);
+            pnlAnaPanel.Name = "pnlAnaPanel";
+            pnlAnaPanel.Size = new Size(1100, 685);
+            pnlAnaPanel.TabIndex = 2;
             // 
             // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(943, 487);
-            Controls.Add(anaSayfaControl2);
-            Controls.Add(profilControl2);
-            Controls.Add(anaSayfaControl1);
+            ClientSize = new Size(1280, 720);
+            ControlBox = false;
+            Controls.Add(pnlAnaPanel);
             Controls.Add(menuContainer);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            IsMdiContainer = true;
+            MaximizeBox = false;
             Name = "FormHomePage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
+            Load += FormHomePage_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).EndInit();
             menuContainer.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel8.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel6.ResumeLayout(false);
+            panel9.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel12.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -331,21 +370,21 @@
         private Label label1;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private FlowLayoutPanel menuContainer;
-        private Panel panel2;
         private Button btnAnaSayfa;
-        private Panel panel3;
-        private Button btnBen;
-        private Panel panel4;
-        private Button btnGunluk;
-        private Panel panel5;
-        private Button btnRapor;
-        private Panel panel6;
-        private Button btnCikis;
         private System.Windows.Forms.Timer menuTransition;
-        private ProfilControl profilControl1;
-        private AnaSayfaControl anaSayfaControl1;
-        private ProfilControl profilControl2;
-        private AnaSayfaControl anaSayfaControl2;
-        private GunlukControl gunlukControl1;
+        private Panel panel7;
+        private Panel panel8;
+        private Panel panel2;
+        private Button btnProfil;
+        private Panel panel9;
+        private Button btnGunluk;
+        private Panel panel10;
+        private Button btnRaporlar;
+        private Panel panel11;
+        private Button btnAyarlar;
+        private Panel panel12;
+        private Button btnCikis;
+        private Panel pnlAnaPanel;
+        private Label label2;
     }
 }

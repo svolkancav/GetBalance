@@ -1,13 +1,13 @@
 ﻿namespace GetBalance.UI
 {
-    partial class GunlukControl
+    partial class FormGunluk
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GunlukControl));
-            pictureBox1 = new PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunluk));
             lblTarih = new Label();
             btnRight = new Button();
             pnlLeftSide = new Panel();
+            pictureBox2 = new PictureBox();
             circleProgressBar1 = new ReaLTaiizor.Controls.CircleProgressBar();
             lblSuankiKalori = new Label();
             lblHedefKalori = new Label();
@@ -45,7 +45,6 @@
             lblSuankiKarb = new Label();
             lblHedefKarb = new Label();
             lblSuankiYag = new Label();
-            btnHedefSayfasi = new Button();
             label2 = new Label();
             label1 = new Label();
             btnOgleYemegi = new Button();
@@ -95,8 +94,9 @@
             cmsSagTik = new ContextMenuStrip(components);
             tsmDuzenle = new ToolStripMenuItem();
             tsmKaldir = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label5 = new Label();
             pnlLeftSide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnlTop.SuspendLayout();
             pnlTarih.SuspendLayout();
             pnlMain.SuspendLayout();
@@ -111,20 +111,11 @@
             cmsSagTik.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(48, 18);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(101, 94);
-            pictureBox1.TabIndex = 13;
-            pictureBox1.TabStop = false;
-            // 
             // lblTarih
             // 
             lblTarih.AutoSize = true;
             lblTarih.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTarih.Location = new Point(166, 15);
+            lblTarih.Location = new Point(168, 17);
             lblTarih.Name = "lblTarih";
             lblTarih.Size = new Size(48, 21);
             lblTarih.TabIndex = 14;
@@ -133,19 +124,22 @@
             // 
             // btnRight
             // 
+            btnRight.BackColor = Color.FromArgb(244, 240, 232);
             btnRight.Dock = DockStyle.Right;
             btnRight.FlatStyle = FlatStyle.Flat;
             btnRight.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRight.Location = new Point(627, 0);
+            btnRight.Location = new Point(650, 0);
             btnRight.Name = "btnRight";
             btnRight.Size = new Size(250, 50);
             btnRight.TabIndex = 15;
             btnRight.Text = ">";
             btnRight.TextAlign = ContentAlignment.MiddleLeft;
-            btnRight.UseVisualStyleBackColor = true;
+            btnRight.UseVisualStyleBackColor = false;
             // 
             // pnlLeftSide
             // 
+            pnlLeftSide.BackColor = Color.FromArgb(244, 240, 232);
+            pnlLeftSide.Controls.Add(pictureBox2);
             pnlLeftSide.Controls.Add(circleProgressBar1);
             pnlLeftSide.Controls.Add(lblSuankiKalori);
             pnlLeftSide.Controls.Add(lblHedefKalori);
@@ -157,15 +151,23 @@
             pnlLeftSide.Controls.Add(lblSuankiKarb);
             pnlLeftSide.Controls.Add(lblHedefKarb);
             pnlLeftSide.Controls.Add(lblSuankiYag);
-            pnlLeftSide.Controls.Add(btnHedefSayfasi);
-            pnlLeftSide.Controls.Add(pictureBox1);
+            pnlLeftSide.Controls.Add(label5);
             pnlLeftSide.Controls.Add(label2);
             pnlLeftSide.Controls.Add(label1);
             pnlLeftSide.Dock = DockStyle.Left;
             pnlLeftSide.Location = new Point(0, 0);
             pnlLeftSide.Name = "pnlLeftSide";
-            pnlLeftSide.Size = new Size(200, 503);
+            pnlLeftSide.Size = new Size(200, 685);
             pnlLeftSide.TabIndex = 17;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(48, 17);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(101, 94);
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
             // 
             // circleProgressBar1
             // 
@@ -284,20 +286,6 @@
             lblSuankiYag.TabIndex = 17;
             lblSuankiYag.Text = "0";
             // 
-            // btnHedefSayfasi
-            // 
-            btnHedefSayfasi.BackColor = Color.FromArgb(15, 179, 35);
-            btnHedefSayfasi.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnHedefSayfasi.ForeColor = Color.White;
-            btnHedefSayfasi.Image = (Image)resources.GetObject("btnHedefSayfasi.Image");
-            btnHedefSayfasi.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHedefSayfasi.Location = new Point(20, 136);
-            btnHedefSayfasi.Name = "btnHedefSayfasi";
-            btnHedefSayfasi.Size = new Size(156, 39);
-            btnHedefSayfasi.TabIndex = 25;
-            btnHedefSayfasi.Text = "      Günlük Hedefler";
-            btnHedefSayfasi.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -320,51 +308,54 @@
             // 
             // btnOgleYemegi
             // 
-            btnOgleYemegi.BackColor = Color.FromArgb(15, 179, 35);
+            btnOgleYemegi.BackColor = Color.FromArgb(12, 171, 168);
             btnOgleYemegi.Dock = DockStyle.Fill;
+            btnOgleYemegi.FlatStyle = FlatStyle.Popup;
             btnOgleYemegi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnOgleYemegi.ForeColor = Color.White;
-            btnOgleYemegi.Image = (Image)resources.GetObject("btnOgleYemegi.Image");
             btnOgleYemegi.ImageAlign = ContentAlignment.MiddleLeft;
             btnOgleYemegi.Location = new Point(0, 0);
             btnOgleYemegi.Name = "btnOgleYemegi";
-            btnOgleYemegi.Size = new Size(860, 40);
+            btnOgleYemegi.Size = new Size(883, 40);
             btnOgleYemegi.TabIndex = 22;
             btnOgleYemegi.Text = "        Öğle Yemeği";
             btnOgleYemegi.TextAlign = ContentAlignment.MiddleLeft;
             btnOgleYemegi.UseVisualStyleBackColor = false;
+            btnOgleYemegi.Click += btnOgleYemegi_Click;
             // 
             // btnAperatif
             // 
-            btnAperatif.BackColor = Color.FromArgb(15, 179, 35);
+            btnAperatif.BackColor = Color.FromArgb(1, 89, 88);
             btnAperatif.Dock = DockStyle.Fill;
+            btnAperatif.FlatStyle = FlatStyle.Popup;
             btnAperatif.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnAperatif.ForeColor = Color.White;
-            btnAperatif.Image = (Image)resources.GetObject("btnAperatif.Image");
             btnAperatif.ImageAlign = ContentAlignment.MiddleLeft;
             btnAperatif.Location = new Point(0, 0);
             btnAperatif.Name = "btnAperatif";
-            btnAperatif.Size = new Size(860, 40);
+            btnAperatif.Size = new Size(883, 40);
             btnAperatif.TabIndex = 24;
             btnAperatif.Text = "        Aperatifler / Diğer";
             btnAperatif.TextAlign = ContentAlignment.MiddleLeft;
             btnAperatif.UseVisualStyleBackColor = false;
+            btnAperatif.Click += btnAperatif_Click;
             // 
             // btnAksamYmegi
             // 
-            btnAksamYmegi.BackColor = Color.FromArgb(15, 179, 35);
+            btnAksamYmegi.BackColor = Color.FromArgb(0, 143, 140);
             btnAksamYmegi.Dock = DockStyle.Fill;
+            btnAksamYmegi.FlatStyle = FlatStyle.Popup;
             btnAksamYmegi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnAksamYmegi.ForeColor = Color.White;
-            btnAksamYmegi.Image = (Image)resources.GetObject("btnAksamYmegi.Image");
             btnAksamYmegi.ImageAlign = ContentAlignment.MiddleLeft;
             btnAksamYmegi.Location = new Point(0, 0);
             btnAksamYmegi.Name = "btnAksamYmegi";
-            btnAksamYmegi.Size = new Size(860, 40);
+            btnAksamYmegi.Size = new Size(883, 40);
             btnAksamYmegi.TabIndex = 23;
             btnAksamYmegi.Text = "        Akşam Yemeği";
             btnAksamYmegi.TextAlign = ContentAlignment.MiddleLeft;
             btnAksamYmegi.UseVisualStyleBackColor = false;
+            btnAksamYmegi.Click += btnAksamYmegi_Click;
             // 
             // pnlTop
             // 
@@ -374,20 +365,22 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(200, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(877, 50);
+            pnlTop.Size = new Size(900, 50);
             pnlTop.TabIndex = 19;
             // 
             // pnlTarih
             // 
+            pnlTarih.BackColor = Color.FromArgb(244, 240, 232);
             pnlTarih.Controls.Add(lblTarih);
             pnlTarih.Dock = DockStyle.Fill;
             pnlTarih.Location = new Point(250, 0);
             pnlTarih.Name = "pnlTarih";
-            pnlTarih.Size = new Size(377, 50);
+            pnlTarih.Size = new Size(400, 50);
             pnlTarih.TabIndex = 17;
             // 
             // btnLeft
             // 
+            btnLeft.BackColor = Color.FromArgb(244, 240, 232);
             btnLeft.Dock = DockStyle.Left;
             btnLeft.FlatStyle = FlatStyle.Flat;
             btnLeft.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
@@ -397,7 +390,7 @@
             btnLeft.TabIndex = 16;
             btnLeft.Text = "<";
             btnLeft.TextAlign = ContentAlignment.MiddleRight;
-            btnLeft.UseVisualStyleBackColor = true;
+            btnLeft.UseVisualStyleBackColor = false;
             // 
             // pnlMain
             // 
@@ -413,9 +406,8 @@
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(200, 50);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(877, 453);
+            pnlMain.Size = new Size(900, 635);
             pnlMain.TabIndex = 20;
-            pnlMain.Paint += pnlMain_Paint;
             // 
             // pnlAperatifLsv
             // 
@@ -423,7 +415,7 @@
             pnlAperatifLsv.Dock = DockStyle.Top;
             pnlAperatifLsv.Location = new Point(0, 610);
             pnlAperatifLsv.Name = "pnlAperatifLsv";
-            pnlAperatifLsv.Size = new Size(860, 150);
+            pnlAperatifLsv.Size = new Size(883, 150);
             pnlAperatifLsv.TabIndex = 34;
             // 
             // lsvAperatif
@@ -435,7 +427,7 @@
             lsvAperatif.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvAperatif.Location = new Point(0, 0);
             lsvAperatif.Name = "lsvAperatif";
-            lsvAperatif.Size = new Size(860, 150);
+            lsvAperatif.Size = new Size(883, 150);
             lsvAperatif.TabIndex = 26;
             lsvAperatif.UseCompatibleStateImageBehavior = false;
             lsvAperatif.View = View.Details;
@@ -476,17 +468,18 @@
             pnlAperatif.Dock = DockStyle.Top;
             pnlAperatif.Location = new Point(0, 570);
             pnlAperatif.Name = "pnlAperatif";
-            pnlAperatif.Size = new Size(860, 40);
+            pnlAperatif.Size = new Size(883, 40);
             pnlAperatif.TabIndex = 33;
             // 
             // button4
             // 
-            button4.BackColor = Color.FromArgb(15, 179, 35);
+            button4.BackColor = Color.FromArgb(1, 89, 88);
             button4.Dock = DockStyle.Right;
+            button4.FlatStyle = FlatStyle.Popup;
             button4.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = Color.White;
             button4.ImageAlign = ContentAlignment.TopCenter;
-            button4.Location = new Point(783, 0);
+            button4.Location = new Point(806, 0);
             button4.Name = "button4";
             button4.Size = new Size(77, 40);
             button4.TabIndex = 21;
@@ -499,7 +492,7 @@
             pnlAksamLsv.Dock = DockStyle.Top;
             pnlAksamLsv.Location = new Point(0, 420);
             pnlAksamLsv.Name = "pnlAksamLsv";
-            pnlAksamLsv.Size = new Size(860, 150);
+            pnlAksamLsv.Size = new Size(883, 150);
             pnlAksamLsv.TabIndex = 32;
             // 
             // lsvAksam
@@ -511,7 +504,7 @@
             lsvAksam.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvAksam.Location = new Point(0, 0);
             lsvAksam.Name = "lsvAksam";
-            lsvAksam.Size = new Size(860, 150);
+            lsvAksam.Size = new Size(883, 150);
             lsvAksam.TabIndex = 26;
             lsvAksam.UseCompatibleStateImageBehavior = false;
             lsvAksam.View = View.Details;
@@ -552,17 +545,18 @@
             pnlAksam.Dock = DockStyle.Top;
             pnlAksam.Location = new Point(0, 380);
             pnlAksam.Name = "pnlAksam";
-            pnlAksam.Size = new Size(860, 40);
+            pnlAksam.Size = new Size(883, 40);
             pnlAksam.TabIndex = 31;
             // 
             // button3
             // 
-            button3.BackColor = Color.FromArgb(15, 179, 35);
+            button3.BackColor = Color.FromArgb(0, 143, 140);
             button3.Dock = DockStyle.Right;
+            button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = Color.White;
             button3.ImageAlign = ContentAlignment.TopCenter;
-            button3.Location = new Point(783, 0);
+            button3.Location = new Point(806, 0);
             button3.Name = "button3";
             button3.Size = new Size(77, 40);
             button3.TabIndex = 21;
@@ -575,7 +569,7 @@
             pnlOgleLsv.Dock = DockStyle.Top;
             pnlOgleLsv.Location = new Point(0, 230);
             pnlOgleLsv.Name = "pnlOgleLsv";
-            pnlOgleLsv.Size = new Size(860, 150);
+            pnlOgleLsv.Size = new Size(883, 150);
             pnlOgleLsv.TabIndex = 30;
             // 
             // lsvOgle
@@ -587,7 +581,7 @@
             lsvOgle.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvOgle.Location = new Point(0, 0);
             lsvOgle.Name = "lsvOgle";
-            lsvOgle.Size = new Size(860, 150);
+            lsvOgle.Size = new Size(883, 150);
             lsvOgle.TabIndex = 26;
             lsvOgle.UseCompatibleStateImageBehavior = false;
             lsvOgle.View = View.Details;
@@ -628,17 +622,18 @@
             pnlOgle.Dock = DockStyle.Top;
             pnlOgle.Location = new Point(0, 190);
             pnlOgle.Name = "pnlOgle";
-            pnlOgle.Size = new Size(860, 40);
+            pnlOgle.Size = new Size(883, 40);
             pnlOgle.TabIndex = 29;
             // 
             // button2
             // 
-            button2.BackColor = Color.FromArgb(15, 179, 35);
+            button2.BackColor = Color.FromArgb(12, 171, 168);
             button2.Dock = DockStyle.Right;
+            button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.White;
             button2.ImageAlign = ContentAlignment.TopCenter;
-            button2.Location = new Point(783, 0);
+            button2.Location = new Point(806, 0);
             button2.Name = "button2";
             button2.Size = new Size(77, 40);
             button2.TabIndex = 21;
@@ -651,7 +646,7 @@
             pnlKahveLsv.Dock = DockStyle.Top;
             pnlKahveLsv.Location = new Point(0, 40);
             pnlKahveLsv.Name = "pnlKahveLsv";
-            pnlKahveLsv.Size = new Size(860, 150);
+            pnlKahveLsv.Size = new Size(883, 150);
             pnlKahveLsv.TabIndex = 28;
             // 
             // lsvKahvalti
@@ -663,7 +658,7 @@
             lsvKahvalti.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvKahvalti.Location = new Point(0, 0);
             lsvKahvalti.Name = "lsvKahvalti";
-            lsvKahvalti.Size = new Size(860, 150);
+            lsvKahvalti.Size = new Size(883, 150);
             lsvKahvalti.TabIndex = 26;
             lsvKahvalti.UseCompatibleStateImageBehavior = false;
             lsvKahvalti.View = View.Details;
@@ -704,17 +699,18 @@
             pnlKahvalti.Dock = DockStyle.Top;
             pnlKahvalti.Location = new Point(0, 0);
             pnlKahvalti.Name = "pnlKahvalti";
-            pnlKahvalti.Size = new Size(860, 40);
+            pnlKahvalti.Size = new Size(883, 40);
             pnlKahvalti.TabIndex = 27;
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(15, 179, 35);
+            button1.BackColor = Color.FromArgb(15, 194, 192);
             button1.Dock = DockStyle.Right;
+            button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
             button1.ImageAlign = ContentAlignment.TopCenter;
-            button1.Location = new Point(783, 0);
+            button1.Location = new Point(806, 0);
             button1.Name = "button1";
             button1.Size = new Size(77, 40);
             button1.TabIndex = 21;
@@ -723,19 +719,20 @@
             // 
             // btnKahvalti
             // 
-            btnKahvalti.BackColor = Color.FromArgb(15, 179, 35);
+            btnKahvalti.BackColor = Color.FromArgb(15, 194, 192);
             btnKahvalti.Dock = DockStyle.Fill;
+            btnKahvalti.FlatStyle = FlatStyle.Popup;
             btnKahvalti.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnKahvalti.ForeColor = Color.White;
-            btnKahvalti.Image = (Image)resources.GetObject("btnKahvalti.Image");
             btnKahvalti.ImageAlign = ContentAlignment.MiddleLeft;
             btnKahvalti.Location = new Point(0, 0);
             btnKahvalti.Name = "btnKahvalti";
-            btnKahvalti.Size = new Size(860, 40);
+            btnKahvalti.Size = new Size(883, 40);
             btnKahvalti.TabIndex = 21;
             btnKahvalti.Text = "        Kahvaltı";
             btnKahvalti.TextAlign = ContentAlignment.MiddleLeft;
             btnKahvalti.UseVisualStyleBackColor = false;
+            btnKahvalti.Click += btnKahvalti_Click;
             // 
             // cmsSagTik
             // 
@@ -746,27 +743,40 @@
             // tsmDuzenle
             // 
             tsmDuzenle.Name = "tsmDuzenle";
-            tsmDuzenle.Size = new Size(180, 22);
+            tsmDuzenle.Size = new Size(116, 22);
             tsmDuzenle.Text = "Düzenle";
             // 
             // tsmKaldir
             // 
             tsmKaldir.Name = "tsmKaldir";
-            tsmKaldir.Size = new Size(180, 22);
+            tsmKaldir.Size = new Size(116, 22);
             tsmKaldir.Text = "Kaldır";
             // 
-            // GunlukControl
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label5.Location = new Point(25, 154);
+            label5.Name = "label5";
+            label5.Size = new Size(157, 21);
+            label5.TabIndex = 14;
+            label5.Text = "GÜNLÜK HEDEFLER";
+            // 
+            // FormGunluk
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1100, 685);
+            ControlBox = false;
             Controls.Add(pnlMain);
             Controls.Add(pnlTop);
             Controls.Add(pnlLeftSide);
-            Name = "GunlukControl";
-            Size = new Size(1077, 503);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormGunluk";
+            Text = "FormGunluk";
             pnlLeftSide.ResumeLayout(false);
             pnlLeftSide.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnlTop.ResumeLayout(false);
             pnlTarih.ResumeLayout(false);
             pnlTarih.PerformLayout();
@@ -783,14 +793,11 @@
             ResumeLayout(false);
         }
 
-        #endregion
-        private PictureBox pictureBox1;
         private Label lblTarih;
         private Button btnRight;
         private Panel pnlLeftSide;
         private Panel pnlTop;
         private Panel pnlMain;
-        private Button btnHedefSayfasi;
         private Button btnAperatif;
         private Button btnAksamYmegi;
         private Button btnOgleYemegi;
@@ -849,5 +856,12 @@
         private ContextMenuStrip cmsSagTik;
         private ToolStripMenuItem tsmDuzenle;
         private ToolStripMenuItem tsmKaldir;
+
+        #endregion
+
+        private PictureBox pictureBox2;
+        private Label label5;
     }
+
+
 }
