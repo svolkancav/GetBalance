@@ -25,13 +25,16 @@ namespace GetBalance.UI
         private void btnHesapGiris_Click(object sender, EventArgs e)
         {
             FormUyeGirisi formUyeGirisi = new FormUyeGirisi();
+
             formUyeGirisi.Show();
             this.Hide();
+          
         }
 
         private void btnYeniKullanici_Click(object sender, EventArgs e)
         {
             FormYeniKayit formYeniKayit = new FormYeniKayit();
+
             formYeniKayit.Show();
             this.Hide();
         }
