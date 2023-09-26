@@ -130,8 +130,8 @@ namespace GetBalance.DAL.Migrations
                     b.Property<int>("PortionName")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Quantity")
-                        .HasColumnType("decimal(4,2)");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("PortionId");
 

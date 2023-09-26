@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GetBalance.DAL.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230922193508_gvnFirst")]
-    partial class gvnFirst
+    [Migration("20230926155957_osmn")]
+    partial class osmn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -132,8 +132,8 @@ namespace GetBalance.DAL.Migrations
                     b.Property<int>("PortionName")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Quantity")
-                        .HasColumnType("decimal(4,2)");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("PortionId");
 

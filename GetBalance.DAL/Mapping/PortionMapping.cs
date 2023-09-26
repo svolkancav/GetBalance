@@ -14,7 +14,7 @@ namespace GetBalance.DAL.Mapping
 	{
 		public void Configure(EntityTypeBuilder<Portion> builder)
 		{
-			builder.Property(x=>x.Quantity).IsRequired().HasColumnType("decimal(4,2)");
+			builder.Property(x=>x.Quantity).IsRequired();
 
 			builder.Property(x => x.PortionName).IsRequired();
 		}
