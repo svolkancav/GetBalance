@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GetBalance.DAL.Migrations
 {
-    public partial class first : Migration
+    public partial class osmn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -93,7 +93,7 @@ namespace GetBalance.DAL.Migrations
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(6)", nullable: false),
                     Height = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
-                    Weight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
+                    CurrentWeight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -113,7 +113,7 @@ namespace GetBalance.DAL.Migrations
                 {
                     PortionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantity = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     PortionName = table.Column<int>(type: "int", nullable: false),
                     FoodId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -152,6 +152,34 @@ namespace GetBalance.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserTargets",
+                columns: table => new
+                {
+                    UserTargetId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartingWeight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
+                    TargetWeight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
+                    StartingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ActivityLevel = table.Column<int>(type: "int", nullable: false),
+                    TargetCalorie = table.Column<short>(type: "smallint", maxLength: 5, nullable: false),
+                    TargetCarbPercentage = table.Column<byte>(type: "tinyint", maxLength: 3, nullable: false),
+                    TargetProteinPercentage = table.Column<byte>(type: "tinyint", maxLength: 3, nullable: false),
+                    TargetFatPercentage = table.Column<byte>(type: "tinyint", maxLength: 3, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserDetailId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTargets", x => x.UserTargetId);
+                    table.ForeignKey(
+                        name: "FK_UserTargets_UserDetails_UserDetailId",
+                        column: x => x.UserDetailId,
+                        principalTable: "UserDetails",
+                        principalColumn: "UserDetailId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_FoodMeal_MealsMealId",
                 table: "FoodMeal",
@@ -177,6 +205,12 @@ namespace GetBalance.DAL.Migrations
                 table: "UserDetails",
                 column: "UserId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserTargets_UserDetailId",
+                table: "UserTargets",
+                column: "UserDetailId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -188,7 +222,7 @@ namespace GetBalance.DAL.Migrations
                 name: "Portions");
 
             migrationBuilder.DropTable(
-                name: "UserDetails");
+                name: "UserTargets");
 
             migrationBuilder.DropTable(
                 name: "Meals");
@@ -197,10 +231,13 @@ namespace GetBalance.DAL.Migrations
                 name: "Foods");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "UserDetails");
 
             migrationBuilder.DropTable(
                 name: "FoodCategories");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

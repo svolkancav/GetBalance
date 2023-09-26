@@ -22,5 +22,9 @@ namespace GetBalance.DATA.Enums
 		bowl,
 		box,
 		glass,
+		amount,
+		goblet, //kadeh
+		clove, //diş
+		whole, //tüm
 	}
 }
