@@ -32,10 +32,10 @@
             txtKilo = new TextBox();
             label3 = new Label();
             panel1 = new Panel();
+            label7 = new Label();
             lblSuIhtiyaciDeger = new Label();
             label4 = new Label();
             btnHesapla = new Button();
-            label7 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,15 +77,25 @@
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 59;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(158, 59);
+            label7.Name = "label7";
+            label7.Size = new Size(44, 21);
+            label7.TabIndex = 4;
+            label7.Text = "Litre";
+            // 
             // lblSuIhtiyaciDeger
             // 
             lblSuIhtiyaciDeger.AutoSize = true;
             lblSuIhtiyaciDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblSuIhtiyaciDeger.Location = new Point(124, 59);
             lblSuIhtiyaciDeger.Name = "lblSuIhtiyaciDeger";
-            lblSuIhtiyaciDeger.Size = new Size(28, 21);
+            lblSuIhtiyaciDeger.Size = new Size(19, 21);
             lblSuIhtiyaciDeger.TabIndex = 2;
-            lblSuIhtiyaciDeger.Text = "28";
+            lblSuIhtiyaciDeger.Text = "0";
             // 
             // label4
             // 
@@ -109,16 +119,6 @@
             btnHesapla.TabIndex = 60;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(158, 59);
-            label7.Name = "label7";
-            label7.Size = new Size(44, 21);
-            label7.TabIndex = 4;
-            label7.Text = "Litre";
             // 
             // FormSuIhtiyaci
             // 

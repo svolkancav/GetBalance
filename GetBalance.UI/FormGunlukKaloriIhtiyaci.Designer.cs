@@ -46,6 +46,7 @@
             label1 = new Label();
             label8 = new Label();
             cmbxAktiviteSeviyesi = new ComboBox();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -125,9 +126,9 @@
             lblGKIDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblGKIDeger.Location = new Point(93, 55);
             lblGKIDeger.Name = "lblGKIDeger";
-            lblGKIDeger.Size = new Size(28, 21);
+            lblGKIDeger.Size = new Size(19, 21);
             lblGKIDeger.TabIndex = 2;
-            lblGKIDeger.Text = "28";
+            lblGKIDeger.Text = "0";
             // 
             // label4
             // 
@@ -167,6 +168,7 @@
             btnHesapla.TabIndex = 26;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // txtKilo
             // 
@@ -232,11 +234,26 @@
             cmbxAktiviteSeviyesi.Size = new Size(234, 23);
             cmbxAktiviteSeviyesi.TabIndex = 35;
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(408, 467);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 36;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // FormGunlukKaloriIhtiyaci
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 607);
+            Controls.Add(btnGeri);
             Controls.Add(cmbxAktiviteSeviyesi);
             Controls.Add(label8);
             Controls.Add(rdbKadin);
@@ -255,6 +272,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormGunlukKaloriIhtiyaci";
             Text = "FormGunlukKaloriIhtiyaci";
+            Load += FormGunlukKaloriIhtiyaci_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -283,5 +301,6 @@
         private ComboBox cmbxAktiviteSeviyesi;
         private System.CodeDom.CodeTypeReference gunlukControl1;
         private System.CodeDom.CodeTypeReference gunlukControl2;
+        private Button btnGeri;
     }
 }
