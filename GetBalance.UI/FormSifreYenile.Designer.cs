@@ -63,7 +63,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(355, 3);
+            nightControlBox1.Location = new Point(358, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -74,12 +74,12 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(15, 179, 35);
+            panel2.BackColor = Color.FromArgb(2, 53, 53);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(0, 39);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(540, 80);
+            panel2.Size = new Size(497, 80);
             panel2.TabIndex = 1;
             // 
             // label1
@@ -113,7 +113,7 @@
             // 
             // btnSifreYenile
             // 
-            btnSifreYenile.BackColor = Color.FromArgb(15, 179, 35);
+            btnSifreYenile.BackColor = Color.FromArgb(15, 194, 192);
             btnSifreYenile.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnSifreYenile.ForeColor = Color.White;
             btnSifreYenile.Location = new Point(197, 255);

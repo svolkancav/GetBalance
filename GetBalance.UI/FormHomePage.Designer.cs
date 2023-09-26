@@ -310,7 +310,7 @@
             btnCikis.ForeColor = Color.White;
             btnCikis.Image = (Image)resources.GetObject("btnCikis.Image");
             btnCikis.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCikis.Location = new Point(-11, -9);
+            btnCikis.Location = new Point(-11, 0);
             btnCikis.Name = "btnCikis";
             btnCikis.Padding = new Padding(15, 0, 0, 0);
             btnCikis.Size = new Size(199, 58);

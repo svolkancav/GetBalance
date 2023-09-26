@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-    public partial class ProfilControl : UserControl
+    public partial class FormIdealKilo : Form
     {
-        public ProfilControl()
+        public FormIdealKilo()
         {
             InitializeComponent();
         }
