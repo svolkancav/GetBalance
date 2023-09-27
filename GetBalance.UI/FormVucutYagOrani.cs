@@ -27,7 +27,59 @@ namespace GetBalance.UI
                 int boyun = Convert.ToInt32(txtBoyunCevresi.Text);
                 int kalca = Convert.ToInt32(txtKalcaCevresi.Text);
                 string cinsiyet = rdbErkek.Checked ? "erkek" : "kadın";
-                lblVYODeger.Text = "%"+CalculatorExtensions.VücutYağOraniHesapla(bel,boyun,kalca,boy,cinsiyet).ToString();
+                decimal sonuc = CalculatorExtensions.VücutYağOraniHesapla(bel, boyun, kalca, boy, cinsiyet);
+                lblVYODeger.Text = "%" + sonuc.ToString();
+                cpbYVK.Value = Convert.ToInt64(sonuc);
+                if (cinsiyet == "erkek")
+                {
+                    switch (sonuc)
+                    {
+                        case > 2 and <= 5:
+                            lblYorum.Text = "Temel Yağ Seviyesi";
+                            break;
+                        case > 6 and <= 13:
+                            lblYorum.Text = "Düşük Yağ Seviyesi";
+                            break;
+                        case > 14 and <= 17:
+                            lblYorum.Text = "Fitness Seviyesi";
+                            break;
+                        case > 18 and <= 24:
+                            lblYorum.Text = "Ortalama Yağ Seviyesi";
+                            break;
+                        case > 25:
+                            lblYorum.Text = "Obezite";
+                            break;
+                        default:
+                            lblYorum.Text = "Hatalı";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (sonuc)
+                    {
+                        case > 10 and <= 13:
+                            lblYorum.Text = "Temel Yağ Seviyesi";
+                            break;
+                        case > 14 and <= 20:
+                            lblYorum.Text = "Düşük Yağ Seviyesi";
+                            break;
+                        case > 21 and <= 24:
+                            lblYorum.Text = "Fitness Seviyesi";
+                            break;
+                        case > 25 and <= 31:
+                            lblYorum.Text = "Ortalama Yağ Seviyesi";
+                            break;
+                        case > 32:
+                            lblYorum.Text = "Obezite";
+                            break;
+                        default:
+                            lblYorum.Text = "Hatalı";
+                            break;
+                    }
+                }
+
+
             }
             catch (Exception)
             {
@@ -35,7 +87,7 @@ namespace GetBalance.UI
                 txtBoy.Text = string.Empty;
                 txtBelCevresi.Text = string.Empty;
                 txtBoyunCevresi.Text = string.Empty;
-                txtKalcaCevresi.Text= string.Empty;
+                txtKalcaCevresi.Text = string.Empty;
                 rdbErkek.Checked = false;
                 rdbKadin.Checked = false;
 

@@ -99,13 +99,11 @@ namespace GetBalance.UI.Extensions
             decimal VücutYağOrani;
             if (cinsiyet == "erkek")
             {
-                //VücutYağOrani = Convert.ToDecimal((495 / ((1.0324 - 0.19077) * (Math.Log10(bel - boyun) + (0.15456 * Math.Log10(boy))))) - 450);
 
                 VücutYağOrani = Convert.ToDecimal(495 / (1.0324 - 0.19077 * Math.Log10(bel - boyun) + 0.15456 * Math.Log10(boy)) - 450);
             }
             else
             {
-                //VücutYağOrani = Convert.ToDecimal((495 / ((1.29579 - 0.35004) * (Math.Log10(bel + kalca - boyun) + (0.22100 * Math.Log10(boy))))) - 450);
                 VücutYağOrani = Convert.ToDecimal(495 / (1.29579 - 0.35004 * Math.Log10(bel + kalca - boyun) + 0.22100 * Math.Log10(boy)) - 450);
             }
             return Math.Round(VücutYağOrani, 2);
@@ -126,6 +124,37 @@ namespace GetBalance.UI.Extensions
                 bmr = Convert.ToInt32(447.593 + (9.247 * kilo) + (3.098 * boy) - (4.330 * yas));
             }
             return bmr;
+        }
+
+        public static decimal GünlükSuIhtiyaciHesapla(int kilo)
+        {
+            decimal suIhtiyaci = Convert.ToInt32(kilo * 0.033);
+            return suIhtiyaci;
+        }
+
+        public static int[] KalpAtisHiziHesapla(int yas, TrainingLevel trainingLevel)
+        {
+            int[] list = new int[2];
+            switch (trainingLevel) 
+            {
+                case TrainingLevel.Low:
+                    list[0] = list[1] = 220-yas; break;
+                case TrainingLevel.Middle:
+                    list[0] = 220 - yas;
+                    list[1] = Convert.ToInt32(list[0] * 0.55);
+                    break;
+                case TrainingLevel.High:
+                    list[0] = 220 - yas;
+                    list[1] = Convert.ToInt32(list[0] * 0.7);
+                    break;
+                case TrainingLevel.VeryHigh:
+                    list[0] = 220 - yas;
+                    list[1] = Convert.ToInt32(list[0] * 0.9);
+                    break;
+                default:
+                    list[0] = list[1] = 220 - yas; break;
+            }
+            return list;
         }
 
     }

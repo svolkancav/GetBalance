@@ -32,7 +32,6 @@
             label7 = new Label();
             lblBMHDeger = new Label();
             label4 = new Label();
-            cpbBMH = new ReaLTaiizor.Controls.CircleProgressBar();
             btnHesapla = new Button();
             txtKilo = new TextBox();
             txtBoy = new TextBox();
@@ -53,7 +52,7 @@
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lblBMHDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(441, 305);
+            panel1.Location = new Point(441, 169);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 15;
@@ -87,22 +86,6 @@
             label4.Size = new Size(306, 25);
             label4.TabIndex = 1;
             label4.Text = "BAZAL METABOLİZMA HIZI (BMR)";
-            // 
-            // cpbBMH
-            // 
-            cpbBMH.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            cpbBMH.Location = new Point(534, 169);
-            cpbBMH.Maximum = 100L;
-            cpbBMH.MinimumSize = new Size(100, 100);
-            cpbBMH.Name = "cpbBMH";
-            cpbBMH.PercentColor = Color.Cyan;
-            cpbBMH.ProgressColor1 = Color.White;
-            cpbBMH.ProgressColor2 = Color.Red;
-            cpbBMH.ProgressShape = ReaLTaiizor.Controls.CircleProgressBar._ProgressShape.Round;
-            cpbBMH.Size = new Size(130, 130);
-            cpbBMH.TabIndex = 14;
-            cpbBMH.Text = "circleProgressBar1";
-            cpbBMH.Value = 100L;
             // 
             // btnHesapla
             // 
@@ -239,7 +222,6 @@
             Controls.Add(txtYas);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(cpbBMH);
             Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
@@ -261,7 +243,6 @@
         private Panel panel1;
         private Label lblBMHDeger;
         private Label label4;
-        private ReaLTaiizor.Controls.CircleProgressBar cpbBMH;
         private Button btnHesapla;
         private TextBox txtKilo;
         private TextBox txtBoy;

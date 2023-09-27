@@ -25,7 +25,10 @@ namespace GetBalance.UI
                 int boy = Convert.ToInt32(txtBoy.Text);
                 int kilo = Convert.ToInt32(txtKilo.Text);
                 string cinsiyet = rdbErkek.Checked ? "erkek" : "kadın";
-                lblIdealKiloDeger.Text = CalculatorExtensions.IdealKiloHesapla(boy,cinsiyet).ToString();
+                decimal sonuc = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet);
+                lblIdealKiloDeger.Text = sonuc.ToString();
+                cpbIdealKilo.Value = Convert.ToInt64(sonuc);
+
             }
             catch (Exception)
             {

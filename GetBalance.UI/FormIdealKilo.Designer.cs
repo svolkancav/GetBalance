@@ -51,14 +51,14 @@
             panel1.Controls.Add(label4);
             panel1.Location = new Point(418, 361);
             panel1.Name = "panel1";
-            panel1.Size = new Size(287, 100);
+            panel1.Size = new Size(287, 124);
             panel1.TabIndex = 15;
             // 
             // lblIdealKiloDeger
             // 
             lblIdealKiloDeger.AutoSize = true;
             lblIdealKiloDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblIdealKiloDeger.Location = new Point(128, 59);
+            lblIdealKiloDeger.Location = new Point(116, 45);
             lblIdealKiloDeger.Name = "lblIdealKiloDeger";
             lblIdealKiloDeger.Size = new Size(19, 21);
             lblIdealKiloDeger.TabIndex = 2;
@@ -88,7 +88,7 @@
             cpbIdealKilo.Size = new Size(130, 130);
             cpbIdealKilo.TabIndex = 14;
             cpbIdealKilo.Text = "circleProgressBar1";
-            cpbIdealKilo.Value = 100L;
+            cpbIdealKilo.Value = 0L;
             // 
             // btnHesapla
             // 
