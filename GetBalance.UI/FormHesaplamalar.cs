@@ -40,6 +40,8 @@ namespace GetBalance.UI
 
                 case "MaksimumKalpHızı": MaksimumKalpHızıOpen(); break;
 
+                case "İdealKilo": İdealKiloOpen(); break;
+
             }
         }
 

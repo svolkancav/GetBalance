@@ -45,6 +45,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -131,9 +132,9 @@
             lblVYODeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblVYODeger.Location = new Point(152, 55);
             lblVYODeger.Name = "lblVYODeger";
-            lblVYODeger.Size = new Size(28, 21);
+            lblVYODeger.Size = new Size(19, 21);
             lblVYODeger.TabIndex = 2;
-            lblVYODeger.Text = "28";
+            lblVYODeger.Text = "0";
             // 
             // label4
             // 
@@ -173,6 +174,7 @@
             btnHesapla.TabIndex = 56;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // txtBoyunCevresi
             // 
@@ -220,6 +222,20 @@
             label1.TabIndex = 51;
             label1.Text = "VÜCUT YAĞ ORANI";
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(403, 474);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 56;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // FormVucutYagOrani
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -234,6 +250,7 @@
             Controls.Add(label5);
             Controls.Add(panel1);
             Controls.Add(cpbYVK);
+            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtBoyunCevresi);
             Controls.Add(txtBoy);
@@ -268,5 +285,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button btnGeri;
     }
 }

@@ -44,6 +44,7 @@
             label6 = new Label();
             rdbErkek = new RadioButton();
             rdbKadin = new RadioButton();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,9 +74,9 @@
             lblBMHDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblBMHDeger.Location = new Point(93, 55);
             lblBMHDeger.Name = "lblBMHDeger";
-            lblBMHDeger.Size = new Size(28, 21);
+            lblBMHDeger.Size = new Size(19, 21);
             lblBMHDeger.TabIndex = 2;
-            lblBMHDeger.Text = "28";
+            lblBMHDeger.Text = "0";
             // 
             // label4
             // 
@@ -115,6 +116,7 @@
             btnHesapla.TabIndex = 13;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // txtKilo
             // 
@@ -212,6 +214,20 @@
             rdbKadin.Text = "Kadın";
             rdbKadin.UseVisualStyleBackColor = true;
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(441, 460);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 13;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // BazalMetabolizHiziForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -224,6 +240,7 @@
             Controls.Add(label5);
             Controls.Add(panel1);
             Controls.Add(cpbBMH);
+            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -257,5 +274,6 @@
         private RadioButton rdbErkek;
         private RadioButton rdbKadin;
         private Label label7;
+        private Button btnGeri;
     }
 }

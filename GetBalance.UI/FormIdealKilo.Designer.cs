@@ -41,6 +41,7 @@
             rdbKadin = new RadioButton();
             rdbErkek = new RadioButton();
             label6 = new Label();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,9 +60,9 @@
             lblIdealKiloDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblIdealKiloDeger.Location = new Point(128, 59);
             lblIdealKiloDeger.Name = "lblIdealKiloDeger";
-            lblIdealKiloDeger.Size = new Size(28, 21);
+            lblIdealKiloDeger.Size = new Size(19, 21);
             lblIdealKiloDeger.TabIndex = 2;
-            lblIdealKiloDeger.Text = "28";
+            lblIdealKiloDeger.Text = "0";
             // 
             // label4
             // 
@@ -101,6 +102,7 @@
             btnHesapla.TabIndex = 13;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // txtKilo
             // 
@@ -180,6 +182,20 @@
             label6.TabIndex = 49;
             label6.Text = "Cinsiyetiniz";
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(116, 533);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 13;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // FormIdealKilo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -190,6 +206,7 @@
             Controls.Add(label6);
             Controls.Add(panel1);
             Controls.Add(cpbIdealKilo);
+            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -220,5 +237,6 @@
         private RadioButton rdbKadin;
         private RadioButton rdbErkek;
         private Label label6;
+        private Button btnGeri;
     }
 }
