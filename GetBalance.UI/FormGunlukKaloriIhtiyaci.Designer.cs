@@ -37,7 +37,6 @@
             label7 = new Label();
             lblGKIDeger = new Label();
             label4 = new Label();
-            cpbGKI = new ReaLTaiizor.Controls.CircleProgressBar();
             btnHesapla = new Button();
             txtKilo = new TextBox();
             txtBoy = new TextBox();
@@ -105,7 +104,7 @@
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lblGKIDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(408, 283);
+            panel1.Location = new Point(389, 182);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 28;
@@ -139,22 +138,6 @@
             label4.Size = new Size(239, 25);
             label4.TabIndex = 1;
             label4.Text = "GÜNLÜK KALORİ İHTİYACI";
-            // 
-            // cpbGKI
-            // 
-            cpbGKI.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            cpbGKI.Location = new Point(503, 138);
-            cpbGKI.Maximum = 100L;
-            cpbGKI.MinimumSize = new Size(100, 100);
-            cpbGKI.Name = "cpbGKI";
-            cpbGKI.PercentColor = Color.Cyan;
-            cpbGKI.ProgressColor1 = Color.White;
-            cpbGKI.ProgressColor2 = Color.Red;
-            cpbGKI.ProgressShape = ReaLTaiizor.Controls.CircleProgressBar._ProgressShape.Round;
-            cpbGKI.Size = new Size(130, 130);
-            cpbGKI.TabIndex = 27;
-            cpbGKI.Text = "circleProgressBar1";
-            cpbGKI.Value = 100L;
             // 
             // btnHesapla
             // 
@@ -262,7 +245,6 @@
             Controls.Add(txtYas);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(cpbGKI);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -290,7 +272,6 @@
         private Label label7;
         private Label lblGKIDeger;
         private Label label4;
-        private ReaLTaiizor.Controls.CircleProgressBar cpbGKI;
         private Button btnHesapla;
         private TextBox txtKilo;
         private TextBox txtBoy;

@@ -28,7 +28,30 @@ namespace GetBalance.UI
             {
                 int boy = Convert.ToInt32(txtBoy.Text);
                 int kilo = Convert.ToInt32(txtKilo.Text);
-                lblVKIDeger.Text = CalculatorExtensions.VKİHesapla(kilo, boy).ToString();
+                decimal sonuc = CalculatorExtensions.VKİHesapla(kilo, boy);
+                lblVKIDeger.Text = sonuc.ToString();
+                cpbVKI.Value = Convert.ToInt64(sonuc);
+                switch (sonuc)
+                {
+                    case < 18.5m:
+                        lblYorum.Text = "Zayıf";
+                        break;
+                    case > 18.5m and < 24.9m:
+                        lblYorum.Text = "Normal Kilo";
+                        break;
+                    case > 25.0m and < 29.9m:
+                        lblYorum.Text = "Fazla Kilolu";
+                        break;
+                    case > 30.0m and < 34.9m:
+                        lblYorum.Text = "1. Derece Obez";
+                        break;
+                    case > 35.0m and < 39.9m:
+                        lblYorum.Text = "2. Derece Obez";
+                        break;
+                    case > 40.0m:
+                        lblYorum.Text = "Morbid Obez";
+                        break;
+                }
             }
             catch (Exception)
             {

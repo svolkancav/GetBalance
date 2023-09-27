@@ -31,6 +31,10 @@ namespace GetBalance.UI
             _yeniKayit = formYeniKayit;
             _user = user;
         }
+        public FormYeniKayit2()
+        {
+            
+        }
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
@@ -76,9 +80,6 @@ namespace GetBalance.UI
             cbxAktiviteSeviyesi.SelectedIndex = -1;
         }
 
-        private void FormYeniKayit2_Load_1(object sender, EventArgs e)
-        {
 
-        }
     }
 }

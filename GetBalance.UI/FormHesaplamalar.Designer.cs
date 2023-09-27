@@ -37,7 +37,6 @@
             btnIdealKilo = new Button();
             btnVYO = new Button();
             btnGKİ = new Button();
-            btnYVK = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,7 +66,7 @@
             btnBMH.ForeColor = Color.White;
             btnBMH.Image = (Image)resources.GetObject("btnBMH.Image");
             btnBMH.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBMH.Location = new Point(0, 104);
+            btnBMH.Location = new Point(0, 116);
             btnBMH.Name = "btnBMH";
             btnBMH.Size = new Size(230, 41);
             btnBMH.TabIndex = 1;
@@ -86,7 +85,6 @@
             panel1.Controls.Add(btnIdealKilo);
             panel1.Controls.Add(btnVYO);
             panel1.Controls.Add(btnGKİ);
-            panel1.Controls.Add(btnYVK);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -102,7 +100,7 @@
             btnMKAH.ForeColor = Color.White;
             btnMKAH.Image = (Image)resources.GetObject("btnMKAH.Image");
             btnMKAH.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMKAH.Location = new Point(-3, 539);
+            btnMKAH.Location = new Point(0, 533);
             btnMKAH.Name = "btnMKAH";
             btnMKAH.Size = new Size(230, 41);
             btnMKAH.TabIndex = 14;
@@ -120,7 +118,7 @@
             btnGSI.ForeColor = Color.White;
             btnGSI.Image = (Image)resources.GetObject("btnGSI.Image");
             btnGSI.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGSI.Location = new Point(-3, 469);
+            btnGSI.Location = new Point(0, 452);
             btnGSI.Name = "btnGSI";
             btnGSI.Size = new Size(230, 41);
             btnGSI.TabIndex = 13;
@@ -138,7 +136,7 @@
             btnIdealKilo.ForeColor = Color.White;
             btnIdealKilo.Image = (Image)resources.GetObject("btnIdealKilo.Image");
             btnIdealKilo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnIdealKilo.Location = new Point(0, 390);
+            btnIdealKilo.Location = new Point(-1, 366);
             btnIdealKilo.Name = "btnIdealKilo";
             btnIdealKilo.Size = new Size(230, 41);
             btnIdealKilo.TabIndex = 12;
@@ -156,7 +154,7 @@
             btnVYO.ForeColor = Color.White;
             btnVYO.Image = (Image)resources.GetObject("btnVYO.Image");
             btnVYO.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVYO.Location = new Point(-1, 180);
+            btnVYO.Location = new Point(-1, 199);
             btnVYO.Name = "btnVYO";
             btnVYO.Size = new Size(230, 41);
             btnVYO.TabIndex = 9;
@@ -174,7 +172,7 @@
             btnGKİ.ForeColor = Color.White;
             btnGKİ.Image = (Image)resources.GetObject("btnGKİ.Image");
             btnGKİ.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGKİ.Location = new Point(0, 317);
+            btnGKİ.Location = new Point(0, 283);
             btnGKİ.Name = "btnGKİ";
             btnGKİ.Size = new Size(230, 41);
             btnGKİ.TabIndex = 11;
@@ -182,24 +180,6 @@
             btnGKİ.Text = "        Günlük Kalori İhtiyacı";
             btnGKİ.UseVisualStyleBackColor = false;
             btnGKİ.Click += btnClick;
-            // 
-            // btnYVK
-            // 
-            btnYVK.BackColor = Color.FromArgb(15, 194, 192);
-            btnYVK.FlatAppearance.BorderSize = 0;
-            btnYVK.FlatStyle = FlatStyle.Flat;
-            btnYVK.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnYVK.ForeColor = Color.White;
-            btnYVK.Image = (Image)resources.GetObject("btnYVK.Image");
-            btnYVK.ImageAlign = ContentAlignment.MiddleLeft;
-            btnYVK.Location = new Point(0, 250);
-            btnYVK.Name = "btnYVK";
-            btnYVK.Size = new Size(230, 41);
-            btnYVK.TabIndex = 10;
-            btnYVK.Tag = "FFMI";
-            btnYVK.Text = "        Yağsız Vücut Kitlesi (FFMI)";
-            btnYVK.UseVisualStyleBackColor = false;
-            btnYVK.Click += btnClick;
             // 
             // FormHesaplamalar
             // 
@@ -223,7 +203,6 @@
         private Button btnIdealKilo;
         private Button btnVYO;
         private Button btnGKİ;
-        private Button btnYVK;
         private Button btnMKAH;
     }
 }

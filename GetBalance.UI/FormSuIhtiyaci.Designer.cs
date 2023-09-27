@@ -36,6 +36,7 @@
             lblSuIhtiyaciDeger = new Label();
             label4 = new Label();
             btnHesapla = new Button();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,7 +73,7 @@
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lblSuIhtiyaciDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(240, 356);
+            panel1.Location = new Point(228, 345);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 59;
@@ -119,12 +120,28 @@
             btnHesapla.TabIndex = 60;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
+            // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(282, 481);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 60;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
             // 
             // FormSuIhtiyaci
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 568);
+            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(panel1);
             Controls.Add(txtKilo);
@@ -149,5 +166,6 @@
         private Label label4;
         private Button btnHesapla;
         private Label label7;
+        private Button btnGeri;
     }
 }

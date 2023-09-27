@@ -32,13 +32,13 @@ namespace GetBalance.UI
 
                 case "VücutYağOranı": VücutYağOranıOpen(); break;
 
-                case "FFMI": FFMIOpen(); break;
-
                 case "GünlükKaloriİhtiyacı": GünlükKaloriİhtiyacıOpen(); break;
 
                 case "GünlükSuİhtiyacı": GünlükSuİhtiyacıOpen(); break;
 
                 case "MaksimumKalpHızı": MaksimumKalpHızıOpen(); break;
+
+                case "İdealKilo": İdealKiloOpen(); break;
 
             }
         }
@@ -48,12 +48,13 @@ namespace GetBalance.UI
 
         FormKalpAtısHizi formKalpAtısHizi;
         FormGunlukKaloriIhtiyaci formGunlukKalori;
-        FormVucutKitleEndex frmVKI;
-        FormYagsizVucutKitlesi formYagsizVucutKitlesi;
+        FormVucutKitleEndex frmVKI;        
         FormSuIhtiyaci formSuIhtiyaci;
         FormIdealKilo formIdealKilo;
         BazalMetabolizHiziForm bazalMetabolizHiziForm;
         FormVucutYagOrani formVucutYagOrani;
+
+
         private void MaksimumKalpHızıOpen()
         {
             formKalpAtısHizi = new FormKalpAtısHizi();
@@ -82,14 +83,6 @@ namespace GetBalance.UI
             formGunlukKalori.Show();
             this.Hide();
         }
-
-        private void FFMIOpen()
-        {
-            formYagsizVucutKitlesi = new FormYagsizVucutKitlesi();
-            formYagsizVucutKitlesi.Show();
-            this.Hide();
-        }
-
         private void VücutYağOranıOpen()
         {
             formVucutYagOrani = new FormVucutYagOrani();

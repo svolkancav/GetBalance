@@ -36,6 +36,7 @@
             btnHesapla = new Button();
             cpbVKI = new ReaLTaiizor.Controls.CircleProgressBar();
             panel1 = new Panel();
+            lblYorum = new Label();
             lblVKIDeger = new Label();
             label4 = new Label();
             btnGeri = new Button();
@@ -116,22 +117,31 @@
             cpbVKI.Size = new Size(130, 130);
             cpbVKI.TabIndex = 6;
             cpbVKI.Text = "circleProgressBar1";
-            cpbVKI.Value = 100L;
+            cpbVKI.Value = 0L;
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblYorum);
             panel1.Controls.Add(lblVKIDeger);
             panel1.Controls.Add(label4);
             panel1.Location = new Point(488, 303);
             panel1.Name = "panel1";
-            panel1.Size = new Size(287, 100);
+            panel1.Size = new Size(294, 152);
             panel1.TabIndex = 7;
+            // 
+            // lblYorum
+            // 
+            lblYorum.AutoSize = true;
+            lblYorum.Location = new Point(124, 108);
+            lblYorum.Name = "lblYorum";
+            lblYorum.Size = new Size(0, 15);
+            lblYorum.TabIndex = 3;
             // 
             // lblVKIDeger
             // 
             lblVKIDeger.AutoSize = true;
             lblVKIDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblVKIDeger.Location = new Point(122, 59);
+            lblVKIDeger.Location = new Point(124, 49);
             lblVKIDeger.Name = "lblVKIDeger";
             lblVKIDeger.Size = new Size(0, 21);
             lblVKIDeger.TabIndex = 2;
@@ -196,5 +206,6 @@
         private Label lblVKIDeger;
         private Label label4;
         private Button btnGeri;
+        private Label lblYorum;
     }
 }

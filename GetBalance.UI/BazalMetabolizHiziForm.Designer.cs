@@ -32,7 +32,6 @@
             label7 = new Label();
             lblBMHDeger = new Label();
             label4 = new Label();
-            cpbBMH = new ReaLTaiizor.Controls.CircleProgressBar();
             btnHesapla = new Button();
             txtKilo = new TextBox();
             txtBoy = new TextBox();
@@ -44,6 +43,7 @@
             label6 = new Label();
             rdbErkek = new RadioButton();
             rdbKadin = new RadioButton();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lblBMHDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(441, 305);
+            panel1.Location = new Point(441, 169);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 15;
@@ -73,9 +73,9 @@
             lblBMHDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblBMHDeger.Location = new Point(93, 55);
             lblBMHDeger.Name = "lblBMHDeger";
-            lblBMHDeger.Size = new Size(28, 21);
+            lblBMHDeger.Size = new Size(19, 21);
             lblBMHDeger.TabIndex = 2;
-            lblBMHDeger.Text = "28";
+            lblBMHDeger.Text = "0";
             // 
             // label4
             // 
@@ -86,22 +86,6 @@
             label4.Size = new Size(306, 25);
             label4.TabIndex = 1;
             label4.Text = "BAZAL METABOLİZMA HIZI (BMR)";
-            // 
-            // cpbBMH
-            // 
-            cpbBMH.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            cpbBMH.Location = new Point(534, 169);
-            cpbBMH.Maximum = 100L;
-            cpbBMH.MinimumSize = new Size(100, 100);
-            cpbBMH.Name = "cpbBMH";
-            cpbBMH.PercentColor = Color.Cyan;
-            cpbBMH.ProgressColor1 = Color.White;
-            cpbBMH.ProgressColor2 = Color.Red;
-            cpbBMH.ProgressShape = ReaLTaiizor.Controls.CircleProgressBar._ProgressShape.Round;
-            cpbBMH.Size = new Size(130, 130);
-            cpbBMH.TabIndex = 14;
-            cpbBMH.Text = "circleProgressBar1";
-            cpbBMH.Value = 100L;
             // 
             // btnHesapla
             // 
@@ -115,6 +99,7 @@
             btnHesapla.TabIndex = 13;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // txtKilo
             // 
@@ -212,6 +197,20 @@
             rdbKadin.Text = "Kadın";
             rdbKadin.UseVisualStyleBackColor = true;
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(441, 460);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 13;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // BazalMetabolizHiziForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -223,7 +222,7 @@
             Controls.Add(txtYas);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(cpbBMH);
+            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -244,7 +243,6 @@
         private Panel panel1;
         private Label lblBMHDeger;
         private Label label4;
-        private ReaLTaiizor.Controls.CircleProgressBar cpbBMH;
         private Button btnHesapla;
         private TextBox txtKilo;
         private TextBox txtBoy;
@@ -257,5 +255,6 @@
         private RadioButton rdbErkek;
         private RadioButton rdbKadin;
         private Label label7;
+        private Button btnGeri;
     }
 }

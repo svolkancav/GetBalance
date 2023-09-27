@@ -245,7 +245,6 @@
             Location = new Point(0, 32);
             Name = "FormYeniKayit2";
             Text = "FormYeniKayit2";
-            Load += FormYeniKayit2_Load_1;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
