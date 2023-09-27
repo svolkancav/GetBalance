@@ -63,6 +63,46 @@ namespace GetBalance.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_101_32 {
+            get {
+                object obj = ResourceManager.GetObject("arrow-101-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_101_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("arrow-101-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_36_32 {
+            get {
+                object obj = ResourceManager.GetObject("arrow-36-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_36_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("arrow-36-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap calculator_7_32 {
             get {
                 object obj = ResourceManager.GetObject("calculator-7-32", resourceCulture);
@@ -96,6 +136,16 @@ namespace GetBalance.UI.Properties {
         internal static System.Drawing.Bitmap menu_4_32 {
             get {
                 object obj = ResourceManager.GetObject("menu-4-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_6_32 {
+            get {
+                object obj = ResourceManager.GetObject("plus-6-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -77,7 +77,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(703, 0);
+            nightControlBox1.Location = new Point(661, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -229,17 +229,17 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(231, 283);
+            label5.Location = new Point(165, 283);
             label5.Name = "label5";
-            label5.Size = new Size(53, 21);
+            label5.Size = new Size(119, 21);
             label5.TabIndex = 15;
-            label5.Text = "Şifre: ";
+            label5.Text = "Yeniden Şifre: ";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(170, 326);
+            label6.Location = new Point(162, 324);
             label6.Name = "label6";
             label6.Size = new Size(118, 21);
             label6.TabIndex = 16;

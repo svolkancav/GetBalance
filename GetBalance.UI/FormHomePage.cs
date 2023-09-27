@@ -46,6 +46,8 @@ namespace GetBalance.UI
             if (menuExpand)
             {
                 menuContainer.Width -= 10;
+                formGunluk.Width += 10;
+
                 if (menuContainer.Width <= 51)
                 {
                     menuExpand = false;
@@ -55,6 +57,7 @@ namespace GetBalance.UI
             else
             {
                 menuContainer.Width += 10;
+                formGunluk.Width -= 10;
                 if (menuContainer.Width >= 180)
                 {
 
@@ -71,6 +74,7 @@ namespace GetBalance.UI
         private void btnHome_Click(object sender, EventArgs e)
         {
             menuTransition.Start();
+
 
         }
         private void btnProfil_Click(object sender, EventArgs e)
