@@ -84,9 +84,9 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(583, 6);
             label2.Name = "label2";
-            label2.Size = new Size(114, 23);
+            label2.Size = new Size(150, 23);
             label2.TabIndex = 3;
-            label2.Text = "GET BALANCE";
+            label2.Text = "G E T  B A L A N C E";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // nightControlBox1
@@ -356,6 +356,7 @@
             // 
             // pnlAnaPanel
             // 
+            pnlAnaPanel.AutoSize = true;
             pnlAnaPanel.Dock = DockStyle.Fill;
             pnlAnaPanel.Location = new Point(180, 35);
             pnlAnaPanel.Name = "pnlAnaPanel";
@@ -373,6 +374,7 @@
             Controls.Add(pnlTop);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
+            MaximumSize = new Size(1280, 720);
             Name = "FormHomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
@@ -391,6 +393,7 @@
             pnlAyarlar.ResumeLayout(false);
             pnlCikis.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
