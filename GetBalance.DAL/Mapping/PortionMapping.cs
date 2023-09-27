@@ -17,6 +17,10 @@ namespace GetBalance.DAL.Mapping
 			builder.Property(x=>x.Quantity).IsRequired();
 
 			builder.Property(x => x.PortionName).IsRequired();
+			
+			builder.HasIndex(x => new { x.FoodId, x.PortionName }).IsUnique();
+
+			builder.HasOne(x => x.Food).WithMany(x => x.Portions).HasForeignKey(x => x.FoodId);
 		}
 	}
 }

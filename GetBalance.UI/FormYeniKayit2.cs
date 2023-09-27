@@ -48,11 +48,10 @@ namespace GetBalance.UI
             }
 
             _user.UserDetail.Height = height;
-            //Todo: UserDatil güncelle
-            //_user.UserDetail.Weight = weight;
-            //_user.UserDetail.NeckCircumference = neckCircumference;
-            //_user.UserDetail.WaistCircumference = waistCircumference;	
-            //_user.UserDetail.HipCircumference = hipCircumference;
+            _user.UserDetail.CurrentWeight = weight;
+            _user.UserDetail.NeckCircumference = neckCircumference;
+            _user.UserDetail.WaistCircumference = waistCircumference;	
+            _user.UserDetail.HipCircumference = hipCircumference;
 
             _userRepo.Add(_user);
 

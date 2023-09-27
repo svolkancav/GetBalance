@@ -7,11 +7,11 @@ namespace _16_DBFirst_RepositoryDesing_Nortwind.Repositories
 	public class GenericRepository <Tentity> where Tentity : class
 	{
 
-		private  Context  context;
+		private  AppDbContext  context;
 
 		public GenericRepository()
 		{
-			context = new Context();
+			context = new AppDbContext();
 		}
 
 

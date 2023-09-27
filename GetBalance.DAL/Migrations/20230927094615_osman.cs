@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GetBalance.DAL.Migrations
 {
-    public partial class osmn : Migration
+    public partial class osman : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,10 +43,10 @@ namespace GetBalance.DAL.Migrations
                     FoodId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    Calories = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
-                    Protein = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
-                    Carbohydrate = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
-                    Fat = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
+                    Calories = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Protein = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Carbohydrate = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    Fat = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -92,8 +92,12 @@ namespace GetBalance.DAL.Migrations
                     LastName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(6)", nullable: false),
-                    Height = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
-                    CurrentWeight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
+                    Height = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    NeckCircumference = table.Column<double>(type: "float", nullable: false),
+                    WaistCircumference = table.Column<double>(type: "float", nullable: false),
+                    HipCircumference = table.Column<double>(type: "float", nullable: false),
+                    ActivityLevel = table.Column<int>(type: "int", nullable: false),
+                    CurrentWeight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -158,14 +162,13 @@ namespace GetBalance.DAL.Migrations
                 {
                     UserTargetId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StartingWeight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
-                    TargetWeight = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
+                    StartingWeight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    TargetWeight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
                     StartingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ActivityLevel = table.Column<int>(type: "int", nullable: false),
                     TargetCalorie = table.Column<short>(type: "smallint", maxLength: 5, nullable: false),
-                    TargetCarbPercentage = table.Column<byte>(type: "tinyint", maxLength: 3, nullable: false),
-                    TargetProteinPercentage = table.Column<byte>(type: "tinyint", maxLength: 3, nullable: false),
-                    TargetFatPercentage = table.Column<byte>(type: "tinyint", maxLength: 3, nullable: false),
+                    TargetCarbPercentage = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    TargetProteinPercentage = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    TargetFatPercentage = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserDetailId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -196,9 +199,10 @@ namespace GetBalance.DAL.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Portions_FoodId",
+                name: "IX_Portions_FoodId_PortionName",
                 table: "Portions",
-                column: "FoodId");
+                columns: new[] { "FoodId", "PortionName" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserDetails_UserId",

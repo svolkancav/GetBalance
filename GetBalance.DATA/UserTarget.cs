@@ -13,11 +13,10 @@ namespace GetBalance.DATA
         public double StartingWeight { get; set; }
         public double TargetWeight { get; set; }
         public DateTime StartingDate { get; set; }
-        public ActivityLevel ActivityLevel { get; set; }
         public short TargetCalorie { get; set; }
-        public byte TargetCarbPercentage { get; set; }
-        public byte TargetProteinPercentage { get; set; }
-        public byte TargetFatPercentage { get; set; }
+        public double TargetCarbPercentage { get; set; }
+        public double TargetProteinPercentage { get; set; }
+        public double TargetFatPercentage { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         public int UserDetailId { get; set; }

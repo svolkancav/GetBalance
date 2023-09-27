@@ -15,13 +15,13 @@ namespace GetBalance.DAL.Mapping
 		{
 			builder.Property(x => x.Name).HasColumnType("nvarchar(50)").IsRequired();
 
-			builder.Property(x => x.Calories).HasColumnType("decimal(10.2)").IsRequired();
+			builder.Property(x => x.Calories).HasColumnType("decimal(10,2)").IsRequired();
 
-			builder.Property(x => x.Carbohydrate).HasColumnType("decimal(3.2)").IsRequired();
+			builder.Property(x => x.Carbohydrate).HasColumnType("decimal(5,2)").IsRequired();
 
-			builder.Property(x => x.Protein).HasColumnType("decimal(3.2)").IsRequired();
+			builder.Property(x => x.Protein).HasColumnType("decimal(5,2)").IsRequired();
 
-			builder.Property(x => x.Fat).HasColumnType("decimal(3.2)").IsRequired();
+			builder.Property(x => x.Fat).HasColumnType("decimal(5,2)").IsRequired();
 
 			builder.HasMany(x => x.Meals).WithMany(x => x.Foods);
 
