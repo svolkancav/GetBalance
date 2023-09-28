@@ -16,5 +16,24 @@ namespace GetBalance.UI
         {
             InitializeComponent();
         }
+
+
+        private bool surukleniyor = false;
+        private Point surukleBaslangicNoktasi;
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (surukleniyor)
+            {
+                Point yeniKonum = this.Location;
+                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+                this.Location = yeniKonum;
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            surukleniyor = false;
+        }
     }
 }

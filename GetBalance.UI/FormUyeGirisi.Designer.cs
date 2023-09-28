@@ -154,6 +154,8 @@
             panel2.Size = new Size(541, 36);
             panel2.TabIndex = 8;
             panel2.Paint += panel2_Paint;
+            panel2.MouseMove += panel2_MouseMove;
+            panel2.MouseUp += panel2_MouseUp;
             // 
             // nightControlBox1
             // 

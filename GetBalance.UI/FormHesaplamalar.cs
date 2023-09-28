@@ -12,10 +12,13 @@ namespace GetBalance.UI
 {
     public partial class FormHesaplamalar : Form
     {
+
+
         public FormHesaplamalar()
         {
             InitializeComponent();
         }
+
 
         private void btnClick(object sender, EventArgs e)
         {
@@ -130,6 +133,28 @@ namespace GetBalance.UI
             {
                 item.Hide();
             }
+
         }
+
+        private void btnIdealKilo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGSI_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMKAH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+       
+
     }
+
+
 }

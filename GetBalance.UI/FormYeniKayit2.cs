@@ -31,10 +31,12 @@ namespace GetBalance.UI
             _yeniKayit = formYeniKayit;
             _user = user;
         }
+
         public FormYeniKayit2()
         {
             
         }
+
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
@@ -52,10 +54,12 @@ namespace GetBalance.UI
             }
 
             _user.UserDetail.Height = height;
+
             _user.UserDetail.CurrentWeight = weight;
             _user.UserDetail.NeckCircumference = neckCircumference;
             _user.UserDetail.WaistCircumference = waistCircumference;	
             _user.UserDetail.HipCircumference = hipCircumference;
+
 
             _userRepo.Add(_user);
 
@@ -80,6 +84,26 @@ namespace GetBalance.UI
             cbxAktiviteSeviyesi.SelectedIndex = -1;
         }
 
+
+
+        private bool surukleniyor = false;
+        private Point surukleBaslangicNoktasi;
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            surukleniyor = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (surukleniyor)
+            {
+                Point yeniKonum = this.Location;
+                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+                this.Location = yeniKonum;
+            }
+        }
 
     }
 }

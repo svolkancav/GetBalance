@@ -72,6 +72,9 @@
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(1280, 35);
             pnlTop.TabIndex = 0;
+            pnlTop.MouseDown += pnlTop_MouseDown;
+            pnlTop.MouseMove += pnlTop_MouseMove;
+            pnlTop.MouseUp += pnlTop_MouseUp;
             // 
             // label2
             // 
@@ -265,6 +268,7 @@
             btnRaporlar.Text = "            Raporlar";
             btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
             btnRaporlar.UseVisualStyleBackColor = false;
+            btnRaporlar.Click += btnRaporlar_Click;
             // 
             // pnlHesaplamalar
             // 
@@ -276,6 +280,18 @@
             // 
             // btnHesaplamalar
             // 
+
+            // pnlHesaplamalar
+            // 
+            pnlHesaplamalar.Controls.Add(btnHesaplamalar);
+            pnlHesaplamalar.Location = new Point(3, 264);
+            pnlHesaplamalar.Name = "pnlHesaplamalar";
+            pnlHesaplamalar.Size = new Size(173, 40);
+            pnlHesaplamalar.TabIndex = 1;
+            // 
+            // btnHesaplamalar
+            // 
+
             btnHesaplamalar.BackColor = Color.FromArgb(2, 53, 53);
             btnHesaplamalar.FlatAppearance.BorderSize = 0;
             btnHesaplamalar.FlatStyle = FlatStyle.Flat;
@@ -286,7 +302,9 @@
             btnHesaplamalar.Location = new Point(-13, -9);
             btnHesaplamalar.Name = "btnHesaplamalar";
             btnHesaplamalar.Padding = new Padding(15, 0, 0, 0);
+
             btnHesaplamalar.Size = new Size(233, 58);
+
             btnHesaplamalar.TabIndex = 0;
             btnHesaplamalar.Text = "            Hesaplamalar";
             btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;
