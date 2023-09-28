@@ -8,7 +8,11 @@ namespace GetBalance.DATA
 {
 	public class FoodCategory
 	{
-		public int FoodCategoryId { get; set; }
+        public FoodCategory()
+        {
+            Foods = new HashSet<Food>();
+        }
+        public int FoodCategoryId { get; set; }
 		public string Name { get; set; }
 
 		public ICollection<Food> Foods { get; set; }
