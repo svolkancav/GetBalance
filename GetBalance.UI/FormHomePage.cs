@@ -16,6 +16,10 @@ namespace GetBalance.UI
         AnaSayfaControl anaSayfaControl;
         //GunlukControl gunlukControl;
         Form formGunluk;
+        Form formHesaplamalar;
+        //public delegate void transitionStarted(int kaymaMiktari);
+        //public event transitionStarted transitionOldu;
+
         public Point downPoint = Point.Empty;
 
         User _user;
@@ -23,7 +27,7 @@ namespace GetBalance.UI
         {
             InitializeComponent();
             anaSayfaControl = new AnaSayfaControl();
-            //gunlukControl = new GunlukControl();
+
         }
 
         public FormHomePage(User user)
@@ -35,7 +39,10 @@ namespace GetBalance.UI
         private void FormHomePage_Load(object sender, EventArgs e)
         {
             formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
+            formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
 
+            pnlAnaPanel.Controls.Add(formGunluk);
+            pnlAnaPanel.Controls.Add(formHesaplamalar);
         }
 
         #region SidePanelTransition
@@ -47,8 +54,9 @@ namespace GetBalance.UI
             {
                 menuContainer.Width -= 10;
                 formGunluk.Width += 10;
+                //transitionOldu(10);
 
-                if (menuContainer.Width <= 51)
+                if (menuContainer.Width <= 58)
                 {
                     menuExpand = false;
                     menuTransition.Stop();
@@ -58,7 +66,9 @@ namespace GetBalance.UI
             {
                 menuContainer.Width += 10;
                 formGunluk.Width -= 10;
-                if (menuContainer.Width >= 180)
+                //transitionOldu(-10);
+
+                if (menuContainer.Width >= 205)
                 {
 
                     menuExpand = true;
@@ -74,7 +84,7 @@ namespace GetBalance.UI
         private void btnHome_Click(object sender, EventArgs e)
         {
             menuTransition.Start();
-
+            //this.transitionOldu += formGunluk.
 
         }
         private void btnProfil_Click(object sender, EventArgs e)
@@ -89,11 +99,14 @@ namespace GetBalance.UI
 
         private void btnGunluk_Click(object sender, EventArgs e)
         {
-            //gunlukControl1.BringToFront();
-            //gunlukControl1.Show();
-
-            pnlAnaPanel.Controls.Add(formGunluk);
+            HideAllForms();
             formGunluk.Show();
+        }
+
+        private void btnHesaplamalar_Click(object sender, EventArgs e)
+        {
+            HideAllForms();
+            formHesaplamalar.Show();
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
@@ -102,6 +115,14 @@ namespace GetBalance.UI
         }
 
         #endregion
+
+        private void HideAllForms()
+        {
+            foreach (Form item in pnlAnaPanel.Controls)
+            {
+                item.Hide();
+            }
+        }
 
 
 

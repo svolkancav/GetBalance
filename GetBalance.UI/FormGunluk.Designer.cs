@@ -452,12 +452,13 @@
             btnRight.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btnRight.Image = Properties.Resources.arrow_36_32__1_;
             btnRight.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRight.Location = new Point(640, 0);
+            btnRight.Location = new Point(615, 0);
             btnRight.Name = "btnRight";
             btnRight.Size = new Size(250, 50);
             btnRight.TabIndex = 15;
             btnRight.TextAlign = ContentAlignment.MiddleLeft;
             btnRight.UseVisualStyleBackColor = false;
+            btnRight.Click += btnRight_Click;
             // 
             // btnLeft
             // 
@@ -473,6 +474,7 @@
             btnLeft.TabIndex = 16;
             btnLeft.TextAlign = ContentAlignment.MiddleRight;
             btnLeft.UseVisualStyleBackColor = false;
+            btnLeft.Click += btnLeft_Click;
             // 
             // pnlTarih
             // 
@@ -481,7 +483,7 @@
             pnlTarih.Dock = DockStyle.Fill;
             pnlTarih.Location = new Point(250, 0);
             pnlTarih.Name = "pnlTarih";
-            pnlTarih.Size = new Size(390, 50);
+            pnlTarih.Size = new Size(365, 50);
             pnlTarih.TabIndex = 17;
             // 
             // lblTarih
@@ -490,7 +492,7 @@
             lblTarih.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblTarih.Location = new Point(0, 0);
             lblTarih.Name = "lblTarih";
-            lblTarih.Size = new Size(390, 50);
+            lblTarih.Size = new Size(365, 50);
             lblTarih.TabIndex = 14;
             lblTarih.Text = "Tarih";
             lblTarih.TextAlign = ContentAlignment.MiddleCenter;
@@ -503,7 +505,7 @@
             pnlGunluk.Dock = DockStyle.Fill;
             pnlGunluk.Location = new Point(5, 5);
             pnlGunluk.Name = "pnlGunluk";
-            pnlGunluk.Size = new Size(1090, 675);
+            pnlGunluk.Size = new Size(1065, 675);
             pnlGunluk.TabIndex = 21;
             // 
             // pnlMain
@@ -528,7 +530,7 @@
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(200, 50);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(890, 625);
+            pnlMain.Size = new Size(865, 625);
             pnlMain.TabIndex = 27;
             // 
             // tlpAperatifVeriler
@@ -735,7 +737,7 @@
             tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopKarb, 1, 0);
             tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopProtein, 2, 0);
             tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopYag, 3, 0);
-            tlpKahvaltiVeriler.Location = new Point(473, 3);
+            tlpKahvaltiVeriler.Location = new Point(470, 3);
             tlpKahvaltiVeriler.Name = "tlpKahvaltiVeriler";
             tlpKahvaltiVeriler.RowCount = 1;
             tlpKahvaltiVeriler.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -883,7 +885,7 @@
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(200, 0);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(890, 50);
+            pnlTop.Size = new Size(865, 50);
             pnlTop.TabIndex = 20;
             // 
             // FormGunluk
@@ -891,7 +893,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1100, 685);
+            ClientSize = new Size(1075, 685);
             ControlBox = false;
             Controls.Add(pnlGunluk);
             FormBorderStyle = FormBorderStyle.None;

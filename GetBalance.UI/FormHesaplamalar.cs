@@ -48,7 +48,7 @@ namespace GetBalance.UI
 
         FormKalpAtısHizi formKalpAtısHizi;
         FormGunlukKaloriIhtiyaci formGunlukKalori;
-        FormVucutKitleEndex frmVKI;        
+        FormVucutKitleEndex frmVKI;
         FormSuIhtiyaci formSuIhtiyaci;
         FormIdealKilo formIdealKilo;
         BazalMetabolizHiziForm bazalMetabolizHiziForm;
@@ -57,56 +57,79 @@ namespace GetBalance.UI
 
         private void MaksimumKalpHızıOpen()
         {
-            formKalpAtısHizi = new FormKalpAtısHizi();
+            HideAllForms();
             formKalpAtısHizi.Show();
-            this.Hide();
+
 
         }
 
         private void GünlükSuİhtiyacıOpen()
         {
-            formSuIhtiyaci = new FormSuIhtiyaci();
+            HideAllForms();
             formSuIhtiyaci.Show();
-            this.Hide();
+
         }
 
         private void İdealKiloOpen()
         {
-            formIdealKilo = new FormIdealKilo();
+            HideAllForms();
+
             formIdealKilo.Show();
-            this.Hide();
         }
 
         private void GünlükKaloriİhtiyacıOpen()
         {
-            formGunlukKalori = new FormGunlukKaloriIhtiyaci();
+            HideAllForms();
             formGunlukKalori.Show();
-            this.Hide();
+
         }
         private void VücutYağOranıOpen()
         {
-            formVucutYagOrani = new FormVucutYagOrani();
+            HideAllForms();
             formVucutYagOrani.Show();
-            this.Hide();
 
         }
 
         private void BMROpen()
         {
-            bazalMetabolizHiziForm = new BazalMetabolizHiziForm();
+            HideAllForms();
             bazalMetabolizHiziForm.Show();
-            this.Hide();
         }
 
         private void VKIOpen()
         {
-            frmVKI = new FormVucutKitleEndex();
+            HideAllForms();
             frmVKI.Show();
-            this.Hide(); //TODO: hide yerine close için bakılacak.
         }
 
         #endregion
 
 
+        private void FormHesaplamalar_Load(object sender, EventArgs e)
+        {
+            formKalpAtısHizi = new FormKalpAtısHizi() { TopLevel = false, TopMost = true };
+            frmVKI = new FormVucutKitleEndex() { TopLevel = false, TopMost = true };
+            bazalMetabolizHiziForm = new BazalMetabolizHiziForm() { TopLevel = false, TopMost = true };
+            formVucutYagOrani = new FormVucutYagOrani() { TopLevel = false, TopMost = true };
+            formGunlukKalori = new FormGunlukKaloriIhtiyaci() { TopLevel = false, TopMost = true };
+            formSuIhtiyaci = new FormSuIhtiyaci() { TopLevel = false, TopMost = true };
+            formIdealKilo = new FormIdealKilo() { TopLevel = false, TopMost = true };
+
+            pnlHesaplamalar.Controls.Add(formKalpAtısHizi);
+            pnlHesaplamalar.Controls.Add(frmVKI);
+            pnlHesaplamalar.Controls.Add(bazalMetabolizHiziForm);
+            pnlHesaplamalar.Controls.Add(formVucutYagOrani);
+            pnlHesaplamalar.Controls.Add(formGunlukKalori);
+            pnlHesaplamalar.Controls.Add(formSuIhtiyaci);
+            pnlHesaplamalar.Controls.Add(formIdealKilo);
+        }
+
+        private void HideAllForms()
+        {
+            foreach (Form item in pnlHesaplamalar.Controls)
+            {
+                item.Hide();
+            }
+        }
     }
 }

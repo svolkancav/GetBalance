@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GetBalance.UI.FormHomePage;
 
 namespace GetBalance.UI
 {
@@ -16,10 +17,12 @@ namespace GetBalance.UI
     {
         GenericRepository<Meal> _meal;
 
+
         bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
         Point pbAddButtonLoc = new Point(5, 5);
         Point tlpVerilerLoc = new Point(473, 3);
 
+        DateTime date;
 
         public FormGunluk()
         {
@@ -29,6 +32,15 @@ namespace GetBalance.UI
             pnlKahveLsv.Visible = pnlOgleLsv.Visible = pnlAksamLsv.Visible = pnlAperatifLsv.Visible = false;
 
         }
+
+        //public void LocGuncellendi(int pixel)
+        //{
+        //    MessageBox.Show("Metot tetiklendi.");
+        //    //tlpKahvaltiVeriler.Location.X = pixel;
+        //    //tlpOgleVeriler.Location = tlpVerilerLoc;
+        //    //tlpAksamVeriler.Location = tlpVerilerLoc;
+        //    //tlpAperatifVeriler.Location = tlpVerilerLoc;
+        //}
 
         private void FormGunluk_Load(object sender, EventArgs e)
         {
@@ -52,7 +64,8 @@ namespace GetBalance.UI
             tlpAksamVeriler.Location = tlpVerilerLoc;
             tlpAperatifVeriler.Location = tlpVerilerLoc;
 
-
+            date = DateTime.Today;
+            lblTarih.Text = date.ToShortDateString();
 
             ListViewEdit(lsvKahvalti);
             ListViewEdit(lsvOgle);
@@ -199,6 +212,22 @@ namespace GetBalance.UI
         private void OpenFormYemekEkleme(Meal meal)
         {
             //TODO: meal'a yemek 
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            date = date.AddDays(1);
+            lblTarih.Text = date.ToShortDateString();
+
+            //TODO: Sorgular
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            date = date.AddDays(-1);
+            lblTarih.Text = date.ToShortDateString();
+
+            //TODO: Sorgular
         }
     }
 }

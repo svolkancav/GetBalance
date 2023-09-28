@@ -12,7 +12,7 @@ namespace GetBalance.UI
 			// see https://aka.ms/applicationconfiguration.
 			ApplicationConfiguration.Initialize();
 
-			Application.Run(new FormHesaplamalar());
+			Application.Run(new FormHomePage());
 
 		}
 	}

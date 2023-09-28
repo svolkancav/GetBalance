@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHesaplamalar));
             btnVKE = new Button();
             btnBMH = new Button();
-            panel1 = new Panel();
+            pnlSide = new Panel();
             btnMKAH = new Button();
             btnGSI = new Button();
             btnIdealKilo = new Button();
             btnVYO = new Button();
             btnGKİ = new Button();
-            panel1.SuspendLayout();
+            pnlHesaplamalar = new Panel();
+            pnlSide.SuspendLayout();
             SuspendLayout();
             // 
             // btnVKE
@@ -75,21 +76,21 @@
             btnBMH.UseVisualStyleBackColor = false;
             btnBMH.Click += btnClick;
             // 
-            // panel1
+            // pnlSide
             // 
-            panel1.BackColor = Color.FromArgb(244, 240, 232);
-            panel1.Controls.Add(btnMKAH);
-            panel1.Controls.Add(btnVKE);
-            panel1.Controls.Add(btnGSI);
-            panel1.Controls.Add(btnBMH);
-            panel1.Controls.Add(btnIdealKilo);
-            panel1.Controls.Add(btnVYO);
-            panel1.Controls.Add(btnGKİ);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(232, 607);
-            panel1.TabIndex = 8;
+            pnlSide.BackColor = Color.FromArgb(244, 240, 232);
+            pnlSide.Controls.Add(btnMKAH);
+            pnlSide.Controls.Add(btnVKE);
+            pnlSide.Controls.Add(btnGSI);
+            pnlSide.Controls.Add(btnBMH);
+            pnlSide.Controls.Add(btnIdealKilo);
+            pnlSide.Controls.Add(btnVYO);
+            pnlSide.Controls.Add(btnGKİ);
+            pnlSide.Dock = DockStyle.Left;
+            pnlSide.Location = new Point(0, 0);
+            pnlSide.Name = "pnlSide";
+            pnlSide.Size = new Size(232, 607);
+            pnlSide.TabIndex = 8;
             // 
             // btnMKAH
             // 
@@ -181,16 +182,26 @@
             btnGKİ.UseVisualStyleBackColor = false;
             btnGKİ.Click += btnClick;
             // 
+            // pnlHesaplamalar
+            // 
+            pnlHesaplamalar.Dock = DockStyle.Fill;
+            pnlHesaplamalar.Location = new Point(232, 0);
+            pnlHesaplamalar.Name = "pnlHesaplamalar";
+            pnlHesaplamalar.Size = new Size(836, 607);
+            pnlHesaplamalar.TabIndex = 9;
+            // 
             // FormHesaplamalar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1068, 607);
-            Controls.Add(panel1);
+            Controls.Add(pnlHesaplamalar);
+            Controls.Add(pnlSide);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHesaplamalar";
             Text = "FormHesaplamalar";
-            panel1.ResumeLayout(false);
+            Load += FormHesaplamalar_Load;
+            pnlSide.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -198,11 +209,12 @@
 
         private Button btnVKE;
         private Button btnBMH;
-        private Panel panel1;
+        private Panel pnlSide;
         private Button btnGSI;
         private Button btnIdealKilo;
         private Button btnVYO;
         private Button btnGKİ;
         private Button btnMKAH;
+        private Panel pnlHesaplamalar;
     }
 }
