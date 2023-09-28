@@ -4,6 +4,10 @@ namespace GetBalance.DATA
 {
 	public class Meal
 	{
+		public Meal()
+		{
+			Foods = new HashSet<Food>();
+		}
 		public int MealId { get; set; }
 		public string Name { get; set; }
 		public double Calories { get; set; }

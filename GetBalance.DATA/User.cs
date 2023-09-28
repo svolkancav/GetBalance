@@ -8,6 +8,10 @@ namespace GetBalance.DATA
 {
 	public class User
 	{
+		public User()
+		{
+			Meals = new HashSet<Meal>();
+		}
 		public int UserId { get; set; }
 		public string Password { get; set; }
 		public string Email { get; set; }

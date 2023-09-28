@@ -28,6 +28,8 @@ namespace GetBalance.DAL.Mapping
 			builder.HasOne(x => x.FoodCategory).WithMany(x => x.Foods).HasForeignKey(x => x.CategoryId);
 
 			builder.HasMany(x => x.Portions).WithOne(x => x.Food).HasForeignKey(x => x.FoodId);
+		
+			builder.Ignore(x => x.TotalQuantity);
 		}
 	}
 }
