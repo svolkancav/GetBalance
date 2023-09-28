@@ -23,7 +23,8 @@ namespace GetBalance.UI
 
 
 
-        User _user;
+        int _userId;
+
         public FormHomePage()
         {
             InitializeComponent();
@@ -35,15 +36,17 @@ namespace GetBalance.UI
         public FormHomePage(User user)
         {
             InitializeComponent();
-            _user = user;
+            _userId = user.UserId;
         }
 
         private void FormHomePage_Load(object sender, EventArgs e)
         {
+
+
             formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
 
             formProfil = new FormProfil() { TopLevel = false, TopMost = true };
-            formAnasayfa = new FormHomePage2() { TopLevel = false, TopMost = true };
+            formAnasayfa = new FormHomePage2(_userId) { TopLevel = false, TopMost = true };
             formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
             formRapor = new FormRapor() { TopLevel = false, TopMost = true };
             pnlAnaPanel.Controls.Add(formGunluk);

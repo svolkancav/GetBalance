@@ -21,8 +21,8 @@ namespace GetBalance.DATA
 		public ActivityLevel ActivityLevel { get; set; }
 		public double CurrentWeight { get; set; }
 		public int UserId { get; set; }
-
-		public User User { get; set; }
+        public TrainingLevel TrainingLevel { get; set; }
+        public User User { get; set; }
         public UserTarget UserTarget { get; set; }
     }
 }

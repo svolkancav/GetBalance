@@ -42,6 +42,8 @@
             txtKilo = new TextBox();
             txtBoy = new TextBox();
             btnGuncelle = new Button();
+            label7 = new Label();
+            cmbTraining = new ComboBox();
             SuspendLayout();
             // 
             // label6
@@ -78,7 +80,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(21, 137);
+            label3.Location = new Point(13, 137);
             label3.Name = "label3";
             label3.Size = new Size(149, 21);
             label3.TabIndex = 24;
@@ -154,12 +156,31 @@
             btnGuncelle.ForeColor = Color.White;
             btnGuncelle.Image = (Image)resources.GetObject("btnGuncelle.Image");
             btnGuncelle.ImageAlign = ContentAlignment.TopLeft;
-            btnGuncelle.Location = new Point(191, 321);
+            btnGuncelle.Location = new Point(191, 352);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(191, 41);
             btnGuncelle.TabIndex = 28;
             btnGuncelle.Text = "Güncelle";
             btnGuncelle.UseVisualStyleBackColor = false;
+            btnGuncelle.Click += btnGuncelle_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(19, 306);
+            label7.Name = "label7";
+            label7.Size = new Size(144, 21);
+            label7.TabIndex = 27;
+            label7.Text = "Antreman Seviyesi";
+            // 
+            // cmbTraining
+            // 
+            cmbTraining.FormattingEnabled = true;
+            cmbTraining.Location = new Point(191, 306);
+            cmbTraining.Name = "cmbTraining";
+            cmbTraining.Size = new Size(191, 23);
+            cmbTraining.TabIndex = 21;
             // 
             // FormDuzenle
             // 
@@ -167,12 +188,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(409, 423);
             Controls.Add(btnGuncelle);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(cmbTraining);
             Controls.Add(cbxAktiviteSeviyesi);
             Controls.Add(txtKalcaCevresi);
             Controls.Add(txtBelCevresi);
@@ -182,6 +205,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormDuzenle";
             Text = "FormDuzenle";
+            Load += FormDuzenle_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,5 +225,7 @@
         private TextBox txtKilo;
         private TextBox txtBoy;
         private Button btnGuncelle;
+        private Label label7;
+        private ComboBox cmbTraining;
     }
 }

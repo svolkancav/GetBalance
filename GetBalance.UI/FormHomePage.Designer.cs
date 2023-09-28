@@ -280,18 +280,6 @@
             // 
             // btnHesaplamalar
             // 
-
-            // pnlHesaplamalar
-            // 
-            pnlHesaplamalar.Controls.Add(btnHesaplamalar);
-            pnlHesaplamalar.Location = new Point(3, 264);
-            pnlHesaplamalar.Name = "pnlHesaplamalar";
-            pnlHesaplamalar.Size = new Size(173, 40);
-            pnlHesaplamalar.TabIndex = 1;
-            // 
-            // btnHesaplamalar
-            // 
-
             btnHesaplamalar.BackColor = Color.FromArgb(2, 53, 53);
             btnHesaplamalar.FlatAppearance.BorderSize = 0;
             btnHesaplamalar.FlatStyle = FlatStyle.Flat;
@@ -302,9 +290,7 @@
             btnHesaplamalar.Location = new Point(-13, -9);
             btnHesaplamalar.Name = "btnHesaplamalar";
             btnHesaplamalar.Padding = new Padding(15, 0, 0, 0);
-
             btnHesaplamalar.Size = new Size(233, 58);
-
             btnHesaplamalar.TabIndex = 0;
             btnHesaplamalar.Text = "            Hesaplamalar";
             btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;

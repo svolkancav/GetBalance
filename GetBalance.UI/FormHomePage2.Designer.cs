@@ -49,8 +49,8 @@
             lblGuncelBMH = new Label();
             lblGuncelVKI = new Label();
             label8 = new Label();
-            label7 = new Label();
             label5 = new Label();
+            label6 = new Label();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
@@ -183,8 +183,8 @@
             panel1.Controls.Add(lblGuncelBMH);
             panel1.Controls.Add(lblGuncelVKI);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
             panel1.Controls.Add(label5);
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
@@ -275,27 +275,27 @@
             label8.TabIndex = 55;
             label8.Text = "GÜNLÜK SU İHTİYACI";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(3, 75);
-            label7.Name = "label7";
-            label7.Size = new Size(306, 25);
-            label7.TabIndex = 54;
-            label7.Text = "BAZAL METABOLİZMA HIZI (BMR)";
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(3, 125);
+            label5.Location = new Point(3, 75);
             label5.Name = "label5";
-            label5.Size = new Size(178, 25);
-            label5.TabIndex = 52;
-            label5.Text = "VÜCUT YAĞ ORANI";
+            label5.Size = new Size(306, 25);
+            label5.TabIndex = 54;
+            label5.Text = "BAZAL METABOLİZMA HIZI (BMR)";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(3, 125);
+            label6.Name = "label6";
+            label6.Size = new Size(178, 25);
+            label6.TabIndex = 52;
+            label6.Text = "VÜCUT YAĞ ORANI";
             // 
             // label4
             // 
@@ -363,6 +363,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHomePage2";
             Text = "FormHomePage2";
+            Load += FormHomePage2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             pnlKilo.ResumeLayout(false);
             pnlKilo.PerformLayout();
@@ -397,9 +398,9 @@
         private Label label1;
         private Label label3;
         private Label label4;
-        private Label label5;
+        private Label label6;
         private Label label8;
-        private Label label7;
+        private Label label5;
         private Label lblGuncelKAH;
         private Label lblGuncelGSI;
         private Label lblGuncelGKI;

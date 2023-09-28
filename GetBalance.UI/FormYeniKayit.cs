@@ -79,5 +79,10 @@ namespace GetBalance.UI
             }
         }
 
+        private void FormYeniKayit_Load(object sender, EventArgs e)
+        {
+            txtSifre.PasswordChar = '*';
+            txtSifre2.PasswordChar = '*';
+        }
     }
 }

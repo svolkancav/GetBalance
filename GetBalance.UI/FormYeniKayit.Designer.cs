@@ -283,6 +283,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormYeniKayit";
             Text = "FormYeniKayit";
+            Load += FormYeniKayit_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
