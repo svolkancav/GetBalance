@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-    public partial class FormAnasayfa : Form
+    public partial class FormBenimKilom : Form
     {
-        public FormAnasayfa()
+        public FormBenimKilom()
         {
             InitializeComponent();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +14,16 @@ namespace GetBalance.UI
 {
     public partial class FormHomePage : Form
     {
-        AnaSayfaControl anaSayfaControl;
-        //GunlukControl gunlukControl;
-        Form formGunluk;
+
+        Form formGunluk, formProfil, formAnasayfa, formHesaplamalar, formRapor;
         public Point downPoint = Point.Empty;
+
+
 
         User _user;
         public FormHomePage()
         {
             InitializeComponent();
-            anaSayfaControl = new AnaSayfaControl();
-            //gunlukControl = new GunlukControl();
         }
 
         public FormHomePage(User user)
@@ -35,6 +35,16 @@ namespace GetBalance.UI
         private void FormHomePage_Load(object sender, EventArgs e)
         {
             formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
+            formProfil = new FormProfil() { TopLevel = false, TopMost = true };
+            formAnasayfa = new FormHomePage2() { TopLevel = false, TopMost = true };
+            formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
+            formRapor = new FormRapor() { TopLevel = false, TopMost = true };
+            pnlAnaPanel.Controls.Add(formGunluk);
+            pnlAnaPanel.Controls.Add(formAnasayfa);
+            pnlAnaPanel.Controls.Add(formProfil);
+            pnlAnaPanel.Controls.Add(formHesaplamalar);
+            pnlAnaPanel.Controls.Add(formRapor);
+            formAnasayfa.Show();
 
         }
 
@@ -75,21 +85,35 @@ namespace GetBalance.UI
         }
         private void btnProfil_Click(object sender, EventArgs e)
         {
+            HideAllForms();
+            formProfil.Show();
 
         }
         private void btnAnaSayfa_Click(object sender, EventArgs e)
         {
-            anaSayfaControl.Show();
-            //anaSayfaControl1.BringToFront();
+            HideAllForms();
+            formAnasayfa.Show();
         }
 
         private void btnGunluk_Click(object sender, EventArgs e)
         {
-            //gunlukControl1.BringToFront();
-            //gunlukControl1.Show();
 
-            pnlAnaPanel.Controls.Add(formGunluk);
+            HideAllForms();
             formGunluk.Show();
+        }
+
+        private void btnHesaplamalar_Click(object sender, EventArgs e)
+        {
+
+            HideAllForms();
+            formHesaplamalar.Show();
+        }
+
+        private void btnRaporlar_Click(object sender, EventArgs e)
+        {
+
+            HideAllForms();
+            formRapor.Show();
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
@@ -97,10 +121,50 @@ namespace GetBalance.UI
             Application.Exit();
         }
 
+
+
         #endregion
 
+        private void HideAllForms()
+        {
+            foreach (Form item in pnlAnaPanel.Controls)
+            {
+                item.Hide();
+            }
+        }
 
+
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            surukleniyor = true;
+            surukleBaslangicNoktasi = e.Location;
+
+
+        }
+
+
+
+
+        private bool surukleniyor = false;
+        private Point surukleBaslangicNoktasi;
+
+        private void pnlTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (surukleniyor)
+            {
+                Point yeniKonum = this.Location;
+                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+                this.Location = yeniKonum;
+            }
+        }
+
+        private void pnlTop_MouseUp(object sender, MouseEventArgs e)
+        {
+            surukleniyor = false;
+        }
 
 
     }
 }
+

@@ -39,6 +39,7 @@
             lblMail = new Label();
             lblKullaniciAdi = new Label();
             pictureBox1 = new PictureBox();
+            pnlProfil2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -56,6 +57,7 @@
             btnBizeUlasin.TabIndex = 19;
             btnBizeUlasin.Text = "Bize Ulaşın";
             btnBizeUlasin.UseVisualStyleBackColor = false;
+            btnBizeUlasin.Click += btnBizeUlasin_Click;
             // 
             // btnGizlilik
             // 
@@ -69,6 +71,7 @@
             btnGizlilik.TabIndex = 18;
             btnGizlilik.Text = "   İletişim ve Gizlilik";
             btnGizlilik.UseVisualStyleBackColor = false;
+            btnGizlilik.Click += btnGizlilik_Click;
             // 
             // btnFotografAlbumu
             // 
@@ -108,6 +111,7 @@
             btnBenimKilom.TabIndex = 15;
             btnBenimKilom.Text = "Benim Kilom";
             btnBenimKilom.UseVisualStyleBackColor = false;
+            btnBenimKilom.Click += btnBenimKilom_Click;
             // 
             // pictureBox3
             // 
@@ -159,11 +163,19 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
+            // pnlProfil2
+            // 
+            pnlProfil2.Location = new Point(322, 145);
+            pnlProfil2.Name = "pnlProfil2";
+            pnlProfil2.Size = new Size(710, 259);
+            pnlProfil2.TabIndex = 20;
+            // 
             // FormProfil
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1061, 443);
+            Controls.Add(pnlProfil2);
             Controls.Add(btnBizeUlasin);
             Controls.Add(btnGizlilik);
             Controls.Add(btnFotografAlbumu);
@@ -177,6 +189,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormProfil";
             Text = "FormProfil";
+            Load += FormProfil_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -196,5 +209,6 @@
         private Label lblMail;
         private Label lblKullaniciAdi;
         private PictureBox pictureBox1;
+        private Panel pnlProfil2;
     }
 }

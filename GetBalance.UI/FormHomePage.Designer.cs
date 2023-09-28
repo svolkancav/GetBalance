@@ -44,14 +44,12 @@
             btnGunluk = new Button();
             pnlRaporlar = new Panel();
             btnRaporlar = new Button();
-            pnlAyarlar = new Panel();
-            btnAyarlar = new Button();
+            pnlHesaplamalar = new Panel();
+            btnHesaplamalar = new Button();
             pnlCikis = new Panel();
             btnCikis = new Button();
             menuTransition = new System.Windows.Forms.Timer(components);
             pnlAnaPanel = new Panel();
-            pnlHesaplamalar = new Panel();
-            btnHesaplamalar = new Button();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnHome).BeginInit();
             menuContainer.SuspendLayout();
@@ -60,9 +58,8 @@
             pnlProfil.SuspendLayout();
             pnlGunluk.SuspendLayout();
             pnlRaporlar.SuspendLayout();
-            pnlAyarlar.SuspendLayout();
-            pnlCikis.SuspendLayout();
             pnlHesaplamalar.SuspendLayout();
+            pnlCikis.SuspendLayout();
             SuspendLayout();
             // 
             // pnlTop
@@ -75,6 +72,9 @@
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(1280, 35);
             pnlTop.TabIndex = 0;
+            pnlTop.MouseDown += pnlTop_MouseDown;
+            pnlTop.MouseMove += pnlTop_MouseMove;
+            pnlTop.MouseUp += pnlTop_MouseUp;
             // 
             // label2
             // 
@@ -144,7 +144,6 @@
             menuContainer.Controls.Add(pnlGunluk);
             menuContainer.Controls.Add(pnlRaporlar);
             menuContainer.Controls.Add(pnlHesaplamalar);
-            menuContainer.Controls.Add(pnlAyarlar);
             menuContainer.Controls.Add(pnlCikis);
             menuContainer.Dock = DockStyle.Left;
             menuContainer.Location = new Point(0, 35);
@@ -269,74 +268,7 @@
             btnRaporlar.Text = "            Raporlar";
             btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
             btnRaporlar.UseVisualStyleBackColor = false;
-            // 
-            // pnlAyarlar
-            // 
-            pnlAyarlar.Controls.Add(btnAyarlar);
-            pnlAyarlar.Location = new Point(3, 310);
-            pnlAyarlar.Name = "pnlAyarlar";
-            pnlAyarlar.Size = new Size(173, 40);
-            pnlAyarlar.TabIndex = 1;
-            // 
-            // btnAyarlar
-            // 
-            btnAyarlar.BackColor = Color.FromArgb(2, 53, 53);
-            btnAyarlar.FlatAppearance.BorderSize = 0;
-            btnAyarlar.FlatStyle = FlatStyle.Flat;
-            btnAyarlar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAyarlar.ForeColor = Color.White;
-            btnAyarlar.Image = Properties.Resources.settings_4_32;
-            btnAyarlar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAyarlar.Location = new Point(-13, -9);
-            btnAyarlar.Name = "btnAyarlar";
-            btnAyarlar.Padding = new Padding(15, 0, 0, 0);
-            btnAyarlar.Size = new Size(199, 58);
-            btnAyarlar.TabIndex = 0;
-            btnAyarlar.Text = "            Ayarlar";
-            btnAyarlar.TextAlign = ContentAlignment.MiddleLeft;
-            btnAyarlar.UseVisualStyleBackColor = false;
-            // 
-            // pnlCikis
-            // 
-            pnlCikis.Controls.Add(btnCikis);
-            pnlCikis.Location = new Point(3, 356);
-            pnlCikis.Name = "pnlCikis";
-            pnlCikis.Size = new Size(173, 40);
-            pnlCikis.TabIndex = 1;
-            // 
-            // btnCikis
-            // 
-            btnCikis.BackColor = Color.FromArgb(2, 53, 53);
-            btnCikis.FlatAppearance.BorderSize = 0;
-            btnCikis.FlatStyle = FlatStyle.Flat;
-            btnCikis.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCikis.ForeColor = Color.White;
-            btnCikis.Image = Properties.Resources.exit_32;
-            btnCikis.ImageAlign = ContentAlignment.MiddleLeft;
-
-            btnCikis.Location = new Point(-13, -9);
-
-            btnCikis.Name = "btnCikis";
-            btnCikis.Padding = new Padding(15, 0, 0, 0);
-            btnCikis.Size = new Size(199, 58);
-            btnCikis.TabIndex = 0;
-            btnCikis.Text = "            Çıkış";
-            btnCikis.TextAlign = ContentAlignment.MiddleLeft;
-            btnCikis.UseVisualStyleBackColor = false;
-            btnCikis.Click += btnCikis_Click;
-            // 
-            // menuTransition
-            // 
-            menuTransition.Interval = 10;
-            menuTransition.Tick += menuTransition_Tick;
-            // 
-            // pnlAnaPanel
-            // 
-            pnlAnaPanel.Dock = DockStyle.Fill;
-            pnlAnaPanel.Location = new Point(180, 35);
-            pnlAnaPanel.Name = "pnlAnaPanel";
-            pnlAnaPanel.Size = new Size(1100, 685);
-            pnlAnaPanel.TabIndex = 2;
+            btnRaporlar.Click += btnRaporlar_Click;
             // 
             // pnlHesaplamalar
             // 
@@ -363,6 +295,47 @@
             btnHesaplamalar.Text = "            Hesaplamalar";
             btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;
             btnHesaplamalar.UseVisualStyleBackColor = false;
+            btnHesaplamalar.Click += btnHesaplamalar_Click;
+            // 
+            // pnlCikis
+            // 
+            pnlCikis.Controls.Add(btnCikis);
+            pnlCikis.Location = new Point(3, 310);
+            pnlCikis.Name = "pnlCikis";
+            pnlCikis.Size = new Size(173, 40);
+            pnlCikis.TabIndex = 1;
+            // 
+            // btnCikis
+            // 
+            btnCikis.BackColor = Color.FromArgb(2, 53, 53);
+            btnCikis.FlatAppearance.BorderSize = 0;
+            btnCikis.FlatStyle = FlatStyle.Flat;
+            btnCikis.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCikis.ForeColor = Color.White;
+            btnCikis.Image = Properties.Resources.exit_32;
+            btnCikis.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCikis.Location = new Point(-13, -9);
+            btnCikis.Name = "btnCikis";
+            btnCikis.Padding = new Padding(15, 0, 0, 0);
+            btnCikis.Size = new Size(199, 58);
+            btnCikis.TabIndex = 0;
+            btnCikis.Text = "            Çıkış";
+            btnCikis.TextAlign = ContentAlignment.MiddleLeft;
+            btnCikis.UseVisualStyleBackColor = false;
+            btnCikis.Click += btnCikis_Click;
+            // 
+            // menuTransition
+            // 
+            menuTransition.Interval = 10;
+            menuTransition.Tick += menuTransition_Tick;
+            // 
+            // pnlAnaPanel
+            // 
+            pnlAnaPanel.Dock = DockStyle.Fill;
+            pnlAnaPanel.Location = new Point(180, 35);
+            pnlAnaPanel.Name = "pnlAnaPanel";
+            pnlAnaPanel.Size = new Size(1100, 685);
+            pnlAnaPanel.TabIndex = 2;
             // 
             // FormHomePage
             // 
@@ -389,9 +362,8 @@
             pnlProfil.ResumeLayout(false);
             pnlGunluk.ResumeLayout(false);
             pnlRaporlar.ResumeLayout(false);
-            pnlAyarlar.ResumeLayout(false);
-            pnlCikis.ResumeLayout(false);
             pnlHesaplamalar.ResumeLayout(false);
+            pnlCikis.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -412,8 +384,6 @@
         private Button btnGunluk;
         private Panel pnlRaporlar;
         private Button btnRaporlar;
-        private Panel pnlAyarlar;
-        private Button btnAyarlar;
         private Panel pnlCikis;
         private Button btnCikis;
         private Panel pnlAnaPanel;

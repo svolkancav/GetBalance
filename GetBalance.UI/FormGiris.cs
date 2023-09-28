@@ -28,7 +28,7 @@ namespace GetBalance.UI
 
             formUyeGirisi.Show();
             this.Hide();
-          
+
         }
 
         private void btnYeniKullanici_Click(object sender, EventArgs e)
@@ -37,6 +37,25 @@ namespace GetBalance.UI
 
             formYeniKayit.Show();
             this.Hide();
+        }
+
+        private bool surukleniyor = false;
+        private Point surukleBaslangicNoktasi;
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            surukleniyor = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (surukleniyor)
+            {
+                Point yeniKonum = this.Location;
+                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+                this.Location = yeniKonum;
+            }
         }
     }
 }

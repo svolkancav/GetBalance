@@ -1,26 +1,26 @@
 ﻿namespace GetBalance.UI
 {
-	partial class FormUyeGirisi
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class FormUyeGirisi
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
 
         /// <summary>
@@ -51,7 +51,7 @@
             panel1.BackColor = Color.FromArgb(2, 53, 53);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 26);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(540, 90);
             panel1.TabIndex = 0;
@@ -71,7 +71,7 @@
             // txtKullaniciAdi
             // 
             txtKullaniciAdi.Location = new Point(157, 282);
-            txtKullaniciAdi.Margin = new Padding(2, 2, 2, 2);
+            txtKullaniciAdi.Margin = new Padding(2);
             txtKullaniciAdi.Name = "txtKullaniciAdi";
             txtKullaniciAdi.Size = new Size(218, 23);
             txtKullaniciAdi.TabIndex = 1;
@@ -79,7 +79,7 @@
             // txtSifre
             // 
             txtSifre.Location = new Point(157, 319);
-            txtSifre.Margin = new Padding(2, 2, 2, 2);
+            txtSifre.Margin = new Padding(2);
             txtSifre.Name = "txtSifre";
             txtSifre.Size = new Size(218, 23);
             txtSifre.TabIndex = 2;
@@ -90,7 +90,7 @@
             btnOturumAc.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnOturumAc.ForeColor = SystemColors.ButtonHighlight;
             btnOturumAc.Location = new Point(157, 363);
-            btnOturumAc.Margin = new Padding(2, 2, 2, 2);
+            btnOturumAc.Margin = new Padding(2);
             btnOturumAc.Name = "btnOturumAc";
             btnOturumAc.Size = new Size(216, 26);
             btnOturumAc.TabIndex = 3;
@@ -151,6 +151,8 @@
             panel2.Size = new Size(541, 36);
             panel2.TabIndex = 8;
             panel2.Paint += panel2_Paint;
+            panel2.MouseMove += panel2_MouseMove;
+            panel2.MouseUp += panel2_MouseUp;
             // 
             // nightControlBox1
             // 
@@ -166,7 +168,7 @@
             nightControlBox1.EnableMaximizeColor = Color.FromArgb(160, 160, 160);
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.FromArgb(160, 160, 160);
-            nightControlBox1.Location = new Point(444, 0);
+            nightControlBox1.Location = new Point(402, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -200,7 +202,7 @@
             Controls.Add(txtKullaniciAdi);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FormUyeGirisi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormUyeGirisi";
@@ -215,18 +217,18 @@
 
 
 
-		#endregion
+        #endregion
 
-		private Panel panel1;
-		private Label label1;
-		private TextBox txtKullaniciAdi;
-		private TextBox txtSifre;
-		private Button btnOturumAc;
-		private LinkLabel lnklblSifreUnuttum;
-		private LinkLabel lnklblHesapOlustur;
-		private Label label2;
-		private Panel panel2;
-		private PictureBox pictureBox1;
-		private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-	}
+        private Panel panel1;
+        private Label label1;
+        private TextBox txtKullaniciAdi;
+        private TextBox txtSifre;
+        private Button btnOturumAc;
+        private LinkLabel lnklblSifreUnuttum;
+        private LinkLabel lnklblHesapOlustur;
+        private Label label2;
+        private Panel panel2;
+        private PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
+    }
 }

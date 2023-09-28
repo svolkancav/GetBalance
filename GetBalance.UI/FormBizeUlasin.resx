@@ -117,17 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnIleri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAXhJREFUWEftloFNAzEMRW8ERugIjNAN6CawAd2AbkA3aTeATWCD1k+9L5nr+ZLz
-        BUGlfulLUex8O07iu+6OW8PK+Gw8GD+Mp56MmcOGT3OsjQRQwBLxfTQ2wc4o4W/j3rgx+gCMmcOGj/zf
-        jGk8GLVrRLf9XAn44KtE0KhZd4WjUcEz5WSNT2IWVHYEUtn3YK2SQLMKXLglOx/CV6JKT6XnHFsBLTSL
-        R8Eb1u6XlH4IfxSTfeLFiBPPKYOpddjQJkYIlZ83nQFr3y/DK6CJnRghPo04ZS8fa6Mk0MRG2w4hgSE0
-        P4djScgWInLQ/ByO3QfZQrQ6grHgOgJihGhxCaOXUHUJ//wZqhF9GVs3IjTRLv6w/GYrniy/oI8RGWcv
-        owca2n21nj7HS4/Cl776cyzoKLKV8DuvKv0QZO+TeO3nSsAHXx98SRV//JQiSot9MvqqMGYOmwLD2WWP
-        QABVo4b4Zo6tCN4wjYQAatuQMXPYiu/8jn+ErjsD0EW5osZbfocAAAAASUVORK5CYII=
-</value>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>İletişim
+Sizlere hizmet sunabilmek amaçlı analizler yapabilmek için, sadece gerekli olan kişisel verilerinizin, işbu gizlilik ve kişisel verilerin işlenmesi politikası uyarınca işlenmesini, kabul edip etmemek hususunda tamamen özgürsünüz. Siteyi kullanmaya devam ettiğiniz takdirde kabul etmiş olduğunuz tarafımızca varsayılacak olup, daha ayrıntılı bilgi için bizimle email@site.com e-mail adresi üzerinden iletişime geçmekten lütfen çekinmeyiniz.</value>
   </data>
 </root>
