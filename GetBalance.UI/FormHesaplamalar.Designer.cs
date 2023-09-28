@@ -22,6 +22,7 @@
 
         #region Windows Form Designer generated code
 
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -31,20 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHesaplamalar));
             btnVKE = new Button();
             btnBMH = new Button();
-
-
             pnlSide = new Panel();
-
             btnMKAH = new Button();
             btnGSI = new Button();
             btnIdealKilo = new Button();
             btnVYO = new Button();
             btnGKİ = new Button();
-
-
             pnlHesaplamalar = new Panel();
             pnlSide.SuspendLayout();
-
             SuspendLayout();
             // 
             // btnVKE
@@ -80,8 +75,6 @@
             btnBMH.Tag = "BMR";
             btnBMH.Text = "      Bazal Metaboliz Hızı (BMR)";
             btnBMH.UseVisualStyleBackColor = false;
-
-
             btnBMH.Click += btnClick;
             // 
             // pnlSide
@@ -99,7 +92,6 @@
             pnlSide.Name = "pnlSide";
             pnlSide.Size = new Size(232, 607);
             pnlSide.TabIndex = 8;
-
             // 
             // btnMKAH
             // 
@@ -117,10 +109,7 @@
             btnMKAH.Tag = "MaksimumKalpHızı";
             btnMKAH.Text = "        Maksimum Kalp Hızı";
             btnMKAH.UseVisualStyleBackColor = false;
-
-
             btnMKAH.Click += btnClick;
-
             // 
             // btnGSI
             // 
@@ -138,10 +127,7 @@
             btnGSI.Tag = "GünlükSuİhtiyacı";
             btnGSI.Text = "        Günlük Su İhtiyacı";
             btnGSI.UseVisualStyleBackColor = false;
-
-
             btnGSI.Click += btnClick;
-
             // 
             // btnIdealKilo
             // 
@@ -159,9 +145,7 @@
             btnIdealKilo.Tag = "İdealKilo";
             btnIdealKilo.Text = "        İdeal Kilo";
             btnIdealKilo.UseVisualStyleBackColor = false;
-
             btnIdealKilo.Click += btnClick;
-
             // 
             // btnVYO
             // 
@@ -179,9 +163,7 @@
             btnVYO.Tag = "VücutYağOranı";
             btnVYO.Text = "Vücut Yağ Oranı";
             btnVYO.UseVisualStyleBackColor = false;
-
             btnVYO.Click += btnClick;
-
             // 
             // btnGKİ
             // 
@@ -199,11 +181,9 @@
             btnGKİ.Tag = "GünlükKaloriİhtiyacı";
             btnGKİ.Text = "        Günlük Kalori İhtiyacı";
             btnGKİ.UseVisualStyleBackColor = false;
-
             btnGKİ.Click += btnClick;
             // 
             // pnlHesaplamalar
-
             // 
             pnlHesaplamalar.Dock = DockStyle.Fill;
             pnlHesaplamalar.Location = new Point(232, 0);
@@ -211,45 +191,35 @@
             pnlHesaplamalar.Size = new Size(836, 607);
             pnlHesaplamalar.TabIndex = 9;
             // 
-            // pnlHesaplamalar2
-            // 
-            pnlHesaplamalar2.Location = new Point(238, 12);
-            pnlHesaplamalar2.Name = "pnlHesaplamalar2";
-            pnlHesaplamalar2.Size = new Size(818, 583);
-            pnlHesaplamalar2.TabIndex = 9;
-            // 
             // FormHesaplamalar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1068, 607);
-
             Controls.Add(pnlHesaplamalar);
             Controls.Add(pnlSide);
-
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHesaplamalar";
             Text = "FormHesaplamalar";
             Load += FormHesaplamalar_Load;
-
             pnlSide.ResumeLayout(false);
-
             ResumeLayout(false);
         }
 
+
+
         #endregion
+
+
 
         private Button btnVKE;
         private Button btnBMH;
-
         private Panel pnlSide;
-
         private Button btnGSI;
         private Button btnIdealKilo;
         private Button btnVYO;
         private Button btnGKİ;
         private Button btnMKAH;
-
         private Panel pnlHesaplamalar;
 
     }
