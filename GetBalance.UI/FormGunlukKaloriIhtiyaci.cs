@@ -28,7 +28,7 @@ namespace GetBalance.UI
                 string cinsiyet = rdbErkek.Checked ? "erkek" : "kadın";
                 int yas = Convert.ToInt32(txtYas.Text);
                 ActivityLevel activity = (ActivityLevel)cmbxAktiviteSeviyesi.SelectedValue;
-                lblGKIDeger.Text = CalculatorExtensions.BazalMetabolizmaHesapla(boy, kilo, yas, activity, cinsiyet).ToString();
+                lblGKIDeger.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString();
 
             }
             catch (Exception)

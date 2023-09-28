@@ -47,6 +47,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
+            cmbTraining = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -108,35 +110,35 @@
             // 
             // txtBoy
             // 
-            txtBoy.Location = new Point(320, 121);
+            txtBoy.Location = new Point(320, 97);
             txtBoy.Name = "txtBoy";
             txtBoy.Size = new Size(191, 23);
             txtBoy.TabIndex = 3;
             // 
             // txtKilo
             // 
-            txtKilo.Location = new Point(320, 163);
+            txtKilo.Location = new Point(320, 139);
             txtKilo.Name = "txtKilo";
             txtKilo.Size = new Size(191, 23);
             txtKilo.TabIndex = 4;
             // 
             // txtBoyunCevresi
             // 
-            txtBoyunCevresi.Location = new Point(320, 204);
+            txtBoyunCevresi.Location = new Point(320, 180);
             txtBoyunCevresi.Name = "txtBoyunCevresi";
             txtBoyunCevresi.Size = new Size(191, 23);
             txtBoyunCevresi.TabIndex = 5;
             // 
             // txtBelCevresi
             // 
-            txtBelCevresi.Location = new Point(320, 247);
+            txtBelCevresi.Location = new Point(320, 223);
             txtBelCevresi.Name = "txtBelCevresi";
             txtBelCevresi.Size = new Size(191, 23);
             txtBelCevresi.TabIndex = 6;
             // 
             // txtKalcaCevresi
             // 
-            txtKalcaCevresi.Location = new Point(320, 290);
+            txtKalcaCevresi.Location = new Point(320, 266);
             txtKalcaCevresi.Name = "txtKalcaCevresi";
             txtKalcaCevresi.Size = new Size(191, 23);
             txtKalcaCevresi.TabIndex = 7;
@@ -144,7 +146,7 @@
             // cbxAktiviteSeviyesi
             // 
             cbxAktiviteSeviyesi.FormattingEnabled = true;
-            cbxAktiviteSeviyesi.Location = new Point(320, 333);
+            cbxAktiviteSeviyesi.Location = new Point(320, 309);
             cbxAktiviteSeviyesi.Name = "cbxAktiviteSeviyesi";
             cbxAktiviteSeviyesi.Size = new Size(191, 23);
             cbxAktiviteSeviyesi.TabIndex = 8;
@@ -167,7 +169,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(221, 124);
+            label1.Location = new Point(221, 100);
             label1.Name = "label1";
             label1.Size = new Size(78, 21);
             label1.TabIndex = 10;
@@ -177,7 +179,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(221, 166);
+            label2.Location = new Point(221, 142);
             label2.Name = "label2";
             label2.Size = new Size(70, 21);
             label2.TabIndex = 11;
@@ -187,7 +189,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(150, 206);
+            label3.Location = new Point(142, 182);
             label3.Name = "label3";
             label3.Size = new Size(149, 21);
             label3.TabIndex = 12;
@@ -197,7 +199,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(165, 245);
+            label4.Location = new Point(165, 221);
             label4.Name = "label4";
             label4.Size = new Size(126, 21);
             label4.TabIndex = 13;
@@ -207,7 +209,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(150, 288);
+            label5.Location = new Point(150, 266);
             label5.Name = "label5";
             label5.Size = new Size(141, 21);
             label5.TabIndex = 14;
@@ -217,17 +219,36 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(165, 331);
+            label6.Location = new Point(165, 307);
             label6.Name = "label6";
             label6.Size = new Size(128, 21);
             label6.TabIndex = 15;
             label6.Text = "Aktivite Seviyesi";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(147, 349);
+            label7.Name = "label7";
+            label7.Size = new Size(144, 21);
+            label7.TabIndex = 16;
+            label7.Text = "Antreman Seviyesi";
+            // 
+            // cmbTraining
+            // 
+            cmbTraining.FormattingEnabled = true;
+            cmbTraining.Location = new Point(320, 347);
+            cmbTraining.Name = "cmbTraining";
+            cmbTraining.Size = new Size(191, 23);
+            cmbTraining.TabIndex = 8;
             // 
             // FormYeniKayit2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -235,6 +256,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnKayitOl);
+            Controls.Add(cmbTraining);
             Controls.Add(cbxAktiviteSeviyesi);
             Controls.Add(txtKalcaCevresi);
             Controls.Add(txtBelCevresi);
@@ -247,6 +269,7 @@
             Location = new Point(0, 32);
             Name = "FormYeniKayit2";
             Text = "FormYeniKayit2";
+            Load += FormYeniKayit2_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -274,5 +297,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label7;
+        private ComboBox cmbTraining;
     }
 }

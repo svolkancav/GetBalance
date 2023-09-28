@@ -39,7 +39,6 @@
             lblYorum = new Label();
             lblVKIDeger = new Label();
             label4 = new Label();
-            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -156,20 +155,6 @@
             label4.TabIndex = 1;
             label4.Text = "VÜCUT KİTLE İNDEKSİ  (BMI)";
             // 
-            // btnGeri
-            // 
-            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
-            btnGeri.FlatStyle = FlatStyle.Flat;
-            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGeri.ForeColor = Color.White;
-            btnGeri.Location = new Point(186, 512);
-            btnGeri.Name = "btnGeri";
-            btnGeri.Size = new Size(234, 49);
-            btnGeri.TabIndex = 5;
-            btnGeri.Text = "GERİ";
-            btnGeri.UseVisualStyleBackColor = false;
-            btnGeri.Click += btnGeri_Click;
-            // 
             // FormVucutKitleEndex
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,7 +162,6 @@
             ClientSize = new Size(836, 607);
             Controls.Add(panel1);
             Controls.Add(cpbVKI);
-            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -205,7 +189,6 @@
         private Panel panel1;
         private Label lblVKIDeger;
         private Label label4;
-        private Button btnGeri;
         private Label lblYorum;
     }
 }

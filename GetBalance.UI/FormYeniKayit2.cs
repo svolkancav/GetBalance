@@ -34,7 +34,7 @@ namespace GetBalance.UI
 
         public FormYeniKayit2()
         {
-            
+
         }
 
 
@@ -46,8 +46,9 @@ namespace GetBalance.UI
             double waistCircumference = Convert.ToDouble(txtBelCevresi.Text.Trim());
             double hipCircumference = Convert.ToDouble(txtKalcaCevresi.Text.Trim());
             ActivityLevel activityLevel = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
+            TrainingLevel trainingLevel = (TrainingLevel)cmbTraining.SelectedValue;
 
-            if (height == 0 || weight == 0 || neckCircumference == 0 || waistCircumference == 0 || hipCircumference == 0 || cbxAktiviteSeviyesi.SelectedIndex == -1)
+            if (height == 0 || weight == 0 || neckCircumference == 0 || waistCircumference == 0 || hipCircumference == 0 || cbxAktiviteSeviyesi.SelectedIndex == -1 || cmbTraining.SelectedIndex == -1)
             {
                 MessageBox.Show("Lütfen tüm alanları doldurunuz.");
                 return;
@@ -57,8 +58,9 @@ namespace GetBalance.UI
 
             _user.UserDetail.CurrentWeight = weight;
             _user.UserDetail.NeckCircumference = neckCircumference;
-            _user.UserDetail.WaistCircumference = waistCircumference;	
+            _user.UserDetail.WaistCircumference = waistCircumference;
             _user.UserDetail.HipCircumference = hipCircumference;
+            _user.UserDetail.TrainingLevel = trainingLevel;
 
 
             _userRepo.Add(_user);
@@ -82,6 +84,21 @@ namespace GetBalance.UI
             cbxAktiviteSeviyesi.ValueMember = "Value";
 
             cbxAktiviteSeviyesi.SelectedIndex = -1;
+
+
+            cmbTraining.DataSource = Enum.GetValues(typeof(TrainingLevel))
+                .Cast<TrainingLevel>()
+                .Select(x => new
+                {
+                    Value = (int)x,
+                    DisplayName = x.DisplayName()
+                }).ToList();
+            cmbTraining.DisplayMember = "DisplayName";
+            cmbTraining.ValueMember = "Value";
+
+            cmbTraining.SelectedIndex = -1;
+
+
         }
 
 
@@ -104,6 +121,7 @@ namespace GetBalance.UI
                 this.Location = yeniKonum;
             }
         }
+
 
     }
 }
