@@ -73,6 +73,7 @@
             txtKullaniciAdi.Location = new Point(157, 282);
             txtKullaniciAdi.Margin = new Padding(2);
             txtKullaniciAdi.Name = "txtKullaniciAdi";
+            txtKullaniciAdi.PlaceholderText = "Kullanici adi veya e-mail";
             txtKullaniciAdi.Size = new Size(218, 23);
             txtKullaniciAdi.TabIndex = 1;
             // 
@@ -81,6 +82,8 @@
             txtSifre.Location = new Point(157, 319);
             txtSifre.Margin = new Padding(2);
             txtSifre.Name = "txtSifre";
+            txtSifre.PasswordChar = '*';
+            txtSifre.PlaceholderText = "Şifre";
             txtSifre.Size = new Size(218, 23);
             txtSifre.TabIndex = 2;
             // 

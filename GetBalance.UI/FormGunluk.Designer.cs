@@ -30,8 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunluk));
-            lblTarih = new Label();
-            btnRight = new Button();
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "egg", "1", "2", "10", "5" }, -1);
             pnlLeftSide = new Panel();
             pictureBox2 = new PictureBox();
             circleProgressBar1 = new ReaLTaiizor.Controls.CircleProgressBar();
@@ -51,90 +50,69 @@
             btnOgleYemegi = new Button();
             btnAperatif = new Button();
             btnAksamYmegi = new Button();
-            pnlTop = new Panel();
-            pnlTarih = new Panel();
-            btnLeft = new Button();
-            pnlMain = new Panel();
-            pnlAperatifLsv = new Panel();
             lsvAperatif = new ListView();
-            columnHeader11 = new ColumnHeader();
-            columnHeader12 = new ColumnHeader();
-            columnHeader13 = new ColumnHeader();
-            columnHeader14 = new ColumnHeader();
-            columnHeader15 = new ColumnHeader();
-            pnlAperatif = new Panel();
-            button4 = new Button();
-            pnlAksamLsv = new Panel();
             lsvAksam = new ListView();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
-            columnHeader8 = new ColumnHeader();
-            columnHeader9 = new ColumnHeader();
-            columnHeader10 = new ColumnHeader();
-            pnlAksam = new Panel();
-            button3 = new Button();
-            pnlOgleLsv = new Panel();
             lsvOgle = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            pnlOgle = new Panel();
-            button2 = new Button();
-            pnlKahveLsv = new Panel();
             lsvKahvalti = new ListView();
-            Food = new ColumnHeader();
-            Portion = new ColumnHeader();
-            Carb = new ColumnHeader();
-            Pro = new ColumnHeader();
-            Fat = new ColumnHeader();
-            pnlKahvalti = new Panel();
-            button1 = new Button();
             btnKahvalti = new Button();
             cmsSagTik = new ContextMenuStrip(components);
             tsmDuzenle = new ToolStripMenuItem();
             tsmKaldir = new ToolStripMenuItem();
+            btnRight = new Button();
+            btnLeft = new Button();
+            pnlTarih = new Panel();
+            lblTarih = new Label();
+            pnlGunluk = new Panel();
+            pnlMain = new Panel();
+            tlpAperatifVeriler = new TableLayoutPanel();
+            lblAperatifTopKalori = new Label();
+            lblAperatifTopKarb = new Label();
+            lblAperatifTopProtein = new Label();
+            lblAperatifTopYag = new Label();
+            tlpAksamVeriler = new TableLayoutPanel();
+            lblAksamTopKalori = new Label();
+            lblAksamTopKarb = new Label();
+            lblAksamTopProtein = new Label();
+            lblAksamTopYag = new Label();
+            tlpOgleVeriler = new TableLayoutPanel();
+            lblOgleTopKalori = new Label();
+            lblOgleTopKarb = new Label();
+            lblOgleTopProtein = new Label();
+            lblOgleTopYag = new Label();
+            tlpKahvaltiVeriler = new TableLayoutPanel();
+            lblKahvaltiTopKalori = new Label();
+            lblKahvaltiTopKarb = new Label();
+            lblKahvaltiTopProtein = new Label();
+            lblKahvaltiTopYag = new Label();
+            pbAddAperatif = new PictureBox();
+            pbAddAksam = new PictureBox();
+            pbAddOgle = new PictureBox();
+            pbAddKahvalti = new PictureBox();
+            pnlAperatifLsv = new Panel();
+            pnlAksamLsv = new Panel();
+            pnlOgleLsv = new Panel();
+            pnlKahveLsv = new Panel();
+            pnlTop = new Panel();
             pnlLeftSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            pnlTop.SuspendLayout();
-            pnlTarih.SuspendLayout();
-            pnlMain.SuspendLayout();
-            pnlAperatifLsv.SuspendLayout();
-            pnlAperatif.SuspendLayout();
-            pnlAksamLsv.SuspendLayout();
-            pnlAksam.SuspendLayout();
-            pnlOgleLsv.SuspendLayout();
-            pnlOgle.SuspendLayout();
-            pnlKahveLsv.SuspendLayout();
-            pnlKahvalti.SuspendLayout();
             cmsSagTik.SuspendLayout();
+            pnlTarih.SuspendLayout();
+            pnlGunluk.SuspendLayout();
+            pnlMain.SuspendLayout();
+            tlpAperatifVeriler.SuspendLayout();
+            tlpAksamVeriler.SuspendLayout();
+            tlpOgleVeriler.SuspendLayout();
+            tlpKahvaltiVeriler.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbAddAperatif).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddAksam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddOgle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddKahvalti).BeginInit();
+            pnlAperatifLsv.SuspendLayout();
+            pnlAksamLsv.SuspendLayout();
+            pnlOgleLsv.SuspendLayout();
+            pnlKahveLsv.SuspendLayout();
+            pnlTop.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblTarih
-            // 
-            lblTarih.AutoSize = true;
-            lblTarih.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTarih.Location = new Point(168, 17);
-            lblTarih.Name = "lblTarih";
-            lblTarih.Size = new Size(48, 21);
-            lblTarih.TabIndex = 14;
-            lblTarih.Text = "Tarih";
-            lblTarih.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnRight
-            // 
-            btnRight.BackColor = Color.FromArgb(244, 240, 232);
-            btnRight.Dock = DockStyle.Right;
-            btnRight.FlatStyle = FlatStyle.Flat;
-            btnRight.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRight.Location = new Point(650, 0);
-            btnRight.Name = "btnRight";
-            btnRight.Size = new Size(250, 50);
-            btnRight.TabIndex = 15;
-            btnRight.Text = ">";
-            btnRight.TextAlign = ContentAlignment.MiddleLeft;
-            btnRight.UseVisualStyleBackColor = false;
             // 
             // pnlLeftSide
             // 
@@ -157,7 +135,7 @@
             pnlLeftSide.Dock = DockStyle.Left;
             pnlLeftSide.Location = new Point(0, 0);
             pnlLeftSide.Name = "pnlLeftSide";
-            pnlLeftSide.Size = new Size(200, 685);
+            pnlLeftSide.Size = new Size(200, 675);
             pnlLeftSide.TabIndex = 17;
             // 
             // pictureBox2
@@ -319,14 +297,14 @@
             // btnOgleYemegi
             // 
             btnOgleYemegi.BackColor = Color.FromArgb(12, 171, 168);
-            btnOgleYemegi.Dock = DockStyle.Fill;
+            btnOgleYemegi.Dock = DockStyle.Top;
             btnOgleYemegi.FlatStyle = FlatStyle.Popup;
             btnOgleYemegi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnOgleYemegi.ForeColor = Color.White;
             btnOgleYemegi.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOgleYemegi.Location = new Point(0, 0);
+            btnOgleYemegi.Location = new Point(0, 180);
             btnOgleYemegi.Name = "btnOgleYemegi";
-            btnOgleYemegi.Size = new Size(900, 40);
+            btnOgleYemegi.Size = new Size(873, 40);
             btnOgleYemegi.TabIndex = 22;
             btnOgleYemegi.Text = "        Öğle Yemeği";
             btnOgleYemegi.TextAlign = ContentAlignment.MiddleLeft;
@@ -336,14 +314,14 @@
             // btnAperatif
             // 
             btnAperatif.BackColor = Color.FromArgb(1, 89, 88);
-            btnAperatif.Dock = DockStyle.Fill;
+            btnAperatif.Dock = DockStyle.Top;
             btnAperatif.FlatStyle = FlatStyle.Popup;
             btnAperatif.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnAperatif.ForeColor = Color.White;
             btnAperatif.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAperatif.Location = new Point(0, 0);
+            btnAperatif.Location = new Point(0, 540);
             btnAperatif.Name = "btnAperatif";
-            btnAperatif.Size = new Size(900, 40);
+            btnAperatif.Size = new Size(873, 40);
             btnAperatif.TabIndex = 24;
             btnAperatif.Text = "        Aperatifler / Diğer";
             btnAperatif.TextAlign = ContentAlignment.MiddleLeft;
@@ -353,393 +331,93 @@
             // btnAksamYmegi
             // 
             btnAksamYmegi.BackColor = Color.FromArgb(0, 143, 140);
-            btnAksamYmegi.Dock = DockStyle.Fill;
+            btnAksamYmegi.Dock = DockStyle.Top;
             btnAksamYmegi.FlatStyle = FlatStyle.Popup;
             btnAksamYmegi.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnAksamYmegi.ForeColor = Color.White;
             btnAksamYmegi.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAksamYmegi.Location = new Point(0, 0);
+            btnAksamYmegi.Location = new Point(0, 360);
             btnAksamYmegi.Name = "btnAksamYmegi";
-            btnAksamYmegi.Size = new Size(900, 40);
+            btnAksamYmegi.Size = new Size(873, 40);
             btnAksamYmegi.TabIndex = 23;
             btnAksamYmegi.Text = "        Akşam Yemeği";
             btnAksamYmegi.TextAlign = ContentAlignment.MiddleLeft;
             btnAksamYmegi.UseVisualStyleBackColor = false;
             btnAksamYmegi.Click += btnAksamYmegi_Click;
             // 
-            // pnlTop
-            // 
-            pnlTop.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pnlTop.AutoSize = true;
-            pnlTop.Controls.Add(pnlTarih);
-            pnlTop.Controls.Add(btnLeft);
-            pnlTop.Controls.Add(btnRight);
-            pnlTop.Location = new Point(200, 0);
-            pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(900, 50);
-            pnlTop.TabIndex = 19;
-            // 
-            // pnlTarih
-            // 
-            pnlTarih.BackColor = Color.FromArgb(244, 240, 232);
-            pnlTarih.Controls.Add(lblTarih);
-            pnlTarih.Dock = DockStyle.Fill;
-            pnlTarih.Location = new Point(250, 0);
-            pnlTarih.Name = "pnlTarih";
-            pnlTarih.Size = new Size(400, 50);
-            pnlTarih.TabIndex = 17;
-            // 
-            // btnLeft
-            // 
-            btnLeft.BackColor = Color.FromArgb(244, 240, 232);
-            btnLeft.Dock = DockStyle.Left;
-            btnLeft.FlatStyle = FlatStyle.Flat;
-            btnLeft.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLeft.Location = new Point(0, 0);
-            btnLeft.Name = "btnLeft";
-            btnLeft.Size = new Size(250, 50);
-            btnLeft.TabIndex = 16;
-            btnLeft.Text = "<";
-            btnLeft.TextAlign = ContentAlignment.MiddleRight;
-            btnLeft.UseVisualStyleBackColor = false;
-            // 
-            // pnlMain
-            // 
-            pnlMain.Anchor = AnchorStyles.None;
-            pnlMain.AutoScroll = true;
-            pnlMain.AutoSize = true;
-            pnlMain.Controls.Add(pnlAperatifLsv);
-            pnlMain.Controls.Add(pnlAperatif);
-            pnlMain.Controls.Add(pnlAksamLsv);
-            pnlMain.Controls.Add(pnlAksam);
-            pnlMain.Controls.Add(pnlOgleLsv);
-            pnlMain.Controls.Add(pnlOgle);
-            pnlMain.Controls.Add(pnlKahveLsv);
-            pnlMain.Controls.Add(pnlKahvalti);
-            pnlMain.Location = new Point(200, 50);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(900, 760);
-            pnlMain.TabIndex = 20;
-            // 
-            // pnlAperatifLsv
-            // 
-            pnlAperatifLsv.Controls.Add(lsvAperatif);
-            pnlAperatifLsv.Dock = DockStyle.Top;
-            pnlAperatifLsv.Location = new Point(0, 610);
-            pnlAperatifLsv.Name = "pnlAperatifLsv";
-            pnlAperatifLsv.Size = new Size(900, 150);
-            pnlAperatifLsv.TabIndex = 34;
-            // 
             // lsvAperatif
             // 
-            lsvAperatif.Columns.AddRange(new ColumnHeader[] { columnHeader11, columnHeader12, columnHeader13, columnHeader14, columnHeader15 });
+            lsvAperatif.BorderStyle = BorderStyle.None;
             lsvAperatif.Dock = DockStyle.Fill;
             lsvAperatif.FullRowSelect = true;
             lsvAperatif.GridLines = true;
             lsvAperatif.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvAperatif.Location = new Point(0, 0);
             lsvAperatif.Name = "lsvAperatif";
-            lsvAperatif.Size = new Size(900, 150);
+            lsvAperatif.Size = new Size(873, 140);
             lsvAperatif.TabIndex = 26;
             lsvAperatif.UseCompatibleStateImageBehavior = false;
             lsvAperatif.View = View.Details;
-            // 
-            // columnHeader11
-            // 
-            columnHeader11.Text = "Yemek";
-            columnHeader11.Width = 273;
-            // 
-            // columnHeader12
-            // 
-            columnHeader12.Text = "Porsiyon Miktarı";
-            columnHeader12.TextAlign = HorizontalAlignment.Center;
-            columnHeader12.Width = 100;
-            // 
-            // columnHeader13
-            // 
-            columnHeader13.Text = "Karbonhidrat";
-            columnHeader13.TextAlign = HorizontalAlignment.Center;
-            columnHeader13.Width = 100;
-            // 
-            // columnHeader14
-            // 
-            columnHeader14.Text = "Protein";
-            columnHeader14.TextAlign = HorizontalAlignment.Center;
-            columnHeader14.Width = 100;
-            // 
-            // columnHeader15
-            // 
-            columnHeader15.Text = "Yağ";
-            columnHeader15.TextAlign = HorizontalAlignment.Center;
-            columnHeader15.Width = 100;
-            // 
-            // pnlAperatif
-            // 
-            pnlAperatif.Controls.Add(button4);
-            pnlAperatif.Controls.Add(btnAperatif);
-            pnlAperatif.Dock = DockStyle.Top;
-            pnlAperatif.Location = new Point(0, 570);
-            pnlAperatif.Name = "pnlAperatif";
-            pnlAperatif.Size = new Size(900, 40);
-            pnlAperatif.TabIndex = 33;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(1, 89, 88);
-            button4.Dock = DockStyle.Right;
-            button4.FlatStyle = FlatStyle.Popup;
-            button4.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.ForeColor = Color.White;
-            button4.ImageAlign = ContentAlignment.TopCenter;
-            button4.Location = new Point(823, 0);
-            button4.Name = "button4";
-            button4.Size = new Size(77, 40);
-            button4.TabIndex = 21;
-            button4.Text = "+";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // pnlAksamLsv
-            // 
-            pnlAksamLsv.Controls.Add(lsvAksam);
-            pnlAksamLsv.Dock = DockStyle.Top;
-            pnlAksamLsv.Location = new Point(0, 420);
-            pnlAksamLsv.Name = "pnlAksamLsv";
-            pnlAksamLsv.Size = new Size(900, 150);
-            pnlAksamLsv.TabIndex = 32;
+            lsvAperatif.MouseClick += lsv_MouseClick;
             // 
             // lsvAksam
             // 
-            lsvAksam.Columns.AddRange(new ColumnHeader[] { columnHeader6, columnHeader7, columnHeader8, columnHeader9, columnHeader10 });
+            lsvAksam.BorderStyle = BorderStyle.None;
             lsvAksam.Dock = DockStyle.Fill;
             lsvAksam.FullRowSelect = true;
             lsvAksam.GridLines = true;
             lsvAksam.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvAksam.Location = new Point(0, 0);
             lsvAksam.Name = "lsvAksam";
-            lsvAksam.Size = new Size(900, 150);
+            lsvAksam.Size = new Size(873, 140);
             lsvAksam.TabIndex = 26;
             lsvAksam.UseCompatibleStateImageBehavior = false;
             lsvAksam.View = View.Details;
-            // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "Yemek";
-            columnHeader6.Width = 273;
-            // 
-            // columnHeader7
-            // 
-            columnHeader7.Text = "Porsiyon Miktarı";
-            columnHeader7.TextAlign = HorizontalAlignment.Center;
-            columnHeader7.Width = 100;
-            // 
-            // columnHeader8
-            // 
-            columnHeader8.Text = "Karbonhidrat";
-            columnHeader8.TextAlign = HorizontalAlignment.Center;
-            columnHeader8.Width = 100;
-            // 
-            // columnHeader9
-            // 
-            columnHeader9.Text = "Protein";
-            columnHeader9.TextAlign = HorizontalAlignment.Center;
-            columnHeader9.Width = 100;
-            // 
-            // columnHeader10
-            // 
-            columnHeader10.Text = "Yağ";
-            columnHeader10.TextAlign = HorizontalAlignment.Center;
-            columnHeader10.Width = 100;
-            // 
-            // pnlAksam
-            // 
-            pnlAksam.Controls.Add(button3);
-            pnlAksam.Controls.Add(btnAksamYmegi);
-            pnlAksam.Dock = DockStyle.Top;
-            pnlAksam.Location = new Point(0, 380);
-            pnlAksam.Name = "pnlAksam";
-            pnlAksam.Size = new Size(900, 40);
-            pnlAksam.TabIndex = 31;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(0, 143, 140);
-            button3.Dock = DockStyle.Right;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = Color.White;
-            button3.ImageAlign = ContentAlignment.TopCenter;
-            button3.Location = new Point(823, 0);
-            button3.Name = "button3";
-            button3.Size = new Size(77, 40);
-            button3.TabIndex = 21;
-            button3.Text = "+";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // pnlOgleLsv
-            // 
-            pnlOgleLsv.Controls.Add(lsvOgle);
-            pnlOgleLsv.Dock = DockStyle.Top;
-            pnlOgleLsv.Location = new Point(0, 230);
-            pnlOgleLsv.Name = "pnlOgleLsv";
-            pnlOgleLsv.Size = new Size(900, 150);
-            pnlOgleLsv.TabIndex = 30;
+            lsvAksam.MouseClick += lsv_MouseClick;
             // 
             // lsvOgle
             // 
-            lsvOgle.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            lsvOgle.BorderStyle = BorderStyle.None;
             lsvOgle.Dock = DockStyle.Fill;
             lsvOgle.FullRowSelect = true;
             lsvOgle.GridLines = true;
             lsvOgle.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lsvOgle.Location = new Point(0, 0);
             lsvOgle.Name = "lsvOgle";
-            lsvOgle.Size = new Size(900, 150);
+            lsvOgle.Size = new Size(873, 140);
             lsvOgle.TabIndex = 26;
             lsvOgle.UseCompatibleStateImageBehavior = false;
             lsvOgle.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Yemek";
-            columnHeader1.Width = 273;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Porsiyon Miktarı";
-            columnHeader2.TextAlign = HorizontalAlignment.Center;
-            columnHeader2.Width = 100;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Karbonhidrat";
-            columnHeader3.TextAlign = HorizontalAlignment.Center;
-            columnHeader3.Width = 100;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Protein";
-            columnHeader4.TextAlign = HorizontalAlignment.Center;
-            columnHeader4.Width = 100;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "Yağ";
-            columnHeader5.TextAlign = HorizontalAlignment.Center;
-            columnHeader5.Width = 100;
-            // 
-            // pnlOgle
-            // 
-            pnlOgle.Controls.Add(button2);
-            pnlOgle.Controls.Add(btnOgleYemegi);
-            pnlOgle.Dock = DockStyle.Top;
-            pnlOgle.Location = new Point(0, 190);
-            pnlOgle.Name = "pnlOgle";
-            pnlOgle.Size = new Size(900, 40);
-            pnlOgle.TabIndex = 29;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(12, 171, 168);
-            button2.Dock = DockStyle.Right;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.ImageAlign = ContentAlignment.TopCenter;
-            button2.Location = new Point(823, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(77, 40);
-            button2.TabIndex = 21;
-            button2.Text = "+";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // pnlKahveLsv
-            // 
-            pnlKahveLsv.Controls.Add(lsvKahvalti);
-            pnlKahveLsv.Dock = DockStyle.Top;
-            pnlKahveLsv.Location = new Point(0, 40);
-            pnlKahveLsv.Name = "pnlKahveLsv";
-            pnlKahveLsv.Size = new Size(900, 150);
-            pnlKahveLsv.TabIndex = 28;
+            lsvOgle.MouseClick += lsv_MouseClick;
             // 
             // lsvKahvalti
             // 
-            lsvKahvalti.Columns.AddRange(new ColumnHeader[] { Food, Portion, Carb, Pro, Fat });
+            lsvKahvalti.BorderStyle = BorderStyle.None;
             lsvKahvalti.Dock = DockStyle.Fill;
             lsvKahvalti.FullRowSelect = true;
             lsvKahvalti.GridLines = true;
             lsvKahvalti.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listViewItem1.StateImageIndex = 0;
+            lsvKahvalti.Items.AddRange(new ListViewItem[] { listViewItem1 });
             lsvKahvalti.Location = new Point(0, 0);
             lsvKahvalti.Name = "lsvKahvalti";
-            lsvKahvalti.Size = new Size(900, 150);
+            lsvKahvalti.Size = new Size(873, 140);
             lsvKahvalti.TabIndex = 26;
             lsvKahvalti.UseCompatibleStateImageBehavior = false;
             lsvKahvalti.View = View.Details;
-            // 
-            // Food
-            // 
-            Food.Text = "Yemek";
-            Food.Width = 273;
-            // 
-            // Portion
-            // 
-            Portion.Text = "Porsiyon Miktarı";
-            Portion.TextAlign = HorizontalAlignment.Center;
-            Portion.Width = 100;
-            // 
-            // Carb
-            // 
-            Carb.Text = "Karbonhidrat";
-            Carb.TextAlign = HorizontalAlignment.Center;
-            Carb.Width = 100;
-            // 
-            // Pro
-            // 
-            Pro.Text = "Protein";
-            Pro.TextAlign = HorizontalAlignment.Center;
-            Pro.Width = 100;
-            // 
-            // Fat
-            // 
-            Fat.Text = "Yağ";
-            Fat.TextAlign = HorizontalAlignment.Center;
-            Fat.Width = 100;
-            // 
-            // pnlKahvalti
-            // 
-            pnlKahvalti.Controls.Add(button1);
-            pnlKahvalti.Controls.Add(btnKahvalti);
-            pnlKahvalti.Dock = DockStyle.Top;
-            pnlKahvalti.Location = new Point(0, 0);
-            pnlKahvalti.Name = "pnlKahvalti";
-            pnlKahvalti.Size = new Size(900, 40);
-            pnlKahvalti.TabIndex = 27;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(15, 194, 192);
-            button1.Dock = DockStyle.Right;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.ImageAlign = ContentAlignment.TopCenter;
-            button1.Location = new Point(823, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(77, 40);
-            button1.TabIndex = 21;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = false;
+            lsvKahvalti.MouseClick += lsv_MouseClick;
             // 
             // btnKahvalti
             // 
             btnKahvalti.BackColor = Color.FromArgb(15, 194, 192);
-            btnKahvalti.Dock = DockStyle.Fill;
+            btnKahvalti.Dock = DockStyle.Top;
             btnKahvalti.FlatStyle = FlatStyle.Popup;
             btnKahvalti.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnKahvalti.ForeColor = Color.White;
             btnKahvalti.ImageAlign = ContentAlignment.MiddleLeft;
             btnKahvalti.Location = new Point(0, 0);
             btnKahvalti.Name = "btnKahvalti";
-            btnKahvalti.Size = new Size(900, 40);
+            btnKahvalti.Size = new Size(873, 40);
             btnKahvalti.TabIndex = 21;
             btnKahvalti.Text = "        Kahvaltı";
             btnKahvalti.TextAlign = ContentAlignment.MiddleLeft;
@@ -757,50 +435,497 @@
             tsmDuzenle.Name = "tsmDuzenle";
             tsmDuzenle.Size = new Size(116, 22);
             tsmDuzenle.Text = "Düzenle";
+            tsmDuzenle.Click += TsmClick;
             // 
             // tsmKaldir
             // 
             tsmKaldir.Name = "tsmKaldir";
             tsmKaldir.Size = new Size(116, 22);
             tsmKaldir.Text = "Kaldır";
+            tsmKaldir.Click += TsmClick;
+            // 
+            // btnRight
+            // 
+            btnRight.BackColor = Color.FromArgb(244, 240, 232);
+            btnRight.Dock = DockStyle.Right;
+            btnRight.FlatStyle = FlatStyle.Flat;
+            btnRight.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRight.Image = Properties.Resources.arrow_36_32__1_;
+            btnRight.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRight.Location = new Point(615, 0);
+            btnRight.Name = "btnRight";
+            btnRight.Size = new Size(250, 50);
+            btnRight.TabIndex = 15;
+            btnRight.TextAlign = ContentAlignment.MiddleLeft;
+            btnRight.UseVisualStyleBackColor = false;
+            btnRight.Click += btnRight_Click;
+            // 
+            // btnLeft
+            // 
+            btnLeft.BackColor = Color.FromArgb(244, 240, 232);
+            btnLeft.Dock = DockStyle.Left;
+            btnLeft.FlatStyle = FlatStyle.Flat;
+            btnLeft.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLeft.Image = Properties.Resources.arrow_101_32__1_;
+            btnLeft.ImageAlign = ContentAlignment.MiddleRight;
+            btnLeft.Location = new Point(0, 0);
+            btnLeft.Name = "btnLeft";
+            btnLeft.Size = new Size(250, 50);
+            btnLeft.TabIndex = 16;
+            btnLeft.TextAlign = ContentAlignment.MiddleRight;
+            btnLeft.UseVisualStyleBackColor = false;
+            btnLeft.Click += btnLeft_Click;
+            // 
+            // pnlTarih
+            // 
+            pnlTarih.BackColor = Color.FromArgb(244, 240, 232);
+            pnlTarih.Controls.Add(lblTarih);
+            pnlTarih.Dock = DockStyle.Fill;
+            pnlTarih.Location = new Point(250, 0);
+            pnlTarih.Name = "pnlTarih";
+            pnlTarih.Size = new Size(365, 50);
+            pnlTarih.TabIndex = 17;
+            // 
+            // lblTarih
+            // 
+            lblTarih.Dock = DockStyle.Fill;
+            lblTarih.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTarih.Location = new Point(0, 0);
+            lblTarih.Name = "lblTarih";
+            lblTarih.Size = new Size(365, 50);
+            lblTarih.TabIndex = 14;
+            lblTarih.Text = "Tarih";
+            lblTarih.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pnlGunluk
+            // 
+            pnlGunluk.Controls.Add(pnlMain);
+            pnlGunluk.Controls.Add(pnlTop);
+            pnlGunluk.Controls.Add(pnlLeftSide);
+            pnlGunluk.Dock = DockStyle.Fill;
+            pnlGunluk.Location = new Point(5, 5);
+            pnlGunluk.Name = "pnlGunluk";
+            pnlGunluk.Size = new Size(1065, 675);
+            pnlGunluk.TabIndex = 21;
+            // 
+            // pnlMain
+            // 
+            pnlMain.AutoScroll = true;
+            pnlMain.Controls.Add(tlpAperatifVeriler);
+            pnlMain.Controls.Add(tlpAksamVeriler);
+            pnlMain.Controls.Add(tlpOgleVeriler);
+            pnlMain.Controls.Add(tlpKahvaltiVeriler);
+            pnlMain.Controls.Add(pbAddAperatif);
+            pnlMain.Controls.Add(pbAddAksam);
+            pnlMain.Controls.Add(pbAddOgle);
+            pnlMain.Controls.Add(pbAddKahvalti);
+            pnlMain.Controls.Add(pnlAperatifLsv);
+            pnlMain.Controls.Add(btnAperatif);
+            pnlMain.Controls.Add(pnlAksamLsv);
+            pnlMain.Controls.Add(btnAksamYmegi);
+            pnlMain.Controls.Add(pnlOgleLsv);
+            pnlMain.Controls.Add(btnOgleYemegi);
+            pnlMain.Controls.Add(pnlKahveLsv);
+            pnlMain.Controls.Add(btnKahvalti);
+            pnlMain.Dock = DockStyle.Fill;
+            pnlMain.Location = new Point(200, 50);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(865, 625);
+            pnlMain.TabIndex = 27;
+            // 
+            // tlpAperatifVeriler
+            // 
+            tlpAperatifVeriler.BackColor = Color.FromArgb(1, 89, 88);
+            tlpAperatifVeriler.ColumnCount = 4;
+            tlpAperatifVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAperatifVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAperatifVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAperatifVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAperatifVeriler.Controls.Add(lblAperatifTopKalori, 0, 0);
+            tlpAperatifVeriler.Controls.Add(lblAperatifTopKarb, 1, 0);
+            tlpAperatifVeriler.Controls.Add(lblAperatifTopProtein, 2, 0);
+            tlpAperatifVeriler.Controls.Add(lblAperatifTopYag, 3, 0);
+            tlpAperatifVeriler.Location = new Point(473, 543);
+            tlpAperatifVeriler.Name = "tlpAperatifVeriler";
+            tlpAperatifVeriler.RowCount = 1;
+            tlpAperatifVeriler.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpAperatifVeriler.Size = new Size(400, 34);
+            tlpAperatifVeriler.TabIndex = 32;
+            // 
+            // lblAperatifTopKalori
+            // 
+            lblAperatifTopKalori.Dock = DockStyle.Fill;
+            lblAperatifTopKalori.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAperatifTopKalori.ForeColor = Color.FromArgb(192, 64, 0);
+            lblAperatifTopKalori.Location = new Point(3, 0);
+            lblAperatifTopKalori.Name = "lblAperatifTopKalori";
+            lblAperatifTopKalori.Size = new Size(94, 34);
+            lblAperatifTopKalori.TabIndex = 0;
+            lblAperatifTopKalori.Text = "Kalori";
+            lblAperatifTopKalori.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblAperatifTopKarb
+            // 
+            lblAperatifTopKarb.Dock = DockStyle.Fill;
+            lblAperatifTopKarb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAperatifTopKarb.Location = new Point(103, 0);
+            lblAperatifTopKarb.Name = "lblAperatifTopKarb";
+            lblAperatifTopKarb.Size = new Size(94, 34);
+            lblAperatifTopKarb.TabIndex = 1;
+            lblAperatifTopKarb.Text = "Carb";
+            lblAperatifTopKarb.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblAperatifTopProtein
+            // 
+            lblAperatifTopProtein.Dock = DockStyle.Fill;
+            lblAperatifTopProtein.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAperatifTopProtein.Location = new Point(203, 0);
+            lblAperatifTopProtein.Name = "lblAperatifTopProtein";
+            lblAperatifTopProtein.Size = new Size(94, 34);
+            lblAperatifTopProtein.TabIndex = 2;
+            lblAperatifTopProtein.Text = "Protein";
+            lblAperatifTopProtein.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblAperatifTopYag
+            // 
+            lblAperatifTopYag.Dock = DockStyle.Fill;
+            lblAperatifTopYag.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAperatifTopYag.Location = new Point(303, 0);
+            lblAperatifTopYag.Name = "lblAperatifTopYag";
+            lblAperatifTopYag.Size = new Size(94, 34);
+            lblAperatifTopYag.TabIndex = 3;
+            lblAperatifTopYag.Text = "Yağ";
+            lblAperatifTopYag.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tlpAksamVeriler
+            // 
+            tlpAksamVeriler.BackColor = Color.FromArgb(0, 143, 140);
+            tlpAksamVeriler.ColumnCount = 4;
+            tlpAksamVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAksamVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAksamVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAksamVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpAksamVeriler.Controls.Add(lblAksamTopKalori, 0, 0);
+            tlpAksamVeriler.Controls.Add(lblAksamTopKarb, 1, 0);
+            tlpAksamVeriler.Controls.Add(lblAksamTopProtein, 2, 0);
+            tlpAksamVeriler.Controls.Add(lblAksamTopYag, 3, 0);
+            tlpAksamVeriler.Location = new Point(473, 363);
+            tlpAksamVeriler.Name = "tlpAksamVeriler";
+            tlpAksamVeriler.RowCount = 1;
+            tlpAksamVeriler.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpAksamVeriler.Size = new Size(400, 34);
+            tlpAksamVeriler.TabIndex = 32;
+            // 
+            // lblAksamTopKalori
+            // 
+            lblAksamTopKalori.Dock = DockStyle.Fill;
+            lblAksamTopKalori.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAksamTopKalori.ForeColor = Color.FromArgb(192, 64, 0);
+            lblAksamTopKalori.Location = new Point(3, 0);
+            lblAksamTopKalori.Name = "lblAksamTopKalori";
+            lblAksamTopKalori.Size = new Size(94, 34);
+            lblAksamTopKalori.TabIndex = 0;
+            lblAksamTopKalori.Text = "Kalori";
+            lblAksamTopKalori.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblAksamTopKarb
+            // 
+            lblAksamTopKarb.Dock = DockStyle.Fill;
+            lblAksamTopKarb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAksamTopKarb.Location = new Point(103, 0);
+            lblAksamTopKarb.Name = "lblAksamTopKarb";
+            lblAksamTopKarb.Size = new Size(94, 34);
+            lblAksamTopKarb.TabIndex = 1;
+            lblAksamTopKarb.Text = "Carb";
+            lblAksamTopKarb.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblAksamTopProtein
+            // 
+            lblAksamTopProtein.Dock = DockStyle.Fill;
+            lblAksamTopProtein.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAksamTopProtein.Location = new Point(203, 0);
+            lblAksamTopProtein.Name = "lblAksamTopProtein";
+            lblAksamTopProtein.Size = new Size(94, 34);
+            lblAksamTopProtein.TabIndex = 2;
+            lblAksamTopProtein.Text = "Protein";
+            lblAksamTopProtein.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblAksamTopYag
+            // 
+            lblAksamTopYag.Dock = DockStyle.Fill;
+            lblAksamTopYag.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAksamTopYag.Location = new Point(303, 0);
+            lblAksamTopYag.Name = "lblAksamTopYag";
+            lblAksamTopYag.Size = new Size(94, 34);
+            lblAksamTopYag.TabIndex = 3;
+            lblAksamTopYag.Text = "Yağ";
+            lblAksamTopYag.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tlpOgleVeriler
+            // 
+            tlpOgleVeriler.BackColor = Color.FromArgb(12, 171, 168);
+            tlpOgleVeriler.ColumnCount = 4;
+            tlpOgleVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpOgleVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpOgleVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpOgleVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpOgleVeriler.Controls.Add(lblOgleTopKalori, 0, 0);
+            tlpOgleVeriler.Controls.Add(lblOgleTopKarb, 1, 0);
+            tlpOgleVeriler.Controls.Add(lblOgleTopProtein, 2, 0);
+            tlpOgleVeriler.Controls.Add(lblOgleTopYag, 3, 0);
+            tlpOgleVeriler.Location = new Point(473, 183);
+            tlpOgleVeriler.Name = "tlpOgleVeriler";
+            tlpOgleVeriler.RowCount = 1;
+            tlpOgleVeriler.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpOgleVeriler.Size = new Size(400, 34);
+            tlpOgleVeriler.TabIndex = 32;
+            // 
+            // lblOgleTopKalori
+            // 
+            lblOgleTopKalori.Dock = DockStyle.Fill;
+            lblOgleTopKalori.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblOgleTopKalori.ForeColor = Color.FromArgb(192, 64, 0);
+            lblOgleTopKalori.Location = new Point(3, 0);
+            lblOgleTopKalori.Name = "lblOgleTopKalori";
+            lblOgleTopKalori.Size = new Size(94, 34);
+            lblOgleTopKalori.TabIndex = 0;
+            lblOgleTopKalori.Text = "Kalori";
+            lblOgleTopKalori.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblOgleTopKarb
+            // 
+            lblOgleTopKarb.Dock = DockStyle.Fill;
+            lblOgleTopKarb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOgleTopKarb.Location = new Point(103, 0);
+            lblOgleTopKarb.Name = "lblOgleTopKarb";
+            lblOgleTopKarb.Size = new Size(94, 34);
+            lblOgleTopKarb.TabIndex = 1;
+            lblOgleTopKarb.Text = "Carb";
+            lblOgleTopKarb.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblOgleTopProtein
+            // 
+            lblOgleTopProtein.Dock = DockStyle.Fill;
+            lblOgleTopProtein.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOgleTopProtein.Location = new Point(203, 0);
+            lblOgleTopProtein.Name = "lblOgleTopProtein";
+            lblOgleTopProtein.Size = new Size(94, 34);
+            lblOgleTopProtein.TabIndex = 2;
+            lblOgleTopProtein.Text = "Protein";
+            lblOgleTopProtein.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblOgleTopYag
+            // 
+            lblOgleTopYag.Dock = DockStyle.Fill;
+            lblOgleTopYag.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblOgleTopYag.Location = new Point(303, 0);
+            lblOgleTopYag.Name = "lblOgleTopYag";
+            lblOgleTopYag.Size = new Size(94, 34);
+            lblOgleTopYag.TabIndex = 3;
+            lblOgleTopYag.Text = "Yağ";
+            lblOgleTopYag.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tlpKahvaltiVeriler
+            // 
+            tlpKahvaltiVeriler.BackColor = Color.FromArgb(15, 194, 192);
+            tlpKahvaltiVeriler.ColumnCount = 4;
+            tlpKahvaltiVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpKahvaltiVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpKahvaltiVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpKahvaltiVeriler.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopKalori, 0, 0);
+            tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopKarb, 1, 0);
+            tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopProtein, 2, 0);
+            tlpKahvaltiVeriler.Controls.Add(lblKahvaltiTopYag, 3, 0);
+            tlpKahvaltiVeriler.Location = new Point(470, 3);
+            tlpKahvaltiVeriler.Name = "tlpKahvaltiVeriler";
+            tlpKahvaltiVeriler.RowCount = 1;
+            tlpKahvaltiVeriler.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpKahvaltiVeriler.Size = new Size(400, 34);
+            tlpKahvaltiVeriler.TabIndex = 32;
+            // 
+            // lblKahvaltiTopKalori
+            // 
+            lblKahvaltiTopKalori.Dock = DockStyle.Fill;
+            lblKahvaltiTopKalori.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblKahvaltiTopKalori.ForeColor = Color.FromArgb(192, 64, 0);
+            lblKahvaltiTopKalori.Location = new Point(3, 0);
+            lblKahvaltiTopKalori.Name = "lblKahvaltiTopKalori";
+            lblKahvaltiTopKalori.Size = new Size(94, 34);
+            lblKahvaltiTopKalori.TabIndex = 0;
+            lblKahvaltiTopKalori.Text = "Kalori";
+            lblKahvaltiTopKalori.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKahvaltiTopKarb
+            // 
+            lblKahvaltiTopKarb.Dock = DockStyle.Fill;
+            lblKahvaltiTopKarb.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblKahvaltiTopKarb.Location = new Point(103, 0);
+            lblKahvaltiTopKarb.Name = "lblKahvaltiTopKarb";
+            lblKahvaltiTopKarb.Size = new Size(94, 34);
+            lblKahvaltiTopKarb.TabIndex = 1;
+            lblKahvaltiTopKarb.Text = "Carb";
+            lblKahvaltiTopKarb.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKahvaltiTopProtein
+            // 
+            lblKahvaltiTopProtein.Dock = DockStyle.Fill;
+            lblKahvaltiTopProtein.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblKahvaltiTopProtein.Location = new Point(203, 0);
+            lblKahvaltiTopProtein.Name = "lblKahvaltiTopProtein";
+            lblKahvaltiTopProtein.Size = new Size(94, 34);
+            lblKahvaltiTopProtein.TabIndex = 2;
+            lblKahvaltiTopProtein.Text = "Protein";
+            lblKahvaltiTopProtein.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKahvaltiTopYag
+            // 
+            lblKahvaltiTopYag.Dock = DockStyle.Fill;
+            lblKahvaltiTopYag.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblKahvaltiTopYag.Location = new Point(303, 0);
+            lblKahvaltiTopYag.Name = "lblKahvaltiTopYag";
+            lblKahvaltiTopYag.Size = new Size(94, 34);
+            lblKahvaltiTopYag.TabIndex = 3;
+            lblKahvaltiTopYag.Text = "Yağ";
+            lblKahvaltiTopYag.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pbAddAperatif
+            // 
+            pbAddAperatif.BackColor = Color.FromArgb(1, 89, 88);
+            pbAddAperatif.Cursor = Cursors.Hand;
+            pbAddAperatif.Image = Properties.Resources.plus_6_32;
+            pbAddAperatif.Location = new Point(5, 546);
+            pbAddAperatif.Name = "pbAddAperatif";
+            pbAddAperatif.Size = new Size(30, 30);
+            pbAddAperatif.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbAddAperatif.TabIndex = 31;
+            pbAddAperatif.TabStop = false;
+            pbAddAperatif.Click += btnAdd_Clicked;
+            // 
+            // pbAddAksam
+            // 
+            pbAddAksam.BackColor = Color.FromArgb(0, 143, 140);
+            pbAddAksam.Cursor = Cursors.Hand;
+            pbAddAksam.Image = Properties.Resources.plus_6_32;
+            pbAddAksam.Location = new Point(5, 366);
+            pbAddAksam.Name = "pbAddAksam";
+            pbAddAksam.Size = new Size(30, 30);
+            pbAddAksam.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbAddAksam.TabIndex = 31;
+            pbAddAksam.TabStop = false;
+            pbAddAksam.Click += btnAdd_Clicked;
+            // 
+            // pbAddOgle
+            // 
+            pbAddOgle.BackColor = Color.FromArgb(12, 171, 168);
+            pbAddOgle.Cursor = Cursors.Hand;
+            pbAddOgle.Image = Properties.Resources.plus_6_32;
+            pbAddOgle.Location = new Point(5, 186);
+            pbAddOgle.Name = "pbAddOgle";
+            pbAddOgle.Size = new Size(30, 30);
+            pbAddOgle.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbAddOgle.TabIndex = 31;
+            pbAddOgle.TabStop = false;
+            pbAddOgle.Click += btnAdd_Clicked;
+            // 
+            // pbAddKahvalti
+            // 
+            pbAddKahvalti.BackColor = Color.FromArgb(15, 194, 192);
+            pbAddKahvalti.Cursor = Cursors.Hand;
+            pbAddKahvalti.Image = Properties.Resources.plus_6_32;
+            pbAddKahvalti.Location = new Point(5, 5);
+            pbAddKahvalti.Name = "pbAddKahvalti";
+            pbAddKahvalti.Size = new Size(30, 30);
+            pbAddKahvalti.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbAddKahvalti.TabIndex = 31;
+            pbAddKahvalti.TabStop = false;
+            pbAddKahvalti.Click += btnAdd_Clicked;
+            // 
+            // pnlAperatifLsv
+            // 
+            pnlAperatifLsv.Controls.Add(lsvAperatif);
+            pnlAperatifLsv.Dock = DockStyle.Top;
+            pnlAperatifLsv.Location = new Point(0, 580);
+            pnlAperatifLsv.Name = "pnlAperatifLsv";
+            pnlAperatifLsv.Size = new Size(873, 140);
+            pnlAperatifLsv.TabIndex = 30;
+            // 
+            // pnlAksamLsv
+            // 
+            pnlAksamLsv.Controls.Add(lsvAksam);
+            pnlAksamLsv.Dock = DockStyle.Top;
+            pnlAksamLsv.Location = new Point(0, 400);
+            pnlAksamLsv.Name = "pnlAksamLsv";
+            pnlAksamLsv.Size = new Size(873, 140);
+            pnlAksamLsv.TabIndex = 29;
+            // 
+            // pnlOgleLsv
+            // 
+            pnlOgleLsv.Controls.Add(lsvOgle);
+            pnlOgleLsv.Dock = DockStyle.Top;
+            pnlOgleLsv.Location = new Point(0, 220);
+            pnlOgleLsv.Name = "pnlOgleLsv";
+            pnlOgleLsv.Size = new Size(873, 140);
+            pnlOgleLsv.TabIndex = 28;
+            // 
+            // pnlKahveLsv
+            // 
+            pnlKahveLsv.Controls.Add(lsvKahvalti);
+            pnlKahveLsv.Dock = DockStyle.Top;
+            pnlKahveLsv.Location = new Point(0, 40);
+            pnlKahveLsv.Name = "pnlKahveLsv";
+            pnlKahveLsv.Size = new Size(873, 140);
+            pnlKahveLsv.TabIndex = 27;
+            // 
+            // pnlTop
+            // 
+            pnlTop.Controls.Add(pnlTarih);
+            pnlTop.Controls.Add(btnLeft);
+            pnlTop.Controls.Add(btnRight);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(200, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(865, 50);
+            pnlTop.TabIndex = 20;
             // 
             // FormGunluk
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 685);
+            BackColor = Color.White;
+            ClientSize = new Size(1075, 685);
             ControlBox = false;
-            Controls.Add(pnlMain);
-            Controls.Add(pnlTop);
-            Controls.Add(pnlLeftSide);
+            Controls.Add(pnlGunluk);
             FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(1229, 685);
             Name = "FormGunluk";
+            Padding = new Padding(5);
             Text = "FormGunluk";
+            Load += FormGunluk_Load;
             pnlLeftSide.ResumeLayout(false);
             pnlLeftSide.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            pnlTop.ResumeLayout(false);
-            pnlTarih.ResumeLayout(false);
-            pnlTarih.PerformLayout();
-            pnlMain.ResumeLayout(false);
-            pnlAperatifLsv.ResumeLayout(false);
-            pnlAperatif.ResumeLayout(false);
-            pnlAksamLsv.ResumeLayout(false);
-            pnlAksam.ResumeLayout(false);
-            pnlOgleLsv.ResumeLayout(false);
-            pnlOgle.ResumeLayout(false);
-            pnlKahveLsv.ResumeLayout(false);
-            pnlKahvalti.ResumeLayout(false);
             cmsSagTik.ResumeLayout(false);
+            pnlTarih.ResumeLayout(false);
+            pnlGunluk.ResumeLayout(false);
+            pnlMain.ResumeLayout(false);
+            tlpAperatifVeriler.ResumeLayout(false);
+            tlpAksamVeriler.ResumeLayout(false);
+            tlpOgleVeriler.ResumeLayout(false);
+            tlpKahvaltiVeriler.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbAddAperatif).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddAksam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddOgle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAddKahvalti).EndInit();
+            pnlAperatifLsv.ResumeLayout(false);
+            pnlAksamLsv.ResumeLayout(false);
+            pnlOgleLsv.ResumeLayout(false);
+            pnlKahveLsv.ResumeLayout(false);
+            pnlTop.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
-        private Label lblTarih;
-        private Button btnRight;
         private Panel pnlLeftSide;
-        private Panel pnlTop;
-        private Panel pnlMain;
         private Button btnAperatif;
         private Button btnAksamYmegi;
         private Button btnOgleYemegi;
@@ -813,49 +938,15 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnLeft;
-        private Panel pnlTarih;
         private ListView lsvKahvalti;
-        private ColumnHeader Food;
-        private ColumnHeader Portion;
-        private ColumnHeader Carb;
-        private ColumnHeader Pro;
-        private ColumnHeader Fat;
-        private Panel pnlKahvalti;
-        private Button button1;
-        private Panel pnlOgleLsv;
         private ListView lsvOgle;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private Panel pnlOgle;
-        private Button button2;
-        private Panel pnlKahveLsv;
-        private Panel pnlAperatifLsv;
-        private Panel pnlAperatif;
-        private Button button4;
-        private Panel pnlAksamLsv;
         private ListView lsvAksam;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
-        private ColumnHeader columnHeader9;
-        private ColumnHeader columnHeader10;
-        private Panel pnlAksam;
-        private Button button3;
         private Label lblHedefKarb;
         private Label lblHedefKalori;
         private Label lblHedefYag;
         private Label lblHedefProtein;
         private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
         private ListView lsvAperatif;
-        private ColumnHeader columnHeader11;
-        private ColumnHeader columnHeader12;
-        private ColumnHeader columnHeader13;
-        private ColumnHeader columnHeader14;
-        private ColumnHeader columnHeader15;
         private ContextMenuStrip cmsSagTik;
         private ToolStripMenuItem tsmDuzenle;
         private ToolStripMenuItem tsmKaldir;
@@ -864,6 +955,41 @@
 
         private PictureBox pictureBox2;
         private Label label5;
+        private Panel pnlTop;
+        private Panel pnlMain;
+        private Panel pnlAperatifLsv;
+        private Panel pnlAksamLsv;
+        private Panel pnlOgleLsv;
+        private Panel pnlKahveLsv;
+        private Panel pnlTarih;
+        private Label lblTarih;
+        private Button btnLeft;
+        private Button btnRight;
+        private Panel pnlGunluk;
+        private PictureBox pbAddKahvalti;
+        private PictureBox pbAddAperatif;
+        private PictureBox pbAddAksam;
+        private PictureBox pbAddOgle;
+        private TableLayoutPanel tlpKahvaltiVeriler;
+        private Label lblKahvaltiTopKalori;
+        private Label lblKahvaltiTopKarb;
+        private Label lblKahvaltiTopProtein;
+        private Label lblKahvaltiTopYag;
+        private TableLayoutPanel tlpOgleVeriler;
+        private Label lblOgleTopKalori;
+        private Label lblOgleTopKarb;
+        private Label lblOgleTopProtein;
+        private Label lblOgleTopYag;
+        private TableLayoutPanel tlpAperatifVeriler;
+        private Label lblAperatifTopKalori;
+        private Label lblAperatifTopKarb;
+        private Label lblAperatifTopProtein;
+        private Label lblAperatifTopYag;
+        private TableLayoutPanel tlpAksamVeriler;
+        private Label lblAksamTopKalori;
+        private Label lblAksamTopKarb;
+        private Label lblAksamTopProtein;
+        private Label lblAksamTopYag;
     }
 
 

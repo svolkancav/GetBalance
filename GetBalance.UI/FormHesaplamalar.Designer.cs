@@ -31,15 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHesaplamalar));
             btnVKE = new Button();
             btnBMH = new Button();
-            pnlHesaplamalar1 = new Panel();
+
+
+            pnlSide = new Panel();
+
             btnMKAH = new Button();
             btnGSI = new Button();
             btnIdealKilo = new Button();
             btnVYO = new Button();
             btnGKİ = new Button();
-            btnYVK = new Button();
-            pnlHesaplamalar2 = new Panel();
-            pnlHesaplamalar1.SuspendLayout();
+
+
+            pnlHesaplamalar = new Panel();
+            pnlSide.SuspendLayout();
+
             SuspendLayout();
             // 
             // btnVKE
@@ -55,9 +60,10 @@
             btnVKE.Name = "btnVKE";
             btnVKE.Size = new Size(230, 41);
             btnVKE.TabIndex = 0;
+            btnVKE.Tag = "VKI";
             btnVKE.Text = "        Vücut Kitle Endeksi ( BMI)";
             btnVKE.UseVisualStyleBackColor = false;
-            btnVKE.Click += btnVKE_Click;
+            btnVKE.Click += btnClick;
             // 
             // btnBMH
             // 
@@ -67,30 +73,33 @@
             btnBMH.ForeColor = Color.White;
             btnBMH.Image = (Image)resources.GetObject("btnBMH.Image");
             btnBMH.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBMH.Location = new Point(0, 104);
+            btnBMH.Location = new Point(0, 116);
             btnBMH.Name = "btnBMH";
             btnBMH.Size = new Size(230, 41);
             btnBMH.TabIndex = 1;
+            btnBMH.Tag = "BMR";
             btnBMH.Text = "      Bazal Metaboliz Hızı (BMR)";
             btnBMH.UseVisualStyleBackColor = false;
-            btnBMH.Click += btnBMH_Click;
+
+
+            btnBMH.Click += btnClick;
             // 
-            // pnlHesaplamalar1
+            // pnlSide
             // 
-            pnlHesaplamalar1.BackColor = Color.FromArgb(244, 240, 232);
-            pnlHesaplamalar1.Controls.Add(btnMKAH);
-            pnlHesaplamalar1.Controls.Add(btnVKE);
-            pnlHesaplamalar1.Controls.Add(btnGSI);
-            pnlHesaplamalar1.Controls.Add(btnBMH);
-            pnlHesaplamalar1.Controls.Add(btnIdealKilo);
-            pnlHesaplamalar1.Controls.Add(btnVYO);
-            pnlHesaplamalar1.Controls.Add(btnGKİ);
-            pnlHesaplamalar1.Controls.Add(btnYVK);
-            pnlHesaplamalar1.Dock = DockStyle.Left;
-            pnlHesaplamalar1.Location = new Point(0, 0);
-            pnlHesaplamalar1.Name = "pnlHesaplamalar1";
-            pnlHesaplamalar1.Size = new Size(232, 607);
-            pnlHesaplamalar1.TabIndex = 8;
+            pnlSide.BackColor = Color.FromArgb(244, 240, 232);
+            pnlSide.Controls.Add(btnMKAH);
+            pnlSide.Controls.Add(btnVKE);
+            pnlSide.Controls.Add(btnGSI);
+            pnlSide.Controls.Add(btnBMH);
+            pnlSide.Controls.Add(btnIdealKilo);
+            pnlSide.Controls.Add(btnVYO);
+            pnlSide.Controls.Add(btnGKİ);
+            pnlSide.Dock = DockStyle.Left;
+            pnlSide.Location = new Point(0, 0);
+            pnlSide.Name = "pnlSide";
+            pnlSide.Size = new Size(232, 607);
+            pnlSide.TabIndex = 8;
+
             // 
             // btnMKAH
             // 
@@ -101,13 +110,17 @@
             btnMKAH.ForeColor = Color.White;
             btnMKAH.Image = (Image)resources.GetObject("btnMKAH.Image");
             btnMKAH.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMKAH.Location = new Point(-3, 539);
+            btnMKAH.Location = new Point(0, 533);
             btnMKAH.Name = "btnMKAH";
             btnMKAH.Size = new Size(230, 41);
             btnMKAH.TabIndex = 14;
+            btnMKAH.Tag = "MaksimumKalpHızı";
             btnMKAH.Text = "        Maksimum Kalp Hızı";
             btnMKAH.UseVisualStyleBackColor = false;
-            btnMKAH.Click += btnMKAH_Click;
+
+
+            btnMKAH.Click += btnClick;
+
             // 
             // btnGSI
             // 
@@ -118,13 +131,17 @@
             btnGSI.ForeColor = Color.White;
             btnGSI.Image = (Image)resources.GetObject("btnGSI.Image");
             btnGSI.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGSI.Location = new Point(-3, 469);
+            btnGSI.Location = new Point(0, 452);
             btnGSI.Name = "btnGSI";
             btnGSI.Size = new Size(230, 41);
             btnGSI.TabIndex = 13;
+            btnGSI.Tag = "GünlükSuİhtiyacı";
             btnGSI.Text = "        Günlük Su İhtiyacı";
             btnGSI.UseVisualStyleBackColor = false;
-            btnGSI.Click += btnGSI_Click;
+
+
+            btnGSI.Click += btnClick;
+
             // 
             // btnIdealKilo
             // 
@@ -135,13 +152,16 @@
             btnIdealKilo.ForeColor = Color.White;
             btnIdealKilo.Image = (Image)resources.GetObject("btnIdealKilo.Image");
             btnIdealKilo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnIdealKilo.Location = new Point(0, 390);
+            btnIdealKilo.Location = new Point(-1, 366);
             btnIdealKilo.Name = "btnIdealKilo";
             btnIdealKilo.Size = new Size(230, 41);
             btnIdealKilo.TabIndex = 12;
+            btnIdealKilo.Tag = "İdealKilo";
             btnIdealKilo.Text = "        İdeal Kilo";
             btnIdealKilo.UseVisualStyleBackColor = false;
-            btnIdealKilo.Click += btnIdealKilo_Click;
+
+            btnIdealKilo.Click += btnClick;
+
             // 
             // btnVYO
             // 
@@ -152,13 +172,16 @@
             btnVYO.ForeColor = Color.White;
             btnVYO.Image = (Image)resources.GetObject("btnVYO.Image");
             btnVYO.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVYO.Location = new Point(-1, 180);
+            btnVYO.Location = new Point(-1, 199);
             btnVYO.Name = "btnVYO";
             btnVYO.Size = new Size(230, 41);
             btnVYO.TabIndex = 9;
+            btnVYO.Tag = "VücutYağOranı";
             btnVYO.Text = "Vücut Yağ Oranı";
             btnVYO.UseVisualStyleBackColor = false;
-            btnVYO.Click += btnVYO_Click;
+
+            btnVYO.Click += btnClick;
+
             // 
             // btnGKİ
             // 
@@ -169,29 +192,24 @@
             btnGKİ.ForeColor = Color.White;
             btnGKİ.Image = (Image)resources.GetObject("btnGKİ.Image");
             btnGKİ.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGKİ.Location = new Point(0, 317);
+            btnGKİ.Location = new Point(0, 283);
             btnGKİ.Name = "btnGKİ";
             btnGKİ.Size = new Size(230, 41);
             btnGKİ.TabIndex = 11;
+            btnGKİ.Tag = "GünlükKaloriİhtiyacı";
             btnGKİ.Text = "        Günlük Kalori İhtiyacı";
             btnGKİ.UseVisualStyleBackColor = false;
-            btnGKİ.Click += btnGKİ_Click;
+
+            btnGKİ.Click += btnClick;
             // 
-            // btnYVK
+            // pnlHesaplamalar
+
             // 
-            btnYVK.BackColor = Color.FromArgb(15, 194, 192);
-            btnYVK.FlatAppearance.BorderSize = 0;
-            btnYVK.FlatStyle = FlatStyle.Flat;
-            btnYVK.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnYVK.ForeColor = Color.White;
-            btnYVK.Image = (Image)resources.GetObject("btnYVK.Image");
-            btnYVK.ImageAlign = ContentAlignment.MiddleLeft;
-            btnYVK.Location = new Point(0, 250);
-            btnYVK.Name = "btnYVK";
-            btnYVK.Size = new Size(230, 41);
-            btnYVK.TabIndex = 10;
-            btnYVK.Text = "        Yağsız Vücut Kitlesi (FFMI)";
-            btnYVK.UseVisualStyleBackColor = false;
+            pnlHesaplamalar.Dock = DockStyle.Fill;
+            pnlHesaplamalar.Location = new Point(232, 0);
+            pnlHesaplamalar.Name = "pnlHesaplamalar";
+            pnlHesaplamalar.Size = new Size(836, 607);
+            pnlHesaplamalar.TabIndex = 9;
             // 
             // pnlHesaplamalar2
             // 
@@ -205,13 +223,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1068, 607);
-            Controls.Add(pnlHesaplamalar2);
-            Controls.Add(pnlHesaplamalar1);
+
+            Controls.Add(pnlHesaplamalar);
+            Controls.Add(pnlSide);
+
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHesaplamalar";
             Text = "FormHesaplamalar";
             Load += FormHesaplamalar_Load;
-            pnlHesaplamalar1.ResumeLayout(false);
+
+            pnlSide.ResumeLayout(false);
+
             ResumeLayout(false);
         }
 
@@ -219,13 +241,16 @@
 
         private Button btnVKE;
         private Button btnBMH;
-        private Panel pnlHesaplamalar1;
+
+        private Panel pnlSide;
+
         private Button btnGSI;
         private Button btnIdealKilo;
         private Button btnVYO;
         private Button btnGKİ;
-        private Button btnYVK;
         private Button btnMKAH;
-        private Panel pnlHesaplamalar2;
+
+        private Panel pnlHesaplamalar;
+
     }
 }

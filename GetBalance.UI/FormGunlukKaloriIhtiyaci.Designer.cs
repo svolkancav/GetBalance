@@ -37,7 +37,6 @@
             label7 = new Label();
             lblGKIDeger = new Label();
             label4 = new Label();
-            cpbGKI = new ReaLTaiizor.Controls.CircleProgressBar();
             btnHesapla = new Button();
             txtKilo = new TextBox();
             txtBoy = new TextBox();
@@ -46,6 +45,7 @@
             label1 = new Label();
             label8 = new Label();
             cmbxAktiviteSeviyesi = new ComboBox();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,7 +104,7 @@
             panel1.Controls.Add(label7);
             panel1.Controls.Add(lblGKIDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(408, 283);
+            panel1.Location = new Point(389, 182);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 28;
@@ -125,9 +125,9 @@
             lblGKIDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblGKIDeger.Location = new Point(93, 55);
             lblGKIDeger.Name = "lblGKIDeger";
-            lblGKIDeger.Size = new Size(28, 21);
+            lblGKIDeger.Size = new Size(19, 21);
             lblGKIDeger.TabIndex = 2;
-            lblGKIDeger.Text = "28";
+            lblGKIDeger.Text = "0";
             // 
             // label4
             // 
@@ -138,22 +138,6 @@
             label4.Size = new Size(239, 25);
             label4.TabIndex = 1;
             label4.Text = "GÜNLÜK KALORİ İHTİYACI";
-            // 
-            // cpbGKI
-            // 
-            cpbGKI.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            cpbGKI.Location = new Point(503, 138);
-            cpbGKI.Maximum = 100L;
-            cpbGKI.MinimumSize = new Size(100, 100);
-            cpbGKI.Name = "cpbGKI";
-            cpbGKI.PercentColor = Color.Cyan;
-            cpbGKI.ProgressColor1 = Color.White;
-            cpbGKI.ProgressColor2 = Color.Red;
-            cpbGKI.ProgressShape = ReaLTaiizor.Controls.CircleProgressBar._ProgressShape.Round;
-            cpbGKI.Size = new Size(130, 130);
-            cpbGKI.TabIndex = 27;
-            cpbGKI.Text = "circleProgressBar1";
-            cpbGKI.Value = 100L;
             // 
             // btnHesapla
             // 
@@ -167,6 +151,7 @@
             btnHesapla.TabIndex = 26;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // txtKilo
             // 
@@ -232,11 +217,26 @@
             cmbxAktiviteSeviyesi.Size = new Size(234, 23);
             cmbxAktiviteSeviyesi.TabIndex = 35;
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(408, 467);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 36;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // FormGunlukKaloriIhtiyaci
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 607);
+            Controls.Add(btnGeri);
             Controls.Add(cmbxAktiviteSeviyesi);
             Controls.Add(label8);
             Controls.Add(rdbKadin);
@@ -245,7 +245,6 @@
             Controls.Add(txtYas);
             Controls.Add(label5);
             Controls.Add(panel1);
-            Controls.Add(cpbGKI);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -255,6 +254,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormGunlukKaloriIhtiyaci";
             Text = "FormGunlukKaloriIhtiyaci";
+            Load += FormGunlukKaloriIhtiyaci_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -272,7 +272,6 @@
         private Label label7;
         private Label lblGKIDeger;
         private Label label4;
-        private ReaLTaiizor.Controls.CircleProgressBar cpbGKI;
         private Button btnHesapla;
         private TextBox txtKilo;
         private TextBox txtBoy;
@@ -283,5 +282,6 @@
         private ComboBox cmbxAktiviteSeviyesi;
         private System.CodeDom.CodeTypeReference gunlukControl1;
         private System.CodeDom.CodeTypeReference gunlukControl2;
+        private Button btnGeri;
     }
 }

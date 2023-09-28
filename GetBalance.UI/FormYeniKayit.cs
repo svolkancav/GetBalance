@@ -59,6 +59,7 @@ namespace GetBalance.UI
         }
 
 
+
         private bool surukleniyor = false;
         private Point surukleBaslangicNoktasi;
 
@@ -77,5 +78,6 @@ namespace GetBalance.UI
                 this.Location = yeniKonum;
             }
         }
+
     }
 }

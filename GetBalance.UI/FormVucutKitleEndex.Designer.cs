@@ -36,8 +36,10 @@
             btnHesapla = new Button();
             cpbVKI = new ReaLTaiizor.Controls.CircleProgressBar();
             panel1 = new Panel();
+            lblYorum = new Label();
             lblVKIDeger = new Label();
             label4 = new Label();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -99,6 +101,7 @@
             btnHesapla.TabIndex = 5;
             btnHesapla.Text = "HESAPLA";
             btnHesapla.UseVisualStyleBackColor = false;
+            btnHesapla.Click += btnHesapla_Click;
             // 
             // cpbVKI
             // 
@@ -114,26 +117,34 @@
             cpbVKI.Size = new Size(130, 130);
             cpbVKI.TabIndex = 6;
             cpbVKI.Text = "circleProgressBar1";
-            cpbVKI.Value = 100L;
+            cpbVKI.Value = 0L;
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblYorum);
             panel1.Controls.Add(lblVKIDeger);
             panel1.Controls.Add(label4);
             panel1.Location = new Point(488, 303);
             panel1.Name = "panel1";
-            panel1.Size = new Size(287, 100);
+            panel1.Size = new Size(294, 152);
             panel1.TabIndex = 7;
+            // 
+            // lblYorum
+            // 
+            lblYorum.AutoSize = true;
+            lblYorum.Location = new Point(124, 108);
+            lblYorum.Name = "lblYorum";
+            lblYorum.Size = new Size(0, 15);
+            lblYorum.TabIndex = 3;
             // 
             // lblVKIDeger
             // 
             lblVKIDeger.AutoSize = true;
             lblVKIDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblVKIDeger.Location = new Point(128, 59);
+            lblVKIDeger.Location = new Point(124, 49);
             lblVKIDeger.Name = "lblVKIDeger";
-            lblVKIDeger.Size = new Size(28, 21);
+            lblVKIDeger.Size = new Size(0, 21);
             lblVKIDeger.TabIndex = 2;
-            lblVKIDeger.Text = "28";
             // 
             // label4
             // 
@@ -145,6 +156,20 @@
             label4.TabIndex = 1;
             label4.Text = "VÜCUT KİTLE İNDEKSİ  (BMI)";
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
+            btnGeri.FlatStyle = FlatStyle.Flat;
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.Location = new Point(186, 512);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(234, 49);
+            btnGeri.TabIndex = 5;
+            btnGeri.Text = "GERİ";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // FormVucutKitleEndex
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -152,6 +177,7 @@
             ClientSize = new Size(836, 607);
             Controls.Add(panel1);
             Controls.Add(cpbVKI);
+            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -179,5 +205,7 @@
         private Panel panel1;
         private Label lblVKIDeger;
         private Label label4;
+        private Button btnGeri;
+        private Label lblYorum;
     }
 }

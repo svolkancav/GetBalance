@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GetBalance.DAL.Migrations
 {
-    [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -46,23 +46,23 @@ namespace GetBalance.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodId"), 1L, 1);
 
                     b.Property<decimal>("Calories")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<decimal>("Carbohydrate")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Fat")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("Protein")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.HasKey("FoodId");
 
@@ -135,7 +135,8 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasKey("PortionId");
 
-                    b.HasIndex("FoodId");
+                    b.HasIndex("FoodId", "PortionName")
+                        .IsUnique();
 
                     b.ToTable("Portions");
                 });
@@ -172,11 +173,14 @@ namespace GetBalance.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserDetailId"), 1L, 1);
 
+                    b.Property<int>("ActivityLevel")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("CurrentWeight")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -187,14 +191,23 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("nvarchar(6)");
 
                     b.Property<decimal>("Height")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(4,2)");
+
+                    b.Property<double>("HipCircumference")
+                        .HasColumnType("float");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<double>("NeckCircumference")
+                        .HasColumnType("float");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
+
+                    b.Property<double>("WaistCircumference")
+                        .HasColumnType("float");
 
                     b.HasKey("UserDetailId");
 
@@ -212,9 +225,6 @@ namespace GetBalance.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserTargetId"), 1L, 1);
 
-                    b.Property<int>("ActivityLevel")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -222,26 +232,23 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("StartingWeight")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<short>("TargetCalorie")
                         .HasMaxLength(5)
                         .HasColumnType("smallint");
 
-                    b.Property<byte>("TargetCarbPercentage")
-                        .HasMaxLength(3)
-                        .HasColumnType("tinyint");
+                    b.Property<decimal>("TargetCarbPercentage")
+                        .HasColumnType("decimal(4,2)");
 
-                    b.Property<byte>("TargetFatPercentage")
-                        .HasMaxLength(3)
-                        .HasColumnType("tinyint");
+                    b.Property<decimal>("TargetFatPercentage")
+                        .HasColumnType("decimal(4,2)");
 
-                    b.Property<byte>("TargetProteinPercentage")
-                        .HasMaxLength(3)
-                        .HasColumnType("tinyint");
+                    b.Property<decimal>("TargetProteinPercentage")
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<decimal>("TargetWeight")
-                        .HasColumnType("decimal(38,17)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<int>("UserDetailId")
                         .HasColumnType("int");

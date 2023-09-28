@@ -15,6 +15,10 @@ namespace GetBalance.DATA
 		public DateTime BirthDate { get; set; }
 		public Gender Gender { get; set; }
 		public double Height { get; set; }
+		public double NeckCircumference { get; set; }
+		public double WaistCircumference { get; set; }
+		public double HipCircumference { get; set; }
+		public ActivityLevel ActivityLevel { get; set; }
 		public double CurrentWeight { get; set; }
 		public int UserId { get; set; }
 

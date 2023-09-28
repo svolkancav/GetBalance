@@ -15,7 +15,10 @@ namespace GetBalance.UI
     public partial class FormHomePage : Form
     {
 
+
         Form formGunluk, formProfil, formAnasayfa, formHesaplamalar, formRapor;
+
+
         public Point downPoint = Point.Empty;
 
 
@@ -24,6 +27,9 @@ namespace GetBalance.UI
         public FormHomePage()
         {
             InitializeComponent();
+
+
+
         }
 
         public FormHomePage(User user)
@@ -35,6 +41,7 @@ namespace GetBalance.UI
         private void FormHomePage_Load(object sender, EventArgs e)
         {
             formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
+
             formProfil = new FormProfil() { TopLevel = false, TopMost = true };
             formAnasayfa = new FormHomePage2() { TopLevel = false, TopMost = true };
             formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
@@ -46,6 +53,9 @@ namespace GetBalance.UI
             pnlAnaPanel.Controls.Add(formRapor);
             formAnasayfa.Show();
 
+
+            pnlAnaPanel.Controls.Add(formGunluk);
+            pnlAnaPanel.Controls.Add(formHesaplamalar);
         }
 
         #region SidePanelTransition
@@ -56,7 +66,10 @@ namespace GetBalance.UI
             if (menuExpand)
             {
                 menuContainer.Width -= 10;
-                if (menuContainer.Width <= 51)
+                formGunluk.Width += 10;
+                //transitionOldu(10);
+
+                if (menuContainer.Width <= 58)
                 {
                     menuExpand = false;
                     menuTransition.Stop();
@@ -65,7 +78,10 @@ namespace GetBalance.UI
             else
             {
                 menuContainer.Width += 10;
-                if (menuContainer.Width >= 180)
+                formGunluk.Width -= 10;
+                //transitionOldu(-10);
+
+                if (menuContainer.Width >= 205)
                 {
 
                     menuExpand = true;
@@ -81,6 +97,7 @@ namespace GetBalance.UI
         private void btnHome_Click(object sender, EventArgs e)
         {
             menuTransition.Start();
+            //this.transitionOldu += formGunluk.
 
         }
         private void btnProfil_Click(object sender, EventArgs e)
@@ -109,12 +126,14 @@ namespace GetBalance.UI
             formHesaplamalar.Show();
         }
 
+
         private void btnRaporlar_Click(object sender, EventArgs e)
         {
 
             HideAllForms();
             formRapor.Show();
         }
+
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
@@ -132,6 +151,7 @@ namespace GetBalance.UI
                 item.Hide();
             }
         }
+
 
 
         private void pnlTop_MouseDown(object sender, MouseEventArgs e)

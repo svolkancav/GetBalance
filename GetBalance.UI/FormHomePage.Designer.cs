@@ -84,9 +84,9 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(583, 6);
             label2.Name = "label2";
-            label2.Size = new Size(114, 23);
+            label2.Size = new Size(158, 23);
             label2.TabIndex = 3;
-            label2.Text = "GET BALANCE";
+            label2.Text = "H E A L T H Y  D I E T";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // nightControlBox1
@@ -147,10 +147,10 @@
             menuContainer.Controls.Add(pnlCikis);
             menuContainer.Dock = DockStyle.Left;
             menuContainer.Location = new Point(0, 35);
-            menuContainer.MaximumSize = new Size(180, 685);
-            menuContainer.MinimumSize = new Size(51, 685);
+            menuContainer.MaximumSize = new Size(205, 685);
+            menuContainer.MinimumSize = new Size(58, 685);
             menuContainer.Name = "menuContainer";
-            menuContainer.Size = new Size(180, 685);
+            menuContainer.Size = new Size(205, 685);
             menuContainer.TabIndex = 1;
             // 
             // pnlMenu
@@ -159,7 +159,7 @@
             pnlMenu.Controls.Add(btnHome);
             pnlMenu.Location = new Point(3, 3);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(177, 71);
+            pnlMenu.Size = new Size(202, 71);
             pnlMenu.TabIndex = 0;
             // 
             // pnlAnaSayfa
@@ -182,7 +182,7 @@
             btnAnaSayfa.Location = new Point(-13, -9);
             btnAnaSayfa.Name = "btnAnaSayfa";
             btnAnaSayfa.Padding = new Padding(15, 0, 0, 0);
-            btnAnaSayfa.Size = new Size(199, 58);
+            btnAnaSayfa.Size = new Size(233, 58);
             btnAnaSayfa.TabIndex = 0;
             btnAnaSayfa.Text = "            Ana Sayfa";
             btnAnaSayfa.TextAlign = ContentAlignment.MiddleLeft;
@@ -209,7 +209,7 @@
             btnProfil.Location = new Point(-13, -9);
             btnProfil.Name = "btnProfil";
             btnProfil.Padding = new Padding(15, 0, 0, 0);
-            btnProfil.Size = new Size(199, 58);
+            btnProfil.Size = new Size(233, 58);
             btnProfil.TabIndex = 0;
             btnProfil.Text = "            Profil";
             btnProfil.TextAlign = ContentAlignment.MiddleLeft;
@@ -236,7 +236,7 @@
             btnGunluk.Location = new Point(-13, -9);
             btnGunluk.Name = "btnGunluk";
             btnGunluk.Padding = new Padding(15, 0, 0, 0);
-            btnGunluk.Size = new Size(199, 58);
+            btnGunluk.Size = new Size(233, 58);
             btnGunluk.TabIndex = 0;
             btnGunluk.Text = "            Günlük";
             btnGunluk.TextAlign = ContentAlignment.MiddleLeft;
@@ -263,7 +263,7 @@
             btnRaporlar.Location = new Point(-13, -9);
             btnRaporlar.Name = "btnRaporlar";
             btnRaporlar.Padding = new Padding(15, 0, 0, 0);
-            btnRaporlar.Size = new Size(199, 58);
+            btnRaporlar.Size = new Size(233, 58);
             btnRaporlar.TabIndex = 0;
             btnRaporlar.Text = "            Raporlar";
             btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
@@ -280,6 +280,18 @@
             // 
             // btnHesaplamalar
             // 
+
+            // pnlHesaplamalar
+            // 
+            pnlHesaplamalar.Controls.Add(btnHesaplamalar);
+            pnlHesaplamalar.Location = new Point(3, 264);
+            pnlHesaplamalar.Name = "pnlHesaplamalar";
+            pnlHesaplamalar.Size = new Size(173, 40);
+            pnlHesaplamalar.TabIndex = 1;
+            // 
+            // btnHesaplamalar
+            // 
+
             btnHesaplamalar.BackColor = Color.FromArgb(2, 53, 53);
             btnHesaplamalar.FlatAppearance.BorderSize = 0;
             btnHesaplamalar.FlatStyle = FlatStyle.Flat;
@@ -290,7 +302,9 @@
             btnHesaplamalar.Location = new Point(-13, -9);
             btnHesaplamalar.Name = "btnHesaplamalar";
             btnHesaplamalar.Padding = new Padding(15, 0, 0, 0);
-            btnHesaplamalar.Size = new Size(199, 58);
+
+            btnHesaplamalar.Size = new Size(233, 58);
+
             btnHesaplamalar.TabIndex = 0;
             btnHesaplamalar.Text = "            Hesaplamalar";
             btnHesaplamalar.TextAlign = ContentAlignment.MiddleLeft;
@@ -317,7 +331,7 @@
             btnCikis.Location = new Point(-13, -9);
             btnCikis.Name = "btnCikis";
             btnCikis.Padding = new Padding(15, 0, 0, 0);
-            btnCikis.Size = new Size(199, 58);
+            btnCikis.Size = new Size(233, 58);
             btnCikis.TabIndex = 0;
             btnCikis.Text = "            Çıkış";
             btnCikis.TextAlign = ContentAlignment.MiddleLeft;
@@ -331,10 +345,11 @@
             // 
             // pnlAnaPanel
             // 
+            pnlAnaPanel.AutoSize = true;
             pnlAnaPanel.Dock = DockStyle.Fill;
-            pnlAnaPanel.Location = new Point(180, 35);
+            pnlAnaPanel.Location = new Point(205, 35);
             pnlAnaPanel.Name = "pnlAnaPanel";
-            pnlAnaPanel.Size = new Size(1100, 685);
+            pnlAnaPanel.Size = new Size(1075, 685);
             pnlAnaPanel.TabIndex = 2;
             // 
             // FormHomePage
@@ -348,6 +363,7 @@
             Controls.Add(pnlTop);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
+            MaximumSize = new Size(1280, 720);
             Name = "FormHomePage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
@@ -365,6 +381,7 @@
             pnlHesaplamalar.ResumeLayout(false);
             pnlCikis.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
