@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
+
     public partial class FormProfil : Form
     {
 
@@ -94,4 +96,5 @@ namespace GetBalance.UI
 
 
     }
+
 }

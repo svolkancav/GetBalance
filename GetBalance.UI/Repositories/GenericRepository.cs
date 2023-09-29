@@ -43,10 +43,10 @@ namespace _16_DBFirst_RepositoryDesing_Nortwind.Repositories
 				context.Set<Tentity>().Add(entity);
 				return context.SaveChanges();
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 
-				throw new Exception("Ekleme Başarısız");
+				throw new Exception("Ekleme Başarısız"+ex);
 			}
 		}
 
@@ -82,9 +82,9 @@ namespace _16_DBFirst_RepositoryDesing_Nortwind.Repositories
 			}
 		}
 
-		public User? GetByFilter(Expression<Func<User, bool>> filter)
+		public Tentity? GetByFilter(Expression<Func<Tentity, bool>> filter)
 		{
-			return context.Users.FirstOrDefault(filter);
+			return context.Set<Tentity>().FirstOrDefault(filter);
 		}
 	}
 }
