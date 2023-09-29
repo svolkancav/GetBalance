@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunluk));
             ListViewItem listViewItem1 = new ListViewItem(new string[] { "egg", "1", "2", "10", "5" }, -1);
             pnlLeftSide = new Panel();
+            dateTimePicker1 = new DateTimePicker();
             pictureBox2 = new PictureBox();
             circleProgressBar1 = new ReaLTaiizor.Controls.CircleProgressBar();
             lblSuankiKalori = new Label();
@@ -117,6 +118,7 @@
             // pnlLeftSide
             // 
             pnlLeftSide.BackColor = Color.FromArgb(244, 240, 232);
+            pnlLeftSide.Controls.Add(dateTimePicker1);
             pnlLeftSide.Controls.Add(pictureBox2);
             pnlLeftSide.Controls.Add(circleProgressBar1);
             pnlLeftSide.Controls.Add(lblSuankiKalori);
@@ -137,6 +139,13 @@
             pnlLeftSide.Name = "pnlLeftSide";
             pnlLeftSide.Size = new Size(200, 675);
             pnlLeftSide.TabIndex = 17;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(5, 525);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(190, 23);
+            dateTimePicker1.TabIndex = 28;
             // 
             // pictureBox2
             // 
@@ -488,6 +497,7 @@
             // 
             // lblTarih
             // 
+            lblTarih.Cursor = Cursors.Hand;
             lblTarih.Dock = DockStyle.Fill;
             lblTarih.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblTarih.Location = new Point(0, 0);
@@ -496,6 +506,7 @@
             lblTarih.TabIndex = 14;
             lblTarih.Text = "Tarih";
             lblTarih.TextAlign = ContentAlignment.MiddleCenter;
+            lblTarih.DoubleClick += lblTarih_DoubleClick;
             // 
             // pnlGunluk
             // 
@@ -800,7 +811,7 @@
             pbAddAperatif.SizeMode = PictureBoxSizeMode.CenterImage;
             pbAddAperatif.TabIndex = 31;
             pbAddAperatif.TabStop = false;
-            pbAddAperatif.Click += btnAdd_Clicked;
+            pbAddAperatif.Click += pbAdd_Clicked;
             // 
             // pbAddAksam
             // 
@@ -813,7 +824,7 @@
             pbAddAksam.SizeMode = PictureBoxSizeMode.CenterImage;
             pbAddAksam.TabIndex = 31;
             pbAddAksam.TabStop = false;
-            pbAddAksam.Click += btnAdd_Clicked;
+            pbAddAksam.Click += pbAdd_Clicked;
             // 
             // pbAddOgle
             // 
@@ -826,7 +837,7 @@
             pbAddOgle.SizeMode = PictureBoxSizeMode.CenterImage;
             pbAddOgle.TabIndex = 31;
             pbAddOgle.TabStop = false;
-            pbAddOgle.Click += btnAdd_Clicked;
+            pbAddOgle.Click += pbAdd_Clicked;
             // 
             // pbAddKahvalti
             // 
@@ -839,7 +850,7 @@
             pbAddKahvalti.SizeMode = PictureBoxSizeMode.CenterImage;
             pbAddKahvalti.TabIndex = 31;
             pbAddKahvalti.TabStop = false;
-            pbAddKahvalti.Click += btnAdd_Clicked;
+            pbAddKahvalti.Click += pbAdd_Clicked;
             // 
             // pnlAperatifLsv
             // 
@@ -990,6 +1001,7 @@
         private Label lblAksamTopKarb;
         private Label lblAksamTopProtein;
         private Label lblAksamTopYag;
+        private DateTimePicker dateTimePicker1;
     }
 
 

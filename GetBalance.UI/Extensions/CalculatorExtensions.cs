@@ -157,5 +157,10 @@ namespace GetBalance.UI.Extensions
             return list;
         }
 
+        public static int KaloriHesapla(int karbonhidrat, int protein, int yag)
+        {
+            return (karbonhidrat + protein) * 4 + (yag * 9);
+        }
+
     }
 }

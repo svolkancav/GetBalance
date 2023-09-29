@@ -17,7 +17,7 @@ namespace GetBalance.UI
     {
         GenericRepository<Meal> _meal;
 
-
+        MonthCalendar monthCalendar;
         bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
         Point pbAddButtonLoc = new Point(5, 5);
         Point tlpVerilerLoc = new Point(473, 3);
@@ -28,22 +28,21 @@ namespace GetBalance.UI
         {
             InitializeComponent();
             _meal = new GenericRepository<Meal>();
-
+            monthCalendar = new MonthCalendar();
             pnlKahveLsv.Visible = pnlOgleLsv.Visible = pnlAksamLsv.Visible = pnlAperatifLsv.Visible = false;
 
         }
 
-        //public void LocGuncellendi(int pixel)
-        //{
-        //    MessageBox.Show("Metot tetiklendi.");
-        //    //tlpKahvaltiVeriler.Location.X = pixel;
-        //    //tlpOgleVeriler.Location = tlpVerilerLoc;
-        //    //tlpAksamVeriler.Location = tlpVerilerLoc;
-        //    //tlpAperatifVeriler.Location = tlpVerilerLoc;
-        //}
-
         private void FormGunluk_Load(object sender, EventArgs e)
         {
+            #region MonthCalendar
+            monthCalendar.Visible = false;
+            monthCalendar.Location = new Point(btnLeft.Width + lblTarih.Width / 2 - monthCalendar.Width / 2 - 20, 5);
+            monthCalendar.MaxSelectionCount = 1;
+            pnlMain.Controls.Add(monthCalendar);
+            monthCalendar.DateSelected += MonthCalendar_DateSelected;
+            #endregion
+
             pbAddKahvalti.Parent = btnKahvalti;
             pbAddOgle.Parent = btnOgleYemegi;
             pbAddAksam.Parent = btnAksamYmegi;
@@ -73,6 +72,8 @@ namespace GetBalance.UI
             ListViewEdit(lsvAperatif);
 
         }
+
+        
 
         #region Öğünlerin Açılıp Kapanması
         private void btnKahvalti_Click(object sender, EventArgs e)
@@ -170,6 +171,7 @@ namespace GetBalance.UI
             //TODO : Yemeği güncelle
         }
 
+        #region ListViewAçılıpKapanması
         private void lsv_MouseClick(object sender, MouseEventArgs e)
         {
             ListView listView = sender as ListView;
@@ -196,22 +198,26 @@ namespace GetBalance.UI
             cmsSagTik.Show(Cursor.Position);
         }
 
-        private void btnAdd_Clicked(object sender, EventArgs e)
+        #endregion
+        private void pbAdd_Clicked(object sender, EventArgs e)
         {
-            Button btnAdd = sender as Button;
-            switch (btnAdd.Name)
+            PictureBox pbAdd = sender as PictureBox;
+            switch (pbAdd.Name)
             {
-                //case "btnAddKahvalti": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
-                //case "btnAddOgle": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
-                //case "btnAddAksam": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
-                //case "btnAddAperatif": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
+                case "pbAddKahvalti": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
+                case "pbAddOgle": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
+                case "pbAddAksam": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
+                case "pbAddAperatif": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
 
             }
         }
 
-        private void OpenFormYemekEkleme(Meal meal)
+        private void OpenFormYemekEkleme()
         {
             //TODO: meal'a yemek 
+            FormAddFood formAddFood = new FormAddFood();
+            formAddFood.ShowDialog();
+
         }
 
         private void btnRight_Click(object sender, EventArgs e)
@@ -229,5 +235,20 @@ namespace GetBalance.UI
 
             //TODO: Sorgular
         }
+
+        private void lblTarih_DoubleClick(object sender, EventArgs e)
+        {
+            monthCalendar.Visible = true;
+            monthCalendar.BringToFront();
+        }
+
+        private void MonthCalendar_DateSelected(object? sender, DateRangeEventArgs e)
+        {
+            date = monthCalendar.SelectionStart;
+            lblTarih.Text = date.ToShortDateString();
+            monthCalendar.Visible=false;
+        }
+
+
     }
 }
