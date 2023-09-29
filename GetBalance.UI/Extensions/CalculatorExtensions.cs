@@ -157,10 +157,16 @@ namespace GetBalance.UI.Extensions
             return list;
         }
 
+
+        public static int KaloriHesapla(int karbonhidrat, int protein, int yag)
+        {
+            return (karbonhidrat + protein) * 4 + (yag * 9);
+
         public static int KalpAtisHiziHesapla(int yas)
         {
             int sonuc = 220 - yas;
             return sonuc;
+
         }
 
     }

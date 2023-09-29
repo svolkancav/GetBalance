@@ -118,14 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="restaurant-3-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\restaurant-3-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home-7-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\home-7-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menu-4-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons\menu-4-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="plus-6-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\plus-6-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow-101-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\arrow-101-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow-36-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\arrow-36-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow-36-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\arrow-36-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close-window-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\close-window-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\exit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="report-3-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons\report-3-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settings-4-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\settings-4-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons\user-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,31 +154,16 @@
   <data name="today-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons\today-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restaurant-3-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\restaurant-3-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home-7-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\home-7-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="calculator-7-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons\calculator-7-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow-36-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\arrow-36-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings-4-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\settings-4-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-101-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons\arrow-101-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\exit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plus-6-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\plus-6-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow-36-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\arrow-36-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow-101-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons\arrow-101-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="close-window-32 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons\close-window-32 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
