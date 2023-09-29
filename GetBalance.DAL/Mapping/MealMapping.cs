@@ -19,6 +19,8 @@ namespace GetBalance.DAL.Mapping
 
 			builder.Property(x=>x.MealType).IsRequired().HasColumnType("int");
 
+			builder.Ignore(x => x.TotalCalories);
+
 			builder.Ignore(x => x.Calories);
 			builder.Ignore(x => x.Carbohydrate);
 			builder.Ignore(x => x.Fat);

@@ -25,7 +25,7 @@ namespace GetBalance.UI
             {
                 int yas = Convert.ToInt32(txtYas.Text);
                 TrainingLevel trainingLevel = (TrainingLevel)cmbxAntremanSeviyesi.SelectedValue;
-                int[] list = CalculatorExtensions.KalpAtisHiziHesapla(yas, trainingLevel);
+                int[] list = CalculatorExtensions.HedefKalpAtisHiziHesapla(yas, trainingLevel);
                 int maksimum = list[0];
                 int hedef = list[1];
                 lblMaxKalpAtisi.Text = maksimum.ToString();

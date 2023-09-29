@@ -1,26 +1,27 @@
 ﻿namespace GetBalance.UI
 {
-    partial class FormHomePage
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class FormHomePage
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
+
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -72,6 +73,9 @@
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(1280, 35);
             pnlTop.TabIndex = 0;
+            pnlTop.MouseDown += pnlTop_MouseDown;
+            pnlTop.MouseMove += pnlTop_MouseMove;
+            pnlTop.MouseUp += pnlTop_MouseUp;
             // 
             // label2
             // 
@@ -265,6 +269,7 @@
             btnRaporlar.Text = "            Raporlar";
             btnRaporlar.TextAlign = ContentAlignment.MiddleLeft;
             btnRaporlar.UseVisualStyleBackColor = false;
+            btnRaporlar.Click += btnRaporlar_Click;
             // 
             // pnlHesaplamalar
             // 
@@ -331,14 +336,14 @@
             pnlAnaPanel.Dock = DockStyle.Fill;
             pnlAnaPanel.Location = new Point(205, 35);
             pnlAnaPanel.Name = "pnlAnaPanel";
-            pnlAnaPanel.Size = new Size(1075, 685);
+            pnlAnaPanel.Size = new Size(1075, 625);
             pnlAnaPanel.TabIndex = 2;
             // 
             // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1280, 720);
+            ClientSize = new Size(1280, 660);
             ControlBox = false;
             Controls.Add(pnlAnaPanel);
             Controls.Add(menuContainer);
@@ -366,28 +371,29 @@
             PerformLayout();
         }
 
-        #endregion
 
-        private Panel pnlTop;
-        private PictureBox btnHome;
-        private Label label1;
-        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-        private FlowLayoutPanel menuContainer;
-        private Button btnAnaSayfa;
-        private System.Windows.Forms.Timer menuTransition;
-        private Panel pnlMenu;
-        private Panel pnlAnaSayfa;
-        private Panel pnlProfil;
-        private Button btnProfil;
-        private Panel pnlGunluk;
-        private Button btnGunluk;
-        private Panel pnlRaporlar;
-        private Button btnRaporlar;
-        private Panel pnlCikis;
-        private Button btnCikis;
-        private Panel pnlAnaPanel;
-        private Label label2;
-        private Panel pnlHesaplamalar;
-        private Button btnHesaplamalar;
-    }
+		#endregion
+
+		private Panel pnlTop;
+		private PictureBox btnHome;
+		private Label label1;
+		private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
+		private FlowLayoutPanel menuContainer;
+		private Button btnAnaSayfa;
+		private System.Windows.Forms.Timer menuTransition;
+		private Panel pnlMenu;
+		private Panel pnlAnaSayfa;
+		private Panel pnlProfil;
+		private Button btnProfil;
+		private Panel pnlGunluk;
+		private Button btnGunluk;
+		private Panel pnlRaporlar;
+		private Button btnRaporlar;
+		private Panel pnlCikis;
+		private Button btnCikis;
+		private Panel pnlAnaPanel;
+		private Label label2;
+		private Panel pnlHesaplamalar;
+		private Button btnHesaplamalar;
+	}
 }

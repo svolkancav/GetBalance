@@ -62,6 +62,8 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 38);
             panel1.TabIndex = 0;
+            panel1.MouseMove += panel1_MouseMove;
+            panel1.MouseUp += panel1_MouseUp;
             // 
             // nightControlBox1
             // 
@@ -281,6 +283,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormYeniKayit";
             Text = "FormYeniKayit";
+            Load += FormYeniKayit_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

@@ -1,26 +1,26 @@
 ﻿namespace GetBalance.UI
 {
-    partial class FormGunluk
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class FormGunluk
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Component Designer generated code
+		#region Component Designer generated code
 
         /// <summary> 
         /// Required method for Designer support - do not modify 
@@ -936,33 +936,35 @@
             ResumeLayout(false);
         }
 
-        private Panel pnlLeftSide;
-        private Button btnAperatif;
-        private Button btnAksamYmegi;
-        private Button btnOgleYemegi;
-        private Button btnKahvalti;
-        private Label lblSuankiKalori;
-        private Label lblSuankiProtein;
-        private Label lblSuankiKarb;
-        private Label lblSuankiYag;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private ListView lsvKahvalti;
-        private ListView lsvOgle;
-        private ListView lsvAksam;
-        private Label lblHedefKarb;
-        private Label lblHedefKalori;
-        private Label lblHedefYag;
-        private Label lblHedefProtein;
-        private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
-        private ListView lsvAperatif;
-        private ContextMenuStrip cmsSagTik;
-        private ToolStripMenuItem tsmDuzenle;
-        private ToolStripMenuItem tsmKaldir;
 
-        #endregion
+		private Panel pnlLeftSide;
+		private Button btnAperatif;
+		private Button btnAksamYmegi;
+		private Button btnOgleYemegi;
+		private Button btnKahvalti;
+		private Label lblSuankiKalori;
+		private Label lblSuankiProtein;
+		private Label lblSuankiKarb;
+		private Label lblSuankiYag;
+		private Label label4;
+		private Label label3;
+		private Label label2;
+		private Label label1;
+		private ListView lsvKahvalti;
+		private ListView lsvOgle;
+		private ListView lsvAksam;
+		private Label lblHedefKarb;
+		private Label lblHedefKalori;
+		private Label lblHedefYag;
+		private Label lblHedefProtein;
+		private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
+		private ListView lsvAperatif;
+		private ContextMenuStrip cmsSagTik;
+		private ToolStripMenuItem tsmDuzenle;
+		private ToolStripMenuItem tsmKaldir;
+
+		#endregion
+
 
         private PictureBox pictureBox2;
         private Label label5;
@@ -1003,6 +1005,7 @@
         private Label lblAksamTopYag;
         private DateTimePicker dateTimePicker1;
     }
+
 
 
 }

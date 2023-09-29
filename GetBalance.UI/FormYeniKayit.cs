@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
     public partial class FormYeniKayit : Form
     {
-        public FormYeniKayit()
+        UserManager userManager;
+
+		public FormYeniKayit()
         {
             InitializeComponent();
-        }
+
+			userManager = UserManager.Instance;
+
+		}
 
         private void btnIleri_Click(object sender, EventArgs e)
         {
@@ -39,7 +45,7 @@ namespace GetBalance.UI
                 return;
             }
 
-            User user = new User()
+             userManager.CurrentUser = new User()
             {
                 Email = email,
                 Password = sifre,
@@ -52,10 +58,37 @@ namespace GetBalance.UI
                 }
             };
 
-            FormYeniKayit2 formYeniKayit2 = new FormYeniKayit2(this, user);
+            FormYeniKayit2 formYeniKayit2 = new FormYeniKayit2();
             formYeniKayit2.Show();
             this.Hide();
 
+        }
+
+
+
+        private bool surukleniyor = false;
+        private Point surukleBaslangicNoktasi;
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            surukleniyor = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (surukleniyor)
+            {
+                Point yeniKonum = this.Location;
+                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+                this.Location = yeniKonum;
+            }
+        }
+
+        private void FormYeniKayit_Load(object sender, EventArgs e)
+        {
+            txtSifre.PasswordChar = '*';
+            txtSifre2.PasswordChar = '*';
         }
     }
 }

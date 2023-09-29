@@ -22,6 +22,7 @@
 
         #region Windows Form Designer generated code
 
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -205,7 +206,11 @@
             ResumeLayout(false);
         }
 
+
+
         #endregion
+
+
 
         private Button btnVKE;
         private Button btnBMH;
@@ -216,5 +221,6 @@
         private Button btnGKİ;
         private Button btnMKAH;
         private Panel pnlHesaplamalar;
+
     }
 }

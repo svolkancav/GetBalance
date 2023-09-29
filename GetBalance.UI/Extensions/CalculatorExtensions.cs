@@ -16,11 +16,11 @@ namespace GetBalance.UI.Extensions
             decimal boy, kilo;
             boy = height;
             kilo = weight;
-            decimal sonuc = kilo / (boy * boy / 10000);
+            decimal sonuc = (kilo / (boy * boy / 10000));
             return Math.Round(sonuc, 2);
         }
 
-        public static int BazalMetabolizmaHesapla(int boy, int kilo, int yas, ActivityLevel activityLevel, string cinsiyet)
+        public static int GunlukKaloriIhtiyaci(int boy, int kilo, int yas, ActivityLevel activityLevel, string cinsiyet)
         {
             int hesaplama;
             int sonuc;
@@ -132,7 +132,7 @@ namespace GetBalance.UI.Extensions
             return suIhtiyaci;
         }
 
-        public static int[] KalpAtisHiziHesapla(int yas, TrainingLevel trainingLevel)
+        public static int[] HedefKalpAtisHiziHesapla(int yas, TrainingLevel trainingLevel)
         {
             int[] list = new int[2];
             switch (trainingLevel) 
@@ -157,9 +157,16 @@ namespace GetBalance.UI.Extensions
             return list;
         }
 
+
         public static int KaloriHesapla(int karbonhidrat, int protein, int yag)
         {
             return (karbonhidrat + protein) * 4 + (yag * 9);
+
+        public static int KalpAtisHiziHesapla(int yas)
+        {
+            int sonuc = 220 - yas;
+            return sonuc;
+
         }
 
     }

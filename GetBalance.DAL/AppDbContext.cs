@@ -20,7 +20,7 @@ namespace GetBalance.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server=Unknown\\SQLESER;Database=HS12-GetBalanceDB;Trusted_Connection=True;"); //TODO:Change Connection string
+            optionsBuilder.UseSqlServer("Server=Unknown\\SQLESER;Database=HS12-GetBalanceDB;Trusted_Connection=True;"); //TODO:Change Connection string
         }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)

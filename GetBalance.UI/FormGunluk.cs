@@ -13,6 +13,7 @@ using static GetBalance.UI.FormHomePage;
 
 namespace GetBalance.UI
 {
+
     public partial class FormGunluk : Form
     {
         GenericRepository<Meal> _meal;
@@ -210,7 +211,7 @@ namespace GetBalance.UI
                 case "pbAddAperatif": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
 
             }
-        }
+		}
 
         private void OpenFormYemekEkleme()
         {
@@ -220,21 +221,20 @@ namespace GetBalance.UI
 
         }
 
-        private void btnRight_Click(object sender, EventArgs e)
-        {
-            date = date.AddDays(1);
-            lblTarih.Text = date.ToShortDateString();
+		private void btnRight_Click(object sender, EventArgs e)
+		{
+			date = date.AddDays(1);
+			lblTarih.Text = date.ToShortDateString();
+			//TODO: Sorgular
+		}
 
-            //TODO: Sorgular
-        }
+		private void btnLeft_Click(object sender, EventArgs e)
+		{
+			date = date.AddDays(-1);
+			lblTarih.Text = date.ToShortDateString();
 
-        private void btnLeft_Click(object sender, EventArgs e)
-        {
-            date = date.AddDays(-1);
-            lblTarih.Text = date.ToShortDateString();
-
-            //TODO: Sorgular
-        }
+			//TODO: Sorgular
+		}
 
         private void lblTarih_DoubleClick(object sender, EventArgs e)
         {
@@ -251,4 +251,5 @@ namespace GetBalance.UI
 
 
     }
+
 }

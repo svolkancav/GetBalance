@@ -61,6 +61,9 @@ namespace GetBalance.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Picture")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Protein")
                         .HasColumnType("decimal(5,2)");
 
@@ -202,6 +205,9 @@ namespace GetBalance.DAL.Migrations
 
                     b.Property<double>("NeckCircumference")
                         .HasColumnType("float");
+
+                    b.Property<int>("TrainingLevel")
+                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

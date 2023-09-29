@@ -15,6 +15,7 @@
 		public double Fat { get; set; }
         public int CategoryId { get; set; }
         public int TotalQuantity => Portions.Sum(portion => portion.Quantity);
+        public string? Picture { get; set; }
 
         public FoodCategory FoodCategory { get; set; }
         public ICollection<Meal> Meals { get; set; }
