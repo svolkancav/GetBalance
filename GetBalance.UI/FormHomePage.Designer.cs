@@ -335,14 +335,14 @@
             pnlAnaPanel.Dock = DockStyle.Fill;
             pnlAnaPanel.Location = new Point(205, 35);
             pnlAnaPanel.Name = "pnlAnaPanel";
-            pnlAnaPanel.Size = new Size(1075, 685);
+            pnlAnaPanel.Size = new Size(1075, 625);
             pnlAnaPanel.TabIndex = 2;
             // 
             // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1280, 720);
+            ClientSize = new Size(1280, 660);
             ControlBox = false;
             Controls.Add(pnlAnaPanel);
             Controls.Add(menuContainer);
