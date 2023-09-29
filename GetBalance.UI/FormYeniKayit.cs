@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
     public partial class FormYeniKayit : Form
     {
-        public FormYeniKayit()
+        UserManager userManager;
+
+		public FormYeniKayit()
         {
             InitializeComponent();
-        }
+
+			userManager = UserManager.Instance;
+
+		}
 
         private void btnIleri_Click(object sender, EventArgs e)
         {
@@ -39,7 +45,7 @@ namespace GetBalance.UI
                 return;
             }
 
-            User user = new User()
+             userManager.CurrentUser = new User()
             {
                 Email = email,
                 Password = sifre,
@@ -52,7 +58,7 @@ namespace GetBalance.UI
                 }
             };
 
-            FormYeniKayit2 formYeniKayit2 = new FormYeniKayit2(this, user);
+            FormYeniKayit2 formYeniKayit2 = new FormYeniKayit2();
             formYeniKayit2.Show();
             this.Hide();
 

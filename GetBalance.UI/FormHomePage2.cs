@@ -3,6 +3,7 @@ using GetBalance.DAL;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
+using GetBalance.UI.Singeltons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace GetBalance.UI
         public Point downPoint = Point.Empty;
 
         UserDetail _userDetail;
-        int _userId;
+        UserManager userManager;
         AppDbContext context;
         GenericRepository<UserDetail> _userDetailRepo;
 
@@ -31,20 +32,13 @@ namespace GetBalance.UI
         public FormHomePage2()
         {
             InitializeComponent();
-
+            userManager = UserManager.Instance;
         }
 
-        public FormHomePage2(int userID)
-        {
-
-            _userId = userID;
-            InitializeComponent();
-
-        }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            formDuzenle = new FormDuzenle(_userId) { TopLevel = false, TopMost = true };
+            formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
             pnlYanPanel.Controls.Add(formDuzenle);
             formDuzenle.Show();
 

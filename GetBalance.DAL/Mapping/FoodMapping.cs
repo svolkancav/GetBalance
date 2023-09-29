@@ -30,6 +30,8 @@ namespace GetBalance.DAL.Mapping
 			builder.HasMany(x => x.Portions).WithOne(x => x.Food).HasForeignKey(x => x.FoodId);
 		
 			builder.Ignore(x => x.TotalQuantity);
+
+			builder.Property(x => x.Picture).HasColumnType("nvarchar(max)");
 		}
 	}
 }

@@ -3,6 +3,7 @@ using GetBalance.DAL;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
+using GetBalance.UI.Singeltons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,19 +22,16 @@ namespace GetBalance.UI
         UserDetail _userDetail;
         AppDbContext context;
         GenericRepository<UserDetail> _userDetailRepo;
-        int _userId;
+
+        UserManager userManager;
 
         public FormDuzenle()
         {
             InitializeComponent();
+            userManager = UserManager.Instance;
         }
 
-        public FormDuzenle(int userID)
-        {
-            InitializeComponent();
-            _userId = userID;
-
-        }
+       
 
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -50,7 +48,7 @@ namespace GetBalance.UI
                 TrainingLevel training = (TrainingLevel)cmbTraining.SelectedItem;
 
 
-                _userDetail = _userDetailRepo.GetById(_userId);
+                _userDetail = _userDetailRepo.GetById(userManager.CurrentUser.UserId);
 
                 _userDetail.Height = boy;
                 _userDetail.CurrentWeight = kilo;
