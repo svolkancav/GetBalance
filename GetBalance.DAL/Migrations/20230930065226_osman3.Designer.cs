@@ -4,6 +4,7 @@ using GetBalance.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GetBalance.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230930065226_osman3")]
+    partial class osman3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +185,7 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("CurrentWeight")
-                        .HasColumnType("decimal(6,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -194,7 +196,7 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("nvarchar(6)");
 
                     b.Property<decimal>("Height")
-                        .HasColumnType("decimal(6,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<double>("HipCircumference")
                         .HasColumnType("float");
@@ -238,23 +240,23 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("StartingWeight")
-                        .HasColumnType("decimal(6,2)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<short>("TargetCalorie")
                         .HasMaxLength(5)
                         .HasColumnType("smallint");
 
                     b.Property<decimal>("TargetCarbPercentage")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<decimal>("TargetFatPercentage")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<decimal>("TargetProteinPercentage")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<decimal>("TargetWeight")
-                        .HasColumnType("decimal(6,2)");
+                        .HasColumnType("decimal(4,2)");
 
                     b.Property<int>("UserDetailId")
                         .HasColumnType("int");
