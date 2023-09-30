@@ -13,12 +13,12 @@ namespace GetBalance.DAL.Mapping
     {
         public void Configure(EntityTypeBuilder<UserTarget> builder)
         {
-            builder.Property(x => x.StartingWeight).IsRequired().HasColumnType("decimal(4,2)");
-            builder.Property(x => x.TargetWeight).IsRequired().HasColumnType("decimal(4,2)");
+            builder.Property(x => x.StartingWeight).IsRequired().HasColumnType("decimal(6,2)");
+            builder.Property(x => x.TargetWeight).IsRequired().HasColumnType("decimal(6,2)");
             builder.Property(x => x.TargetCalorie).IsRequired().HasColumnType("smallint").HasMaxLength(5);
-            builder.Property(x => x.TargetCarbPercentage).IsRequired().HasColumnType("decimal(4,2)");
-            builder.Property(x => x.TargetProteinPercentage).IsRequired().HasColumnType("decimal(4,2)");
-            builder.Property(x => x.TargetFatPercentage).IsRequired().HasColumnType("decimal(4,2)");
+            builder.Property(x => x.TargetCarbPercentage).IsRequired().HasColumnType("decimal(5,2)");
+            builder.Property(x => x.TargetProteinPercentage).IsRequired().HasColumnType("decimal(5,2)");
+            builder.Property(x => x.TargetFatPercentage).IsRequired().HasColumnType("decimal(5,2)");
 
             builder.HasOne(x => x.UserDetail).WithOne(x => x.UserTarget).HasForeignKey<UserTarget>(x => x.UserDetailId);
         }
