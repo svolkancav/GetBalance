@@ -6,7 +6,7 @@ namespace GetBalance.DATA
 	{
 		public Meal()
 		{
-			Foods = new HashSet<Food>();
+			MealFoods = new HashSet<FoodMeal>();
 		}
 		public int MealId { get; set; }
 		public string Name { get; set; }
@@ -16,10 +16,10 @@ namespace GetBalance.DATA
 		public double Fat { get; set; }
         public DateTime Date { get; set; }
         public MealType MealType { get; set; }
-		public double TotalCalories => Foods.Sum(food => food.Calories * food.TotalQuantity);
+		//public double TotalCalories => Foods.Sum(food => food.Calories * food.TotalQuantity);
         public int UserId { get; set; }
 
 		public User User { get; set; }
-        public ICollection<Food> Foods { get; set; }
+        public ICollection<FoodMeal> MealFoods { get; set; }
     }
 }

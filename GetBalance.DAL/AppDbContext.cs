@@ -15,12 +15,15 @@ namespace GetBalance.DAL
 		public DbSet<Food> Foods { get; set; }
 		public DbSet<Meal> Meals { get; set; }
 		public DbSet<FoodCategory> FoodCategories { get; set; }
-		public DbSet<Portion> Portions { get; set; }
         public DbSet<UserTarget> UserTargets { get; set; }
+		public DbSet<FoodMeal> FoodMeal { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-HF14TQL;Database=DietProjeDb;Trusted_Connection=True;"); //TODO:Change Connection string
+
+            optionsBuilder.UseSqlServer("Server=Unknown\\SQLESER;Database=HS12-HealtyDiet;Trusted_Connection=True;"); //TODO:Change Connection string
+
+
         }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,10 +31,10 @@ namespace GetBalance.DAL
 			modelBuilder.ApplyConfiguration(new Mapping.FoodCategoryMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.FoodMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.MealMapping());
-			modelBuilder.ApplyConfiguration(new Mapping.PortionMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.UserDetailMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.UserMapping());
 			modelBuilder.ApplyConfiguration(new Mapping.UserTargetMapping());
+			modelBuilder.ApplyConfiguration(new Mapping.FoodMealMapping());
 
 			base.OnModelCreating(modelBuilder);
 		}

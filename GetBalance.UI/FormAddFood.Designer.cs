@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            cmbPorsiyonlar = new ComboBox();
+            txtPosiyonMiktari = new TextBox();
             btnYeniYemekEkle = new Button();
             btnOguneEkle = new Button();
             lsvFoods = new ListView();
@@ -43,6 +45,8 @@
             // panel1
             // 
             panel1.BackColor = Color.WhiteSmoke;
+            panel1.Controls.Add(cmbPorsiyonlar);
+            panel1.Controls.Add(txtPosiyonMiktari);
             panel1.Controls.Add(btnYeniYemekEkle);
             panel1.Controls.Add(btnOguneEkle);
             panel1.Controls.Add(lsvFoods);
@@ -52,6 +56,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(450, 549);
             panel1.TabIndex = 0;
+            // 
+            // cmbPorsiyonlar
+            // 
+            cmbPorsiyonlar.FormattingEnabled = true;
+            cmbPorsiyonlar.Location = new Point(236, 455);
+            cmbPorsiyonlar.Name = "cmbPorsiyonlar";
+            cmbPorsiyonlar.Size = new Size(201, 23);
+            cmbPorsiyonlar.TabIndex = 5;
+            // 
+            // txtPosiyonMiktari
+            // 
+            txtPosiyonMiktari.Location = new Point(14, 455);
+            txtPosiyonMiktari.Name = "txtPosiyonMiktari";
+            txtPosiyonMiktari.PlaceholderText = "Porsiyon Miktarı Giriniz";
+            txtPosiyonMiktari.Size = new Size(201, 23);
+            txtPosiyonMiktari.TabIndex = 4;
             // 
             // btnYeniYemekEkle
             // 
@@ -79,7 +99,7 @@
             // 
             // lsvFoods
             // 
-            lsvFoods.Location = new Point(14, 45);
+            lsvFoods.Location = new Point(14, 12);
             lsvFoods.Name = "lsvFoods";
             lsvFoods.Size = new Size(423, 437);
             lsvFoods.TabIndex = 2;
@@ -92,6 +112,7 @@
             cmbKategoriler.Name = "cmbKategoriler";
             cmbKategoriler.Size = new Size(149, 23);
             cmbKategoriler.TabIndex = 1;
+            cmbKategoriler.SelectedIndexChanged += cmbKategoriler_SelectedIndexChanged;
             // 
             // txtYemekAra
             // 
@@ -160,5 +181,7 @@
         private ComboBox cmbKategoriler;
         private PictureBox pbKapat;
         private Label label1;
+        private ComboBox cmbPorsiyonlar;
+        private TextBox txtPosiyonMiktari;
     }
 }

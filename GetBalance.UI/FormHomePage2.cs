@@ -68,7 +68,7 @@ namespace GetBalance.UI
             lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString();
             lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString();
             lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString();
-            lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString();
+            //lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString();
             #endregion
 
 

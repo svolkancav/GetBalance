@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GetBalance.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230929175441_osmanfirst")]
-    partial class osmanfirst
+    [Migration("20230930125540_osman")]
+    partial class osman
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,21 +23,6 @@ namespace GetBalance.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("FoodMeal", b =>
-                {
-                    b.Property<int>("FoodsFoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MealsMealId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodsFoodId", "MealsMealId");
-
-                    b.HasIndex("MealsMealId");
-
-                    b.ToTable("FoodMeal");
-                });
 
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
                 {
@@ -66,8 +51,14 @@ namespace GetBalance.DAL.Migrations
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PortionName")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Protein")
                         .HasColumnType("decimal(5,2)");
+
+                    b.Property<int>("UnitPortionQuantity")
+                        .HasColumnType("int");
 
                     b.HasKey("FoodId");
 
@@ -91,6 +82,24 @@ namespace GetBalance.DAL.Migrations
                     b.HasKey("FoodCategoryId");
 
                     b.ToTable("FoodCategories");
+                });
+
+            modelBuilder.Entity("GetBalance.DATA.FoodMeal", b =>
+                {
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MealId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FoodAmount")
+                        .HasColumnType("int");
+
+                    b.HasKey("FoodId", "MealId");
+
+                    b.HasIndex("MealId");
+
+                    b.ToTable("FoodMeal");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.Meal", b =>
@@ -119,31 +128,6 @@ namespace GetBalance.DAL.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Meals");
-                });
-
-            modelBuilder.Entity("GetBalance.DATA.Portion", b =>
-                {
-                    b.Property<int>("PortionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PortionId"), 1L, 1);
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PortionName")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("PortionId");
-
-                    b.HasIndex("FoodId", "PortionName")
-                        .IsUnique();
-
-                    b.ToTable("Portions");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.User", b =>
@@ -185,7 +169,7 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("CurrentWeight")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -196,7 +180,7 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("nvarchar(6)");
 
                     b.Property<decimal>("Height")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<double>("HipCircumference")
                         .HasColumnType("float");
@@ -240,23 +224,23 @@ namespace GetBalance.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("StartingWeight")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<short>("TargetCalorie")
                         .HasMaxLength(5)
                         .HasColumnType("smallint");
 
                     b.Property<decimal>("TargetCarbPercentage")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal>("TargetFatPercentage")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal>("TargetProteinPercentage")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal>("TargetWeight")
-                        .HasColumnType("decimal(4,2)");
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<int>("UserDetailId")
                         .HasColumnType("int");
@@ -267,21 +251,6 @@ namespace GetBalance.DAL.Migrations
                         .IsUnique();
 
                     b.ToTable("UserTargets");
-                });
-
-            modelBuilder.Entity("FoodMeal", b =>
-                {
-                    b.HasOne("GetBalance.DATA.Food", null)
-                        .WithMany()
-                        .HasForeignKey("FoodsFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GetBalance.DATA.Meal", null)
-                        .WithMany()
-                        .HasForeignKey("MealsMealId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
@@ -295,6 +264,25 @@ namespace GetBalance.DAL.Migrations
                     b.Navigation("FoodCategory");
                 });
 
+            modelBuilder.Entity("GetBalance.DATA.FoodMeal", b =>
+                {
+                    b.HasOne("GetBalance.DATA.Food", "Food")
+                        .WithMany("FoodMeals")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GetBalance.DATA.Meal", "Meal")
+                        .WithMany("MealFoods")
+                        .HasForeignKey("MealId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("Meal");
+                });
+
             modelBuilder.Entity("GetBalance.DATA.Meal", b =>
                 {
                     b.HasOne("GetBalance.DATA.User", "User")
@@ -304,17 +292,6 @@ namespace GetBalance.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GetBalance.DATA.Portion", b =>
-                {
-                    b.HasOne("GetBalance.DATA.Food", "Food")
-                        .WithMany("Portions")
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.UserDetail", b =>
@@ -341,12 +318,17 @@ namespace GetBalance.DAL.Migrations
 
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
                 {
-                    b.Navigation("Portions");
+                    b.Navigation("FoodMeals");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.FoodCategory", b =>
                 {
                     b.Navigation("Foods");
+                });
+
+            modelBuilder.Entity("GetBalance.DATA.Meal", b =>
+                {
+                    b.Navigation("MealFoods");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.User", b =>
