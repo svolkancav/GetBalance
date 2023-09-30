@@ -22,21 +22,6 @@ namespace GetBalance.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("FoodMeal", b =>
-                {
-                    b.Property<int>("FoodsFoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MealsMealId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodsFoodId", "MealsMealId");
-
-                    b.HasIndex("MealsMealId");
-
-                    b.ToTable("FoodMeal");
-                });
-
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
                 {
                     b.Property<int>("FoodId")
@@ -64,14 +49,20 @@ namespace GetBalance.DAL.Migrations
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PortionName")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Protein")
                         .HasColumnType("decimal(5,2)");
+
+                    b.Property<int>("UnitPortionQuantity")
+                        .HasColumnType("int");
 
                     b.HasKey("FoodId");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Foods");
+                    b.ToTable("Foods", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.FoodCategory", b =>
@@ -88,7 +79,25 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasKey("FoodCategoryId");
 
-                    b.ToTable("FoodCategories");
+                    b.ToTable("FoodCategories", (string)null);
+                });
+
+            modelBuilder.Entity("GetBalance.DATA.FoodMeal", b =>
+                {
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MealId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FoodAmount")
+                        .HasColumnType("int");
+
+                    b.HasKey("FoodId", "MealId");
+
+                    b.HasIndex("MealId");
+
+                    b.ToTable("FoodMeal", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.Meal", b =>
@@ -116,32 +125,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Meals");
-                });
-
-            modelBuilder.Entity("GetBalance.DATA.Portion", b =>
-                {
-                    b.Property<int>("PortionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PortionId"), 1L, 1);
-
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PortionName")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("PortionId");
-
-                    b.HasIndex("FoodId", "PortionName")
-                        .IsUnique();
-
-                    b.ToTable("Portions");
+                    b.ToTable("Meals", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.User", b =>
@@ -165,7 +149,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.UserDetail", b =>
@@ -220,7 +204,7 @@ namespace GetBalance.DAL.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("UserDetails");
+                    b.ToTable("UserDetails", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.UserTarget", b =>
@@ -264,22 +248,7 @@ namespace GetBalance.DAL.Migrations
                     b.HasIndex("UserDetailId")
                         .IsUnique();
 
-                    b.ToTable("UserTargets");
-                });
-
-            modelBuilder.Entity("FoodMeal", b =>
-                {
-                    b.HasOne("GetBalance.DATA.Food", null)
-                        .WithMany()
-                        .HasForeignKey("FoodsFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GetBalance.DATA.Meal", null)
-                        .WithMany()
-                        .HasForeignKey("MealsMealId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("UserTargets", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
@@ -293,6 +262,25 @@ namespace GetBalance.DAL.Migrations
                     b.Navigation("FoodCategory");
                 });
 
+            modelBuilder.Entity("GetBalance.DATA.FoodMeal", b =>
+                {
+                    b.HasOne("GetBalance.DATA.Food", "Food")
+                        .WithMany("FoodMeals")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GetBalance.DATA.Meal", "Meal")
+                        .WithMany("MealFoods")
+                        .HasForeignKey("MealId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("Meal");
+                });
+
             modelBuilder.Entity("GetBalance.DATA.Meal", b =>
                 {
                     b.HasOne("GetBalance.DATA.User", "User")
@@ -302,17 +290,6 @@ namespace GetBalance.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GetBalance.DATA.Portion", b =>
-                {
-                    b.HasOne("GetBalance.DATA.Food", "Food")
-                        .WithMany("Portions")
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.UserDetail", b =>
@@ -339,12 +316,17 @@ namespace GetBalance.DAL.Migrations
 
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
                 {
-                    b.Navigation("Portions");
+                    b.Navigation("FoodMeals");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.FoodCategory", b =>
                 {
                     b.Navigation("Foods");
+                });
+
+            modelBuilder.Entity("GetBalance.DATA.Meal", b =>
+                {
+                    b.Navigation("MealFoods");
                 });
 
             modelBuilder.Entity("GetBalance.DATA.User", b =>

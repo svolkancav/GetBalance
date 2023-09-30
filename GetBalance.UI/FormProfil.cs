@@ -13,6 +13,7 @@ using GetBalance.UI.Singeltons;
 namespace GetBalance.UI
 {
 
+
     public partial class FormProfil : Form
     {
         UserManager userManager;
@@ -100,10 +101,15 @@ namespace GetBalance.UI
         //Mail sayfasını aç
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-           // System.Diagnostics.Process.Start("mailto:mail@mail.com.tr"); // Kodu çalıştıramadım
+            //string mailto = string.Format("mailto:{0}?Subject={1}&Body={2}", "mail@mail.com.tr", "Subject of message", "This is a body of a message");
+
+            //mailto = Uri.EscapeUriString(mailto);
+            //System.Diagnostics.Process.Start(mailto);
+
         }
 
 
     }
+
 
 }

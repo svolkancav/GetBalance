@@ -24,9 +24,6 @@ namespace GetBalance.UI
 
         UserDetail _userDetail;
         UserManager userManager;
-        AppDbContext context;
-        GenericRepository<UserDetail> _userDetailRepo;
-
 
 
         public FormHomePage2()
@@ -48,32 +45,29 @@ namespace GetBalance.UI
         {
 
             #region Database e user girilince açılacak.
-            //_userDetail = new UserDetail();
-            //context = new AppDbContext();
-            //_userDetailRepo = new GenericRepository<UserDetail>();
-            //_userDetail = _userDetailRepo.GetById(_userId);
+            _userDetail = userManager.CurrentUser.UserDetail;
+            
+            ClearLabels();
 
-            //ClearLabels();
-
-            //int boy = Convert.ToInt32(_userDetail.Height);
-            //int kilo = Convert.ToInt32(_userDetail.CurrentWeight);
-            //int neckCircum = Convert.ToInt32(_userDetail.NeckCircumference);
-            //int waistCircum = Convert.ToInt32(_userDetail.WaistCircumference);
-            //int hipCircum = Convert.ToInt32(_userDetail.HipCircumference);
-            //Gender gender = _userDetail.Gender;
-            //string cinsiyet = gender.ToString();
-            //DateTime dateTime = _userDetail.BirthDate;
-            //int yas = DateTime.Now.Year - dateTime.Year;
-            //ActivityLevel activity = _userDetail.ActivityLevel;
-            //TrainingLevel training = _userDetail.TrainingLevel;
+            int boy = Convert.ToInt32(_userDetail.Height);
+            int kilo = Convert.ToInt32(_userDetail.CurrentWeight);
+            int neckCircum = Convert.ToInt32(_userDetail.NeckCircumference);
+            int waistCircum = Convert.ToInt32(_userDetail.WaistCircumference);
+            int hipCircum = Convert.ToInt32(_userDetail.HipCircumference);
+            Gender gender = _userDetail.Gender;
+            string cinsiyet = gender.ToString();
+            DateTime dateTime = _userDetail.BirthDate;
+            int yas = DateTime.Now.Year - dateTime.Year;
+            ActivityLevel activity = _userDetail.ActivityLevel;
+            TrainingLevel training = _userDetail.TrainingLevel;
 
 
-            //lblGuncelVKI.Text = CalculatorExtensions.VKİHesapla(kilo, boy).ToString();
-            //lblGuncelBMH.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString();
-            //lblGuncelVYO.Text = CalculatorExtensions.VücutYağOraniHesapla(waistCircum, neckCircum, hipCircum, boy, cinsiyet).ToString();
-            //lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString();
-            //lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString();
-            //lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString();
+            lblGuncelVKI.Text = CalculatorExtensions.VKİHesapla(kilo, boy).ToString();
+            lblGuncelBMH.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString();
+            lblGuncelVYO.Text = CalculatorExtensions.VücutYağOraniHesapla(waistCircum, neckCircum, hipCircum, boy, cinsiyet).ToString();
+            lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString();
+            lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString();
+            lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString();
             //lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString();
             #endregion
 

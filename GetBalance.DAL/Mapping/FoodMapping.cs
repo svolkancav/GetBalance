@@ -23,13 +23,9 @@ namespace GetBalance.DAL.Mapping
 
 			builder.Property(x => x.Fat).HasColumnType("decimal(5,2)").IsRequired();
 
-			builder.HasMany(x => x.Meals).WithMany(x => x.Foods);
+			builder.HasMany(x => x.FoodMeals).WithOne(x => x.Food);
 
 			builder.HasOne(x => x.FoodCategory).WithMany(x => x.Foods).HasForeignKey(x => x.CategoryId);
-
-			builder.HasMany(x => x.Portions).WithOne(x => x.Food).HasForeignKey(x => x.FoodId);
-		
-			builder.Ignore(x => x.TotalQuantity);
 
 			builder.Property(x => x.Picture).HasColumnType("nvarchar(max)");
 		}
