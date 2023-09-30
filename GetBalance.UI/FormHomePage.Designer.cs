@@ -333,6 +333,7 @@
             // pnlAnaPanel
             // 
             pnlAnaPanel.AutoSize = true;
+            pnlAnaPanel.BackColor = Color.White;
             pnlAnaPanel.Dock = DockStyle.Fill;
             pnlAnaPanel.Location = new Point(205, 35);
             pnlAnaPanel.Name = "pnlAnaPanel";
