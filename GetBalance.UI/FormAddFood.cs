@@ -72,7 +72,7 @@ namespace GetBalance.UI
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Text = food.Name;
-                listViewItem.SubItems.Add(food.TotalQuantity.ToString());
+                //listViewItem.SubItems.Add(food.TotalQuantity.ToString());
                 listViewItem.SubItems.Add(food.Calories.ToString());
                 listViewItem.SubItems.Add(food.Carbohydrate.ToString());
                 listViewItem.SubItems.Add(food.Protein.ToString());
