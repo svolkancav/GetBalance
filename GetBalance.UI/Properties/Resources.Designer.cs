@@ -63,6 +63,26 @@ namespace GetBalance.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_image_128 {
+            get {
+                object obj = ResourceManager.GetObject("add-image-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_image_32 {
+            get {
+                object obj = ResourceManager.GetObject("add-image-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_101_32 {
             get {
                 object obj = ResourceManager.GetObject("arrow-101-32", resourceCulture);

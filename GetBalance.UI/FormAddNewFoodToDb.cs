@@ -1,5 +1,6 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DATA;
+using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
 using System;
 using System.Collections.Generic;
@@ -16,38 +17,54 @@ namespace GetBalance.UI
 {
     public partial class FormAddNewFoodToDb : Form
     {
-        //GenericRepository<FoodCategory> _categoryRepo;
-        //GenericRepository<Food> _foodRepo;
-
-        int karb, protein, yag;
+        GenericRepository<FoodCategory> _categoryRepo;
+        GenericRepository<Food> _foodRepo;
+        GenericRepository<Portion> _portionRepo;
+        OpenFileDialog openFileDialog;
+        int karb, protein, yag, porsiyonMiktari;
         public FormAddNewFoodToDb()
         {
             InitializeComponent();
-            //_categoryRepo = new GenericRepository<FoodCategory>();
+            openFileDialog = new OpenFileDialog();
+            _categoryRepo = new GenericRepository<FoodCategory>();
+            _foodRepo = new GenericRepository<Food>();
+            _portionRepo = new GenericRepository<Portion>();
         }
 
         private void FormAddNewFoodToDb_Load(object sender, EventArgs e)
         {
             CleanForm();
-            //FillComboBox();
-
+            FillComboBoxKategoriler();
+            FillComboBoxPorsiyonlar();
 
         }
 
         private void CleanForm()
         {
             txtYemekAdi.Text = string.Empty;
+            txtPorsiyonMiktari.Text = string.Empty;
             txtKarb.Text = string.Empty;
             txtProtein.Text = string.Empty;
             txtYag.Text = string.Empty;
+            cmbPorsiyonlar.SelectedIndex = -1;
+            cmbPorsiyonlar.SelectedText = "Seçiniz";
             cmbKategoriler.SelectedIndex = -1;
             cmbKategoriler.SelectedText = "Kategori seçiniz";
         }
+        private void FillComboBoxPorsiyonlar()
+        {
+            cmbPorsiyonlar.Items.Clear();
+            cmbPorsiyonlar.DataSource = Enum.GetValues(typeof(PortionName));
 
-        private void FillComboBox()
+            cmbPorsiyonlar.SelectedIndex = -1;
+            cmbPorsiyonlar.SelectedText = "Seçiniz";
+
+        }
+
+        private void FillComboBoxKategoriler()
         {
             cmbKategoriler.Items.Clear();
-            //cmbKategoriler.DataSource = _categoryRepo.GetAll();
+            cmbKategoriler.DataSource = _categoryRepo.GetAll();
             cmbKategoriler.ValueMember = "FoodCategoryId";
             cmbKategoriler.DisplayMember = "Name";
 
@@ -59,53 +76,85 @@ namespace GetBalance.UI
         private void btnKaydet_Click(object sender, EventArgs e)
         {
 
-            if (cmbKategoriler.SelectedIndex == -1)
+            if (cmbPorsiyonlar.SelectedIndex == -1 || cmbPorsiyonlar.SelectedIndex == -1)
             {
-                MessageBox.Show("Lütfen kategori seçiniz!");
+                MessageBox.Show("Lütfen porsiyon tipini ve kategoriyi seçiniz!");
             }
             else
             {
-                try
+                if (int.TryParse(txtPorsiyonMiktari.Text.Trim(), out int porsiyonMiktari))
                 {
-                    karb = Convert.ToInt32(txtKarb.Text);
-                    protein = Convert.ToInt32(txtProtein.Text);
-                    yag = Convert.ToInt32(txtYag.Text);
+                    if (int.TryParse(txtKarb.Text.Trim(), out int karb))
+                    {
+                        if (int.TryParse(txtProtein.Text.Trim(), out int protein))
+                        {
+                            if (int.TryParse(txtYag.Text.Trim(), out int yag))
+                            {
+                                try
+                                {
+                                    _foodRepo.Add(new Food()
+                                    {
+                                        Name = txtYemekAdi.Text.Trim(),
+                                        //PorsiyonMiktarı ekle = porsiyonMiktari,
+                                        //PorsiyonTipi ekle = cmbPorsiyonlar.SelectedIndex,
+                                        Calories = CalculatorExtensions.KaloriHesapla(karb, protein, yag),
+                                        Carbohydrate = karb,
+                                        Protein = protein,
+                                        Fat = yag,
+                                        CategoryId = (int)cmbKategoriler.SelectedValue
+                                    });
+
+                                    txtBilgi.ForeColor = Color.Green;
+                                    txtBilgi.Text = "Yeni yemek eklendi!";
+                                    CleanForm();
+
+                                }
+                                catch (Exception)
+                                {
+                                    txtBilgi.ForeColor = Color.Red;
+                                    txtBilgi.Text = "Yeni yemek eklerken bir hata oluştu!";
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Lütfen porsiyon miktarını doğru giriniz!");
+                                txtYag.Text = string.Empty;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lütfen protein miktarını doğru giriniz!");
+                            txtProtein.Text = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lütfen karbonhidrat miktarını doğru giriniz!");
+                        txtKarb.Text = string.Empty;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Geçerli bir değer giriniz!");
-                    txtKarb.Text = string.Empty;
-                    txtProtein.Text = string.Empty;
-                    txtYag.Text = string.Empty;
+                    MessageBox.Show("Lütfen porsiyon miktarını doğru giriniz!");
+                    txtPorsiyonMiktari.Text = string.Empty;
                 }
-            }
-            try
-            {
-                //_foodRepo.Add(new Food()
-                //{
-                //    Name = txtYemekAdi.Text.Trim(),
-                //    Calories = CalculatorExtensions.KaloriHesapla(karb, protein, yag),
-                //    Carbohydrate = karb,
-                //    Protein = protein,
-                //    Fat = yag,
-                //    CategoryId = (int)cmbKategoriler.SelectedValue
-                //});
-
-                txtBilgi.ForeColor = Color.Green;
-                txtBilgi.Text = "Yeni yemek eklendi!";
-                CleanForm();
 
             }
-            catch (Exception)
-            {
-                txtBilgi.ForeColor = Color.Red;
-                txtBilgi.Text = "Yeni yemek eklerken bir hata oluştu!";
-            }
+            
         }
 
         private void btnGeri_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void pbNewFood_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pbNewFood.Image = new Bitmap(openFileDialog.FileName);
+            }
         }
     }
 }
