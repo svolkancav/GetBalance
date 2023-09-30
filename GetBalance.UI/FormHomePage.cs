@@ -36,6 +36,8 @@ namespace GetBalance.UI
             userDetailrepository = new GenericRepository<UserDetail>();
 
             userTargetRepository = new GenericRepository<UserTarget>();
+
+
         }
 
 

@@ -147,6 +147,7 @@
 			btnHome.Name = "btnHome";
             btnHome.Size = new Size(30, 30);
             btnHome.SizeMode = PictureBoxSizeMode.Zoom;
+
 			btnHome.TabIndex = 1;
 			btnHome.TabStop = false;
 			btnHome.Click += btnHome_Click;
@@ -401,6 +402,7 @@
 			ResumeLayout(false);
 			PerformLayout();
 		}
+
 
 
         #endregion

@@ -49,6 +49,11 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
+            lblSifreDuzeyi = new Label();
+            lblZayif1 = new Label();
+            lblCokZayif1 = new Label();
+            lblOrta1 = new Label();
+            lblGuclu = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -135,6 +140,7 @@
             txtSifre.Name = "txtSifre";
             txtSifre.Size = new Size(200, 23);
             txtSifre.TabIndex = 5;
+            txtSifre.TextChanged += txtSifre_TextChanged;
             // 
             // txtSifre2
             // 
@@ -257,11 +263,61 @@
             label7.TabIndex = 17;
             label7.Text = "Cinsiyet: ";
             // 
+            // lblSifreDuzeyi
+            // 
+            lblSifreDuzeyi.AutoSize = true;
+            lblSifreDuzeyi.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSifreDuzeyi.Location = new Point(534, 246);
+            lblSifreDuzeyi.Name = "lblSifreDuzeyi";
+            lblSifreDuzeyi.Size = new Size(0, 15);
+            lblSifreDuzeyi.TabIndex = 18;
+            // 
+            // lblZayif1
+            // 
+            lblZayif1.AutoSize = true;
+            lblZayif1.Location = new Point(525, 270);
+            lblZayif1.Name = "lblZayif1";
+            lblZayif1.Size = new Size(127, 15);
+            lblZayif1.TabIndex = 19;
+            lblZayif1.Text = "                                        ";
+            // 
+            // lblCokZayif1
+            // 
+            lblCokZayif1.AutoSize = true;
+            lblCokZayif1.Location = new Point(525, 270);
+            lblCokZayif1.Name = "lblCokZayif1";
+            lblCokZayif1.Size = new Size(67, 15);
+            lblCokZayif1.TabIndex = 20;
+            lblCokZayif1.Text = "                    ";
+            // 
+            // lblOrta1
+            // 
+            lblOrta1.AutoSize = true;
+            lblOrta1.Location = new Point(525, 270);
+            lblOrta1.Name = "lblOrta1";
+            lblOrta1.Size = new Size(187, 15);
+            lblOrta1.TabIndex = 21;
+            lblOrta1.Text = "                                                            ";
+            // 
+            // lblGuclu
+            // 
+            lblGuclu.AutoSize = true;
+            lblGuclu.Location = new Point(525, 270);
+            lblGuclu.Name = "lblGuclu";
+            lblGuclu.Size = new Size(247, 15);
+            lblGuclu.TabIndex = 22;
+            lblGuclu.Text = "                                                                                ";
+            // 
             // FormYeniKayit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblGuclu);
+            Controls.Add(lblOrta1);
+            Controls.Add(lblCokZayif1);
+            Controls.Add(lblZayif1);
+            Controls.Add(lblSifreDuzeyi);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -313,5 +369,14 @@
         private Label label5;
         private Label label6;
         private Label label7;
+        private Label lblSifreDuzeyi;
+        private Label lblCokZayif;
+        private Label label11;
+        private Label lblZayif;
+        private Label lblzOrta;
+        private Label lblZayif1;
+        private Label lblCokZayif1;
+        private Label lblOrta1;
+        private Label lblGuclu;
     }
 }
