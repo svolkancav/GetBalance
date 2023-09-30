@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,17 @@ namespace GetBalance.UI
     {
         GenericRepository<FoodCategory> _categoryRepo;
         GenericRepository<Food> _foodRepo;
-        GenericRepository<Portion> _portionRepo;
+
         OpenFileDialog openFileDialog;
         int karb, protein, yag, porsiyonMiktari;
+        string resimYolu; //TODO: resmin dosya yolu tutulacak.
         public FormAddNewFoodToDb()
         {
             InitializeComponent();
             openFileDialog = new OpenFileDialog();
             _categoryRepo = new GenericRepository<FoodCategory>();
             _foodRepo = new GenericRepository<Food>();
-            _portionRepo = new GenericRepository<Portion>();
+
         }
 
         private void FormAddNewFoodToDb_Load(object sender, EventArgs e)
@@ -82,65 +84,49 @@ namespace GetBalance.UI
             }
             else
             {
-                if (int.TryParse(txtPorsiyonMiktari.Text.Trim(), out int porsiyonMiktari))
+                bool dogruMuPorMik = int.TryParse(txtPorsiyonMiktari.Text.Trim(), out int porsiyonMiktari);
+                bool dogruMuKarb = int.TryParse(txtKarb.Text.Trim(), out int karb);
+                bool dogruMuPro = int.TryParse(txtProtein.Text.Trim(), out int protein);
+                bool dogruMuYag = int.TryParse(txtYag.Text.Trim(), out int yag);
+                
+
+
+                if (dogruMuPorMik && dogruMuKarb && dogruMuPro && dogruMuYag)
                 {
-                    if (int.TryParse(txtKarb.Text.Trim(), out int karb))
+                    try
                     {
-                        if (int.TryParse(txtProtein.Text.Trim(), out int protein))
+                        _foodRepo.Add(new Food()
                         {
-                            if (int.TryParse(txtYag.Text.Trim(), out int yag))
-                            {
-                                try
-                                {
-                                    _foodRepo.Add(new Food()
-                                    {
-                                        Name = txtYemekAdi.Text.Trim(),
-                                        //PorsiyonMiktarı ekle = porsiyonMiktari,
-                                        //PorsiyonTipi ekle = cmbPorsiyonlar.SelectedIndex,
-                                        Calories = CalculatorExtensions.KaloriHesapla(karb, protein, yag),
-                                        Carbohydrate = karb,
-                                        Protein = protein,
-                                        Fat = yag,
-                                        CategoryId = (int)cmbKategoriler.SelectedValue
-                                    });
+                            Name = txtYemekAdi.Text.Trim(),
+                            UnitPortionQuantity = porsiyonMiktari,
+                            PortionName = (PortionName)cmbPorsiyonlar.SelectedItem,
+                            Calories = CalculatorExtensions.KaloriHesapla(karb, protein, yag),
+                            Carbohydrate = karb,
+                            Protein = protein,
+                            Fat = yag,
+                            CategoryId = (int)cmbKategoriler.SelectedValue,
+                            Picture = PictureTools.CopyPicture(resimYolu)
+                            
+                        });
 
-                                    txtBilgi.ForeColor = Color.Green;
-                                    txtBilgi.Text = "Yeni yemek eklendi!";
-                                    CleanForm();
+                        txtBilgi.ForeColor = Color.Green;
+                        txtBilgi.Text = "Yeni yemek eklendi!";
+                        CleanForm();
 
-                                }
-                                catch (Exception)
-                                {
-                                    txtBilgi.ForeColor = Color.Red;
-                                    txtBilgi.Text = "Yeni yemek eklerken bir hata oluştu!";
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Lütfen porsiyon miktarını doğru giriniz!");
-                                txtYag.Text = string.Empty;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Lütfen protein miktarını doğru giriniz!");
-                            txtProtein.Text = string.Empty;
-                        }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("Lütfen karbonhidrat miktarını doğru giriniz!");
-                        txtKarb.Text = string.Empty;
+                        txtBilgi.ForeColor = Color.Red;
+                        txtBilgi.Text = "Yeni yemek eklerken bir hata oluştu!";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen porsiyon miktarını doğru giriniz!");
-                    txtPorsiyonMiktari.Text = string.Empty;
+                    MessageBox.Show("Lütfen miktarları doğru giriniz!");
                 }
 
             }
-            
+
         }
 
         private void btnGeri_Click(object sender, EventArgs e)
@@ -153,8 +139,14 @@ namespace GetBalance.UI
             openFileDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                resimYolu = openFileDialog.FileName;
                 pbNewFood.Image = new Bitmap(openFileDialog.FileName);
             }
+        }
+
+        private void pnlYeniYemekEkle_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

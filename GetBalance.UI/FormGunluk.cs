@@ -1,5 +1,6 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DATA;
+using GetBalance.DATA.Enums;
 using GetBalance.UI.Singeltons;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,16 @@ namespace GetBalance.UI
         UserManager userManager;
 
         GenericRepository<Meal> _meal;
-        GenericRepository<Portion> _portion;
 
-        Meal kahvaltiMeal, ogleMeal, aksamMeal, aperatifMeal;
+        GenericRepository<FoodMeal> _foodMeal;
+
+        GenericRepository<Food> _food;
+
+        FoodMeal foodMeal;
+
+        FoodMeal kahvaltiMeal;
+
+        Meal ogleMeal, aksamMeal, aperatifMeal;
 
         MonthCalendar monthCalendar;
         bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
@@ -37,10 +45,16 @@ namespace GetBalance.UI
             userManager = UserManager.Instance;
 
             _meal = new GenericRepository<Meal>();
-            _portion = new GenericRepository<Portion>();
+
             monthCalendar = new MonthCalendar();
 
-            kahvaltiMeal = new Meal();
+            _foodMeal = new GenericRepository<FoodMeal>();
+
+            _food = new GenericRepository<Food>();
+
+            foodMeal = new FoodMeal();
+
+            kahvaltiMeal = new FoodMeal();
             ogleMeal = new Meal();
             aksamMeal = new Meal();
             aperatifMeal = new Meal();
@@ -82,6 +96,9 @@ namespace GetBalance.UI
             date = DateTime.Today;
             lblTarih.Text = date.ToShortDateString();
 
+
+
+
             ListViewEdit(lsvKahvalti);
             ListViewEdit(lsvOgle);
             ListViewEdit(lsvAksam);
@@ -93,14 +110,72 @@ namespace GetBalance.UI
 
         private void RefreshListView()
         {
-            kahvaltiMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Breakfast && us.Date == Convert.ToDateTime(lblTarih.Text));
+
+            //kahvaltiMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Breakfast && us.Date == Convert.ToDateTime(lblTarih.Text));
+
+            //kahvaltiMeal = _foodMeal.GetAll()
+
             ogleMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Lunch && us.Date == Convert.ToDateTime(lblTarih.Text));
             aksamMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Dinner && us.Date == Convert.ToDateTime(lblTarih.Text));
             aperatifMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Snack && us.Date == Convert.ToDateTime(lblTarih.Text));
 
-            FillListViewWithFoods(lsvKahvalti, kahvaltiMeal);
+            //if (kahvaltiMeal == null)
+            //{
+            //    kahvaltiMeal = new Meal()
+            //    {
+            //        MealType = MealType.Breakfast,
+            //        Date = Convert.ToDateTime(lblTarih.Text),
+            //        UserId = userManager.CurrentUser.UserId,
+            //        //Name = $"{userManager.CurrentUser.UserId} + {Convert.ToDateTime(lblTarih.Text)} + {MealType.Breakfast} "
+            //        Name = "asd"
+            //    };
+            //    _meal.Add(kahvaltiMeal);
+            //    foodMeal.Meal = kahvaltiMeal;
+            //}
+            //foodMeal.Meal = kahvaltiMeal;
+            //FillListViewWithFoods(lsvKahvalti, kahvaltiMeal);
+
+            if (ogleMeal == null)
+            {
+                ogleMeal = new Meal()
+                {
+                    MealType = MealType.Lunch,
+                    Date = Convert.ToDateTime(lblTarih.Text),
+                    UserId = userManager.CurrentUser.UserId,
+                    //Name = $"{userManager.CurrentUser.UserId} + {Convert.ToDateTime(lblTarih.Text)} + {MealType.Lunch} "
+                    Name = "asd"
+                };
+                _meal.Add(ogleMeal);
+                
+            }
             FillListViewWithFoods(lsvOgle, ogleMeal);
+
+            if (aksamMeal == null)
+            {
+                aksamMeal = new Meal()
+                {
+                    MealType = MealType.Dinner,
+                    Date = Convert.ToDateTime(lblTarih.Text),
+                    UserId = userManager.CurrentUser.UserId,
+                    //Name = $"{userManager.CurrentUser.UserId} + {Convert.ToDateTime(lblTarih.Text)} + {MealType.Dinner} "
+                    Name = "asd"
+                };
+                _meal.Add(aksamMeal);
+            }
             FillListViewWithFoods(lsvAksam, aksamMeal);
+
+            if (aperatifMeal == null)
+            {
+                aperatifMeal = new Meal()
+                {
+                    MealType = MealType.Snack,
+                    Date = Convert.ToDateTime(lblTarih.Text),
+                    UserId = userManager.CurrentUser.UserId,
+                    //Name = $"{userManager.CurrentUser.UserId} + {Convert.ToDateTime(lblTarih.Text)} + {MealType.Snack} "
+                    Name = "asd"
+                };
+                _meal.Add(aperatifMeal);
+            }
             FillListViewWithFoods(lsvAperatif, aperatifMeal);
         }
 
@@ -133,16 +208,25 @@ namespace GetBalance.UI
         private void FillListViewWithFoods(ListView listView, Meal meal)
         {
             listView.Items.Clear();
-            List<Food> foods = meal.Foods.ToList();
 
+            List<FoodMeal> foodMealList = _foodMeal.GetAll();
+            List<Food> foodList = _food.GetAll();
+            
 
-            foreach (Food food in foods)
+            List<FoodMeal> mealFoods = foodMealList.FindAll(x=>x.MealId == meal.MealId);
+            List<int> foodIdList = mealFoods.Select(fm => fm.FoodId).ToList();
+
+            List<Food> filteredFoods = foodList.Where(food => foodIdList.Contains(food.FoodId)).ToList();
+
+            //Foods list lazım
+            // 
+
+            foreach (Food food in filteredFoods)
             {
-                Portion porsiyon = _portion.GetAll().Find(x => x.FoodId == food.FoodId);
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Text = food.Name;
-                listViewItem.SubItems.Add(porsiyon.Quantity.ToString() + " " + Enum.GetName(porsiyon.PortionName)); //TODO: Değiştir
-                listViewItem.SubItems.Add(food.Calories.ToString());
+                listViewItem.SubItems.Add(_foodMeal.GetAll().Find(x => x.FoodId == food.FoodId).FoodAmount.ToString());
+                listViewItem.SubItems.Add(_foodMeal.GetAll().Find(x=>x.FoodId == food.FoodId).TotalCalori.ToString());
                 listViewItem.SubItems.Add(food.Carbohydrate.ToString());
                 listViewItem.SubItems.Add(food.Protein.ToString());
                 listViewItem.SubItems.Add(food.Fat.ToString());
@@ -256,7 +340,7 @@ namespace GetBalance.UI
             PictureBox pbAdd = sender as PictureBox;
             switch (pbAdd.Name)
             {
-                case "pbAddKahvalti": OpenFormYemekEkleme(kahvaltiMeal); break;
+                //case "pbAddKahvalti": OpenFormYemekEkleme(kahvaltiMeal); break;
                 case "pbAddOgle": OpenFormYemekEkleme(ogleMeal); break;
                 case "pbAddAksam": OpenFormYemekEkleme(aksamMeal); break;
                 case "pbAddAperatif": OpenFormYemekEkleme(aperatifMeal); break;
@@ -268,6 +352,7 @@ namespace GetBalance.UI
         {
             FormAddFood formAddFood = new FormAddFood(meal);
             formAddFood.ShowDialog();
+
         }
 
         private void btnRight_Click(object sender, EventArgs e)

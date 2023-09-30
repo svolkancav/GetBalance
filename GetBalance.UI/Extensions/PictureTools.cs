@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GetBalance.UI.Extensions
 {
-	public class PictureTools
+	public static class PictureTools
 	{
-		public string CreatePictureFolder() { 
+		public static string CreatePictureFolder() { 
 			string projectPath = Environment.CurrentDirectory;
 			string picturePath = projectPath + "\\Pictures";
 			try
@@ -26,7 +26,7 @@ namespace GetBalance.UI.Extensions
 			return picturePath;
 		}
 
-		public string CopyPicture(string sourcePath ) // sourcePath: resmin kaynak yolu, destinationPath: resmin kopyalanacağı yol
+		public static string CopyPicture(string sourcePath ) // sourcePath: resmin kaynak yolu, destinationPath: resmin kopyalanacağı yol
 		{
 			string destinationFolder =CreatePictureFolder();
 			try
