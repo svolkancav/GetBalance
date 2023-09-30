@@ -54,15 +54,13 @@ namespace GetBalance.UI
 			pnlAnaPanel.Controls.Add(formProfil);
 			pnlAnaPanel.Controls.Add(formHesaplamalar);
 			pnlAnaPanel.Controls.Add(formRapor);
-			formAnasayfa.Show();
 
-
-			pnlAnaPanel.Controls.Add(formGunluk);
-			pnlAnaPanel.Controls.Add(formHesaplamalar);
 
 			userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
 
 			userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
+
+			formAnasayfa.Show();
 		}
 
 		#region SidePanelTransition
