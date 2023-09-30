@@ -13,6 +13,7 @@ using GetBalance.UI.Singeltons;
 namespace GetBalance.UI
 {
 
+
     public partial class FormProfil : Form
     {
         UserManager userManager;
@@ -109,5 +110,6 @@ namespace GetBalance.UI
 
 
     }
+
 
 }

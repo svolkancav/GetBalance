@@ -45,6 +45,7 @@ namespace GetBalance.UI
 
             formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
 
+
             formProfil = new FormProfil() { TopLevel = false, TopMost = true };
             formAnasayfa = new FormHomePage2() { TopLevel = false, TopMost = true };
             formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
@@ -60,6 +61,7 @@ namespace GetBalance.UI
             userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 
             formAnasayfa.Show();
+
 
 
 
