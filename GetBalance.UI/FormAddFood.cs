@@ -1,7 +1,10 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DATA;
+using GetBalance.DATA.Enums;
 using GetBalance.UI.Repositories;
+using GetBalance.UI.Singeltons;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,25 +18,35 @@ namespace GetBalance.UI
 {
     public partial class FormAddFood : Form
     {
+        UserManager userManager;
         FoodRepository _foodRepo;
         GenericRepository<FoodCategory> _categoryRepo;
+        GenericRepository<Portion> _portionRepo;
 
-
-        public FormAddFood()
+        Meal seciliMeal;
+        Food seciliYemek;
+        Portion yeniPorsiyon;
+        public FormAddFood(Meal meal)
         {
             InitializeComponent();
+            userManager = UserManager.Instance;
             _foodRepo = new FoodRepository();
             _categoryRepo = new GenericRepository<FoodCategory>();
+            _portionRepo = new GenericRepository<Portion>();
+            seciliMeal = meal;
+
         }
 
         private void FormAddFood_Load(object sender, EventArgs e)
         {
-            FillComboBox();
+            FillComboBoxKategoriler();
+            FillComboBoxPorsiyonlar();
             ListViewEdit();
+
             FillListViewWithFoods(_foodRepo.GetAll());
 
         }
-        private void FillComboBox()
+        private void FillComboBoxKategoriler()
         {
             cmbKategoriler.Items.Clear();
             cmbKategoriler.DataSource = _categoryRepo.GetAll();
@@ -42,6 +55,16 @@ namespace GetBalance.UI
 
             cmbKategoriler.SelectedIndex = -1;
             cmbKategoriler.SelectedText = "Kategori";
+
+        }
+
+        private void FillComboBoxPorsiyonlar()
+        {
+            cmbPorsiyonlar.Items.Clear();
+            cmbPorsiyonlar.DataSource = Enum.GetValues(typeof(PortionName));
+
+            cmbPorsiyonlar.SelectedIndex = -1;
+            cmbPorsiyonlar.SelectedText = "Seçiniz";
 
         }
 
@@ -54,7 +77,7 @@ namespace GetBalance.UI
             ColumnHeader[] headers =
             {
                 new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsvFoods.Width-250, TextAlign = HorizontalAlignment.Left},
-                new ColumnHeader() { Name = "Portion", Text = "Posiyon Miktarı", Width = 50, TextAlign = HorizontalAlignment.Center},
+                //new ColumnHeader() { Name = "Portion", Text = "Posiyon Miktarı", Width = 50, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = 50, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 50, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 50, TextAlign = HorizontalAlignment.Center},
@@ -72,7 +95,7 @@ namespace GetBalance.UI
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Text = food.Name;
-                //listViewItem.SubItems.Add(food.TotalQuantity.ToString());
+                //listViewItem.SubItems.Add("100 gr");
                 listViewItem.SubItems.Add(food.Calories.ToString());
                 listViewItem.SubItems.Add(food.Carbohydrate.ToString());
                 listViewItem.SubItems.Add(food.Protein.ToString());
@@ -98,11 +121,35 @@ namespace GetBalance.UI
 
         private void btnOguneEkle_Click(object sender, EventArgs e)
         {
-            //TODO: Seçili öğüne yemek ekle
+
+            if (int.TryParse(txtPosiyonMiktari.Text.Trim(), out int porsiyonMiktari))
+            {
+                seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
+
+                //yeniPorsiyon = new Portion()
+                //{
+                //    FoodId = seciliYemek.FoodId,
+                //    Quantity = porsiyonMiktari,
+                //    PortionName = cm
+
+                //}
+                seciliMeal.Foods.Add(seciliYemek);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen geçerli bir porsiyon miktarı giriniz!");
+                txtPosiyonMiktari.Text = string.Empty;
+            }
         }
         private void pbKapat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Food> filtreliYemekler = (List<Food>)_foodRepo.GetAll().Where(x => x.CategoryId == (int)cmbKategoriler.SelectedValue);
+            FillListViewWithFoods(filtreliYemekler);
         }
     }
 }

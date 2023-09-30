@@ -1,26 +1,26 @@
 ﻿namespace GetBalance.UI
 {
-	partial class FormGunluk
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class FormGunluk
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Component Designer generated code
+        #region Component Designer generated code
 
         /// <summary> 
         /// Required method for Designer support - do not modify 
@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunluk));
             ListViewItem listViewItem1 = new ListViewItem(new string[] { "egg", "1", "2", "10", "5" }, -1);
             pnlLeftSide = new Panel();
-            dateTimePicker1 = new DateTimePicker();
             pictureBox2 = new PictureBox();
             circleProgressBar1 = new ReaLTaiizor.Controls.CircleProgressBar();
             lblSuankiKalori = new Label();
@@ -118,7 +117,6 @@
             // pnlLeftSide
             // 
             pnlLeftSide.BackColor = Color.FromArgb(244, 240, 232);
-            pnlLeftSide.Controls.Add(dateTimePicker1);
             pnlLeftSide.Controls.Add(pictureBox2);
             pnlLeftSide.Controls.Add(circleProgressBar1);
             pnlLeftSide.Controls.Add(lblSuankiKalori);
@@ -139,13 +137,6 @@
             pnlLeftSide.Name = "pnlLeftSide";
             pnlLeftSide.Size = new Size(200, 675);
             pnlLeftSide.TabIndex = 17;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(5, 525);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(190, 23);
-            dateTimePicker1.TabIndex = 28;
             // 
             // pictureBox2
             // 
@@ -936,34 +927,33 @@
             ResumeLayout(false);
         }
 
+        private Panel pnlLeftSide;
+        private Button btnAperatif;
+        private Button btnAksamYmegi;
+        private Button btnOgleYemegi;
+        private Button btnKahvalti;
+        private Label lblSuankiKalori;
+        private Label lblSuankiProtein;
+        private Label lblSuankiKarb;
+        private Label lblSuankiYag;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private ListView lsvKahvalti;
+        private ListView lsvOgle;
+        private ListView lsvAksam;
+        private Label lblHedefKarb;
+        private Label lblHedefKalori;
+        private Label lblHedefYag;
+        private Label lblHedefProtein;
+        private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
+        private ListView lsvAperatif;
+        private ContextMenuStrip cmsSagTik;
+        private ToolStripMenuItem tsmDuzenle;
+        private ToolStripMenuItem tsmKaldir;
 
-		private Panel pnlLeftSide;
-		private Button btnAperatif;
-		private Button btnAksamYmegi;
-		private Button btnOgleYemegi;
-		private Button btnKahvalti;
-		private Label lblSuankiKalori;
-		private Label lblSuankiProtein;
-		private Label lblSuankiKarb;
-		private Label lblSuankiYag;
-		private Label label4;
-		private Label label3;
-		private Label label2;
-		private Label label1;
-		private ListView lsvKahvalti;
-		private ListView lsvOgle;
-		private ListView lsvAksam;
-		private Label lblHedefKarb;
-		private Label lblHedefKalori;
-		private Label lblHedefYag;
-		private Label lblHedefProtein;
-		private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
-		private ListView lsvAperatif;
-		private ContextMenuStrip cmsSagTik;
-		private ToolStripMenuItem tsmDuzenle;
-		private ToolStripMenuItem tsmKaldir;
-
-		#endregion
+        #endregion
 
 
         private PictureBox pictureBox2;
@@ -1003,7 +993,6 @@
         private Label lblAksamTopKarb;
         private Label lblAksamTopProtein;
         private Label lblAksamTopYag;
-        private DateTimePicker dateTimePicker1;
     }
 
 

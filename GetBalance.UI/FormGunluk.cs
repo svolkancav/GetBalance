@@ -1,5 +1,6 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DATA;
+using GetBalance.UI.Singeltons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,12 @@ namespace GetBalance.UI
 
     public partial class FormGunluk : Form
     {
+        UserManager userManager;
+
         GenericRepository<Meal> _meal;
+        GenericRepository<Portion> _portion;
+
+        Meal kahvaltiMeal, ogleMeal, aksamMeal, aperatifMeal;
 
         MonthCalendar monthCalendar;
         bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
@@ -28,8 +34,17 @@ namespace GetBalance.UI
         public FormGunluk()
         {
             InitializeComponent();
+            userManager = UserManager.Instance;
+
             _meal = new GenericRepository<Meal>();
+            _portion = new GenericRepository<Portion>();
             monthCalendar = new MonthCalendar();
+
+            kahvaltiMeal = new Meal();
+            ogleMeal = new Meal();
+            aksamMeal = new Meal();
+            aperatifMeal = new Meal();
+
             pnlKahveLsv.Visible = pnlOgleLsv.Visible = pnlAksamLsv.Visible = pnlAperatifLsv.Visible = false;
 
         }
@@ -72,9 +87,22 @@ namespace GetBalance.UI
             ListViewEdit(lsvAksam);
             ListViewEdit(lsvAperatif);
 
+            RefreshListView();
+
         }
 
-        
+        private void RefreshListView()
+        {
+            kahvaltiMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Breakfast && us.Date == Convert.ToDateTime(lblTarih.Text));
+            ogleMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Lunch && us.Date == Convert.ToDateTime(lblTarih.Text));
+            aksamMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Dinner && us.Date == Convert.ToDateTime(lblTarih.Text));
+            aperatifMeal = _meal.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId && us.MealType == DATA.Enums.MealType.Snack && us.Date == Convert.ToDateTime(lblTarih.Text));
+
+            FillListViewWithFoods(lsvKahvalti, kahvaltiMeal);
+            FillListViewWithFoods(lsvOgle, ogleMeal);
+            FillListViewWithFoods(lsvAksam, aksamMeal);
+            FillListViewWithFoods(lsvAperatif, aperatifMeal);
+        }
 
         #region Öğünlerin Açılıp Kapanması
         private void btnKahvalti_Click(object sender, EventArgs e)
@@ -102,6 +130,29 @@ namespace GetBalance.UI
         }
         #endregion
 
+        private void FillListViewWithFoods(ListView listView, Meal meal)
+        {
+            listView.Items.Clear();
+            List<Food> foods = meal.Foods.ToList();
+
+
+            foreach (Food food in foods)
+            {
+                Portion porsiyon = _portion.GetAll().Find(x => x.FoodId == food.FoodId);
+                ListViewItem listViewItem = new ListViewItem();
+                listViewItem.Text = food.Name;
+                listViewItem.SubItems.Add(porsiyon.Quantity.ToString() + " " + Enum.GetName(porsiyon.PortionName)); //TODO: Değiştir
+                listViewItem.SubItems.Add(food.Calories.ToString());
+                listViewItem.SubItems.Add(food.Carbohydrate.ToString());
+                listViewItem.SubItems.Add(food.Protein.ToString());
+                listViewItem.SubItems.Add(food.Fat.ToString());
+
+                listViewItem.Tag = food;
+
+                listView.Items.Add(listViewItem);
+            }
+        }
+
         private void ListViewEdit(ListView lsv)
         {
             lsv.View = View.Details;
@@ -111,7 +162,7 @@ namespace GetBalance.UI
             ColumnHeader[] headers =
             {
                 new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsv.Width-500, TextAlign = HorizontalAlignment.Left},
-                new ColumnHeader() { Name = "Portion", Text = "Posiyon Miktarı", Width = 100, TextAlign = HorizontalAlignment.Center},
+                new ColumnHeader() { Name = "Portion", Text = "Porsiyon Miktarı", Width = 100, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = 100, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 100, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 100, TextAlign = HorizontalAlignment.Center},
@@ -205,36 +256,33 @@ namespace GetBalance.UI
             PictureBox pbAdd = sender as PictureBox;
             switch (pbAdd.Name)
             {
-                case "pbAddKahvalti": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
-                case "pbAddOgle": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
-                case "pbAddAksam": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
-                case "pbAddAperatif": OpenFormYemekEkleme(); break; //TODO: metod içine ilgili öğünü ekle
+                case "pbAddKahvalti": OpenFormYemekEkleme(kahvaltiMeal); break;
+                case "pbAddOgle": OpenFormYemekEkleme(ogleMeal); break;
+                case "pbAddAksam": OpenFormYemekEkleme(aksamMeal); break;
+                case "pbAddAperatif": OpenFormYemekEkleme(aperatifMeal); break;
 
             }
-		}
-
-        private void OpenFormYemekEkleme()
-        {
-            //TODO: meal'a yemek 
-            FormAddFood formAddFood = new FormAddFood();
-            formAddFood.ShowDialog();
-
         }
 
-		private void btnRight_Click(object sender, EventArgs e)
-		{
-			date = date.AddDays(1);
-			lblTarih.Text = date.ToShortDateString();
-			//TODO: Sorgular
-		}
+        private void OpenFormYemekEkleme(Meal meal)
+        {
+            FormAddFood formAddFood = new FormAddFood(meal);
+            formAddFood.ShowDialog();
+        }
 
-		private void btnLeft_Click(object sender, EventArgs e)
-		{
-			date = date.AddDays(-1);
-			lblTarih.Text = date.ToShortDateString();
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            date = date.AddDays(1);
+            lblTarih.Text = date.ToShortDateString();
+            RefreshListView();
+        }
 
-			//TODO: Sorgular
-		}
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            date = date.AddDays(-1);
+            lblTarih.Text = date.ToShortDateString();
+            RefreshListView();
+        }
 
         private void lblTarih_DoubleClick(object sender, EventArgs e)
         {
@@ -246,7 +294,7 @@ namespace GetBalance.UI
         {
             date = monthCalendar.SelectionStart;
             lblTarih.Text = date.ToShortDateString();
-            monthCalendar.Visible=false;
+            monthCalendar.Visible = false;
         }
 
 
