@@ -70,10 +70,9 @@
 			pnlTop.Controls.Add(nightControlBox1);
 			pnlTop.Dock = DockStyle.Top;
 			pnlTop.Location = new Point(0, 0);
-			pnlTop.Margin = new Padding(3, 4, 3, 4);
 			pnlTop.Name = "pnlTop";
-			pnlTop.Size = new Size(1463, 47);
-			pnlTop.TabIndex = 0;
+            pnlTop.Size = new Size(1280, 35);
+            pnlTop.TabIndex = 0;
 			pnlTop.MouseDown += pnlTop_MouseDown;
 			pnlTop.MouseMove += pnlTop_MouseMove;
 			pnlTop.MouseUp += pnlTop_MouseUp;
@@ -84,10 +83,10 @@
 			label2.BorderStyle = BorderStyle.FixedSingle;
 			label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label2.ForeColor = Color.White;
-			label2.Location = new Point(666, 8);
-			label2.Name = "label2";
-			label2.Size = new Size(207, 30);
-			label2.TabIndex = 3;
+            label2.Location = new Point(583, 6);
+            label2.Name = "label2";
+            label2.Size = new Size(158, 23);
+            label2.TabIndex = 3;
 			label2.Text = "H E A L T H Y  D I E T";
 			label2.TextAlign = ContentAlignment.MiddleCenter;
 			// 
@@ -105,8 +104,8 @@
 			nightControlBox1.EnableMaximizeColor = Color.White;
 			nightControlBox1.EnableMinimizeButton = true;
 			nightControlBox1.EnableMinimizeColor = Color.White;
-			nightControlBox1.Location = new Point(1324, 0);
-			nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
+            nightControlBox1.Location = new Point(1141, 0);
+            nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
 			nightControlBox1.MaximizeHoverForeColor = Color.White;
 			nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
 			nightControlBox1.MinimizeHoverForeColor = Color.White;
@@ -119,21 +118,20 @@
 			label1.AutoSize = true;
 			label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label1.ForeColor = Color.White;
-			label1.Location = new Point(64, 32);
-			label1.Name = "label1";
-			label1.Size = new Size(69, 28);
-			label1.TabIndex = 2;
+            label1.Location = new Point(56, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 21);
+            label1.TabIndex = 2;
 			label1.Text = "MENU";
 			// 
 			// btnHome
 			// 
 			btnHome.Cursor = Cursors.Hand;
 			btnHome.Image = Properties.Resources.menu_4_32;
-			btnHome.Location = new Point(10, 27);
-			btnHome.Margin = new Padding(3, 4, 3, 4);
+            btnHome.Location = new Point(9, 20);
 			btnHome.Name = "btnHome";
-			btnHome.Size = new Size(34, 40);
-			btnHome.SizeMode = PictureBoxSizeMode.Zoom;
+            btnHome.Size = new Size(30, 30);
+            btnHome.SizeMode = PictureBoxSizeMode.Zoom;
 			btnHome.TabIndex = 1;
 			btnHome.TabStop = false;
 			btnHome.Click += btnHome_Click;
