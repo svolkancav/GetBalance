@@ -26,7 +26,15 @@ namespace GetBalance.UI
 
 		private void FormBenimKilom_Load(object sender, EventArgs e)
 		{
+
 			lblMevcutKilo.Text = user.UserDetail.CurrentWeight.ToString();
+
+
+            if (user.UserDetail.UserTarget == null)
+			{
+				return;
+			}
+
 			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString();
 			lblBaslangicKilo.Text = user.UserDetail.UserTarget.StartingWeight.ToString();
 			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString();
