@@ -43,11 +43,14 @@ namespace GetBalance.DAL.Migrations
                     FoodId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    UnitPortionQuantity = table.Column<int>(type: "int", nullable: false),
+                    PortionName = table.Column<int>(type: "int", nullable: false),
                     Calories = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     Protein = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     Carbohydrate = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     Fat = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -92,13 +95,14 @@ namespace GetBalance.DAL.Migrations
                     LastName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(6)", nullable: false),
-                    Height = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    Height = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     NeckCircumference = table.Column<double>(type: "float", nullable: false),
                     WaistCircumference = table.Column<double>(type: "float", nullable: false),
                     HipCircumference = table.Column<double>(type: "float", nullable: false),
                     ActivityLevel = table.Column<int>(type: "int", nullable: false),
-                    CurrentWeight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    CurrentWeight = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    TrainingLevel = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -112,45 +116,25 @@ namespace GetBalance.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Portions",
+                name: "FoodMeal",
                 columns: table => new
                 {
-                    PortionId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    PortionName = table.Column<int>(type: "int", nullable: false),
-                    FoodId = table.Column<int>(type: "int", nullable: false)
+                    FoodId = table.Column<int>(type: "int", nullable: false),
+                    MealId = table.Column<int>(type: "int", nullable: false),
+                    FoodAmount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Portions", x => x.PortionId);
+                    table.PrimaryKey("PK_FoodMeal", x => new { x.FoodId, x.MealId });
                     table.ForeignKey(
-                        name: "FK_Portions_Foods_FoodId",
+                        name: "FK_FoodMeal_Foods_FoodId",
                         column: x => x.FoodId,
                         principalTable: "Foods",
                         principalColumn: "FoodId",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FoodMeal",
-                columns: table => new
-                {
-                    FoodsFoodId = table.Column<int>(type: "int", nullable: false),
-                    MealsMealId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FoodMeal", x => new { x.FoodsFoodId, x.MealsMealId });
                     table.ForeignKey(
-                        name: "FK_FoodMeal_Foods_FoodsFoodId",
-                        column: x => x.FoodsFoodId,
-                        principalTable: "Foods",
-                        principalColumn: "FoodId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_FoodMeal_Meals_MealsMealId",
-                        column: x => x.MealsMealId,
+                        name: "FK_FoodMeal_Meals_MealId",
+                        column: x => x.MealId,
                         principalTable: "Meals",
                         principalColumn: "MealId",
                         onDelete: ReferentialAction.Cascade);
@@ -162,13 +146,13 @@ namespace GetBalance.DAL.Migrations
                 {
                     UserTargetId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StartingWeight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
-                    TargetWeight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    StartingWeight = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
+                    TargetWeight = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     StartingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TargetCalorie = table.Column<short>(type: "smallint", maxLength: 5, nullable: false),
-                    TargetCarbPercentage = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
-                    TargetProteinPercentage = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
-                    TargetFatPercentage = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
+                    TargetCarbPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    TargetProteinPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    TargetFatPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserDetailId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -184,9 +168,9 @@ namespace GetBalance.DAL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FoodMeal_MealsMealId",
+                name: "IX_FoodMeal_MealId",
                 table: "FoodMeal",
-                column: "MealsMealId");
+                column: "MealId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Foods_CategoryId",
@@ -197,12 +181,6 @@ namespace GetBalance.DAL.Migrations
                 name: "IX_Meals_UserId",
                 table: "Meals",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Portions_FoodId_PortionName",
-                table: "Portions",
-                columns: new[] { "FoodId", "PortionName" },
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserDetails_UserId",
@@ -223,16 +201,13 @@ namespace GetBalance.DAL.Migrations
                 name: "FoodMeal");
 
             migrationBuilder.DropTable(
-                name: "Portions");
-
-            migrationBuilder.DropTable(
                 name: "UserTargets");
 
             migrationBuilder.DropTable(
-                name: "Meals");
+                name: "Foods");
 
             migrationBuilder.DropTable(
-                name: "Foods");
+                name: "Meals");
 
             migrationBuilder.DropTable(
                 name: "UserDetails");
