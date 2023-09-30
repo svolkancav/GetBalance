@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GetBalance.DAL.Migrations
 {
-    public partial class osman : Migration
+    public partial class volkanFirst : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

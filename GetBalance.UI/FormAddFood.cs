@@ -20,27 +20,32 @@ namespace GetBalance.UI
     {
         UserManager userManager;
         FoodRepository _foodRepo;
-        GenericRepository<FoodCategory> _categoryRepo;
-        GenericRepository<Portion> _portionRepo;
+        GenericRepository<FoodMeal> _foodMealRepo;
+        GenericRepository<FoodCategory> _foodCategoryRepo;
 
+        FoodMeal foodMeal;
         Meal seciliMeal;
         Food seciliYemek;
-        Portion yeniPorsiyon;
+
         public FormAddFood(Meal meal)
         {
             InitializeComponent();
             userManager = UserManager.Instance;
             _foodRepo = new FoodRepository();
-            _categoryRepo = new GenericRepository<FoodCategory>();
-            _portionRepo = new GenericRepository<Portion>();
+            _foodMealRepo = new GenericRepository<FoodMeal>();
+            _foodCategoryRepo = new GenericRepository<FoodCategory>();
+            foodMeal = new FoodMeal();
             seciliMeal = meal;
 
+        }
+        public FormAddFood()
+        {
+            InitializeComponent();
         }
 
         private void FormAddFood_Load(object sender, EventArgs e)
         {
             FillComboBoxKategoriler();
-            FillComboBoxPorsiyonlar();
             ListViewEdit();
 
             FillListViewWithFoods(_foodRepo.GetAll());
@@ -49,7 +54,10 @@ namespace GetBalance.UI
         private void FillComboBoxKategoriler()
         {
             cmbKategoriler.Items.Clear();
-            cmbKategoriler.DataSource = _categoryRepo.GetAll();
+
+            List<FoodCategory> categories = _foodCategoryRepo.GetAll();
+
+            cmbKategoriler.DataSource = categories;
             cmbKategoriler.ValueMember = "FoodCategoryId";
             cmbKategoriler.DisplayMember = "Name";
 
@@ -58,13 +66,24 @@ namespace GetBalance.UI
 
         }
 
-        private void FillComboBoxPorsiyonlar()
+        private void FillComboBoxPorsiyonlar(string foodName)
         {
             cmbPorsiyonlar.Items.Clear();
-            cmbPorsiyonlar.DataSource = Enum.GetValues(typeof(PortionName));
 
-            cmbPorsiyonlar.SelectedIndex = -1;
-            cmbPorsiyonlar.SelectedText = "Seçiniz";
+
+            List<Food> foods = _foodRepo.GetAll().FindAll(x => x.Name == foodName);
+
+
+            foreach (Food food in foods)
+            {
+                cmbPorsiyonlar.Items.Add(food.PortionName);
+            }
+
+            
+            //cmbPorsiyonlar.DataSource = foods;
+            //cmbPorsiyonlar.DisplayMember = "PortionName";
+            //cmbPorsiyonlar.SelectedIndex = -1;
+            //cmbPorsiyonlar.SelectedText = "Seçiniz";
 
         }
 
@@ -126,14 +145,21 @@ namespace GetBalance.UI
             {
                 seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
 
-                //yeniPorsiyon = new Portion()
-                //{
-                //    FoodId = seciliYemek.FoodId,
-                //    Quantity = porsiyonMiktari,
-                //    PortionName = cm
+                int seciliYemekID = seciliYemek.FoodId;
+                int mealID = seciliMeal.MealId;
 
-                //}
-                seciliMeal.Foods.Add(seciliYemek);
+                FoodMeal newfoodMeal = new FoodMeal();
+                newfoodMeal.FoodId = seciliYemekID;
+                newfoodMeal.FoodAmount = porsiyonMiktari;
+                newfoodMeal.MealId = mealID;
+
+                newfoodMeal.Food = seciliYemek;
+
+                _foodMealRepo.Add(newfoodMeal);
+
+                
+
+                ClearFields();
             }
             else
             {
@@ -141,6 +167,16 @@ namespace GetBalance.UI
                 txtPosiyonMiktari.Text = string.Empty;
             }
         }
+
+        private void ClearFields()
+        {
+            txtPosiyonMiktari.Text = string.Empty;
+            txtYemekAra.Text = string.Empty;
+            cmbKategoriler.SelectedIndex = -1;
+            cmbPorsiyonlar.SelectedIndex = -1;
+            FillListViewWithFoods(_foodRepo.GetAll());
+        }
+
         private void pbKapat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -148,8 +184,18 @@ namespace GetBalance.UI
 
         private void cmbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Food> filtreliYemekler = (List<Food>)_foodRepo.GetAll().Where(x => x.CategoryId == (int)cmbKategoriler.SelectedValue);
-            FillListViewWithFoods(filtreliYemekler);
+            //List<Food> filtreliYemekler = (List<Food>)_foodRepo.GetAll().Where(x => x.CategoryId == (int)cmbKategoriler.SelectedValue);
+            //FillListViewWithFoods(filtreliYemekler);
+        }
+
+
+        private void lsvFoods_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsvFoods.SelectedItems.Count == 0) return;
+            seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
+            string yemekAdi = seciliYemek.Name.ToString();
+            FillComboBoxPorsiyonlar(yemekAdi);
+
         }
     }
 }

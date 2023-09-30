@@ -33,14 +33,14 @@
             pbNewFood = new PictureBox();
             btnKaydet = new Button();
             btnGeri = new Button();
+            cmbPorsiyonlar = new ComboBox();
             cmbKategoriler = new ComboBox();
             label1 = new Label();
             txtYag = new TextBox();
             txtProtein = new TextBox();
             txtKarb = new TextBox();
-            txtYemekAdi = new TextBox();
             txtPorsiyonMiktari = new TextBox();
-            cmbPorsiyonlar = new ComboBox();
+            txtYemekAdi = new TextBox();
             pnlYeniYemekEkle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbNewFood).BeginInit();
             SuspendLayout();
@@ -65,6 +65,7 @@
             pnlYeniYemekEkle.Name = "pnlYeniYemekEkle";
             pnlYeniYemekEkle.Size = new Size(450, 590);
             pnlYeniYemekEkle.TabIndex = 0;
+            pnlYeniYemekEkle.Paint += pnlYeniYemekEkle_Paint;
             // 
             // txtBilgi
             // 
@@ -109,6 +110,14 @@
             btnGeri.Text = "GERİ";
             btnGeri.UseVisualStyleBackColor = true;
             btnGeri.Click += btnGeri_Click;
+            // 
+            // cmbPorsiyonlar
+            // 
+            cmbPorsiyonlar.FormattingEnabled = true;
+            cmbPorsiyonlar.Location = new Point(70, 286);
+            cmbPorsiyonlar.Name = "cmbPorsiyonlar";
+            cmbPorsiyonlar.Size = new Size(310, 23);
+            cmbPorsiyonlar.TabIndex = 2;
             // 
             // cmbKategoriler
             // 
@@ -159,16 +168,6 @@
             txtKarb.TabIndex = 3;
             txtKarb.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtYemekAdi
-            // 
-            txtYemekAdi.BackColor = Color.White;
-            txtYemekAdi.Location = new Point(70, 210);
-            txtYemekAdi.Name = "txtYemekAdi";
-            txtYemekAdi.PlaceholderText = "Yemek Adı";
-            txtYemekAdi.Size = new Size(310, 23);
-            txtYemekAdi.TabIndex = 0;
-            txtYemekAdi.TextAlign = HorizontalAlignment.Center;
-            // 
             // txtPorsiyonMiktari
             // 
             txtPorsiyonMiktari.BackColor = Color.White;
@@ -179,13 +178,15 @@
             txtPorsiyonMiktari.TabIndex = 1;
             txtPorsiyonMiktari.TextAlign = HorizontalAlignment.Center;
             // 
-            // cmbPorsiyonlar
+            // txtYemekAdi
             // 
-            cmbPorsiyonlar.FormattingEnabled = true;
-            cmbPorsiyonlar.Location = new Point(70, 286);
-            cmbPorsiyonlar.Name = "cmbPorsiyonlar";
-            cmbPorsiyonlar.Size = new Size(310, 23);
-            cmbPorsiyonlar.TabIndex = 2;
+            txtYemekAdi.BackColor = Color.White;
+            txtYemekAdi.Location = new Point(70, 210);
+            txtYemekAdi.Name = "txtYemekAdi";
+            txtYemekAdi.PlaceholderText = "Yemek Adı";
+            txtYemekAdi.Size = new Size(310, 23);
+            txtYemekAdi.TabIndex = 0;
+            txtYemekAdi.TextAlign = HorizontalAlignment.Center;
             // 
             // FormAddNewFoodToDb
             // 

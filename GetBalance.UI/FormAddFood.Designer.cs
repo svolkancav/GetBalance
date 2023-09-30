@@ -99,11 +99,12 @@
             // 
             // lsvFoods
             // 
-            lsvFoods.Location = new Point(14, 12);
+            lsvFoods.Location = new Point(14, 41);
             lsvFoods.Name = "lsvFoods";
-            lsvFoods.Size = new Size(423, 437);
+            lsvFoods.Size = new Size(423, 408);
             lsvFoods.TabIndex = 2;
             lsvFoods.UseCompatibleStateImageBehavior = false;
+            lsvFoods.SelectedIndexChanged += lsvFoods_SelectedIndexChanged;
             // 
             // cmbKategoriler
             // 
