@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Singeltons;
@@ -16,17 +15,14 @@ namespace GetBalance.UI
 {
 	public partial class FormYeniKayit : Form
 	{
-
 		UserManager userManager;
-		GenericRepository<User> _userRepo;
-
+		
 		public FormYeniKayit()
 		{
 			InitializeComponent();
 
 			userManager = UserManager.Instance;
-			_userRepo = new GenericRepository<User>();
-
+			
 		}
 
 		private void btnIleri_Click(object sender, EventArgs e)
@@ -38,9 +34,6 @@ namespace GetBalance.UI
 			string sifreTekrar = txtSifre2.Text.Trim();
 			Gender gender = rdnErkek.Checked ? Gender.Male : Gender.Female;
 
-
-
-
 			if (String.IsNullOrEmpty(isim) || String.IsNullOrEmpty(soyisim) || String.IsNullOrEmpty(email) || String.IsNullOrEmpty(sifre) || String.IsNullOrEmpty(sifreTekrar) || dtpDogumTarihi.Value == DateTime.Now)
 			{
 				MessageBox.Show("Lütfen tüm alanları doldurunuz.");
@@ -49,11 +42,6 @@ namespace GetBalance.UI
 			else if (sifre != sifreTekrar)
 			{
 				MessageBox.Show("Şifreler uyuşmuyor.");
-				return;
-			}
-			else if (_userRepo.GetByFilter(u => u.Email == email) != null)
-			{
-				MessageBox.Show("Bu e-posta adresi kullanılmaktadır.");
 				return;
 			}
 
