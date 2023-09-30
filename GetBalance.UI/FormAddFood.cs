@@ -15,28 +15,28 @@ namespace GetBalance.UI
 {
     public partial class FormAddFood : Form
     {
-        //FoodRepository _foodRepo;
-        //GenericRepository<FoodCategory> _categoryRepo;
+        FoodRepository _foodRepo;
+        GenericRepository<FoodCategory> _categoryRepo;
 
 
         public FormAddFood()
         {
             InitializeComponent();
-            //_foodRepo = new FoodRepository();
-            //_categoryRepo = new GenericRepository<FoodCategory>();
+            _foodRepo = new FoodRepository();
+            _categoryRepo = new GenericRepository<FoodCategory>();
         }
 
         private void FormAddFood_Load(object sender, EventArgs e)
         {
-            //FillComboBox();
+            FillComboBox();
             ListViewEdit();
-            //FillListViewWithFoods(_foodRepo.GetAll());
+            FillListViewWithFoods(_foodRepo.GetAll());
 
         }
         private void FillComboBox()
         {
             cmbKategoriler.Items.Clear();
-            //cmbKategoriler.DataSource = _categoryRepo.GetAll();
+            cmbKategoriler.DataSource = _categoryRepo.GetAll();
             cmbKategoriler.ValueMember = "FoodCategoryId";
             cmbKategoriler.DisplayMember = "Name";
 
@@ -86,7 +86,8 @@ namespace GetBalance.UI
 
         private void txtYemekAra_TextChanged(object sender, EventArgs e)
         {
-            //FillListViewWithFoods(_foodRepo.GetByFilterName(txtYemekAra.Text));
+            string foodName = txtYemekAra.Text.Trim();
+            FillListViewWithFoods(_foodRepo.GetByFilterName(foodName));
         }
 
         private void btnYeniYemekEkle_Click(object sender, EventArgs e)

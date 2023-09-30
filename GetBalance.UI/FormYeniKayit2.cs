@@ -23,7 +23,7 @@ namespace GetBalance.UI
 		UserManager userManager;
 
 		FormYeniKayit _yeniKayit;
-		public FormYeniKayit2(/*FormYeniKayit formYeniKayit, User user*/)
+		public FormYeniKayit2()
 		{
 			InitializeComponent();
 
@@ -50,9 +50,9 @@ namespace GetBalance.UI
 				MessageBox.Show("Lütfen tüm alanları doldurunuz.");
 				return;
 			}
+			UserDetail userDetail = new UserDetail();
 
 			userManager.CurrentUser.UserDetail.Height = height;
-
 			userManager.CurrentUser.UserDetail.CurrentWeight = weight;
 			userManager.CurrentUser.UserDetail.NeckCircumference = neckCircumference;
 			userManager.CurrentUser.UserDetail.WaistCircumference = waistCircumference;

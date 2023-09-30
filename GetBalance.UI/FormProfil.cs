@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GetBalance.DATA;
 using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
@@ -14,11 +15,13 @@ namespace GetBalance.UI
 
     public partial class FormProfil : Form
     {
+        UserManager userManager;
 
         OpenFileDialog openFileDialog = new OpenFileDialog();
         public FormProfil()
         {
             InitializeComponent();
+            userManager = UserManager.Instance;
         }
 
         Form formBenimKilom, formIletisimveGizlilik, formBizeUlasin, formHatirlatici, formAyarlar;
@@ -37,6 +40,12 @@ namespace GetBalance.UI
             pnlProfil2.Controls.Add(formIletisimveGizlilik);
             pnlProfil2.Controls.Add(formBizeUlasin);
             pnlProfil2.Controls.Add(formAyarlar);
+
+            User user = userManager.CurrentUser;
+
+            lblKullaniciAdi.Text=user.UserDetail.FirstName+" "+user.UserDetail.LastName;
+            lblMail.Text = user.Email;
+
 
         }
         private void HideAllForms()
