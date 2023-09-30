@@ -31,7 +31,7 @@ namespace GetBalance.UI
             userManager = UserManager.Instance;
         }
 
-       
+
 
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -47,9 +47,7 @@ namespace GetBalance.UI
                 ActivityLevel activity = (ActivityLevel)cbxAktiviteSeviyesi.SelectedItem;
                 TrainingLevel training = (TrainingLevel)cmbTraining.SelectedItem;
 
-
                 _userDetail = _userDetailRepo.GetById(userManager.CurrentUser.UserId);
-
                 _userDetail.Height = boy;
                 _userDetail.CurrentWeight = kilo;
                 _userDetail.NeckCircumference = boyun;
@@ -58,7 +56,7 @@ namespace GetBalance.UI
                 _userDetail.ActivityLevel = activity;
                 _userDetail.TrainingLevel = training;
                 context.SaveChanges();
-
+                ClearFields();
 
             }
             catch (Exception)
@@ -66,12 +64,23 @@ namespace GetBalance.UI
 
                 MessageBox.Show("Hatalı giriş yaptınız !");
             }
-            
-
-            
 
 
 
+
+
+
+        }
+
+        private void ClearFields()
+        {
+            txtBoy.Text = string.Empty;
+            txtBelCevresi.Text = string.Empty;
+            txtBoyunCevresi.Text = string.Empty;
+            txtKalcaCevresi.Text = string.Empty;
+            txtKilo.Text = string.Empty;
+            cmbTraining.SelectedIndex = -1;
+            cbxAktiviteSeviyesi.SelectedIndex = -1;
         }
 
         private void FormDuzenle_Load(object sender, EventArgs e)

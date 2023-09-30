@@ -1,26 +1,26 @@
 ﻿namespace GetBalance.UI
 {
-	partial class FormHomePage
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class FormHomePage
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
 
         /// <summary>
@@ -372,28 +372,28 @@
         }
 
 
-		#endregion
+        #endregion
 
-		private Panel pnlTop;
-		private PictureBox btnHome;
-		private Label label1;
-		private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-		private FlowLayoutPanel menuContainer;
-		private Button btnAnaSayfa;
-		private System.Windows.Forms.Timer menuTransition;
-		private Panel pnlMenu;
-		private Panel pnlAnaSayfa;
-		private Panel pnlProfil;
-		private Button btnProfil;
-		private Panel pnlGunluk;
-		private Button btnGunluk;
-		private Panel pnlRaporlar;
-		private Button btnRaporlar;
-		private Panel pnlCikis;
-		private Button btnCikis;
-		private Panel pnlAnaPanel;
-		private Label label2;
-		private Panel pnlHesaplamalar;
-		private Button btnHesaplamalar;
-	}
+        private Panel pnlTop;
+        private PictureBox btnHome;
+        private Label label1;
+        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
+        private FlowLayoutPanel menuContainer;
+        private Button btnAnaSayfa;
+        private System.Windows.Forms.Timer menuTransition;
+        private Panel pnlMenu;
+        private Panel pnlAnaSayfa;
+        private Panel pnlProfil;
+        private Button btnProfil;
+        private Panel pnlGunluk;
+        private Button btnGunluk;
+        private Panel pnlRaporlar;
+        private Button btnRaporlar;
+        private Panel pnlCikis;
+        private Button btnCikis;
+        private Panel pnlAnaPanel;
+        private Label label2;
+        private Panel pnlHesaplamalar;
+        private Button btnHesaplamalar;
+    }
 }
