@@ -69,7 +69,7 @@ namespace GetBalance.UI
             {
                 menuContainer.Width -= 10;
                 formGunluk.Width += 10;
-                if (menuContainer.Width <= 66)
+                if (menuContainer.Width <= 58)
                 {
                     menuExpand = false;
                     menuTransition.Stop();
@@ -79,7 +79,7 @@ namespace GetBalance.UI
             {
                 menuContainer.Width += 10;
                 formGunluk.Width -= 10;
-                if (menuContainer.Width >= 215)
+                if (menuContainer.Width >= 205)
                 {
                     menuExpand = true;
                     menuTransition.Stop();
