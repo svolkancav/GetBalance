@@ -14,7 +14,7 @@ namespace GetBalance.UI
 
 
 
-			Application.Run(new FormHomePage());
+			Application.Run(new FormGiris());
 
 		}
 	}

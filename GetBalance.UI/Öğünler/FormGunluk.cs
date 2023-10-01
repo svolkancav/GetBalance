@@ -143,8 +143,8 @@ namespace GetBalance.UI
 			MealTotal(lsvKahvalti, out double tCalorie, out double tCarb, out double tProtein, out double tFat);
 			lblKahvaltiTopKalori.Text = tCalorie.ToString() + " Kcal";
 			lblKahvaltiTopKarb.Text = tCarb.ToString() + " gr";
-			lblKahvaltiTopProtein.Text = tProtein.ToString();
-			lblKahvaltiTopYag.Text = tFat.ToString();
+			lblKahvaltiTopProtein.Text = tProtein.ToString() + " gr";
+			lblKahvaltiTopYag.Text = tFat.ToString() + " gr";
 
 			MealTotal(lsvOgle, out tCalorie, out tCarb, out tProtein, out tFat);
 			lblOgleTopKalori.Text = tCalorie.ToString() + " Kcal";
@@ -169,7 +169,19 @@ namespace GetBalance.UI
 			lblSuankiProtein.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopProtein.Text)) + Convert.ToDouble(FormatText(lblOgleTopProtein.Text)) + Convert.ToDouble(FormatText(lblAksamTopProtein.Text)) + Convert.ToDouble(FormatText(lblAperatifTopProtein.Text))).ToString() + " gr";
 			lblSuankiYag.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopYag.Text)) + Convert.ToDouble(FormatText(lblOgleTopYag.Text)) + Convert.ToDouble(FormatText(lblAksamTopYag.Text)) + Convert.ToDouble(FormatText(lblAperatifTopYag.Text))).ToString() + " gr";
 
-			
+			double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
+			lblHedefKalori.Text = Math.Round(targetCalori,2).ToString() + " Kcal";
+
+			double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
+			lblHedefKarb.Text = Math.Round(targetCarb*targetCalori/400.00,2).ToString() + " gr";
+
+			double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
+			lblHedefProtein.Text= Math.Round(targetProtein*targetCalori/400.00,2).ToString() + " gr";
+
+			double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
+			lblHedefYag.Text = Math.Round(targetFat*targetCalori/900.00,2).ToString() + " gr";
+
+			parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
 		}
 
 		string FormatText(string text)
@@ -412,8 +424,6 @@ namespace GetBalance.UI
 			lblTarih.Text = date.ToShortDateString();
 			monthCalendar.Visible = false;
 		}
-
-
 	}
 	class LsvItem
 	{

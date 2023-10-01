@@ -19,10 +19,10 @@ namespace GetBalance.DAL.Mapping
 
 			builder.Property(x=>x.MealType).IsRequired().HasColumnType("int");
 
-			builder.Ignore(x => x.Calories);
-			builder.Ignore(x => x.Carbohydrate);
-			builder.Ignore(x => x.Fat);
-			builder.Ignore(x => x.Protein);
+			builder.Ignore(x => x.TotalCalories);
+			builder.Ignore(x => x.TotalCarbohydrate);
+			builder.Ignore(x => x.TotalProtein);
+			builder.Ignore(x => x.TotalFat);
 
 			builder.HasOne(x => x.User).WithMany(x => x.Meals).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
 
