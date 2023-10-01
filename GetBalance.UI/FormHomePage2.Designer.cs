@@ -56,6 +56,7 @@
             label1 = new Label();
             label2 = new Label();
             pnlYanPanel = new Panel();
+            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             pnlKilo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -65,12 +66,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(390, 140);
+            pictureBox5.Location = new Point(323, 140);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(74, 60);
             pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -165,9 +167,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(26, 71);
+            pictureBox1.Location = new Point(12, 54);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(62, 55);
+            pictureBox1.Size = new Size(115, 110);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -189,7 +191,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(45, 292);
+            panel1.Location = new Point(47, 241);
             panel1.Name = "panel1";
             panel1.Size = new Size(478, 365);
             panel1.TabIndex = 10;
@@ -345,14 +347,26 @@
             // 
             pnlYanPanel.Location = new Point(546, 35);
             pnlYanPanel.Name = "pnlYanPanel";
-            pnlYanPanel.Size = new Size(542, 622);
+            pnlYanPanel.Size = new Size(503, 571);
             pnlYanPanel.TabIndex = 11;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(430, 140);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(74, 60);
+            pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox6.TabIndex = 12;
+            pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // FormHomePage2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 685);
+            ClientSize = new Size(1075, 634);
+            Controls.Add(pictureBox6);
             Controls.Add(pnlYanPanel);
             Controls.Add(panel1);
             Controls.Add(pictureBox5);
@@ -377,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -409,5 +424,6 @@
         private Label lblGuncelBMH;
         private Label lblGuncelVKI;
         private Panel pnlYanPanel;
+        private PictureBox pictureBox6;
     }
 }

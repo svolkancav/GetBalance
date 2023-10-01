@@ -16,5 +16,14 @@ namespace GetBalance.UI
         {
             InitializeComponent();
         }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            double hedeflenenProtein = double.Parse(txtHedefProtein.Text);
+            double hedeflenenCarb = double.Parse(txtHedefCarbon.Text);
+            double hedeflenenYag = double.Parse(txtHedefYag.Text);
+            double hedeflenenKalori = double.Parse(txtHedefKalori.Text);
+
+        }
     }
 }
