@@ -90,7 +90,7 @@
             pnlSide.Dock = DockStyle.Left;
             pnlSide.Location = new Point(0, 0);
             pnlSide.Name = "pnlSide";
-            pnlSide.Size = new Size(232, 607);
+            pnlSide.Size = new Size(232, 685);
             pnlSide.TabIndex = 8;
             // 
             // btnMKAH
@@ -188,14 +188,14 @@
             pnlHesaplamalar.Dock = DockStyle.Fill;
             pnlHesaplamalar.Location = new Point(232, 0);
             pnlHesaplamalar.Name = "pnlHesaplamalar";
-            pnlHesaplamalar.Size = new Size(836, 607);
+            pnlHesaplamalar.Size = new Size(843, 685);
             pnlHesaplamalar.TabIndex = 9;
             // 
             // FormHesaplamalar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1068, 607);
+            ClientSize = new Size(1075, 685);
             Controls.Add(pnlHesaplamalar);
             Controls.Add(pnlSide);
             FormBorderStyle = FormBorderStyle.None;

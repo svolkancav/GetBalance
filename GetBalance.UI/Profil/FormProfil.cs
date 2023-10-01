@@ -44,7 +44,7 @@ namespace GetBalance.UI
 
             User user = userManager.CurrentUser;
 
-            lblKullaniciAdi.Text=user.UserDetail.FirstName+" "+user.UserDetail.LastName;
+            lblKullaniciAdi.Text = user.UserDetail.FirstName + " " + user.UserDetail.LastName;
             lblMail.Text = user.Email;
 
 

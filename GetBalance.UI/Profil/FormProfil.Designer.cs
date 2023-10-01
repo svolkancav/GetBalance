@@ -52,10 +52,9 @@
             btnBizeUlasin.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnBizeUlasin.Image = (Image)resources.GetObject("btnBizeUlasin.Image");
             btnBizeUlasin.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBizeUlasin.Location = new Point(127, 595);
-            btnBizeUlasin.Margin = new Padding(4, 5, 4, 5);
+            btnBizeUlasin.Location = new Point(89, 357);
             btnBizeUlasin.Name = "btnBizeUlasin";
-            btnBizeUlasin.Size = new Size(264, 78);
+            btnBizeUlasin.Size = new Size(185, 47);
             btnBizeUlasin.TabIndex = 19;
             btnBizeUlasin.Text = "Bize Ulaşın";
             btnBizeUlasin.UseVisualStyleBackColor = false;
@@ -67,10 +66,9 @@
             btnGizlilik.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnGizlilik.Image = (Image)resources.GetObject("btnGizlilik.Image");
             btnGizlilik.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGizlilik.Location = new Point(127, 507);
-            btnGizlilik.Margin = new Padding(4, 5, 4, 5);
+            btnGizlilik.Location = new Point(89, 304);
             btnGizlilik.Name = "btnGizlilik";
-            btnGizlilik.Size = new Size(264, 78);
+            btnGizlilik.Size = new Size(185, 47);
             btnGizlilik.TabIndex = 18;
             btnGizlilik.Text = "   İletişim ve Gizlilik";
             btnGizlilik.UseVisualStyleBackColor = false;
@@ -82,10 +80,9 @@
             btnFotografAlbumu.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnFotografAlbumu.Image = (Image)resources.GetObject("btnFotografAlbumu.Image");
             btnFotografAlbumu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFotografAlbumu.Location = new Point(127, 418);
-            btnFotografAlbumu.Margin = new Padding(4, 5, 4, 5);
+            btnFotografAlbumu.Location = new Point(89, 251);
             btnFotografAlbumu.Name = "btnFotografAlbumu";
-            btnFotografAlbumu.Size = new Size(264, 78);
+            btnFotografAlbumu.Size = new Size(185, 47);
             btnFotografAlbumu.TabIndex = 17;
             btnFotografAlbumu.Text = "    Fotograf Albümü";
             btnFotografAlbumu.UseVisualStyleBackColor = false;
@@ -96,10 +93,9 @@
             btnHatirlatici.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnHatirlatici.Image = (Image)resources.GetObject("btnHatirlatici.Image");
             btnHatirlatici.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHatirlatici.Location = new Point(127, 330);
-            btnHatirlatici.Margin = new Padding(4, 5, 4, 5);
+            btnHatirlatici.Location = new Point(89, 198);
             btnHatirlatici.Name = "btnHatirlatici";
-            btnHatirlatici.Size = new Size(264, 78);
+            btnHatirlatici.Size = new Size(185, 47);
             btnHatirlatici.TabIndex = 16;
             btnHatirlatici.Text = "Hatırlatıcı";
             btnHatirlatici.UseVisualStyleBackColor = false;
@@ -111,10 +107,9 @@
             btnBenimKilom.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnBenimKilom.Image = (Image)resources.GetObject("btnBenimKilom.Image");
             btnBenimKilom.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBenimKilom.Location = new Point(127, 242);
-            btnBenimKilom.Margin = new Padding(4, 5, 4, 5);
+            btnBenimKilom.Location = new Point(89, 145);
             btnBenimKilom.Name = "btnBenimKilom";
-            btnBenimKilom.Size = new Size(264, 78);
+            btnBenimKilom.Size = new Size(185, 47);
             btnBenimKilom.TabIndex = 15;
             btnBenimKilom.Text = "Benim Kilom";
             btnBenimKilom.UseVisualStyleBackColor = false;
@@ -123,10 +118,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(603, 67);
-            pictureBox3.Margin = new Padding(4, 5, 4, 5);
+            pictureBox3.Location = new Point(422, 40);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(76, 75);
+            pictureBox3.Size = new Size(53, 45);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
@@ -135,10 +129,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(999, 67);
-            pictureBox2.Margin = new Padding(4, 5, 4, 5);
+            pictureBox2.Location = new Point(699, 40);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(81, 75);
+            pictureBox2.Size = new Size(57, 45);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 13;
             pictureBox2.TabStop = false;
@@ -146,33 +139,30 @@
             // 
             // lblMail
             // 
-            lblMail.AutoSize = true;
             lblMail.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMail.Location = new Point(817, 195);
-            lblMail.Margin = new Padding(4, 0, 4, 0);
+            lblMail.Location = new Point(422, 117);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(50, 28);
+            lblMail.Size = new Size(334, 25);
             lblMail.TabIndex = 12;
             lblMail.Text = "Mail";
+            lblMail.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblKullaniciAdi
             // 
-            lblKullaniciAdi.AutoSize = true;
             lblKullaniciAdi.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblKullaniciAdi.Location = new Point(780, 147);
-            lblKullaniciAdi.Margin = new Padding(4, 0, 4, 0);
+            lblKullaniciAdi.Location = new Point(422, 88);
             lblKullaniciAdi.Name = "lblKullaniciAdi";
-            lblKullaniciAdi.Size = new Size(136, 31);
+            lblKullaniciAdi.Size = new Size(334, 29);
             lblKullaniciAdi.TabIndex = 11;
             lblKullaniciAdi.Text = "KullanıcıAdı";
+            lblKullaniciAdi.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(780, 27);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(547, 16);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(114, 115);
+            pictureBox1.Size = new Size(80, 69);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
@@ -180,17 +170,16 @@
             // 
             // pnlProfil2
             // 
-            pnlProfil2.Location = new Point(460, 242);
-            pnlProfil2.Margin = new Padding(4, 5, 4, 5);
+            pnlProfil2.Location = new Point(322, 145);
             pnlProfil2.Name = "pnlProfil2";
-            pnlProfil2.Size = new Size(1014, 432);
+            pnlProfil2.Size = new Size(710, 259);
             pnlProfil2.TabIndex = 20;
             // 
             // FormProfil
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1516, 738);
+            ClientSize = new Size(1061, 443);
             Controls.Add(pnlProfil2);
             Controls.Add(btnBizeUlasin);
             Controls.Add(btnGizlilik);
@@ -203,7 +192,6 @@
             Controls.Add(lblKullaniciAdi);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FormProfil";
             Text = "FormProfil";
             Load += FormProfil_Load;
@@ -211,7 +199,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
 

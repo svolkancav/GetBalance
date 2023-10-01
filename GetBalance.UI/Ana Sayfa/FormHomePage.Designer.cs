@@ -85,7 +85,7 @@
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(523, 8);
+            label2.Location = new Point(561, 8);
             label2.Name = "label2";
             label2.Size = new Size(158, 23);
             label2.TabIndex = 3;
@@ -120,7 +120,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(49, 18);
+            label1.Location = new Point(54, 19);
             label1.Name = "label1";
             label1.Size = new Size(56, 21);
             label1.TabIndex = 2;
@@ -130,10 +130,10 @@
             // 
             btnHome.Cursor = Cursors.Hand;
             btnHome.Image = Properties.Resources.menu_4_32;
-            btnHome.Location = new Point(8, 15);
+            btnHome.Location = new Point(7, 15);
             btnHome.Margin = new Padding(3, 2, 3, 2);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(26, 22);
+            btnHome.Size = new Size(35, 30);
             btnHome.SizeMode = PictureBoxSizeMode.Zoom;
             btnHome.TabIndex = 1;
             btnHome.TabStop = false;
@@ -171,7 +171,7 @@
             pnlAnaSayfa.Controls.Add(btnAnaSayfa);
             pnlAnaSayfa.Location = new Point(3, 62);
             pnlAnaSayfa.Name = "pnlAnaSayfa";
-            pnlAnaSayfa.Size = new Size(173, 40);
+            pnlAnaSayfa.Size = new Size(196, 40);
             pnlAnaSayfa.TabIndex = 1;
             // 
             // btnAnaSayfa
@@ -198,7 +198,7 @@
             pnlProfil.Controls.Add(btnProfil);
             pnlProfil.Location = new Point(3, 108);
             pnlProfil.Name = "pnlProfil";
-            pnlProfil.Size = new Size(173, 40);
+            pnlProfil.Size = new Size(196, 40);
             pnlProfil.TabIndex = 1;
             // 
             // btnProfil
@@ -225,7 +225,7 @@
             pnlGunluk.Controls.Add(btnGunluk);
             pnlGunluk.Location = new Point(3, 154);
             pnlGunluk.Name = "pnlGunluk";
-            pnlGunluk.Size = new Size(173, 40);
+            pnlGunluk.Size = new Size(196, 40);
             pnlGunluk.TabIndex = 1;
             // 
             // btnGunluk
@@ -252,7 +252,7 @@
             pnlRaporlar.Controls.Add(btnRaporlar);
             pnlRaporlar.Location = new Point(3, 200);
             pnlRaporlar.Name = "pnlRaporlar";
-            pnlRaporlar.Size = new Size(173, 40);
+            pnlRaporlar.Size = new Size(196, 40);
             pnlRaporlar.TabIndex = 1;
             // 
             // btnRaporlar
@@ -279,7 +279,7 @@
             pnlHesaplamalar.Controls.Add(btnHesaplamalar);
             pnlHesaplamalar.Location = new Point(3, 246);
             pnlHesaplamalar.Name = "pnlHesaplamalar";
-            pnlHesaplamalar.Size = new Size(173, 40);
+            pnlHesaplamalar.Size = new Size(196, 40);
             pnlHesaplamalar.TabIndex = 1;
             // 
             // btnHesaplamalar
@@ -306,7 +306,7 @@
             pnlCikis.Controls.Add(btnCikis);
             pnlCikis.Location = new Point(3, 292);
             pnlCikis.Name = "pnlCikis";
-            pnlCikis.Size = new Size(173, 40);
+            pnlCikis.Size = new Size(196, 40);
             pnlCikis.TabIndex = 1;
             // 
             // btnCikis
