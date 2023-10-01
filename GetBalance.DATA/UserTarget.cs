@@ -13,7 +13,7 @@ namespace GetBalance.DATA
         public double StartingWeight { get; set; }
         public double TargetWeight { get; set; }
         public DateTime StartingDate { get; set; }
-        public short TargetCalorie { get; set; }
+        public double TargetCalorie { get; set; }
         public double TargetCarbPercentage { get; set; }
         public double TargetProteinPercentage { get; set; }
         public double TargetFatPercentage { get; set; }

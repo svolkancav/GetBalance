@@ -22,6 +22,8 @@
 
         #region Component Designer generated code
 
+
+
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
@@ -1040,7 +1042,9 @@
         private ToolStripMenuItem tsmDuzenle;
         private ToolStripMenuItem tsmKaldir;
 
+
         #endregion
+
 
 
         private PictureBox pictureBox2;
@@ -1087,6 +1091,7 @@
         private Label label8;
         private Label label9;
     }
+
 
 
 

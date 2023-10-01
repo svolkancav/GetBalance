@@ -10,10 +10,6 @@ namespace GetBalance.DATA
 		}
 		public int MealId { get; set; }
 		public string Name { get; set; }
-		public double Calories { get; set; }
-		public double Protein { get; set; }
-		public double Carbohydrate { get; set; }
-		public double Fat { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
         public MealType MealType { get; set; }
 		public double TotalCalories => MealFoods.Sum(fm=>fm.TotalCalori);
