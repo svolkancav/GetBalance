@@ -14,7 +14,7 @@ namespace GetBalance.DATA
 		public double Protein { get; set; }
 		public double Carbohydrate { get; set; }
 		public double Fat { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public MealType MealType { get; set; }
 		//public double TotalCalories => Foods.Sum(food => food.Calories * food.TotalQuantity);
         public int UserId { get; set; }

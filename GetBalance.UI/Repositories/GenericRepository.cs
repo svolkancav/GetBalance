@@ -52,7 +52,7 @@ namespace _16_DBFirst_RepositoryDesing_Nortwind.Repositories
 
 
 
-		public int Delete(int id)
+		public virtual int Delete(int id)
 		{
 			try
 			{

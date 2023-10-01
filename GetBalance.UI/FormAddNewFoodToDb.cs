@@ -22,6 +22,7 @@ namespace GetBalance.UI
         GenericRepository<Food> _foodRepo;
 
         OpenFileDialog openFileDialog;
+
         int karb, protein, yag, porsiyonMiktari;
         string resimYolu; //TODO: resmin dosya yolu tutulacak.
         public FormAddNewFoodToDb()
@@ -52,6 +53,7 @@ namespace GetBalance.UI
             cmbPorsiyonlar.SelectedText = "Seçiniz";
             cmbKategoriler.SelectedIndex = -1;
             cmbKategoriler.SelectedText = "Kategori seçiniz";
+            pbNewFood.Image = Properties.Resources.add_image_128;
         }
         private void FillComboBoxPorsiyonlar()
         {
@@ -140,6 +142,7 @@ namespace GetBalance.UI
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 resimYolu = openFileDialog.FileName;
+
                 pbNewFood.Image = new Bitmap(openFileDialog.FileName);
             }
         }

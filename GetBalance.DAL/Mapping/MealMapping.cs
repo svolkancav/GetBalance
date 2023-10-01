@@ -15,7 +15,7 @@ namespace GetBalance.DAL.Mapping
 		{
 			builder.Property(x => x.Name).IsRequired().HasColumnType("nvarchar(50)");
 
-			builder.Property(x => x.Date).IsRequired().HasColumnType("datetime2");
+			builder.Property(x => x.Date).IsRequired().HasColumnType("date");
 
 			builder.Property(x=>x.MealType).IsRequired().HasColumnType("int");
 
