@@ -173,9 +173,9 @@ namespace GetBalance.UI
 
     }
 
-	}
-
+	
 }
+
 
 
 
