@@ -17,13 +17,13 @@ namespace GetBalance.UI
 	public partial class FormYeniKayit : Form
 	{
 		UserManager userManager;
-		
+
 		public FormYeniKayit()
 		{
 			InitializeComponent();
 
 			userManager = UserManager.Instance;
-			
+
 		}
 
 
@@ -88,6 +88,7 @@ namespace GetBalance.UI
 				this.Location = yeniKonum;
 			}
 		}
+
 
 
         private void FormYeniKayit_Load(object sender, EventArgs e)
@@ -173,6 +174,8 @@ namespace GetBalance.UI
     }
 
 	}
+
+}
 
 
 
