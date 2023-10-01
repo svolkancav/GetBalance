@@ -24,17 +24,17 @@ namespace GetBalance.UI.Queries
 		//	foodQuantity = 0;
 		//	try
 		//	{
-		//		//MostConsumedFoodType? mostComsumedFood = _context.Meals.Where(meal => meal.UserId == userId && meal.MealType == mealType && meal.Date >= startDate && meal.Date <= endTime)
-		//		//.SelectMany(meal => meal.Foods)
-		//		//.GroupBy(food => food.FoodId)
-		//		//.OrderByDescending(group => group.Count())
-		//		//.Select(group => new MostConsumedFoodType
-		//		//{
-		//		//	FoodId = group.Key,
-		//		//	FoodName = group.FirstOrDefault().Name,
-		//		//	FoodTotalQuantity = group.Sum(food => food.TotalQuantity)
-		//		//})
-		//		//.FirstOrDefault();
+		//		MostConsumedFoodType? mostComsumedFood = _context.Meals.Where(meal => meal.UserId == userId && meal.MealType == mealType && meal.Date >= startDate && meal.Date <= endTime)
+		//		.SelectMany(meal => meal.Foods)
+		//		.GroupBy(food => food.FoodId)
+		//		.OrderByDescending(group => group.Count())
+		//		.Select(group => new MostConsumedFoodType
+		//		{
+		//			FoodId = group.Key,
+		//			FoodName = group.FirstOrDefault().Name,
+		//			FoodTotalQuantity = group.Sum(food => food.TotalQuantity)
+		//		})
+		//		.FirstOrDefault();
 
 		//		if (mostComsumedFood != null)
 		//		{

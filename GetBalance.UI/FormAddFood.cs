@@ -16,186 +16,228 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-    public partial class FormAddFood : Form
-    {
-        UserManager userManager;
-        FoodRepository _foodRepo;
-        GenericRepository<FoodMeal> _foodMealRepo;
-        GenericRepository<FoodCategory> _foodCategoryRepo;
-
-        FoodMeal foodMeal;
-        Meal seciliMeal;
-        Food seciliYemek;
-
-        public FormAddFood(Meal meal)
-        {
-            InitializeComponent();
-            userManager = UserManager.Instance;
-            _foodRepo = new FoodRepository();
-            _foodMealRepo = new GenericRepository<FoodMeal>();
-            _foodCategoryRepo = new GenericRepository<FoodCategory>();
-            foodMeal = new FoodMeal();
-            seciliMeal = meal;
-
-        }
-        public FormAddFood()
-        {
-            InitializeComponent();
-        }
-
-        private void FormAddFood_Load(object sender, EventArgs e)
-        {
-            FillComboBoxKategoriler();
-            ListViewEdit();
-
-            FillListViewWithFoods(_foodRepo.GetAll());
-
-        }
-        private void FillComboBoxKategoriler()
-        {
-            cmbKategoriler.Items.Clear();
-
-            List<FoodCategory> categories = _foodCategoryRepo.GetAll();
-
-            cmbKategoriler.DataSource = categories;
-            cmbKategoriler.ValueMember = "FoodCategoryId";
-            cmbKategoriler.DisplayMember = "Name";
-
-            cmbKategoriler.SelectedIndex = -1;
-            cmbKategoriler.SelectedText = "Kategori";
-
-        }
-
-        private void FillComboBoxPorsiyonlar(string foodName)
-        {
-            cmbPorsiyonlar.Items.Clear();
+	public partial class FormAddFood : Form
+	{
+		UserManager userManager;
+		FoodRepository _foodRepo;
+		FoodMealRepository _foodMealRepo;
+		GenericRepository<FoodCategory> _foodCategoryRepo;
+		GenericRepository<Meal> _mealRepo;
 
 
-            List<Food> foods = _foodRepo.GetAll().FindAll(x => x.Name == foodName);
+		MealType seciliMealType;
+		Food seciliYemek;
+		FoodMeal _foodMeal;
+		DateTime dateTime1;
+		bool cmbCategoryFlag = false;
+
+		public FormAddFood(MealType mealType, DateTime dateTime)
+		{
+			InitializeForm();
+
+			seciliMealType = mealType;
+			dateTime1 = dateTime;
+		}
+
+		private void InitializeForm()
+		{
+			InitializeComponent();
+			userManager = UserManager.Instance;
+			_foodRepo = new FoodRepository();
+			_foodMealRepo = new FoodMealRepository();
+			_foodCategoryRepo = new GenericRepository<FoodCategory>();
+			_mealRepo = new GenericRepository<Meal>();
+		}
+
+		public FormAddFood()
+		{
+			InitializeComponent();
+		}
+		public FormAddFood(FoodMeal foodMeal)
+		{
+			InitializeForm();
+			_foodMeal = foodMeal;
+
+			if (_foodMeal != null)
+			{
+				FillListViewWithFoods(_foodRepo.GetAll().Where(x => x.FoodId == _foodMeal.FoodId).ToList());
+				lsvFoods.Items[0].Selected = true;
+				lsvFoods.Select();
+				lsvFoods.Focus();
+				txtPosiyonMiktari.Text = _foodMeal.FoodAmount.ToString();
+				cmbKategoriler.SelectedValue = _foodRepo.GetAll().Where(x => x.FoodId == _foodMeal.FoodId).ToList()[0].CategoryId;
+				txtYemekAra.Text = _foodRepo.GetAll().Where(x => x.FoodId == _foodMeal.FoodId).ToList()[0].Name;
+				btnOguneEkle.Text = "Güncelle";
+				btnYeniYemekEkle.Visible = false;
+			}
+		}
+
+		private void FormAddFood_Load(object sender, EventArgs e)
+		{
+			ListViewEdit();
+			FillComboBoxKategoriler(_foodMeal);
+			if (_foodMeal != null) return;
+			FillListViewWithFoods(_foodRepo.GetAll());
+		}
 
 
-            foreach (Food food in foods)
-            {
-                cmbPorsiyonlar.Items.Add(food.PortionName);
-            }
+		private void FillComboBoxKategoriler(FoodMeal foodMeal)
+		{
+			cmbKategoriler.Items.Clear();
 
-            
-            //cmbPorsiyonlar.DataSource = foods;
-            //cmbPorsiyonlar.DisplayMember = "PortionName";
-            //cmbPorsiyonlar.SelectedIndex = -1;
-            //cmbPorsiyonlar.SelectedText = "Seçiniz";
+			List<FoodCategory> categories = _foodCategoryRepo.GetAll();
 
-        }
+			cmbKategoriler.DataSource = categories;
+			cmbKategoriler.ValueMember = "FoodCategoryId";
+			cmbKategoriler.DisplayMember = "Name";
+			if (foodMeal != null) return;
 
-        private void ListViewEdit()
-        {
-            lsvFoods.View = View.Details;
-            lsvFoods.GridLines = true;
-            lsvFoods.FullRowSelect = true;
+			cmbKategoriler.SelectedIndex = -1;
+			cmbKategoriler.SelectedText = "Kategori";
+			cmbCategoryFlag = true;
 
-            ColumnHeader[] headers =
-            {
-                new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsvFoods.Width-250, TextAlign = HorizontalAlignment.Left},
+		}
+
+		private void FillLblPorsiyonlar(int foodId)
+		{
+			List<Food> foods = _foodRepo.GetAll().FindAll(x => x.FoodId == foodId);
+
+			foreach (Food food in foods)
+			{
+				lblPorsiyonDetayi.Text = food.PortionName.ToString();
+			}
+		}
+
+		private void ListViewEdit()
+		{
+			lsvFoods.View = View.Details;
+			lsvFoods.GridLines = true;
+			lsvFoods.FullRowSelect = true;
+
+			ColumnHeader[] headers =
+			{
+				new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsvFoods.Width-250, TextAlign = HorizontalAlignment.Left},
                 //new ColumnHeader() { Name = "Portion", Text = "Posiyon Miktarı", Width = 50, TextAlign = HorizontalAlignment.Center},
                 new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = 50, TextAlign = HorizontalAlignment.Center},
-                new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 50, TextAlign = HorizontalAlignment.Center},
-                new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 50, TextAlign = HorizontalAlignment.Center},
-                new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = 50, TextAlign = HorizontalAlignment.Center}
-            };
+				new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 50, TextAlign = HorizontalAlignment.Center},
+				new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 50, TextAlign = HorizontalAlignment.Center},
+				new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = 50, TextAlign = HorizontalAlignment.Center}
+			};
 
-            lsvFoods.Columns.AddRange(headers);
-        }
+			lsvFoods.Columns.AddRange(headers);
+		}
 
-        private void FillListViewWithFoods(List<Food> foods)
-        {
-            lsvFoods.Items.Clear();
+		private void FillListViewWithFoods(List<Food> foods)
+		{
+			lsvFoods.Items.Clear();
 
-            foreach (Food food in foods)
-            {
-                ListViewItem listViewItem = new ListViewItem();
-                listViewItem.Text = food.Name;
-                //listViewItem.SubItems.Add("100 gr");
-                listViewItem.SubItems.Add(food.Calories.ToString());
-                listViewItem.SubItems.Add(food.Carbohydrate.ToString());
-                listViewItem.SubItems.Add(food.Protein.ToString());
-                listViewItem.SubItems.Add(food.Fat.ToString());
+			foreach (Food food in foods)
+			{
+				ListViewItem listViewItem = new ListViewItem();
+				listViewItem.Text = food.Name;
+				//listViewItem.SubItems.Add("100 gr");
+				listViewItem.SubItems.Add(food.Calories.ToString());
+				listViewItem.SubItems.Add(food.Carbohydrate.ToString());
+				listViewItem.SubItems.Add(food.Protein.ToString());
+				listViewItem.SubItems.Add(food.Fat.ToString());
 
-                listViewItem.Tag = food;
+				listViewItem.Tag = food;
 
-                lsvFoods.Items.Add(listViewItem);
-            }
-        }
+				lsvFoods.Items.Add(listViewItem);
+			}
+		}
 
-        private void txtYemekAra_TextChanged(object sender, EventArgs e)
-        {
-            string foodName = txtYemekAra.Text.Trim();
-            FillListViewWithFoods(_foodRepo.GetByFilterName(foodName));
-        }
+		private void txtYemekAra_TextChanged(object sender, EventArgs e)
+		{
+			FilterFoods();
+		}
 
-        private void btnYeniYemekEkle_Click(object sender, EventArgs e)
-        {
-            FormAddNewFoodToDb formAddNewFoodToDb = new FormAddNewFoodToDb();
-            formAddNewFoodToDb.ShowDialog();
-        }
+		private void FilterFoods()
+		{
+			string foodName = txtYemekAra.Text.Trim();
+			if (cmbKategoriler.SelectedIndex == -1)
+			{
+				FillListViewWithFoods(_foodRepo.GetByFilterName(foodName));
+			}
+			else if (cmbCategoryFlag == true)
+			{
+				FillListViewWithFoods(_foodRepo.GetByFilterName(foodName).Where(f => f.CategoryId == (int)cmbKategoriler.SelectedValue).ToList());
+			}
+		}
 
-        private void btnOguneEkle_Click(object sender, EventArgs e)
-        {
+		private void btnYeniYemekEkle_Click(object sender, EventArgs e)
+		{
+			FormAddNewFoodToDb formAddNewFoodToDb = new FormAddNewFoodToDb();
+			formAddNewFoodToDb.ShowDialog();
+		}
 
-            if (int.TryParse(txtPosiyonMiktari.Text.Trim(), out int porsiyonMiktari))
-            {
-                seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
+		private void btnOguneEkle_Click(object sender, EventArgs e)
+		{
+			if (int.TryParse(txtPosiyonMiktari.Text.Trim(), out int porsiyonMiktari))
+			{
+				seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
+				Meal meal = new Meal() { MealType = seciliMealType, Name = "deneme", UserId = userManager.CurrentUser.UserId, Date = dateTime1 };
 
-                int seciliYemekID = seciliYemek.FoodId;
-                int mealID = seciliMeal.MealId;
+				if (_foodMeal != null)
+				{
+					meal = _mealRepo.GetById(_foodMeal.MealId);
+					_foodMeal.FoodAmount = porsiyonMiktari;
+					_foodMeal.Food = seciliYemek;
+					_foodMealRepo.Update(_foodMeal);
+					this.Close();
+				}
+				else
+				{
+					_mealRepo.Add(meal);
+					FoodMeal newfoodMeal = new FoodMeal() { FoodId = seciliYemek.FoodId, MealId = meal.MealId, FoodAmount = porsiyonMiktari };
+					_foodMealRepo.Add(newfoodMeal);
+					ClearFields();
+				}
 
-                FoodMeal newfoodMeal = new FoodMeal();
-                newfoodMeal.FoodId = seciliYemekID;
-                newfoodMeal.FoodAmount = porsiyonMiktari;
-                newfoodMeal.MealId = mealID;
+			}
+			else
+			{
+				MessageBox.Show("Lütfen geçerli bir porsiyon miktarı giriniz!");
+				txtPosiyonMiktari.Text = string.Empty;
+			}
+		}
 
-                newfoodMeal.Food = seciliYemek;
+		private void ClearFields()
+		{
+			txtPosiyonMiktari.Text = string.Empty;
+			txtYemekAra.Text = string.Empty;
+			cmbKategoriler.SelectedIndex = -1;
+			lblPorsiyonDetayi.Text = string.Empty;
+			FillListViewWithFoods(_foodRepo.GetAll());
+		}
 
-                _foodMealRepo.Add(newfoodMeal);
+		private void pbKapat_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 
-                
-
-                ClearFields();
-            }
-            else
-            {
-                MessageBox.Show("Lütfen geçerli bir porsiyon miktarı giriniz!");
-                txtPosiyonMiktari.Text = string.Empty;
-            }
-        }
-
-        private void ClearFields()
-        {
-            txtPosiyonMiktari.Text = string.Empty;
-            txtYemekAra.Text = string.Empty;
-            cmbKategoriler.SelectedIndex = -1;
-            cmbPorsiyonlar.SelectedIndex = -1;
-            FillListViewWithFoods(_foodRepo.GetAll());
-        }
-
-        private void pbKapat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void cmbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //List<Food> filtreliYemekler = (List<Food>)_foodRepo.GetAll().Where(x => x.CategoryId == (int)cmbKategoriler.SelectedValue);
-            //FillListViewWithFoods(filtreliYemekler);
-        }
+		private void cmbKategoriler_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			FilterFoods();
+		}
 
 
-        private void lsvFoods_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lsvFoods.SelectedItems.Count == 0) return;
-            seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
-            string yemekAdi = seciliYemek.Name.ToString();
-            FillComboBoxPorsiyonlar(yemekAdi);
+		private void lsvFoods_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (lsvFoods.SelectedItems.Count == 0)
+			{
+				btnOguneEkle.Enabled = false;
+				return;
+			};
+			btnOguneEkle.Enabled = true;
+			seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
 
-        }
-    }
+			FillLblPorsiyonlar(seciliYemek.FoodId);
+
+		}
+
+		private void cmbKategoriler_MouseUp(object sender, MouseEventArgs e)
+		{
+		}
+	}
 }
