@@ -40,13 +40,7 @@ namespace GetBalance.UI
 				rdbErkek.Checked = false;
 				rdbKadin.Checked = false;
 
-			}
-		}
 
-		private void FormIdealKilo_Load(object sender, EventArgs e)
-		{
+    }
 
-			cpbIdealKilo.Text = "";
-		}
-	}
 }

@@ -42,7 +42,6 @@
             label2 = new Label();
             label1 = new Label();
             cmbxAntremanSeviyesi = new ComboBox();
-            btnGeri = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -181,20 +180,6 @@
             cmbxAntremanSeviyesi.Size = new Size(234, 23);
             cmbxAntremanSeviyesi.TabIndex = 16;
             // 
-            // btnGeri
-            // 
-            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
-            btnGeri.FlatStyle = FlatStyle.Flat;
-            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGeri.ForeColor = Color.White;
-            btnGeri.Location = new Point(133, 462);
-            btnGeri.Name = "btnGeri";
-            btnGeri.Size = new Size(234, 49);
-            btnGeri.TabIndex = 13;
-            btnGeri.Text = "GERİ";
-            btnGeri.UseVisualStyleBackColor = false;
-            btnGeri.Click += btnGeri_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -209,11 +194,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 568);
+            ClientSize = new Size(843, 685);
             Controls.Add(pictureBox1);
             Controls.Add(cmbxAntremanSeviyesi);
             Controls.Add(panel1);
-            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtYas);
             Controls.Add(label3);
@@ -245,7 +229,6 @@
         private ComboBox cmbxAntremanSeviyesi;
         private Label label8;
         private Label label7;
-        private Button btnGeri;
         private PictureBox pictureBox1;
     }
 }

@@ -40,13 +40,6 @@ namespace GetBalance.UI
 
         }
 
-        private void btnGeri_Click(object sender, EventArgs e)
-        {
-            FormHesaplamalar frmHesaplamalar = new FormHesaplamalar();
-            frmHesaplamalar.Show();
-            this.Hide();
-        }
-
         private void FormKalpAtısHizi_Load(object sender, EventArgs e)
         {
             cmbxAntremanSeviyesi.DataSource = Enum.GetValues(typeof(TrainingLevel))

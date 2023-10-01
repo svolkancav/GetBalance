@@ -16,104 +16,105 @@ using static GetBalance.UI.FormHomePage;
 
 namespace GetBalance.UI
 {
-	//Todo : meal'i öğün ekleme sayfasında oluşturup ekleyeceğiz.daha sonra seçilen yemek öğünle foodmeal tablosuna eklenecek.
-	public partial class FormGunluk : Form
-	{
-		UserManager userManager;
+    //Todo : meal'i öğün ekleme sayfasında oluşturup ekleyeceğiz.daha sonra seçilen yemek öğünle foodmeal tablosuna eklenecek.
+    public partial class FormGunluk : Form
+    {
+        UserManager userManager;
 
-		GenericRepository<Meal> _meal;
+        GenericRepository<Meal> _meal;
 
-		FoodMealRepository _foodMeal;
+        FoodMealRepository _foodMeal;
 
-		GenericRepository<Food> _food;
+        GenericRepository<Food> _food;
 
-		FoodMeal foodMeal;
+        FoodMeal foodMeal;
 
-		FoodMeal kahvaltiMeal;
+        FoodMeal kahvaltiMeal;
 
-		Meal ogleMeal, aksamMeal, aperatifMeal;
+        Meal ogleMeal, aksamMeal, aperatifMeal;
 
-		MonthCalendar monthCalendar;
-
-
-		bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
-		Point pbAddButtonLoc = new Point(5, 5);
-		Point tlpVerilerLoc = new Point(473, 3);
-
-		DateTime date;
-
-		public FormGunluk()
-		{
-			InitializeComponent();
-			userManager = UserManager.Instance;
-
-			_meal = new GenericRepository<Meal>();
-
-			monthCalendar = new MonthCalendar();
-
-			_foodMeal = new FoodMealRepository();
-
-			_food = new GenericRepository<Food>();
-
-			foodMeal = new FoodMeal();
-
-			kahvaltiMeal = new FoodMeal();
-			ogleMeal = new Meal();
-			aksamMeal = new Meal();
-			aperatifMeal = new Meal();
-
-			pnlKahveLsv.Visible = pnlOgleLsv.Visible = pnlAksamLsv.Visible = pnlAperatifLsv.Visible = false;
+        MonthCalendar monthCalendar;
 
 
-		}
+        bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
+        Point pbAddButtonLoc = new Point(5, 5);
+        Point tlpVerilerLoc = new Point(473, 3);
 
-		private void FormGunluk_Load(object sender, EventArgs e)
-		{
-			#region MonthCalendar
-			monthCalendar.Visible = false;
-			monthCalendar.Location = new Point(btnLeft.Width + lblTarih.Width / 2 - monthCalendar.Width / 2 - 20, 5);
-			monthCalendar.MaxSelectionCount = 1;
-			pnlMain.Controls.Add(monthCalendar);
-			monthCalendar.DateSelected += MonthCalendar_DateSelected;
-			#endregion
+        DateTime date;
 
-			pbAddKahvalti.Parent = btnKahvalti;
-			pbAddOgle.Parent = btnOgleYemegi;
-			pbAddAksam.Parent = btnAksamYmegi;
-			pbAddAperatif.Parent = btnAperatif;
+        public FormGunluk()
+        {
+            InitializeComponent();
+            userManager = UserManager.Instance;
 
-			tlpKahvaltiVeriler.Parent = btnKahvalti;
-			tlpOgleVeriler.Parent = btnOgleYemegi;
-			tlpAksamVeriler.Parent = btnAksamYmegi;
-			tlpAperatifVeriler.Parent = btnAperatif;
+            _meal = new GenericRepository<Meal>();
 
-			pbAddKahvalti.Location = pbAddButtonLoc;
-			pbAddOgle.Location = pbAddButtonLoc;
-			pbAddAksam.Location = pbAddButtonLoc;
-			pbAddAperatif.Location = pbAddButtonLoc;
+            monthCalendar = new MonthCalendar();
 
-			tlpKahvaltiVeriler.Location = tlpVerilerLoc;
-			tlpOgleVeriler.Location = tlpVerilerLoc;
-			tlpAksamVeriler.Location = tlpVerilerLoc;
-			tlpAperatifVeriler.Location = tlpVerilerLoc;
+            _foodMeal = new FoodMealRepository();
 
-			date = DateTime.Today;
-			lblTarih.Text = date.ToShortDateString();
+            _food = new GenericRepository<Food>();
+
+            foodMeal = new FoodMeal();
+
+            kahvaltiMeal = new FoodMeal();
+            ogleMeal = new Meal();
+            aksamMeal = new Meal();
+            aperatifMeal = new Meal();
+
+            pnlKahveLsv.Visible = pnlOgleLsv.Visible = pnlAksamLsv.Visible = pnlAperatifLsv.Visible = false;
 
 
+        }
+
+        private void FormGunluk_Load(object sender, EventArgs e)
+        {
+            #region MonthCalendar
+            monthCalendar.Visible = false;
+            monthCalendar.Location = new Point(btnLeft.Width + lblTarih.Width / 2 - monthCalendar.Width / 2 - 20, 5);
+            monthCalendar.MaxSelectionCount = 1;
+            pnlMain.Controls.Add(monthCalendar);
+            monthCalendar.DateSelected += MonthCalendar_DateSelected;
+            #endregion
+
+            pbAddKahvalti.Parent = btnKahvalti;
+            pbAddOgle.Parent = btnOgleYemegi;
+            pbAddAksam.Parent = btnAksamYmegi;
+            pbAddAperatif.Parent = btnAperatif;
+
+            tlpKahvaltiVeriler.Parent = btnKahvalti;
+            tlpOgleVeriler.Parent = btnOgleYemegi;
+            tlpAksamVeriler.Parent = btnAksamYmegi;
+            tlpAperatifVeriler.Parent = btnAperatif;
+
+            pbAddKahvalti.Location = pbAddButtonLoc;
+            pbAddOgle.Location = pbAddButtonLoc;
+            pbAddAksam.Location = pbAddButtonLoc;
+            pbAddAperatif.Location = pbAddButtonLoc;
+
+            tlpKahvaltiVeriler.Location = tlpVerilerLoc;
+            tlpOgleVeriler.Location = tlpVerilerLoc;
+            tlpAksamVeriler.Location = tlpVerilerLoc;
+            tlpAperatifVeriler.Location = tlpVerilerLoc;
+
+            date = DateTime.Today;
+            lblTarih.Text = date.ToShortDateString();
 
 
-			ListViewEdit(lsvKahvalti);
-			ListViewEdit(lsvOgle);
-			ListViewEdit(lsvAksam);
-			ListViewEdit(lsvAperatif);
 
-			RefreshListView();
-		}
 
-		private void MealTotal(ListView listView, out double tCalorie, out double tCarb, out double tProtein, out double tFat)
-		{
-			Meal meal = new Meal();
+            ListViewEdit(lsvKahvalti);
+            ListViewEdit(lsvOgle);
+            ListViewEdit(lsvAksam);
+            ListViewEdit(lsvAperatif);
+
+            RefreshListView();
+        }
+
+        private void MealTotal(ListView listView, out double tCalorie, out double tCarb, out double tProtein, out double tFat)
+        {
+            Meal meal = new Meal();
+
 
 			foreach (ListViewItem item in listView.Items)
 			{
@@ -437,5 +438,6 @@ namespace GetBalance.UI
 		public double TotalFat { get; set; }
 
 	}
+
 
 }

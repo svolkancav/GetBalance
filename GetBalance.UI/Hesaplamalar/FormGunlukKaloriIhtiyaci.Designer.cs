@@ -46,7 +46,6 @@
             label1 = new Label();
             label8 = new Label();
             cmbxAktiviteSeviyesi = new ComboBox();
-            btnGeri = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -220,20 +219,6 @@
             cmbxAktiviteSeviyesi.Size = new Size(234, 23);
             cmbxAktiviteSeviyesi.TabIndex = 35;
             // 
-            // btnGeri
-            // 
-            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
-            btnGeri.FlatStyle = FlatStyle.Flat;
-            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGeri.ForeColor = Color.White;
-            btnGeri.Location = new Point(408, 467);
-            btnGeri.Name = "btnGeri";
-            btnGeri.Size = new Size(234, 49);
-            btnGeri.TabIndex = 36;
-            btnGeri.Text = "GERİ";
-            btnGeri.UseVisualStyleBackColor = false;
-            btnGeri.Click += btnGeri_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -248,9 +233,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(836, 607);
+            ClientSize = new Size(843, 685);
             Controls.Add(pictureBox1);
-            Controls.Add(btnGeri);
             Controls.Add(cmbxAktiviteSeviyesi);
             Controls.Add(label8);
             Controls.Add(rdbKadin);
@@ -297,7 +281,6 @@
         private ComboBox cmbxAktiviteSeviyesi;
         private System.CodeDom.CodeTypeReference gunlukControl1;
         private System.CodeDom.CodeTypeReference gunlukControl2;
-        private Button btnGeri;
         private PictureBox pictureBox1;
     }
 }
