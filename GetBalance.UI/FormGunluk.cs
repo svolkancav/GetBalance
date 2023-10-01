@@ -141,34 +141,45 @@ namespace GetBalance.UI
 			FillListViewWithFoods(lsvAperatif, filteredSnacks);
 
 			MealTotal(lsvKahvalti, out double tCalorie, out double tCarb, out double tProtein, out double tFat);
-			lblKahvaltiTopKalori.Text = tCalorie.ToString();
-			lblKahvaltiTopKarb.Text = tCarb.ToString();
+			lblKahvaltiTopKalori.Text = tCalorie.ToString() + " Kcal";
+			lblKahvaltiTopKarb.Text = tCarb.ToString() + " gr";
 			lblKahvaltiTopProtein.Text = tProtein.ToString();
-			lblKahvaltiTopYag.Text = tFat.ToString() ;
+			lblKahvaltiTopYag.Text = tFat.ToString();
 
 			MealTotal(lsvOgle, out tCalorie, out tCarb, out tProtein, out tFat);
-			lblOgleTopKalori.Text = tCalorie.ToString()  ;
-			lblOgleTopKarb.Text = tCarb.ToString() ;
-			lblOgleTopProtein.Text = tProtein.ToString() ;
-			lblOgleTopYag.Text = tFat.ToString() ;
+			lblOgleTopKalori.Text = tCalorie.ToString() + " Kcal";
+			lblOgleTopKarb.Text = tCarb.ToString() + " gr";
+			lblOgleTopProtein.Text = tProtein.ToString() + " gr";
+			lblOgleTopYag.Text = tFat.ToString() + " gr";
 
 			MealTotal(lsvAksam, out tCalorie, out tCarb, out tProtein, out tFat);
-			lblAksamTopKalori.Text = tCalorie.ToString() ;
-			lblAksamTopKarb.Text = tCarb.ToString() ;
-			lblAksamTopProtein.Text = tProtein.ToString() ;
-			lblAksamTopYag.Text = tFat.ToString() ;
+			lblAksamTopKalori.Text = tCalorie.ToString() + " Kcal";
+			lblAksamTopKarb.Text = tCarb.ToString() + " gr";
+			lblAksamTopProtein.Text = tProtein.ToString() + " gr";
+			lblAksamTopYag.Text = tFat.ToString() + " gr";
 
 			MealTotal(lsvAperatif, out tCalorie, out tCarb, out tProtein, out tFat);
-			lblAperatifTopKalori.Text = tCalorie.ToString() ;
-			lblAperatifTopKarb.Text = tCarb.ToString() ;
-			lblAperatifTopProtein.Text = tProtein.ToString() ;
-			lblAperatifTopYag.Text = tFat.ToString() ;
+			lblAperatifTopKalori.Text = tCalorie.ToString() + " Kcal";
+			lblAperatifTopKarb.Text = tCarb.ToString() + " gr";
+			lblAperatifTopProtein.Text = tProtein.ToString() + " gr";
+			lblAperatifTopYag.Text = tFat.ToString() + " gr";
 
-			lblSuankiKalori.Text = (Convert.ToDouble(lblKahvaltiTopKalori.Text) + Convert.ToDouble(lblOgleTopKalori.Text) + Convert.ToDouble(lblAksamTopKalori.Text) + Convert.ToDouble(lblAperatifTopKalori.Text)).ToString();
-			lblSuankiKarb.Text = (Convert.ToDouble(lblKahvaltiTopKarb.Text) + Convert.ToDouble(lblOgleTopKarb.Text) + Convert.ToDouble(lblAksamTopKarb.Text) + Convert.ToDouble(lblAperatifTopKarb.Text)).ToString();
-			lblSuankiProtein.Text = (Convert.ToDouble(lblKahvaltiTopProtein.Text) + Convert.ToDouble(lblOgleTopProtein.Text) + Convert.ToDouble(lblAksamTopProtein.Text) + Convert.ToDouble(lblAperatifTopProtein.Text)).ToString();
-			lblSuankiYag.Text = (Convert.ToDouble(lblKahvaltiTopYag.Text) + Convert.ToDouble(lblOgleTopYag.Text) + Convert.ToDouble(lblAksamTopYag.Text) + Convert.ToDouble(lblAperatifTopYag.Text)).ToString();
+			lblSuankiKalori.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopKalori.Text)) + Convert.ToDouble(FormatText(lblOgleTopKalori.Text)) + Convert.ToDouble(FormatText(lblAksamTopKalori.Text)) + Convert.ToDouble(FormatText(lblAperatifTopKalori.Text))).ToString() + " Kcal";
+			lblSuankiKarb.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopKarb.Text)) + Convert.ToDouble(FormatText(lblOgleTopKarb.Text)) + Convert.ToDouble(FormatText(lblAksamTopKarb.Text)) + Convert.ToDouble(FormatText(lblAperatifTopKarb.Text))).ToString() + " gr";
+			lblSuankiProtein.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopProtein.Text)) + Convert.ToDouble(FormatText(lblOgleTopProtein.Text)) + Convert.ToDouble(FormatText(lblAksamTopProtein.Text)) + Convert.ToDouble(FormatText(lblAperatifTopProtein.Text))).ToString() + " gr";
+			lblSuankiYag.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopYag.Text)) + Convert.ToDouble(FormatText(lblOgleTopYag.Text)) + Convert.ToDouble(FormatText(lblAksamTopYag.Text)) + Convert.ToDouble(FormatText(lblAperatifTopYag.Text))).ToString() + " gr";
 
+			
+		}
+
+		string FormatText(string text)
+		{
+			string[] parts = text.Split(' ');
+			if (parts.Length > 0)
+			{
+				return parts[0];
+			}
+			return text;
 		}
 
 		private IList<LsvItem> GetMeals(MealType mealType)
