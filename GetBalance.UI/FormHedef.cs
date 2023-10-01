@@ -24,10 +24,6 @@ namespace GetBalance.UI
             double hedeflenenYag = double.Parse(txtHedefYag.Text);
             double hedeflenenKalori = double.Parse(txtHedefKalori.Text);
 
-            //lblHedefKarb.Text = hedeflenenKalori.ToString();
-            //lblProtein.Text = hedeflenenProtein.ToString();
-            //lblYag.Text = hedeflenenYag.ToString();
-            //lblCarb.Text = hedeflenenCarb.ToString();
         }
     }
 }
