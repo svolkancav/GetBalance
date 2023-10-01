@@ -109,9 +109,22 @@ namespace GetBalance.UI
 			ListViewEdit(lsvAperatif);
 
 			RefreshListView();
-
 		}
 
+		private void MealTotal(ListView listView, out double tCalorie, out double tCarb, out double tProtein, out double tFat)
+		{
+			Meal meal = new Meal();
+
+			foreach (ListViewItem item in listView.Items)
+			{
+				FoodMeal fm = (FoodMeal)item.Tag;
+				meal.MealFoods.Add(fm);
+			}
+			tCalorie = Math.Round(meal.TotalCalories, 2);
+			tCarb = Math.Round(meal.TotalCarbohydrate);
+			tProtein = Math.Round(meal.TotalProtein);
+			tFat = Math.Round(meal.TotalFat);
+		}
 
 		private void RefreshListView()
 		{
@@ -127,7 +140,34 @@ namespace GetBalance.UI
 			FillListViewWithFoods(lsvAksam, filteredDinners);
 			FillListViewWithFoods(lsvAperatif, filteredSnacks);
 
+			MealTotal(lsvKahvalti, out double tCalorie, out double tCarb, out double tProtein, out double tFat);
+			lblKahvaltiTopKalori.Text = tCalorie.ToString();
+			lblKahvaltiTopKarb.Text = tCarb.ToString();
+			lblKahvaltiTopProtein.Text = tProtein.ToString();
+			lblKahvaltiTopYag.Text = tFat.ToString() ;
 
+			MealTotal(lsvOgle, out tCalorie, out tCarb, out tProtein, out tFat);
+			lblOgleTopKalori.Text = tCalorie.ToString()  ;
+			lblOgleTopKarb.Text = tCarb.ToString() ;
+			lblOgleTopProtein.Text = tProtein.ToString() ;
+			lblOgleTopYag.Text = tFat.ToString() ;
+
+			MealTotal(lsvAksam, out tCalorie, out tCarb, out tProtein, out tFat);
+			lblAksamTopKalori.Text = tCalorie.ToString() ;
+			lblAksamTopKarb.Text = tCarb.ToString() ;
+			lblAksamTopProtein.Text = tProtein.ToString() ;
+			lblAksamTopYag.Text = tFat.ToString() ;
+
+			MealTotal(lsvAperatif, out tCalorie, out tCarb, out tProtein, out tFat);
+			lblAperatifTopKalori.Text = tCalorie.ToString() ;
+			lblAperatifTopKarb.Text = tCarb.ToString() ;
+			lblAperatifTopProtein.Text = tProtein.ToString() ;
+			lblAperatifTopYag.Text = tFat.ToString() ;
+
+			lblSuankiKalori.Text = (Convert.ToDouble(lblKahvaltiTopKalori.Text) + Convert.ToDouble(lblOgleTopKalori.Text) + Convert.ToDouble(lblAksamTopKalori.Text) + Convert.ToDouble(lblAperatifTopKalori.Text)).ToString();
+			lblSuankiKarb.Text = (Convert.ToDouble(lblKahvaltiTopKarb.Text) + Convert.ToDouble(lblOgleTopKarb.Text) + Convert.ToDouble(lblAksamTopKarb.Text) + Convert.ToDouble(lblAperatifTopKarb.Text)).ToString();
+			lblSuankiProtein.Text = (Convert.ToDouble(lblKahvaltiTopProtein.Text) + Convert.ToDouble(lblOgleTopProtein.Text) + Convert.ToDouble(lblAksamTopProtein.Text) + Convert.ToDouble(lblAperatifTopProtein.Text)).ToString();
+			lblSuankiYag.Text = (Convert.ToDouble(lblKahvaltiTopYag.Text) + Convert.ToDouble(lblOgleTopYag.Text) + Convert.ToDouble(lblAksamTopYag.Text) + Convert.ToDouble(lblAperatifTopYag.Text)).ToString();
 
 		}
 
@@ -150,7 +190,7 @@ namespace GetBalance.UI
 				)
 				.Select(joined => new LsvItem
 				{
-					FoodMeal=joined.fm,
+					FoodMeal = joined.fm,
 					Food = joined.fm.Food,
 					Name = joined.fm.Food.Name,
 					Amount = joined.fm.FoodAmount,
@@ -239,11 +279,11 @@ namespace GetBalance.UI
 
 			if (tsmName == "tsmDuzenle")
 			{
-				if (lsvKahvalti.SelectedItems.Count>0)
+				if (lsvKahvalti.SelectedItems.Count > 0)
 					TsmUpdateClicked(lsvKahvalti);
-				else if (lsvOgle.SelectedItems.Count>0)
+				else if (lsvOgle.SelectedItems.Count > 0)
 					TsmUpdateClicked(lsvOgle);
-				else if (lsvAksam.SelectedItems.Count>0)
+				else if (lsvAksam.SelectedItems.Count > 0)
 					TsmUpdateClicked(lsvAksam);
 				else if (lsvAperatif.SelectedItems.Count > 0)
 					TsmUpdateClicked(lsvAperatif);
@@ -331,7 +371,7 @@ namespace GetBalance.UI
 
 		private void OpenFormYemekEkleme(MealType mealtype, DateTime dateTime)
 		{
-			FormAddFood  formAddFood= new FormAddFood(mealtype, dateTime);
+			FormAddFood formAddFood = new FormAddFood(mealtype, dateTime);
 			formAddFood.ShowDialog();
 		}
 
@@ -366,8 +406,8 @@ namespace GetBalance.UI
 	}
 	class LsvItem
 	{
-        public FoodMeal FoodMeal { get; set; }
-        public Food Food { get; set; }
+		public FoodMeal FoodMeal { get; set; }
+		public Food Food { get; set; }
 		public string Name { get; set; }
 		public int Amount { get; set; }
 		public double TotalCalorie { get; set; }
