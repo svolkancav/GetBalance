@@ -73,7 +73,7 @@
             pnlTop.Location = new Point(0, 0);
             pnlTop.Margin = new Padding(3, 2, 3, 2);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1280, 26);
+            pnlTop.Size = new Size(1280, 35);
             pnlTop.TabIndex = 0;
             pnlTop.MouseDown += pnlTop_MouseDown;
             pnlTop.MouseMove += pnlTop_MouseMove;
@@ -85,7 +85,7 @@
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(510, 4);
+            label2.Location = new Point(523, 8);
             label2.Name = "label2";
             label2.Size = new Size(158, 23);
             label2.TabIndex = 3;
@@ -150,7 +150,7 @@
             menuContainer.Controls.Add(pnlHesaplamalar);
             menuContainer.Controls.Add(pnlCikis);
             menuContainer.Dock = DockStyle.Left;
-            menuContainer.Location = new Point(0, 26);
+            menuContainer.Location = new Point(0, 35);
             menuContainer.MaximumSize = new Size(205, 685);
             menuContainer.MinimumSize = new Size(58, 685);
             menuContainer.Name = "menuContainer";
@@ -163,13 +163,13 @@
             pnlMenu.Controls.Add(btnHome);
             pnlMenu.Location = new Point(3, 3);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(202, 71);
+            pnlMenu.Size = new Size(202, 53);
             pnlMenu.TabIndex = 0;
             // 
             // pnlAnaSayfa
             // 
             pnlAnaSayfa.Controls.Add(btnAnaSayfa);
-            pnlAnaSayfa.Location = new Point(3, 80);
+            pnlAnaSayfa.Location = new Point(3, 62);
             pnlAnaSayfa.Name = "pnlAnaSayfa";
             pnlAnaSayfa.Size = new Size(173, 40);
             pnlAnaSayfa.TabIndex = 1;
@@ -196,7 +196,7 @@
             // pnlProfil
             // 
             pnlProfil.Controls.Add(btnProfil);
-            pnlProfil.Location = new Point(3, 126);
+            pnlProfil.Location = new Point(3, 108);
             pnlProfil.Name = "pnlProfil";
             pnlProfil.Size = new Size(173, 40);
             pnlProfil.TabIndex = 1;
@@ -223,7 +223,7 @@
             // pnlGunluk
             // 
             pnlGunluk.Controls.Add(btnGunluk);
-            pnlGunluk.Location = new Point(3, 172);
+            pnlGunluk.Location = new Point(3, 154);
             pnlGunluk.Name = "pnlGunluk";
             pnlGunluk.Size = new Size(173, 40);
             pnlGunluk.TabIndex = 1;
@@ -250,7 +250,7 @@
             // pnlRaporlar
             // 
             pnlRaporlar.Controls.Add(btnRaporlar);
-            pnlRaporlar.Location = new Point(3, 218);
+            pnlRaporlar.Location = new Point(3, 200);
             pnlRaporlar.Name = "pnlRaporlar";
             pnlRaporlar.Size = new Size(173, 40);
             pnlRaporlar.TabIndex = 1;
@@ -277,7 +277,7 @@
             // pnlHesaplamalar
             // 
             pnlHesaplamalar.Controls.Add(btnHesaplamalar);
-            pnlHesaplamalar.Location = new Point(3, 264);
+            pnlHesaplamalar.Location = new Point(3, 246);
             pnlHesaplamalar.Name = "pnlHesaplamalar";
             pnlHesaplamalar.Size = new Size(173, 40);
             pnlHesaplamalar.TabIndex = 1;
@@ -304,7 +304,7 @@
             // pnlCikis
             // 
             pnlCikis.Controls.Add(btnCikis);
-            pnlCikis.Location = new Point(3, 310);
+            pnlCikis.Location = new Point(3, 292);
             pnlCikis.Name = "pnlCikis";
             pnlCikis.Size = new Size(173, 40);
             pnlCikis.TabIndex = 1;
@@ -337,16 +337,16 @@
             // 
             pnlAnaPanel.AutoSize = true;
             pnlAnaPanel.Dock = DockStyle.Fill;
-            pnlAnaPanel.Location = new Point(205, 26);
+            pnlAnaPanel.Location = new Point(205, 35);
             pnlAnaPanel.Name = "pnlAnaPanel";
-            pnlAnaPanel.Size = new Size(1075, 634);
+            pnlAnaPanel.Size = new Size(1075, 685);
             pnlAnaPanel.TabIndex = 2;
             // 
             // FormHomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1280, 660);
+            ClientSize = new Size(1280, 720);
             ControlBox = false;
             Controls.Add(pnlAnaPanel);
             Controls.Add(menuContainer);
