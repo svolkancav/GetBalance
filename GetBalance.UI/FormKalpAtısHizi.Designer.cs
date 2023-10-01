@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKalpAtısHizi));
             panel1 = new Panel();
             label8 = new Label();
             label7 = new Label();
@@ -42,7 +43,9 @@
             label1 = new Label();
             cmbxAntremanSeviyesi = new ComboBox();
             btnGeri = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -192,11 +195,22 @@
             btnGeri.UseVisualStyleBackColor = false;
             btnGeri.Click += btnGeri_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(632, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(166, 111);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 38;
+            pictureBox1.TabStop = false;
+            // 
             // FormKalpAtısHizi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 568);
+            Controls.Add(pictureBox1);
             Controls.Add(cmbxAntremanSeviyesi);
             Controls.Add(panel1);
             Controls.Add(btnGeri);
@@ -211,6 +225,7 @@
             Load += FormKalpAtısHizi_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -231,5 +246,6 @@
         private Label label8;
         private Label label7;
         private Button btnGeri;
+        private PictureBox pictureBox1;
     }
 }

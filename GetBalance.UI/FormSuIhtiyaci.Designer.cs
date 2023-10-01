@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuIhtiyaci));
             label1 = new Label();
             txtKilo = new TextBox();
             label3 = new Label();
@@ -37,7 +38,9 @@
             label4 = new Label();
             btnHesapla = new Button();
             btnGeri = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -136,11 +139,22 @@
             btnGeri.UseVisualStyleBackColor = false;
             btnGeri.Click += btnGeri_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(632, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(166, 111);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 61;
+            pictureBox1.TabStop = false;
+            // 
             // FormSuIhtiyaci
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 568);
+            Controls.Add(pictureBox1);
             Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(panel1);
@@ -152,6 +166,7 @@
             Text = "FormSuIhtiyaci";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,5 +182,6 @@
         private Button btnHesapla;
         private Label label7;
         private Button btnGeri;
+        private PictureBox pictureBox1;
     }
 }

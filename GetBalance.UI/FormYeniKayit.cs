@@ -169,17 +169,9 @@ namespace GetBalance.UI
         }
         #endregion
 
-        private void label12_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 
-		private void FormYeniKayit_Load(object sender, EventArgs e)
-		{
-			txtSifre.PasswordChar = '*';
-			txtSifre2.PasswordChar = '*';
-		}
 	}
 
 

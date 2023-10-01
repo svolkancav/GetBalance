@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVucutKitleEndex));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -39,7 +40,9 @@
             lblYorum = new Label();
             lblVKIDeger = new Label();
             label4 = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -155,11 +158,22 @@
             label4.TabIndex = 1;
             label4.Text = "VÜCUT KİTLE İNDEKSİ  (BMI)";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(632, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(166, 111);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 38;
+            pictureBox1.TabStop = false;
+            // 
             // FormVucutKitleEndex
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 607);
+            Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(cpbVKI);
             Controls.Add(btnHesapla);
@@ -173,6 +187,7 @@
             Text = "FormVucutKitleEndex";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -190,5 +205,6 @@
         private Label lblVKIDeger;
         private Label label4;
         private Label lblYorum;
+        private PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunlukKaloriIhtiyaci));
             rdbKadin = new RadioButton();
             rdbErkek = new RadioButton();
             label6 = new Label();
@@ -46,7 +47,9 @@
             label8 = new Label();
             cmbxAktiviteSeviyesi = new ComboBox();
             btnGeri = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // rdbKadin
@@ -231,11 +234,22 @@
             btnGeri.UseVisualStyleBackColor = false;
             btnGeri.Click += btnGeri_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(632, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(166, 111);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 37;
+            pictureBox1.TabStop = false;
+            // 
             // FormGunlukKaloriIhtiyaci
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(836, 607);
+            Controls.Add(pictureBox1);
             Controls.Add(btnGeri);
             Controls.Add(cmbxAktiviteSeviyesi);
             Controls.Add(label8);
@@ -257,6 +271,7 @@
             Load += FormGunlukKaloriIhtiyaci_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,5 +298,6 @@
         private System.CodeDom.CodeTypeReference gunlukControl1;
         private System.CodeDom.CodeTypeReference gunlukControl2;
         private Button btnGeri;
+        private PictureBox pictureBox1;
     }
 }

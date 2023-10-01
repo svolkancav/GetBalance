@@ -19,12 +19,12 @@ namespace GetBalance.UI
     public partial class FormHomePage2 : Form
     {
 
-        Form formDuzenle;
+        Form formDuzenle, formHedef;
         public Point downPoint = Point.Empty;
 
         UserDetail _userDetail;
         UserManager userManager;
-
+        
 
         public FormHomePage2()
         {
@@ -46,7 +46,7 @@ namespace GetBalance.UI
 
             #region Database e user girilince açılacak.
             _userDetail = userManager.CurrentUser.UserDetail;
-            
+
             ClearLabels();
 
             int boy = Convert.ToInt32(_userDetail.Height);
@@ -77,7 +77,7 @@ namespace GetBalance.UI
 
         private void ClearLabels()
         {
-            
+
             lblGuncelBMH.Text = string.Empty;
             lblGuncelGKI.Text = string.Empty;
             lblGuncelGSI.Text = string.Empty;
@@ -85,10 +85,17 @@ namespace GetBalance.UI
             lblGuncelKAH.Text = string.Empty;
             lblGuncelVKI.Text = string.Empty;
             lblGuncelVYO.Text = string.Empty;
-            
 
 
 
+
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            formHedef = new FormHedef() { TopLevel = false, TopMost = true };
+            pnlYanPanel.Controls.Add(formHedef);
+            formHedef.Show();
         }
     }
 }
