@@ -94,11 +94,6 @@ namespace GetBalance.UI
             }
         }
 
-        private void btnGeri_Click(object sender, EventArgs e)
-        {
-            FormHesaplamalar frmHesaplamalar = new FormHesaplamalar();
-            frmHesaplamalar.Show();
-            this.Hide();
-        }
+
     }
 }

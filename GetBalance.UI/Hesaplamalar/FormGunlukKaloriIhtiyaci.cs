@@ -58,12 +58,5 @@ namespace GetBalance.UI
 
             cmbxAktiviteSeviyesi.SelectedIndex = -1;
         }
-
-        private void btnGeri_Click(object sender, EventArgs e)
-        {
-            FormHesaplamalar formHesaplamalar = new FormHesaplamalar();
-            formHesaplamalar.Show();
-            this.Hide();
-        }
     }
 }

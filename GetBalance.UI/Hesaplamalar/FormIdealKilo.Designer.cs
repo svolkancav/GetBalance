@@ -42,7 +42,6 @@
             rdbKadin = new RadioButton();
             rdbErkek = new RadioButton();
             label6 = new Label();
-            btnGeri = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -185,20 +184,6 @@
             label6.TabIndex = 49;
             label6.Text = "Cinsiyetiniz";
             // 
-            // btnGeri
-            // 
-            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
-            btnGeri.FlatStyle = FlatStyle.Flat;
-            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGeri.ForeColor = Color.White;
-            btnGeri.Location = new Point(116, 533);
-            btnGeri.Name = "btnGeri";
-            btnGeri.Size = new Size(234, 49);
-            btnGeri.TabIndex = 13;
-            btnGeri.Text = "GERİ";
-            btnGeri.UseVisualStyleBackColor = false;
-            btnGeri.Click += btnGeri_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -213,14 +198,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(836, 607);
+            ClientSize = new Size(843, 685);
             Controls.Add(pictureBox1);
             Controls.Add(rdbKadin);
             Controls.Add(rdbErkek);
             Controls.Add(label6);
             Controls.Add(panel1);
             Controls.Add(cpbIdealKilo);
-            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtKilo);
             Controls.Add(txtBoy);
@@ -252,7 +236,6 @@
         private RadioButton rdbKadin;
         private RadioButton rdbErkek;
         private Label label6;
-        private Button btnGeri;
         private PictureBox pictureBox1;
     }
 }

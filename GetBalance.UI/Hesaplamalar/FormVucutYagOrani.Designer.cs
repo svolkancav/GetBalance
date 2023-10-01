@@ -46,7 +46,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnGeri = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -232,25 +231,11 @@
             label1.TabIndex = 51;
             label1.Text = "VÜCUT YAĞ ORANI";
             // 
-            // btnGeri
-            // 
-            btnGeri.BackColor = Color.FromArgb(2, 53, 53);
-            btnGeri.FlatStyle = FlatStyle.Flat;
-            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGeri.ForeColor = Color.White;
-            btnGeri.Location = new Point(403, 474);
-            btnGeri.Name = "btnGeri";
-            btnGeri.Size = new Size(234, 49);
-            btnGeri.TabIndex = 56;
-            btnGeri.Text = "GERİ";
-            btnGeri.UseVisualStyleBackColor = false;
-            btnGeri.Click += btnGeri_Click;
-            // 
             // FormVucutYagOrani
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 568);
+            ClientSize = new Size(843, 685);
             Controls.Add(txtKalcaCevresi);
             Controls.Add(label8);
             Controls.Add(rdbKadin);
@@ -260,7 +245,6 @@
             Controls.Add(label5);
             Controls.Add(panel1);
             Controls.Add(cpbYVK);
-            Controls.Add(btnGeri);
             Controls.Add(btnHesapla);
             Controls.Add(txtBoyunCevresi);
             Controls.Add(txtBoy);
@@ -295,7 +279,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnGeri;
         private Label lblYorum;
     }
 }
