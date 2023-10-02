@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ using System.Windows.Forms;
 namespace GetBalance.UI
 {
     public partial class FormHomePage2 : Form
+
 	{
 
 		Form formDuzenle, formHedef;
@@ -149,4 +151,5 @@ namespace GetBalance.UI
 				formDuzenle.Hide();
 		}
 	}
+
 }

@@ -80,11 +80,6 @@ namespace GetBalance.UI
             this.Hide();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void lnklblSifreUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormSifreYenile formSifreYenile = new FormSifreYenile();

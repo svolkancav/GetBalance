@@ -125,6 +125,7 @@
             Controls.Add(btnYeniKullanici);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
+            MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormGiris";
             StartPosition = FormStartPosition.CenterScreen;

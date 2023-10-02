@@ -25,8 +25,8 @@ namespace GetBalance.UI
 
             try
             {
-                int kilo = Convert.ToInt32(txtKilo.Text);
-                lblSuIhtiyaciDeger.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString();
+                int kilo = Convert.ToInt32(txtKilo.Text.Trim());
+                lblSuIhtiyaciDeger.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString() + " Litre/Gün";
             }
             catch (Exception)
             {

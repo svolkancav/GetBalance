@@ -133,30 +133,30 @@
             // 
             // lblYorum
             // 
-            lblYorum.AutoSize = true;
-            lblYorum.Location = new Point(124, 108);
+            lblYorum.Location = new Point(3, 108);
             lblYorum.Name = "lblYorum";
-            lblYorum.Size = new Size(0, 15);
+            lblYorum.Size = new Size(288, 15);
             lblYorum.TabIndex = 3;
+            lblYorum.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblVKIDeger
             // 
-            lblVKIDeger.AutoSize = true;
             lblVKIDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblVKIDeger.Location = new Point(124, 49);
+            lblVKIDeger.Location = new Point(3, 49);
             lblVKIDeger.Name = "lblVKIDeger";
-            lblVKIDeger.Size = new Size(0, 21);
+            lblVKIDeger.Size = new Size(288, 21);
             lblVKIDeger.TabIndex = 2;
+            lblVKIDeger.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(16, 10);
+            label4.Location = new Point(3, 10);
             label4.Name = "label4";
-            label4.Size = new Size(259, 25);
+            label4.Size = new Size(288, 25);
             label4.TabIndex = 1;
             label4.Text = "VÜCUT KİTLE İNDEKSİ  (BMI)";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -186,7 +186,6 @@
             Name = "FormVucutKitleEndex";
             Text = "FormVucutKitleEndex";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

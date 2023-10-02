@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BazalMetabolizHiziForm));
             panel1 = new Panel();
-            label7 = new Label();
             lblBMHDeger = new Label();
             label4 = new Label();
             btnHesapla = new Button();
@@ -51,23 +50,12 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label7);
             panel1.Controls.Add(lblBMHDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(441, 169);
+            panel1.Location = new Point(466, 169);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 15;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(162, 55);
-            label7.Name = "label7";
-            label7.Size = new Size(101, 21);
-            label7.TabIndex = 3;
-            label7.Text = "Kalori / Gün";
             // 
             // lblBMHDeger
             // 
@@ -143,7 +131,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(197, 98);
+            label1.Location = new Point(248, 44);
             label1.Name = "label1";
             label1.Size = new Size(306, 25);
             label1.TabIndex = 8;
@@ -253,7 +241,6 @@
         private Label label6;
         private RadioButton rdbErkek;
         private RadioButton rdbKadin;
-        private Label label7;
         private PictureBox pictureBox1;
     }
 }
