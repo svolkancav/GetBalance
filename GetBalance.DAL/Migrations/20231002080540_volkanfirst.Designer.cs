@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GetBalance.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230930160731_volkanFirst")]
-    partial class volkanFirst
+    [Migration("20231002080540_volkanfirst")]
+    partial class volkanfirst
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -111,7 +111,7 @@ namespace GetBalance.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MealId"), 1L, 1);
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<int>("MealType")
                         .HasColumnType("int");
@@ -226,9 +226,8 @@ namespace GetBalance.DAL.Migrations
                     b.Property<decimal>("StartingWeight")
                         .HasColumnType("decimal(6,2)");
 
-                    b.Property<short>("TargetCalorie")
-                        .HasMaxLength(5)
-                        .HasColumnType("smallint");
+                    b.Property<decimal>("TargetCalorie")
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<decimal>("TargetCarbPercentage")
                         .HasColumnType("decimal(5,2)");

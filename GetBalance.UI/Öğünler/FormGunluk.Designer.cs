@@ -34,8 +34,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunluk));
             ListViewItem listViewItem1 = new ListViewItem(new string[] { "egg", "1", "2", "10", "5" }, -1);
             pnlLeftSide = new Panel();
+            parrotCircleProgressBar1 = new ReaLTaiizor.Controls.ParrotCircleProgressBar();
             pictureBox2 = new PictureBox();
-            circleProgressBar1 = new ReaLTaiizor.Controls.CircleProgressBar();
             lblSuankiKalori = new Label();
             lblHedefKalori = new Label();
             lblHedefYag = new Label();
@@ -127,8 +127,8 @@
             // pnlLeftSide
             // 
             pnlLeftSide.BackColor = Color.FromArgb(244, 240, 232);
+            pnlLeftSide.Controls.Add(parrotCircleProgressBar1);
             pnlLeftSide.Controls.Add(pictureBox2);
-            pnlLeftSide.Controls.Add(circleProgressBar1);
             pnlLeftSide.Controls.Add(lblSuankiKalori);
             pnlLeftSide.Controls.Add(lblHedefKalori);
             pnlLeftSide.Controls.Add(lblHedefYag);
@@ -148,58 +148,63 @@
             pnlLeftSide.Size = new Size(200, 675);
             pnlLeftSide.TabIndex = 17;
             // 
+            // parrotCircleProgressBar1
+            // 
+            parrotCircleProgressBar1.AnimationSpeed = 5;
+            parrotCircleProgressBar1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 50, 50);
+            parrotCircleProgressBar1.FilledColorAlpha = 130;
+            parrotCircleProgressBar1.FilledThickness = 40;
+            parrotCircleProgressBar1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            parrotCircleProgressBar1.IsAnimated = false;
+            parrotCircleProgressBar1.Location = new Point(17, 452);
+            parrotCircleProgressBar1.Name = "parrotCircleProgressBar1";
+            parrotCircleProgressBar1.Percentage = 50;
+            parrotCircleProgressBar1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            parrotCircleProgressBar1.ShowText = true;
+            parrotCircleProgressBar1.Size = new Size(161, 159);
+            parrotCircleProgressBar1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            parrotCircleProgressBar1.TabIndex = 28;
+            parrotCircleProgressBar1.TextColor = Color.Gray;
+            parrotCircleProgressBar1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            parrotCircleProgressBar1.TextSize = 25;
+            parrotCircleProgressBar1.UnFilledColor = Color.FromArgb(114, 114, 114);
+            parrotCircleProgressBar1.UnfilledThickness = 24;
+            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(48, 17);
+            pictureBox2.Location = new Point(47, 20);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(101, 94);
             pictureBox2.TabIndex = 27;
             pictureBox2.TabStop = false;
             // 
-            // circleProgressBar1
-            // 
-            circleProgressBar1.AccessibleRole = AccessibleRole.StatusBar;
-            circleProgressBar1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            circleProgressBar1.ImeMode = ImeMode.Off;
-            circleProgressBar1.Location = new Point(48, 403);
-            circleProgressBar1.Maximum = 1800L;
-            circleProgressBar1.MinimumSize = new Size(100, 100);
-            circleProgressBar1.Name = "circleProgressBar1";
-            circleProgressBar1.PercentColor = Color.White;
-            circleProgressBar1.ProgressColor1 = Color.Brown;
-            circleProgressBar1.ProgressColor2 = Color.Lime;
-            circleProgressBar1.ProgressShape = ReaLTaiizor.Controls.CircleProgressBar._ProgressShape.Round;
-            circleProgressBar1.Size = new Size(116, 116);
-            circleProgressBar1.TabIndex = 26;
-            circleProgressBar1.Text = "circleProgressBar1";
-            circleProgressBar1.Value = 200L;
-            // 
             // lblSuankiKalori
             // 
             lblSuankiKalori.AutoSize = true;
             lblSuankiKalori.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSuankiKalori.Location = new Point(48, 379);
+            lblSuankiKalori.Location = new Point(-2, 395);
             lblSuankiKalori.Name = "lblSuankiKalori";
-            lblSuankiKalori.Size = new Size(17, 20);
+            lblSuankiKalori.Size = new Size(90, 20);
             lblSuankiKalori.TabIndex = 20;
-            lblSuankiKalori.Text = "0";
+            lblSuankiKalori.Text = "1900,00 kcal";
             // 
             // lblHedefKalori
             // 
             lblHedefKalori.AutoSize = true;
             lblHedefKalori.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHedefKalori.Location = new Point(122, 379);
+            lblHedefKalori.Location = new Point(100, 395);
             lblHedefKalori.Name = "lblHedefKalori";
-            lblHedefKalori.Size = new Size(17, 20);
+            lblHedefKalori.Size = new Size(90, 20);
             lblHedefKalori.TabIndex = 19;
-            lblHedefKalori.Text = "0";
+            lblHedefKalori.Text = "1900,00 kcal";
             // 
             // lblHedefYag
             // 
             lblHedefYag.AutoSize = true;
             lblHedefYag.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHedefYag.Location = new Point(122, 322);
+            lblHedefYag.Location = new Point(116, 328);
             lblHedefYag.Name = "lblHedefYag";
             lblHedefYag.Size = new Size(17, 20);
             lblHedefYag.TabIndex = 19;
@@ -209,7 +214,7 @@
             // 
             lblHedefProtein.AutoSize = true;
             lblHedefProtein.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHedefProtein.Location = new Point(122, 265);
+            lblHedefProtein.Location = new Point(116, 269);
             lblHedefProtein.Name = "lblHedefProtein";
             lblHedefProtein.Size = new Size(17, 20);
             lblHedefProtein.TabIndex = 19;
@@ -219,7 +224,7 @@
             // 
             lblSuankiProtein.AutoSize = true;
             lblSuankiProtein.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSuankiProtein.Location = new Point(48, 265);
+            lblSuankiProtein.Location = new Point(42, 269);
             lblSuankiProtein.Name = "lblSuankiProtein";
             lblSuankiProtein.Size = new Size(17, 20);
             lblSuankiProtein.TabIndex = 19;
@@ -229,7 +234,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(48, 350);
+            label4.Location = new Point(64, 361);
             label4.Name = "label4";
             label4.Size = new Size(52, 21);
             label4.TabIndex = 16;
@@ -239,7 +244,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(48, 236);
+            label3.Location = new Point(59, 240);
             label3.Name = "label3";
             label3.Size = new Size(63, 21);
             label3.TabIndex = 15;
@@ -249,7 +254,7 @@
             // 
             lblSuankiKarb.AutoSize = true;
             lblSuankiKarb.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSuankiKarb.Location = new Point(48, 208);
+            lblSuankiKarb.Location = new Point(42, 213);
             lblSuankiKarb.Name = "lblSuankiKarb";
             lblSuankiKarb.Size = new Size(17, 20);
             lblSuankiKarb.TabIndex = 18;
@@ -259,7 +264,7 @@
             // 
             lblHedefKarb.AutoSize = true;
             lblHedefKarb.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHedefKarb.Location = new Point(122, 208);
+            lblHedefKarb.Location = new Point(116, 213);
             lblHedefKarb.Name = "lblHedefKarb";
             lblHedefKarb.Size = new Size(17, 20);
             lblHedefKarb.TabIndex = 17;
@@ -269,7 +274,7 @@
             // 
             lblSuankiYag.AutoSize = true;
             lblSuankiYag.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSuankiYag.Location = new Point(48, 322);
+            lblSuankiYag.Location = new Point(42, 328);
             lblSuankiYag.Name = "lblSuankiYag";
             lblSuankiYag.Size = new Size(17, 20);
             lblSuankiYag.TabIndex = 17;
@@ -278,20 +283,20 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label5.Location = new Point(25, 154);
+            label5.Font = new Font("Segoe UI", 13F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            label5.Location = new Point(9, 148);
             label5.Name = "label5";
-            label5.Size = new Size(157, 21);
+            label5.Size = new Size(178, 25);
             label5.TabIndex = 14;
             label5.Text = "GÜNLÜK HEDEFLER";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(48, 181);
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(40, 184);
             label2.Name = "label2";
-            label2.Size = new Size(91, 19);
+            label2.Size = new Size(106, 21);
             label2.TabIndex = 14;
             label2.Text = "Karbonhidrat";
             // 
@@ -299,7 +304,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(48, 293);
+            label1.Location = new Point(70, 299);
             label1.Name = "label1";
             label1.Size = new Size(36, 21);
             label1.TabIndex = 13;
@@ -1036,7 +1041,6 @@
         private Label lblHedefKalori;
         private Label lblHedefYag;
         private Label lblHedefProtein;
-        private ReaLTaiizor.Controls.CircleProgressBar circleProgressBar1;
         private ListView lsvAperatif;
         private ContextMenuStrip cmsSagTik;
         private ToolStripMenuItem tsmDuzenle;
@@ -1090,6 +1094,7 @@
         private Label label7;
         private Label label8;
         private Label label9;
+        private ReaLTaiizor.Controls.ParrotCircleProgressBar parrotCircleProgressBar1;
     }
 
 
