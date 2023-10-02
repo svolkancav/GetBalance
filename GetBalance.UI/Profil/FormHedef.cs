@@ -17,7 +17,7 @@ using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
-    public partial class FormHedef : Form
+	public partial class FormHedef : Form
 	{
 		UserManager userManager;
 
@@ -43,19 +43,19 @@ namespace GetBalance.UI
 
 
 
-				UserTarget userTarget = userManager.CurrentUser.UserDetail.UserTarget;
+				UserTarget userTarget = new UserTarget();
 
 				userTarget.TargetProteinPercentage = hedeflenenProtein;
 				userTarget.TargetCarbPercentage = hedeflenenCarb;
 				userTarget.TargetFatPercentage = hedeflenenYag;
 				userTarget.TargetCalorie = hedeflenenKalori;
 				userTarget.TargetWeight = hedeflenenKilo;
-
+				userTarget.UserDetailId = userManager.CurrentUser.UserDetail.UserDetailId;
 
 				if (userManager.CurrentUser.UserDetail.UserTarget == null)
 					userTargetRepository.Add(userTarget);
-
-				userTargetRepository.Update(userTarget);
+				else
+					userTargetRepository.Update(userTarget, userManager.CurrentUser.UserDetail.UserTarget.UserTargetId);
 
 				userManager.CurrentUser.UserDetail.UserTarget = userTarget;
 
@@ -86,8 +86,8 @@ namespace GetBalance.UI
 		private void FormHedef_Load(object sender, EventArgs e)
 		{
 			userDetail = userManager.CurrentUser.UserDetail;
-			int günlükKaloriİhtiyaci=0;
-			btnKaydet.Text = userDetail==null? "Kaydet":"Güncelle";
+			int günlükKaloriİhtiyaci = 0;
+			btnKaydet.Text = userDetail == null ? "Kaydet" : "Güncelle";
 
 			#region KiloAlma-Verme Label doldurma
 
@@ -101,7 +101,8 @@ namespace GetBalance.UI
 				int yas = DateTime.Now.Year - dateTime.Year;
 				ActivityLevel activity = userDetail.ActivityLevel;
 				günlükKaloriİhtiyaci = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet);
-				FillTextBox();
+				if (userDetail.UserTarget != null)
+					FillTextBox();
 			}
 
 			lblKiloAlmaBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci + 300} Kcal ";
