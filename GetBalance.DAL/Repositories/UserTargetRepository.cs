@@ -25,7 +25,7 @@ namespace GetBalance.UI.Repositories
 			userTarget.TargetCarbPercentage = ut.TargetCarbPercentage;
 			userTarget.TargetProteinPercentage = ut.TargetProteinPercentage;
 			userTarget.TargetFatPercentage = ut.TargetFatPercentage;
-
+			context.UserTargets.Update(userTarget);
 			context.SaveChanges();
 		}
 	}
