@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using GetBalance.DAL;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
-using GetBalance.UI.Repositories;
-using GetBalance.UI.Singeltons;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace GetBalance.UI.Queries
 {

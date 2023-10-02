@@ -26,20 +26,14 @@ namespace GetBalance.UI
 
 		FoodMealRepository _foodMeal;
 
-        GenericRepository<Food> _food;
+		MonthCalendar monthCalendar;
 
-        FoodMeal foodMeal;
-
-        FoodMeal kahvaltiMeal;
-
-        Meal ogleMeal, aksamMeal, aperatifMeal;
-
-        MonthCalendar monthCalendar;
+		DBQueries dBQueries;
 
 
-        bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
-        Point pbAddButtonLoc = new Point(5, 5);
-        Point tlpVerilerLoc = new Point(473, 3);
+		bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
+		Point pbAddButtonLoc = new Point(5, 5);
+		Point tlpVerilerLoc = new Point(473, 3);
 
 		DateTime date;
 
@@ -123,7 +117,7 @@ namespace GetBalance.UI
 
 		private void RefreshListView()
 		{
-			IList<LsvItem> filteredBreakteasts = dBQueries.ViewToGetMeals(MealType.Breakfast,userManager.CurrentUser.UserId,Convert.ToDateTime(lblTarih.Text));
+			IList<LsvItem> filteredBreakteasts = dBQueries.ViewToGetMeals(MealType.Breakfast, userManager.CurrentUser.UserId, Convert.ToDateTime(lblTarih.Text));
 			IList<LsvItem> filteredLunches = dBQueries.ViewToGetMeals(MealType.Lunch, userManager.CurrentUser.UserId, Convert.ToDateTime(lblTarih.Text));
 			IList<LsvItem> filteredDinners = dBQueries.ViewToGetMeals(MealType.Dinner, userManager.CurrentUser.UserId, Convert.ToDateTime(lblTarih.Text));
 			IList<LsvItem> filteredSnacks = dBQueries.ViewToGetMeals(MealType.Snack, userManager.CurrentUser.UserId, Convert.ToDateTime(lblTarih.Text));
@@ -176,24 +170,35 @@ namespace GetBalance.UI
 			double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
 			lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
 
-                parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
+			parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
 
 
-                if (parrotCircleProgressBar1.percentage > 100)
-                {
-                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
-                }
-                else { parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160); }
-            }
-            else
-            {
-                lblHedefKalori.Text = "0";
-                lblHedefKarb.Text = "0";
-                lblHedefProtein.Text = "0";
-                lblHedefYag.Text = "0";
-                parrotCircleProgressBar1.percentage = 0;
+			if (parrotCircleProgressBar1.percentage > 100)
+			{
+				parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
+			}
+			else if (parrotCircleProgressBar1.percentage > 75)
+			{
+				parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 192, 0);
+			}
+			else if (parrotCircleProgressBar1.percentage > 50)
+			{
+				parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 255, 0);
+			}
+			else if (parrotCircleProgressBar1.percentage > 25)
+			{
+				parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 192, 0);
+			}
+			else if (userManager.CurrentUser==null)
+			{
+				parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160);
+				lblHedefKalori.Text = "0";
+				lblHedefKarb.Text = "0";
+				lblHedefProtein.Text = "0";
+				lblHedefYag.Text = "0";
+				parrotCircleProgressBar1.percentage = 0;
+			}
 
-            }
 
 		}
 
@@ -208,8 +213,8 @@ namespace GetBalance.UI
 		}
 
 
-		
-		
+
+
 		#region Öğünlerin Açılıp Kapanması
 		void OgunListViewDuzenle(Panel panel, ref bool panelDurumu)
 		{
@@ -427,7 +432,7 @@ namespace GetBalance.UI
 			monthCalendar.Visible = false;
 		}
 	}
-	
+
 
 
 }

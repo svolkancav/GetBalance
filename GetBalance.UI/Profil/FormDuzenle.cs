@@ -56,19 +56,17 @@ namespace GetBalance.UI
                 _userDetail.ActivityLevel = activity;
                 _userDetail.TrainingLevel = training;
                 context.SaveChanges();
+                userManager.CurrentUser.UserDetail = _userDetail;
                 ClearFields();
 
-            }
+				MessageBox.Show($"{(btnGuncelle.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
+
+			}
             catch (Exception)
             {
 
                 MessageBox.Show("Hatalı giriş yaptınız !");
             }
-
-
-
-
-
 
         }
 
@@ -88,13 +86,26 @@ namespace GetBalance.UI
             context = new AppDbContext();
             _userDetailRepo = new GenericRepository<UserDetail>();
 
-            LoadComboBoxes();
+			btnGuncelle.Text = userManager.CurrentUser.UserDetail==null? "Kaydet":"Güncelle";
 
-
-
+			LoadComboBoxes();
+            if (userManager.CurrentUser.UserDetail!=null)
+			FillTextBox();
         }
 
-        private void LoadComboBoxes()
+		private void FillTextBox()
+		{
+			txtBelCevresi.Text = userManager.CurrentUser.UserDetail.WaistCircumference.ToString();
+            txtBoyunCevresi.Text = userManager.CurrentUser.UserDetail.NeckCircumference.ToString();
+            txtBoy.Text = userManager.CurrentUser.UserDetail.Height.ToString();
+            txtKalcaCevresi.Text = userManager.CurrentUser.UserDetail.HipCircumference.ToString();
+            txtKilo.Text = userManager.CurrentUser.UserDetail.CurrentWeight.ToString();
+            cbxAktiviteSeviyesi.SelectedValue = (int)userManager.CurrentUser.UserDetail.ActivityLevel;
+            cmbTraining.SelectedValue = (int)userManager.CurrentUser.UserDetail.TrainingLevel;
+            
+		}
+
+		private void LoadComboBoxes()
         {
             cbxAktiviteSeviyesi.Items.Clear();
             cmbTraining.Items.Clear();
