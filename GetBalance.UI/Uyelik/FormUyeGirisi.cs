@@ -14,7 +14,6 @@ using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
-
 	public partial class FormUyeGirisi : Form
 	{
 		GenericRepository<User> _userRepo;

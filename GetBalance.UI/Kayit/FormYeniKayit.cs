@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DATA;
 using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
@@ -14,6 +15,7 @@ using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
+
 
     public partial class FormYeniKayit : Form
     {
@@ -188,6 +190,7 @@ namespace GetBalance.UI
             this.Close();
         }
     }
+
 
 
 }

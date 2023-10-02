@@ -23,7 +23,7 @@ namespace GetBalance.UI
 
         UserDetail _userDetail;
         AppDbContext context;
-        GenericRepository<UserDetail> _userDetailRepo;
+        GenericRepository<UserDetail> userDetailrepository;
         UserTargetRepository userTargetRepository;
 
 		UserManager userManager;
@@ -52,7 +52,9 @@ namespace GetBalance.UI
                 ActivityLevel activity = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
                 TrainingLevel training = (TrainingLevel)cmbTraining.SelectedValue;
 
+
                 _userDetail = _userDetailRepo.GetAll().Find(x => x.UserId == userManager.CurrentUser.UserId);
+
                 _userDetail.Height = boy;
                 _userDetail.CurrentWeight = kilo;
                 _userDetail.NeckCircumference = boyun;
@@ -63,13 +65,15 @@ namespace GetBalance.UI
                 context.UserDetails.Update(_userDetail);
                 context.SaveChanges();
 
-                userManager.CurrentUser.UserDetail = _userDetail;
+				userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
 				userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 				ClearFields();
 
+				FormEventService.Instance.OnUserDetailUpdated();
+
 				MessageBox.Show($"{(btnGuncelle.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
 
-                FormEventService.Instance.OnUserDetailUpdated();
+                
 			}
             catch (Exception)
             {
@@ -93,9 +97,11 @@ namespace GetBalance.UI
         private void FormDuzenle_Load(object sender, EventArgs e)
         {
             context = new AppDbContext();
+
             _userDetailRepo = new GenericRepository<UserDetail>();
             userManager = UserManager.Instance;
             btnGuncelle.Text = userManager.CurrentUser.UserDetail==null? "Kaydet":"Güncelle";
+
 
 			LoadComboBoxes();
             if (userManager.CurrentUser.UserDetail!=null)
