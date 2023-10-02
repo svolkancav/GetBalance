@@ -1,26 +1,26 @@
 ﻿namespace GetBalance.UI
 {
-	partial class FormIdealKilo
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class FormIdealKilo
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
 
 
@@ -53,35 +53,35 @@
             // 
             panel1.Controls.Add(lblIdealKiloDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(418, 361);
+            panel1.Location = new Point(487, 303);
             panel1.Name = "panel1";
-            panel1.Size = new Size(287, 124);
+            panel1.Size = new Size(266, 124);
             panel1.TabIndex = 15;
             // 
             // lblIdealKiloDeger
             // 
-            lblIdealKiloDeger.AutoSize = true;
             lblIdealKiloDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblIdealKiloDeger.Location = new Point(116, 45);
+            lblIdealKiloDeger.Location = new Point(3, 45);
             lblIdealKiloDeger.Name = "lblIdealKiloDeger";
-            lblIdealKiloDeger.Size = new Size(19, 21);
+            lblIdealKiloDeger.Size = new Size(260, 21);
             lblIdealKiloDeger.TabIndex = 2;
             lblIdealKiloDeger.Text = "0";
+            lblIdealKiloDeger.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(83, 9);
+            label4.Location = new Point(3, 9);
             label4.Name = "label4";
-            label4.Size = new Size(109, 25);
+            label4.Size = new Size(260, 25);
             label4.TabIndex = 1;
             label4.Text = "İDEAL KİLO";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // cpbIdealKilo
             // 
             cpbIdealKilo.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            cpbIdealKilo.Location = new Point(490, 225);
+            cpbIdealKilo.Location = new Point(560, 167);
             cpbIdealKilo.Maximum = 100L;
             cpbIdealKilo.MinimumSize = new Size(100, 100);
             cpbIdealKilo.Name = "cpbIdealKilo";
@@ -148,7 +148,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(281, 106);
+            label1.Location = new Point(339, 44);
             label1.Name = "label1";
             label1.Size = new Size(109, 25);
             label1.TabIndex = 8;
@@ -217,14 +217,13 @@
             Name = "FormIdealKilo";
             Text = "FormIdealKilo";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
 
-		#endregion
+        #endregion
 
 
         private Panel panel1;

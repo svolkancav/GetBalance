@@ -33,7 +33,6 @@
             txtKilo = new TextBox();
             label3 = new Label();
             panel1 = new Panel();
-            label7 = new Label();
             lblSuIhtiyaciDeger = new Label();
             label4 = new Label();
             btnHesapla = new Button();
@@ -46,7 +45,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(349, 88);
+            label1.Location = new Point(349, 44);
             label1.Name = "label1";
             label1.Size = new Size(117, 25);
             label1.TabIndex = 9;
@@ -72,7 +71,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label7);
             panel1.Controls.Add(lblSuIhtiyaciDeger);
             panel1.Controls.Add(label4);
             panel1.Location = new Point(228, 345);
@@ -80,35 +78,25 @@
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 59;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(158, 59);
-            label7.Name = "label7";
-            label7.Size = new Size(44, 21);
-            label7.TabIndex = 4;
-            label7.Text = "Litre";
-            // 
             // lblSuIhtiyaciDeger
             // 
-            lblSuIhtiyaciDeger.AutoSize = true;
             lblSuIhtiyaciDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSuIhtiyaciDeger.Location = new Point(124, 59);
+            lblSuIhtiyaciDeger.Location = new Point(3, 59);
             lblSuIhtiyaciDeger.Name = "lblSuIhtiyaciDeger";
-            lblSuIhtiyaciDeger.Size = new Size(19, 21);
+            lblSuIhtiyaciDeger.Size = new Size(326, 21);
             lblSuIhtiyaciDeger.TabIndex = 2;
-            lblSuIhtiyaciDeger.Text = "0";
+            lblSuIhtiyaciDeger.Text = "0 Litre/Gün";
+            lblSuIhtiyaciDeger.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(109, 12);
+            label4.Location = new Point(3, 12);
             label4.Name = "label4";
-            label4.Size = new Size(117, 25);
+            label4.Size = new Size(326, 25);
             label4.TabIndex = 1;
             label4.Text = "SU İHTİYACI";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnHesapla
             // 
@@ -149,7 +137,6 @@
             Name = "FormSuIhtiyaci";
             Text = "FormSuIhtiyaci";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -164,7 +151,6 @@
         private Label lblSuIhtiyaciDeger;
         private Label label4;
         private Button btnHesapla;
-        private Label label7;
         private PictureBox pictureBox1;
     }
 }

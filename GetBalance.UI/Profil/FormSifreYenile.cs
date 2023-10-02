@@ -35,5 +35,12 @@ namespace GetBalance.UI
         {
             surukleniyor = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormUyeGirisi formUyeGirisi = new FormUyeGirisi();
+            formUyeGirisi.Show();
+            this.Close();
+        }
     }
 }

@@ -85,11 +85,6 @@ namespace GetBalance.UI
             this.Hide();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void lnklblSifreUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormSifreYenile formSifreYenile = new FormSifreYenile();
@@ -114,18 +109,18 @@ namespace GetBalance.UI
             }
 
             userManager.CurrentUser = _userRepo.GetByFilter(x => x.Email == kullaniciAdi && x.Password == sifre);
-			
 
-			if (userManager.CurrentUser == null)
+
+            if (userManager.CurrentUser == null)
             {
                 MessageBox.Show("Kullanıcı Adı veya Şifre Hatalı");
                 return;
             }
             else
             {
-				userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-				userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
-				FormHomePage formAnaSayfa = new FormHomePage();
+                userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
+                userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
+                FormHomePage formAnaSayfa = new FormHomePage();
                 formAnaSayfa.Show();
                 this.Hide();
             }

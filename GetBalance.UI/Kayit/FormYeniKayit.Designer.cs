@@ -54,6 +54,7 @@
             lblCokZayif1 = new Label();
             lblOrta1 = new Label();
             lblGuclu = new Label();
+            btnGeri = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -159,7 +160,7 @@
             // rdnErkek
             // 
             rdnErkek.AutoSize = true;
-            rdnErkek.Location = new Point(343, 369);
+            rdnErkek.Location = new Point(319, 369);
             rdnErkek.Name = "rdnErkek";
             rdnErkek.Size = new Size(53, 19);
             rdnErkek.TabIndex = 8;
@@ -170,7 +171,7 @@
             // rdnKadin
             // 
             rdnKadin.AutoSize = true;
-            rdnKadin.Location = new Point(429, 369);
+            rdnKadin.Location = new Point(398, 369);
             rdnKadin.Name = "rdnKadin";
             rdnKadin.Size = new Size(55, 19);
             rdnKadin.TabIndex = 9;
@@ -185,7 +186,7 @@
             btnIleri.ForeColor = Color.White;
             btnIleri.Image = (Image)resources.GetObject("btnIleri.Image");
             btnIleri.ImageAlign = ContentAlignment.MiddleRight;
-            btnIleri.Location = new Point(350, 403);
+            btnIleri.Location = new Point(403, 403);
             btnIleri.Name = "btnIleri";
             btnIleri.Size = new Size(131, 35);
             btnIleri.TabIndex = 10;
@@ -308,6 +309,20 @@
             lblGuclu.TabIndex = 22;
             lblGuclu.Text = "                                                                                ";
             // 
+            // btnGeri
+            // 
+            btnGeri.BackColor = Color.FromArgb(15, 194, 192);
+            btnGeri.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeri.ForeColor = Color.White;
+            btnGeri.ImageAlign = ContentAlignment.MiddleRight;
+            btnGeri.Location = new Point(249, 403);
+            btnGeri.Name = "btnGeri";
+            btnGeri.Size = new Size(131, 35);
+            btnGeri.TabIndex = 10;
+            btnGeri.Text = "Geri";
+            btnGeri.UseVisualStyleBackColor = false;
+            btnGeri.Click += btnGeri_Click;
+            // 
             // FormYeniKayit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -325,6 +340,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(btnGeri);
             Controls.Add(btnIleri);
             Controls.Add(rdnKadin);
             Controls.Add(rdnErkek);
@@ -337,7 +353,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
             Name = "FormYeniKayit";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormYeniKayit";
             Load += FormYeniKayit_Load;
             panel1.ResumeLayout(false);
@@ -378,5 +396,6 @@
         private Label lblCokZayif1;
         private Label lblOrta1;
         private Label lblGuclu;
+        private Button btnGeri;
     }
 }

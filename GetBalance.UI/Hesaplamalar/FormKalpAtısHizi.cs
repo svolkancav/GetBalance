@@ -23,13 +23,13 @@ namespace GetBalance.UI
         {
             try
             {
-                int yas = Convert.ToInt32(txtYas.Text);
+                int yas = Convert.ToInt32(txtYas.Text.Trim());
                 TrainingLevel trainingLevel = (TrainingLevel)cmbxAntremanSeviyesi.SelectedValue;
                 int[] list = CalculatorExtensions.HedefKalpAtisHiziHesapla(yas, trainingLevel);
                 int maksimum = list[0];
                 int hedef = list[1];
-                lblMaxKalpAtisi.Text = maksimum.ToString();
-                lblHedefKalpHizi.Text = hedef.ToString();
+                lblMaxKalpAtisi.Text = maksimum.ToString() + " Atım/Dakika";
+                lblHedefKalpHizi.Text = hedef.ToString() + " Atım/Dakika";
             }
             catch (Exception ex)
             {
