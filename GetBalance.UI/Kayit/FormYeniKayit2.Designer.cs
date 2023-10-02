@@ -242,7 +242,7 @@
             cmbTraining.Location = new Point(320, 347);
             cmbTraining.Name = "cmbTraining";
             cmbTraining.Size = new Size(191, 23);
-            cmbTraining.TabIndex = 8;
+            cmbTraining.TabIndex = 9;
             // 
             // FormYeniKayit2
             // 
