@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Events;
 using GetBalance.UI.Extensions;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
@@ -17,8 +18,10 @@ using GetBalance.UI.Singeltons;
 namespace GetBalance.UI
 {
     public partial class FormHedef : Form
-    {
-        UserManager userManager;
+
+	{
+		UserManager userManager;
+
 
         UserTargetRepository userTargetRepository;
         UserDetail userDetail;
@@ -61,7 +64,10 @@ namespace GetBalance.UI
 
                 ClearFields();
 
-                MessageBox.Show($"{(btnKaydet.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
+
+				MessageBox.Show($"{(btnKaydet.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
+				FormEventService.Instance.OnUserTagetUpdated();
+
 
             }
             catch (Exception)

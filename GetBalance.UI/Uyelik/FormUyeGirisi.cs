@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
-using GetBalance.UI.Repositories;
+using GetBalance.DATA.Entities;
 using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
@@ -17,8 +16,6 @@ namespace GetBalance.UI
     public partial class FormUyeGirisi : Form
     {
         GenericRepository<User> _userRepo;
-        UserTargetRepository userTargetRepository;
-        GenericRepository<UserDetail> userDetailrepository;
 
         UserManager userManager;
 
@@ -27,8 +24,6 @@ namespace GetBalance.UI
             InitializeComponent();
             _userRepo = new GenericRepository<User>();
             userManager = UserManager.Instance;
-            userTargetRepository = new UserTargetRepository();
-            userDetailrepository = new GenericRepository<UserDetail>();
         }
 
         private void FormUyeGirisi_Load(object sender, EventArgs e)
@@ -108,8 +103,9 @@ namespace GetBalance.UI
                 return;
             }
 
-            userManager.CurrentUser = _userRepo.GetByFilter(x => x.Email == kullaniciAdi && x.Password == sifre);
 
+
+            userManager.CurrentUser = _userRepo.GetByFilter(x => x.Email == kullaniciAdi && x.Password == sifre);
 
             if (userManager.CurrentUser == null)
             {
@@ -118,8 +114,6 @@ namespace GetBalance.UI
             }
             else
             {
-                userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-                userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
                 FormHomePage formAnaSayfa = new FormHomePage();
                 formAnaSayfa.Show();
                 this.Hide();

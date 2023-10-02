@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI

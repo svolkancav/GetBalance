@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DAL;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 
 namespace GetBalance.UI.Repositories
 {
-	public class UserTargetRepository : GenericRepository<UserTarget>
+    public class UserTargetRepository : GenericRepository<UserTarget>
 	{
 		AppDbContext context;
 		public UserTargetRepository() : base()

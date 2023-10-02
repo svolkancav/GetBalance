@@ -14,155 +14,139 @@ using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
-    public partial class FormHomePage : Form
-    {
-        UserManager userManager;
+	public partial class FormHomePage : Form
+	{
+		Form formGunluk, formProfil, formAnasayfa, formHesaplamalar, formRapor;
 
-        GenericRepository<UserDetail> userDetailrepository;
+		public Point downPoint = Point.Empty;
 
-        GenericRepository<UserTarget> userTargetRepository;
-
-        Form formGunluk, formProfil, formAnasayfa, formHesaplamalar, formRapor;
-
-
-        public Point downPoint = Point.Empty;
-
-        public FormHomePage()
-        {
-            InitializeComponent();
-
-            userManager = UserManager.Instance;
-
-            userDetailrepository = new GenericRepository<UserDetail>();
-
-            userTargetRepository = new GenericRepository<UserTarget>();
+		public FormHomePage()
+		{
+			InitializeComponent();
+		}
 
 
-        }
+		private void FormHomePage_Load(object sender, EventArgs e)
+		{
+			formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
+			formProfil = new FormProfil() { TopLevel = false, TopMost = true };
+			formAnasayfa = new FormHomePage2() { TopLevel = false, TopMost = true };
+			formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
+			formRapor = new FormRapor() { TopLevel = false, TopMost = true };
+			pnlAnaPanel.Controls.Add(formGunluk);
+			pnlAnaPanel.Controls.Add(formAnasayfa);
+			pnlAnaPanel.Controls.Add(formProfil);
+			pnlAnaPanel.Controls.Add(formHesaplamalar);
+			pnlAnaPanel.Controls.Add(formRapor);
 
 
-        private void FormHomePage_Load(object sender, EventArgs e)
-        {
-            formGunluk = new FormGunluk() { TopLevel = false, TopMost = true };
-            formProfil = new FormProfil() { TopLevel = false, TopMost = true };
-            formAnasayfa = new FormHomePage2() { TopLevel = false, TopMost = true };
-            formHesaplamalar = new FormHesaplamalar() { TopLevel = false, TopMost = true };
-            formRapor = new FormRapor() { TopLevel = false, TopMost = true };
-            pnlAnaPanel.Controls.Add(formGunluk);
-            pnlAnaPanel.Controls.Add(formAnasayfa);
-            pnlAnaPanel.Controls.Add(formProfil);
-            pnlAnaPanel.Controls.Add(formHesaplamalar);
-            pnlAnaPanel.Controls.Add(formRapor);
+			formAnasayfa.Show();
+		}
 
-            //userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-            //userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
+		#region SidePanelTransition
 
-            formAnasayfa.Show();
-        }
+		bool menuExpand = true;
+		private void menuTransition_Tick(object sender, EventArgs e)
+		{
+			if (menuExpand)
+			{
+				menuContainer.Width -= 10;
+				formGunluk.Width += 10;
+				if (menuContainer.Width <= 58)
+				{
+					menuExpand = false;
+					menuTransition.Stop();
+				}
+			}
+			else
+			{
+				menuContainer.Width += 10;
+				formGunluk.Width -= 10;
+				if (menuContainer.Width >= 205)
+				{
+					menuExpand = true;
+					menuTransition.Stop();
+				}
+			}
+		}
+		#endregion
 
-        #region SidePanelTransition
+		#region MenuButtons
 
-        bool menuExpand = true;
-        private void menuTransition_Tick(object sender, EventArgs e)
-        {
-            if (menuExpand)
-            {
-                menuContainer.Width -= 10;
-                formGunluk.Width += 10;
-                if (menuContainer.Width <= 58)
-                {
-                    menuExpand = false;
-                    menuTransition.Stop();
-                }
-            }
-            else
-            {
-                menuContainer.Width += 10;
-                formGunluk.Width -= 10;
-                if (menuContainer.Width >= 205)
-                {
-                    menuExpand = true;
-                    menuTransition.Stop();
-                }
-            }
-        }
-        #endregion
+		private void btnHome_Click(object sender, EventArgs e)
+		{
+			menuTransition.Start();
+		}
+		private void btnProfil_Click(object sender, EventArgs e)
+		{
+			HideAllForms();
+			formProfil.Show();
+		}
+		private void btnAnaSayfa_Click(object sender, EventArgs e)
+		{
+			HideAllForms();
+			formAnasayfa.Show();
+		}
 
-        #region MenuButtons
+		private void btnGunluk_Click(object sender, EventArgs e)
+		{
+			HideAllForms();
+			formGunluk.Show();
+		}
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            menuTransition.Start();
-        }
-        private void btnProfil_Click(object sender, EventArgs e)
-        {
-            HideAllForms();
-            formProfil.Show();
-        }
-        private void btnAnaSayfa_Click(object sender, EventArgs e)
-        {
-            HideAllForms();
-            formAnasayfa.Show();
-        }
+		private void btnHesaplamalar_Click(object sender, EventArgs e)
+		{
+			HideAllForms();
+			formHesaplamalar.Show();
+		}
 
-        private void btnGunluk_Click(object sender, EventArgs e)
-        {
-            HideAllForms();
-            formGunluk.Show();
-        }
+		private void btnRaporlar_Click(object sender, EventArgs e)
+		{
+			HideAllForms();
+			formRapor.Show();
+		}
 
-        private void btnHesaplamalar_Click(object sender, EventArgs e)
-        {
-            HideAllForms();
-            formHesaplamalar.Show();
-        }
+		private void btnCikis_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 
-        private void btnRaporlar_Click(object sender, EventArgs e)
-        {
-            HideAllForms();
-            formRapor.Show();
-        }
+		#endregion
 
-        private void btnCikis_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+		private void HideAllForms()
+		{
+			foreach (Form item in pnlAnaPanel.Controls)
+			{
+				item.Hide();
+			}
+		}
 
-        #endregion
+		private void pnlTop_MouseDown(object sender, MouseEventArgs e)
+		{
+			surukleniyor = true;
+			surukleBaslangicNoktasi = e.Location;
+		}
 
-        private void HideAllForms()
-        {
-            foreach (Form item in pnlAnaPanel.Controls)
-            {
-                item.Hide();
-            }
-        }
+		private bool surukleniyor = false;
+		private Point surukleBaslangicNoktasi;
 
-        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
-        {
-            surukleniyor = true;
-            surukleBaslangicNoktasi = e.Location;
-        }
+		private void pnlTop_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (surukleniyor)
+			{
+				Point yeniKonum = this.Location;
+				yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+				yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+				this.Location = yeniKonum;
+			}
+		}
 
-        private bool surukleniyor = false;
-        private Point surukleBaslangicNoktasi;
+		private void pnlTop_MouseUp(object sender, MouseEventArgs e)
+		{
+			surukleniyor = false;
+		}
 
-        private void pnlTop_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (surukleniyor)
-            {
-                Point yeniKonum = this.Location;
-                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
-                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
-                this.Location = yeniKonum;
-            }
-        }
+	}
 
-        private void pnlTop_MouseUp(object sender, MouseEventArgs e)
-        {
-            surukleniyor = false;
-        }
-
-    }
 }
 
