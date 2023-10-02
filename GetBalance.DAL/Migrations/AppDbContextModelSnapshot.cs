@@ -62,7 +62,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Foods");
+                    b.ToTable("Foods", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.FoodCategory", b =>
@@ -79,7 +79,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasKey("FoodCategoryId");
 
-                    b.ToTable("FoodCategories");
+                    b.ToTable("FoodCategories", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.FoodMeal", b =>
@@ -97,7 +97,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("FoodMeal");
+                    b.ToTable("FoodMeal", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.Meal", b =>
@@ -125,7 +125,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Meals");
+                    b.ToTable("Meals", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.User", b =>
@@ -149,7 +149,7 @@ namespace GetBalance.DAL.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.UserDetail", b =>
@@ -204,7 +204,7 @@ namespace GetBalance.DAL.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("UserDetails");
+                    b.ToTable("UserDetails", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.UserTarget", b =>
@@ -247,7 +247,7 @@ namespace GetBalance.DAL.Migrations
                     b.HasIndex("UserDetailId")
                         .IsUnique();
 
-                    b.ToTable("UserTargets");
+                    b.ToTable("UserTargets", (string)null);
                 });
 
             modelBuilder.Entity("GetBalance.DATA.Food", b =>
