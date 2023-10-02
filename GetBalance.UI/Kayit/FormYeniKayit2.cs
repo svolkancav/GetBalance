@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
 using GetBalance.UI.Singeltons;
 using Microsoft.VisualBasic.ApplicationServices;
-using User = GetBalance.DATA.User;
+using User = GetBalance.DATA.Entities.User;
 
 namespace GetBalance.UI
 {
-	public partial class FormYeniKayit2 : Form
+    public partial class FormYeniKayit2 : Form
 	{
 		GenericRepository<User> _userRepo;
 		UserManager userManager;

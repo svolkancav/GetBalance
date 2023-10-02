@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GetBalance.DATA.Enums;
 
-namespace GetBalance.DATA
+namespace GetBalance.DATA.Entities
 {
     public class UserTarget
     {

@@ -1,4 +1,4 @@
-﻿using GetBalance.DATA;
+﻿using GetBalance.DATA.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

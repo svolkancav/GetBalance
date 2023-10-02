@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace GetBalance.DAL
 {
-	public class AppDbContext : DbContext
+    public class AppDbContext : DbContext
 	{
 		public DbSet<User> Users { get; set; }
 		public DbSet<UserDetail> UserDetails { get; set; }

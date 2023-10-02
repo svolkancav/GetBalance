@@ -1,6 +1,7 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Events;
 using GetBalance.UI.Queries;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
@@ -18,11 +19,10 @@ using static GetBalance.UI.Queries.DBQueries;
 
 namespace GetBalance.UI
 {
-	//Todo : meal'i öğün ekleme sayfasında oluşturup ekleyeceğiz.daha sonra seçilen yemek öğünle foodmeal tablosuna eklenecek.
-	public partial class FormGunluk : Form
+    //Todo : meal'i öğün ekleme sayfasında oluşturup ekleyeceğiz.daha sonra seçilen yemek öğünle foodmeal tablosuna eklenecek.
+    public partial class FormGunluk : Form
 	{
 		UserManager userManager;
-
 
 		FoodMealRepository _foodMeal;
 
@@ -51,7 +51,7 @@ namespace GetBalance.UI
 
 			pnlKahveLsv.Visible = pnlOgleLsv.Visible = pnlAksamLsv.Visible = pnlAperatifLsv.Visible = false;
 
-
+			FormEventService.Instance.NewItemAdded += RefreshListView;
 		}
 
 		private void FormGunluk_Load(object sender, EventArgs e)

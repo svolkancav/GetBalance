@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
 using GetBalance.UI.Queries;
@@ -18,7 +18,7 @@ using static GetBalance.UI.Queries.DBQueries;
 
 namespace GetBalance.UI
 {
-	public partial class FormRapor : Form
+    public partial class FormRapor : Form
 	{
 		GenericRepository<FoodCategory> foodRepository;
 		UserManager userManager;
