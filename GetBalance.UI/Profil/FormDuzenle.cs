@@ -3,6 +3,7 @@ using GetBalance.DAL;
 using GetBalance.DATA;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
+using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
 using System;
 using System.Collections.Generic;
@@ -22,14 +23,16 @@ namespace GetBalance.UI
         UserDetail _userDetail;
         AppDbContext context;
         GenericRepository<UserDetail> _userDetailRepo;
+        UserTargetRepository userTargetRepository;
 
-        UserManager userManager;
+		UserManager userManager;
 
         public FormDuzenle()
         {
             InitializeComponent();
             userManager = UserManager.Instance;
-        }
+			userTargetRepository = new UserTargetRepository();
+		}
 
 
 
@@ -44,8 +47,8 @@ namespace GetBalance.UI
                 int boyun = Convert.ToInt32(txtBoyunCevresi.Text);
                 int bel = Convert.ToInt32(txtBelCevresi.Text);
                 int kalca = Convert.ToInt32(txtKalcaCevresi.Text);
-                ActivityLevel activity = (ActivityLevel)cbxAktiviteSeviyesi.SelectedItem;
-                TrainingLevel training = (TrainingLevel)cmbTraining.SelectedItem;
+                ActivityLevel activity = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
+                TrainingLevel training = (TrainingLevel)cmbTraining.SelectedValue;
 
                 _userDetail = _userDetailRepo.GetById(userManager.CurrentUser.UserId);
                 _userDetail.Height = boy;
@@ -55,9 +58,12 @@ namespace GetBalance.UI
                 _userDetail.HipCircumference = kalca;
                 _userDetail.ActivityLevel = activity;
                 _userDetail.TrainingLevel = training;
+                context.UserDetails.Update(_userDetail);
                 context.SaveChanges();
+
                 userManager.CurrentUser.UserDetail = _userDetail;
-                ClearFields();
+				userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
+				ClearFields();
 
 				MessageBox.Show($"{(btnGuncelle.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
 
