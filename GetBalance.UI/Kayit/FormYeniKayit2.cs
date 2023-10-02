@@ -19,9 +19,9 @@ namespace GetBalance.UI
 {
     public partial class FormYeniKayit2 : Form
 
-	{
-		GenericRepository<User> _userRepo;
-		UserManager userManager;
+    {
+        GenericRepository<User> _userRepo;
+        UserManager userManager;
 
 
         FormYeniKayit _yeniKayit;
@@ -39,35 +39,56 @@ namespace GetBalance.UI
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            double height = Convert.ToDouble(txtBoy.Text.Trim());
-            double weight = Convert.ToDouble(txtKilo.Text.Trim());
-            double neckCircumference = Convert.ToDouble(txtBoyunCevresi.Text.Trim());
-            double waistCircumference = Convert.ToDouble(txtBelCevresi.Text.Trim());
-            double hipCircumference = Convert.ToDouble(txtKalcaCevresi.Text.Trim());
-            ActivityLevel activityLevel = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
-            TrainingLevel trainingLevel = (TrainingLevel)cmbTraining.SelectedValue;
-
-            if (height == 0 || weight == 0 || neckCircumference == 0 || waistCircumference == 0 || hipCircumference == 0 || cbxAktiviteSeviyesi.SelectedIndex == -1 || cmbTraining.SelectedIndex == -1)
+            try
             {
-                MessageBox.Show("Lütfen tüm alanları doldurunuz.");
-                return;
+                double height = Convert.ToDouble(txtBoy.Text.Trim());
+                double weight = Convert.ToDouble(txtKilo.Text.Trim());
+                double neckCircumference = Convert.ToDouble(txtBoyunCevresi.Text.Trim());
+                double waistCircumference = Convert.ToDouble(txtBelCevresi.Text.Trim());
+                double hipCircumference = Convert.ToDouble(txtKalcaCevresi.Text.Trim());
+                ActivityLevel activityLevel = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
+                TrainingLevel trainingLevel = (TrainingLevel)cmbTraining.SelectedValue;
+
+                if (height <= 0 || weight <= 0 || neckCircumference <= 0 || waistCircumference <= 0 || hipCircumference <= 0 || cbxAktiviteSeviyesi.SelectedIndex == -1 || cmbTraining.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Lütfen tüm alanlara geçerli değerler giriniz.");
+                    return;
+                }
+                if (height > 250 || weight > 400 || neckCircumference > 70 || waistCircumference > 200 || hipCircumference > 200)
+                {
+                    MessageBox.Show("Lütfen insani değerler giriniz! :)");
+                    return;
+                }
+                UserDetail userDetail = new UserDetail();
+
+                userManager.CurrentUser.UserDetail.Height = height;
+                userManager.CurrentUser.UserDetail.CurrentWeight = weight;
+                userManager.CurrentUser.UserDetail.NeckCircumference = neckCircumference;
+                userManager.CurrentUser.UserDetail.WaistCircumference = waistCircumference;
+                userManager.CurrentUser.UserDetail.HipCircumference = hipCircumference;
+                userManager.CurrentUser.UserDetail.TrainingLevel = trainingLevel;
+
+
+                _userRepo.Add(userManager.CurrentUser);
+
+                FormHomePage formAnaSayfa = new FormHomePage();
+                formAnaSayfa.Show();
+                this.Hide();
+
             }
-            UserDetail userDetail = new UserDetail();
-
-            userManager.CurrentUser.UserDetail.Height = height;
-            userManager.CurrentUser.UserDetail.CurrentWeight = weight;
-            userManager.CurrentUser.UserDetail.NeckCircumference = neckCircumference;
-            userManager.CurrentUser.UserDetail.WaistCircumference = waistCircumference;
-            userManager.CurrentUser.UserDetail.HipCircumference = hipCircumference;
-            userManager.CurrentUser.UserDetail.TrainingLevel = trainingLevel;
+            catch (Exception)
+            {
+                MessageBox.Show("Kaydolurken hata oluştu. Tekrar deneyiniz.");
+                ClearForm();
+            }
 
 
-            _userRepo.Add(userManager.CurrentUser);
+        }
 
-            FormHomePage formAnaSayfa = new FormHomePage();
-            formAnaSayfa.Show();
-            this.Hide();
-
+        private void ClearForm()
+        {
+            txtBoy.Text = txtBelCevresi.Text = txtBoyunCevresi.Text = txtKalcaCevresi.Text = txtKilo.Text = string.Empty;
+            cmbTraining.SelectedItem = cbxAktiviteSeviyesi.SelectedItem = null;
         }
 
         private void FormYeniKayit2_Load(object sender, EventArgs e)
