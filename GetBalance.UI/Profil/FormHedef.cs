@@ -18,20 +18,22 @@ using GetBalance.UI.Singeltons;
 namespace GetBalance.UI
 {
 	public partial class FormHedef : Form
-
 	{
 		UserManager userManager;
 
+		GenericRepository<UserDetail> userDetailrepository;
 
-        UserTargetRepository userTargetRepository;
+		UserTargetRepository userTargetRepository;
         UserDetail userDetail;
         public FormHedef()
         {
             InitializeComponent();
             userManager = UserManager.Instance;
             userTargetRepository = new UserTargetRepository();
+			userDetailrepository = new GenericRepository<UserDetail>();
 
-        }
+
+		}
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -45,8 +47,8 @@ namespace GetBalance.UI
 
 
 
-
 				UserTarget userTarget = new UserTarget();
+
 
 				userTarget.TargetProteinPercentage = hedeflenenProtein;
 				userTarget.TargetCarbPercentage = hedeflenenCarb;
@@ -54,18 +56,16 @@ namespace GetBalance.UI
 				userTarget.TargetCalorie = hedeflenenKalori;
 				userTarget.TargetWeight = hedeflenenKilo;
 				userTarget.UserDetailId = userManager.CurrentUser.UserDetail.UserDetailId;
-
 				if (userManager.CurrentUser.UserDetail.UserTarget == null)
 					userTargetRepository.Add(userTarget);
 				else
 					userTargetRepository.Update(userTarget, userManager.CurrentUser.UserDetail.UserTarget.UserTargetId);
 
+				userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
+				userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 
 
-                userManager.CurrentUser.UserDetail.UserTarget = userTarget;
-
-
-                ClearFields();
+				ClearFields();
 
 
 				MessageBox.Show($"{(btnKaydet.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");

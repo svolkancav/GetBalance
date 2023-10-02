@@ -54,8 +54,10 @@ namespace GetBalance.UI
             
         }
 
+
         private void FormHomePage2_Load(object sender, EventArgs e)
         {
+
 
             #region Database e user girilince açılacak.
             _userDetail = userManager.CurrentUser.UserDetail;
@@ -122,28 +124,46 @@ namespace GetBalance.UI
                 totalCalori += item.TotalCalorie;
             }
 
-            foreach (var item in snackMealList)
+
+			foreach (var item in dinnerMealList)
+			{
+				totalCalori += item.TotalCalorie;
+			}
+
+			foreach (var item in snackMealList)
+			{
+				totalCalori += item.TotalCalorie;
+			}
+			return Math.Round(totalCalori, 2);
+		}
+    foreach (var item in snackMealList)
             {
                 totalCalori += item.TotalCalorie;
             }
             return Math.Round(totalCalori, 2);
         }
 
-        private void ClearLabels()
-        {
+		private void ClearLabels()
+		{
 
-            lblGuncelBMH.Text = string.Empty;
-            lblGuncelGKI.Text = string.Empty;
-            lblGuncelGSI.Text = string.Empty;
-            lblGuncelIdealKilo.Text = string.Empty;
-            lblGuncelKAH.Text = string.Empty;
-            lblGuncelVKI.Text = string.Empty;
-            lblGuncelVYO.Text = string.Empty;
-
-
+			lblGuncelBMH.Text = string.Empty;
+			lblGuncelGKI.Text = string.Empty;
+			lblGuncelGSI.Text = string.Empty;
+			lblGuncelIdealKilo.Text = string.Empty;
+			lblGuncelKAH.Text = string.Empty;
+			lblGuncelVKI.Text = string.Empty;
+			lblGuncelVYO.Text = string.Empty;
 
 
-        }
+
+
+		}
+
+	
+=======
+            
+
+      
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
@@ -155,5 +175,6 @@ namespace GetBalance.UI
             
         }
     }
+
 
 }
