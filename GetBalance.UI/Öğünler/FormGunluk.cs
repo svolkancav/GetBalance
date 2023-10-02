@@ -26,14 +26,20 @@ namespace GetBalance.UI
 
 		FoodMealRepository _foodMeal;
 
-		MonthCalendar monthCalendar;
+        GenericRepository<Food> _food;
 
-		DBQueries dBQueries ;
+        FoodMeal foodMeal;
+
+        FoodMeal kahvaltiMeal;
+
+        Meal ogleMeal, aksamMeal, aperatifMeal;
+
+        MonthCalendar monthCalendar;
 
 
-		bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
-		Point pbAddButtonLoc = new Point(5, 5);
-		Point tlpVerilerLoc = new Point(473, 3);
+        bool kahvaltiAcikMi, ogleAcikMi, aksamAcikMi, aperatifAcikMi = false;
+        Point pbAddButtonLoc = new Point(5, 5);
+        Point tlpVerilerLoc = new Point(473, 3);
 
 		DateTime date;
 
@@ -103,6 +109,7 @@ namespace GetBalance.UI
 			Meal meal = new Meal();
 
 
+
 			foreach (ListViewItem item in listView.Items)
 			{
 				FoodMeal fm = (FoodMeal)item.Tag;
@@ -169,7 +176,25 @@ namespace GetBalance.UI
 			double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
 			lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
 
-			parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
+                parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
+
+
+                if (parrotCircleProgressBar1.percentage > 100)
+                {
+                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
+                }
+                else { parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160); }
+            }
+            else
+            {
+                lblHedefKalori.Text = "0";
+                lblHedefKarb.Text = "0";
+                lblHedefProtein.Text = "0";
+                lblHedefYag.Text = "0";
+                parrotCircleProgressBar1.percentage = 0;
+
+            }
+
 		}
 
 		string FormatText(string text)

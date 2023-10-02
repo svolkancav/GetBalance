@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GetBalance.DAL.Migrations
 {
-    public partial class volkanFirst : Migration
+    public partial class volkanfirst : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,7 +70,7 @@ namespace GetBalance.DAL.Migrations
                     MealId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Date = table.Column<DateTime>(type: "date", nullable: false),
                     MealType = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -149,7 +149,7 @@ namespace GetBalance.DAL.Migrations
                     StartingWeight = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     TargetWeight = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     StartingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TargetCalorie = table.Column<short>(type: "smallint", maxLength: 5, nullable: false),
+                    TargetCalorie = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     TargetCarbPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     TargetProteinPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     TargetFatPercentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
