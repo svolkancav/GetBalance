@@ -28,18 +28,18 @@ namespace GetBalance.UI
 		{
 
 			lblMevcutKilo.Text = lblBaslangicKilo.Text = user.UserDetail.CurrentWeight.ToString();
-			
 
 
-            if (user.UserDetail.UserTarget == null)
+
+			if (user.UserDetail.UserTarget == null)
 			{
 				return;
 			}
 
-			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString();
-            lblBaslangicKilo.Text = user.UserDetail.UserTarget.StartingWeight.ToString();
-			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString();
-			lblVerilenKilo.Text= (user.UserDetail.CurrentWeight - user.UserDetail.UserTarget.TargetWeight).ToString();
+			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString() + " kg";
+			lblBaslangicKilo.Text = user.UserDetail.UserTarget.StartingWeight.ToString() + " kg";
+			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString() + " kg";
+			lblVerilenKilo.Text = (user.UserDetail.CurrentWeight - user.UserDetail.UserTarget.StartingWeight).ToString() + " kg";
 		}
 	}
 }

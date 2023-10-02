@@ -22,7 +22,7 @@ namespace GetBalance.DAL
 		{
 
 
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-HF14TQL;Database=DietProjeDb;Trusted_Connection=True;"); //TODO:Change Connection string
+            optionsBuilder.UseSqlServer("Server=Unknown\\SQLESER;Database=HS12-HealtyDiet;Trusted_Connection=True;"); //TODO:Change Connection string
 
 
 

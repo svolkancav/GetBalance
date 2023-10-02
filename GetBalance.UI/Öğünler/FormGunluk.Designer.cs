@@ -24,7 +24,6 @@
 
 
 
-
 		/// <summary> 
 		/// Required method for Designer support - do not modify 
 		/// the contents of this method with the code editor.
@@ -1046,7 +1045,6 @@
 		private ContextMenuStrip cmsSagTik;
 		private ToolStripMenuItem tsmDuzenle;
 		private ToolStripMenuItem tsmKaldir;
-
 
 
 		#endregion
