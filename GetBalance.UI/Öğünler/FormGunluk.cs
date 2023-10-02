@@ -158,47 +158,52 @@ namespace GetBalance.UI
 			lblSuankiProtein.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopProtein.Text)) + Convert.ToDouble(FormatText(lblOgleTopProtein.Text)) + Convert.ToDouble(FormatText(lblAksamTopProtein.Text)) + Convert.ToDouble(FormatText(lblAperatifTopProtein.Text))).ToString() + " gr";
 			lblSuankiYag.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopYag.Text)) + Convert.ToDouble(FormatText(lblOgleTopYag.Text)) + Convert.ToDouble(FormatText(lblAksamTopYag.Text)) + Convert.ToDouble(FormatText(lblAperatifTopYag.Text))).ToString() + " gr";
 
-			double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
-			lblHedefKalori.Text = Math.Round(targetCalori, 2).ToString() + " Kcal";
+			//TODO: userTarget null gelirse burası patlıyor. Kontrol olmalı.
 
-			double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
-			lblHedefKarb.Text = Math.Round(targetCarb * targetCalori / 400.00, 2).ToString() + " gr";
-
-			double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
-			lblHedefProtein.Text = Math.Round(targetProtein * targetCalori / 400.00, 2).ToString() + " gr";
-
-			double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
-			lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
-
-			parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
-
-
-			if (parrotCircleProgressBar1.percentage > 100)
+			if (userManager.CurrentUser.UserDetail.UserTarget != null)
 			{
-				parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
-			}
-			else if (parrotCircleProgressBar1.percentage > 75)
-			{
-				parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 192, 0);
-			}
-			else if (parrotCircleProgressBar1.percentage > 50)
-			{
-				parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 255, 0);
-			}
-			else if (parrotCircleProgressBar1.percentage > 25)
-			{
-				parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 192, 0);
-			}
-			else if (userManager.CurrentUser==null)
-			{
-				parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160);
-				lblHedefKalori.Text = "0";
-				lblHedefKarb.Text = "0";
-				lblHedefProtein.Text = "0";
-				lblHedefYag.Text = "0";
-				parrotCircleProgressBar1.percentage = 0;
-			}
+                double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
+                lblHedefKalori.Text = Math.Round(targetCalori, 2).ToString() + " Kcal";
 
+                double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
+                lblHedefKarb.Text = Math.Round(targetCarb * targetCalori / 400.00, 2).ToString() + " gr";
+
+                double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
+                lblHedefProtein.Text = Math.Round(targetProtein * targetCalori / 400.00, 2).ToString() + " gr";
+
+                double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
+                lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
+
+                parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
+
+
+                if (parrotCircleProgressBar1.percentage > 100)
+                {
+                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
+                }
+                else if (parrotCircleProgressBar1.percentage > 75)
+                {
+                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 192, 0);
+                }
+                else if (parrotCircleProgressBar1.percentage > 50)
+                {
+                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 255, 0);
+                }
+                else if (parrotCircleProgressBar1.percentage > 25)
+                {
+                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 192, 0);
+                }
+            }
+			else
+			{
+                parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160);
+                lblHedefKalori.Text = "0";
+                lblHedefKarb.Text = "0";
+                lblHedefProtein.Text = "0";
+                lblHedefYag.Text = "0";
+                parrotCircleProgressBar1.percentage = 0;
+
+            }
 
 		}
 
