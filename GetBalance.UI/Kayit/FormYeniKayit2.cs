@@ -18,105 +18,107 @@ using User = GetBalance.DATA.Entities.User;
 namespace GetBalance.UI
 {
     public partial class FormYeniKayit2 : Form
+
 	{
 		GenericRepository<User> _userRepo;
 		UserManager userManager;
 
-		FormYeniKayit _yeniKayit;
-		public FormYeniKayit2()
-		{
-			InitializeComponent();
 
-			_userRepo = new GenericRepository<User>();
-			userManager = UserManager.Instance;
+        FormYeniKayit _yeniKayit;
+        public FormYeniKayit2()
+        {
+            InitializeComponent();
 
-		}
+            _userRepo = new GenericRepository<User>();
+            userManager = UserManager.Instance;
 
-
-
-
-		private void btnKayitOl_Click(object sender, EventArgs e)
-		{
-			double height = Convert.ToDouble(txtBoy.Text.Trim());
-			double weight = Convert.ToDouble(txtKilo.Text.Trim());
-			double neckCircumference = Convert.ToDouble(txtBoyunCevresi.Text.Trim());
-			double waistCircumference = Convert.ToDouble(txtBelCevresi.Text.Trim());
-			double hipCircumference = Convert.ToDouble(txtKalcaCevresi.Text.Trim());
-			ActivityLevel activityLevel = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
-			TrainingLevel trainingLevel = (TrainingLevel)cmbTraining.SelectedValue;
-
-			if (height == 0 || weight == 0 || neckCircumference == 0 || waistCircumference == 0 || hipCircumference == 0 || cbxAktiviteSeviyesi.SelectedIndex == -1 || cmbTraining.SelectedIndex == -1)
-			{
-				MessageBox.Show("Lütfen tüm alanları doldurunuz.");
-				return;
-			}
-			UserDetail userDetail = new UserDetail();
-
-			userManager.CurrentUser.UserDetail.Height = height;
-			userManager.CurrentUser.UserDetail.CurrentWeight = weight;
-			userManager.CurrentUser.UserDetail.NeckCircumference = neckCircumference;
-			userManager.CurrentUser.UserDetail.WaistCircumference = waistCircumference;
-			userManager.CurrentUser.UserDetail.HipCircumference = hipCircumference;
-			userManager.CurrentUser.UserDetail.TrainingLevel = trainingLevel;
-
-
-			_userRepo.Add(userManager.CurrentUser);
-
-			FormHomePage formAnaSayfa = new FormHomePage();
-			formAnaSayfa.Show();
-			this.Hide();
-
-		}
-
-		private void FormYeniKayit2_Load(object sender, EventArgs e)
-		{
-			cbxAktiviteSeviyesi.DataSource = Enum.GetValues(typeof(ActivityLevel))
-				.Cast<ActivityLevel>()
-				.Select(x => new
-				{
-					Value = (int)x,
-					DisplayName = x.DisplayName()
-				}).ToList();
-			cbxAktiviteSeviyesi.DisplayMember = "DisplayName";
-			cbxAktiviteSeviyesi.ValueMember = "Value";
-
-			cbxAktiviteSeviyesi.SelectedIndex = -1;
-
-
-			cmbTraining.DataSource = Enum.GetValues(typeof(TrainingLevel))
-				.Cast<TrainingLevel>()
-				.Select(x => new
-				{
-					Value = (int)x,
-					DisplayName = x.DisplayName()
-				}).ToList();
-			cmbTraining.DisplayMember = "DisplayName";
-			cmbTraining.ValueMember = "Value";
-
-			cmbTraining.SelectedIndex = -1;
-
-
-		}
+        }
 
 
 
-		private bool surukleniyor = false;
-		private Point surukleBaslangicNoktasi;
 
-		private void panel1_MouseUp(object sender, MouseEventArgs e)
-		{
-			surukleniyor = false;
-		}
+        private void btnKayitOl_Click(object sender, EventArgs e)
+        {
+            double height = Convert.ToDouble(txtBoy.Text.Trim());
+            double weight = Convert.ToDouble(txtKilo.Text.Trim());
+            double neckCircumference = Convert.ToDouble(txtBoyunCevresi.Text.Trim());
+            double waistCircumference = Convert.ToDouble(txtBelCevresi.Text.Trim());
+            double hipCircumference = Convert.ToDouble(txtKalcaCevresi.Text.Trim());
+            ActivityLevel activityLevel = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
+            TrainingLevel trainingLevel = (TrainingLevel)cmbTraining.SelectedValue;
 
-		private void panel1_MouseMove(object sender, MouseEventArgs e)
-		{
-			if (surukleniyor)
-			{
-				Point yeniKonum = this.Location;
-				yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
-				yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
-				this.Location = yeniKonum;
-			}
-		}
-	}
+            if (height == 0 || weight == 0 || neckCircumference == 0 || waistCircumference == 0 || hipCircumference == 0 || cbxAktiviteSeviyesi.SelectedIndex == -1 || cmbTraining.SelectedIndex == -1)
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurunuz.");
+                return;
+            }
+            UserDetail userDetail = new UserDetail();
+
+            userManager.CurrentUser.UserDetail.Height = height;
+            userManager.CurrentUser.UserDetail.CurrentWeight = weight;
+            userManager.CurrentUser.UserDetail.NeckCircumference = neckCircumference;
+            userManager.CurrentUser.UserDetail.WaistCircumference = waistCircumference;
+            userManager.CurrentUser.UserDetail.HipCircumference = hipCircumference;
+            userManager.CurrentUser.UserDetail.TrainingLevel = trainingLevel;
+
+
+            _userRepo.Add(userManager.CurrentUser);
+
+            FormHomePage formAnaSayfa = new FormHomePage();
+            formAnaSayfa.Show();
+            this.Hide();
+
+        }
+
+        private void FormYeniKayit2_Load(object sender, EventArgs e)
+        {
+            cbxAktiviteSeviyesi.DataSource = Enum.GetValues(typeof(ActivityLevel))
+                .Cast<ActivityLevel>()
+                .Select(x => new
+                {
+                    Value = (int)x,
+                    DisplayName = x.DisplayName()
+                }).ToList();
+            cbxAktiviteSeviyesi.DisplayMember = "DisplayName";
+            cbxAktiviteSeviyesi.ValueMember = "Value";
+
+            cbxAktiviteSeviyesi.SelectedIndex = -1;
+
+
+            cmbTraining.DataSource = Enum.GetValues(typeof(TrainingLevel))
+                .Cast<TrainingLevel>()
+                .Select(x => new
+                {
+                    Value = (int)x,
+                    DisplayName = x.DisplayName()
+                }).ToList();
+            cmbTraining.DisplayMember = "DisplayName";
+            cmbTraining.ValueMember = "Value";
+
+            cmbTraining.SelectedIndex = -1;
+
+
+        }
+
+
+
+        private bool surukleniyor = false;
+        private Point surukleBaslangicNoktasi;
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            surukleniyor = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (surukleniyor)
+            {
+                Point yeniKonum = this.Location;
+                yeniKonum.X += e.X - surukleBaslangicNoktasi.X;
+                yeniKonum.Y += e.Y - surukleBaslangicNoktasi.Y;
+                this.Location = yeniKonum;
+            }
+        }
+    }
 }

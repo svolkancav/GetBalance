@@ -23,12 +23,12 @@ namespace GetBalance.UI
         {
             try
             {
-                int boy = Convert.ToInt32(txtBoy.Text);
-                int kilo = Convert.ToInt32(txtKilo.Text);
+                int boy = Convert.ToInt32(txtBoy.Text.Trim());
+                int kilo = Convert.ToInt32(txtKilo.Text.Trim());
                 string cinsiyet = rdbErkek.Checked ? "erkek" : "kadın";
-                int yas = Convert.ToInt32(txtYas.Text);
+                int yas = Convert.ToInt32(txtYas.Text.Trim());
                 ActivityLevel activity = (ActivityLevel)cmbxAktiviteSeviyesi.SelectedValue;
-                lblGKIDeger.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString();
+                lblGKIDeger.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString() + " Kalori/Gün";
 
             }
             catch (Exception)

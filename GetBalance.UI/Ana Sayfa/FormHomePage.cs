@@ -147,5 +147,6 @@ namespace GetBalance.UI
 		}
 
 	}
+
 }
 
