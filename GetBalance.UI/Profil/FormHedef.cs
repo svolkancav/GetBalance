@@ -119,6 +119,7 @@ namespace GetBalance.UI
 
 		private void FillTextBox()
 		{
+			userDetail = userManager.CurrentUser.UserDetail;
 			txtHedefKilo.Text = userDetail.UserTarget.TargetWeight.ToString();
 			txtHedefKalori.Text = userDetail.UserTarget.TargetCalorie.ToString();
 			txtHedefCarbon.Text = userDetail.UserTarget.TargetCarbPercentage.ToString();

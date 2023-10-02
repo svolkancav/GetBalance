@@ -65,7 +65,6 @@ namespace GetBalance.UI
                 context.SaveChanges();
 
 				userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-				userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 				ClearFields();
 
 				FormEventService.Instance.OnUserDetailUpdated();

@@ -26,6 +26,7 @@ namespace GetBalance.UI
 			InitializeComponent();
 
 			userManager = UserManager.Instance;
+			_userRepo = new GenericRepository<User>();
 
 		}
 
@@ -59,7 +60,23 @@ namespace GetBalance.UI
 				MessageBox.Show("Bu e-posta adresi kullanılmaktadır.");
 				return;
 			}
+			else if (CountSpace(txtIsim.Text) > 2)
+			{
+				MessageBox.Show("İsmi kontrol ediniz");
+				return;
+			}
+			else if (CountSpace(txtSoyisim.Text) > 2)
+			{
+				MessageBox.Show("Soyisim kontrol ediniz");
+				return;
+			}
 
+			int CountSpace(string text)
+			{
+				string[] parts = text.Split(' ');
+
+				return parts.Length;
+			}
 
 			userManager.CurrentUser = new User()
 			{
@@ -189,6 +206,65 @@ namespace GetBalance.UI
 			FormGiris formGiris = new FormGiris();
 			formGiris.Show();
 			this.Close();
+		}
+		int space = 0;
+		private void txt_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			char ch = e.KeyChar;
+			if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
+			{
+				e.Handled = true;
+			}
+			else if (Char.IsLetter(ch)) space = 0;
+
+			if (ch == 32)
+			{
+				space++;
+				if (space > 1)
+				{
+					e.Handled = true;
+				}
+			}
+		}
+
+		private void txtEmail_TextChanged(object sender, EventArgs e)
+		{
+			string email = txtEmail.Text.Trim();
+			if (email.Contains("@") && email.Contains("."))
+			{
+				lblEmail.Visible = false;
+			}
+			else
+			{
+
+				lblEmail.Text = "Geçerli bir e posta adresi giriniz!";
+				lblEmail.Visible = true;
+			}
+		}
+
+		private void txt_Changed(object sender, EventArgs e)
+		{
+			string text1 = txtIsim.Text.Trim();
+			if (text1.Length <= 1)
+			{
+				lblAd.Text = "En az iki karakter girmelisinz.";
+				lblAd.Visible = true;
+			}
+			else
+			{
+				lblAd.Visible = false;
+			}
+
+			string text2 = txtSoyisim.Text.Trim();
+			if (text2.Length <= 1)
+			{
+				lblSoyad.Text = "En az iki karakter girmelisinz.";
+				lblSoyad.Visible = true;
+			}
+			else
+			{
+				lblSoyad.Visible = false;
+			}
 		}
 	}
 

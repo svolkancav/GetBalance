@@ -41,14 +41,15 @@ namespace GetBalance.UI
 
             FormEventService.Instance.UserDetailUpdated += FillLabel;
             FormEventService.Instance.UserTagetUpdated += FillLabel;
-        }
+			_userDetail = userManager.CurrentUser.UserDetail;
+		}
 
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
             if (formHedef != null)
                 formHedef.Hide();
-            formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
             pnlYanPanel.Controls.Add(formDuzenle);
             formDuzenle.Show();
             
@@ -60,7 +61,7 @@ namespace GetBalance.UI
 
 
             #region Database e user girilince açılacak.
-            _userDetail = userManager.CurrentUser.UserDetail;
+            
 
             ClearLabels();
 
@@ -74,7 +75,8 @@ namespace GetBalance.UI
 
         private void FillLabel()
         {
-            int boy = Convert.ToInt32(_userDetail.Height);
+			_userDetail = userManager.CurrentUser.UserDetail;
+			int boy = Convert.ToInt32(_userDetail.Height);
             int kilo = Convert.ToInt32(_userDetail.CurrentWeight);
             int neckCircum = Convert.ToInt32(_userDetail.NeckCircumference);
             int waistCircum = Convert.ToInt32(_userDetail.WaistCircumference);
@@ -135,12 +137,7 @@ namespace GetBalance.UI
 				totalCalori += item.TotalCalorie;
 			}
 			return Math.Round(totalCalori, 2);
-		}
-    foreach (var item in snackMealList)
-            {
-                totalCalori += item.TotalCalorie;
-            }
-            return Math.Round(totalCalori, 2);
+		
         }
 
 		private void ClearLabels()
@@ -160,16 +157,12 @@ namespace GetBalance.UI
 		}
 
 	
-=======
-            
-
-      
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
+            formHedef = new FormHedef() { TopLevel = false, TopMost = true };
             if (formDuzenle != null)
                 formDuzenle.Hide();
-            formHedef = new FormHedef() { TopLevel = false, TopMost = true };
             pnlYanPanel.Controls.Add(formHedef);
             formHedef.Show();
             
