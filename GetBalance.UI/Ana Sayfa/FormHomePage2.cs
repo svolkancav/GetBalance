@@ -20,101 +20,110 @@ using System.Windows.Forms;
 namespace GetBalance.UI
 {
 
-	public partial class FormHomePage2 : Form
+    public partial class FormHomePage2 : Form
 
-	{
+    {
 
-		Form formDuzenle, formHedef;
-		public Point downPoint = Point.Empty;
+        Form formDuzenle, formHedef;
+        public Point downPoint = Point.Empty;
 
-		UserDetail _userDetail;
-		UserManager userManager;
-		DBQueries dBQueries;
-
-
-		public FormHomePage2()
-		{
-			InitializeComponent();
-			userManager = UserManager.Instance;
-			dBQueries = new DBQueries();
+        UserDetail _userDetail;
+        UserManager userManager;
+        DBQueries dBQueries;
 
 
-			FormEventService.Instance.UserDetailUpdated += FillLabel;
-			FormEventService.Instance.UserTagetUpdated += FillLabel;
-		}
+        public FormHomePage2()
+        {
+            InitializeComponent();
+            userManager = UserManager.Instance;
+            dBQueries = new DBQueries();
 
 
-		private void pictureBox5_Click(object sender, EventArgs e)
-		{
-			formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
-			if (formHedef != null)
-				formHedef.Hide();
-			pnlYanPanel.Controls.Add(formDuzenle);
-			formDuzenle.Show();
-		}
-
-		private void FormHomePage2_Load(object sender, EventArgs e)
-		{
-
-			#region Database e user girilince açılacak.
-			_userDetail = userManager.CurrentUser.UserDetail;
-
-			ClearLabels();
-
-			if (_userDetail != null)
-				FillLabel();
+            FormEventService.Instance.UserDetailUpdated += FillLabel;
+            FormEventService.Instance.UserTagetUpdated += FillLabel;
+        }
 
 
-			#endregion
-
-		}
-
-		private void FillLabel()
-		{
-			int boy = Convert.ToInt32(_userDetail.Height);
-			int kilo = Convert.ToInt32(_userDetail.CurrentWeight);
-			int neckCircum = Convert.ToInt32(_userDetail.NeckCircumference);
-			int waistCircum = Convert.ToInt32(_userDetail.WaistCircumference);
-			int hipCircum = Convert.ToInt32(_userDetail.HipCircumference);
-			Gender gender = _userDetail.Gender;
-			string cinsiyet = gender.ToString();
-			DateTime dateTime = _userDetail.BirthDate;
-			int yas = DateTime.Now.Year - dateTime.Year;
-			ActivityLevel activity = _userDetail.ActivityLevel;
-			TrainingLevel training = _userDetail.TrainingLevel;
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (formHedef != null)
+                formHedef.Hide();
+            formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
+            pnlYanPanel.Controls.Add(formDuzenle);
+            formDuzenle.Show();
+            
+        }
 
 
-			lblGuncelVKI.Text = CalculatorExtensions.VKİHesapla(kilo, boy).ToString();
-			lblGuncelBMH.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString() + " Kalori / Gün";
-			lblGuncelVYO.Text = CalculatorExtensions.VücutYağOraniHesapla(waistCircum, neckCircum, hipCircum, boy, cinsiyet).ToString();
-			lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString() + " kg";
-			lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString() + " Kalori / Gün";
-			lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString() + " lt";
-			lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString() + " atım/dakika";
+        private void FormHomePage2_Load(object sender, EventArgs e)
+        {
 
-			lblKilo.Text = kilo.ToString();
-			lblHarcananKalori.Text = _userDetail.UserTarget == null ? "Hedeflerinizi giriniz." : _userDetail.UserTarget.TargetCalorie.ToString() + " Kcal";
-			lblAlinanKalori.Text = CalculateCalori().ToString() + " Kcal";
-		}
 
-		private double CalculateCalori()
-		{
-			var breakfastMealList = dBQueries.ViewToGetMeals(MealType.Breakfast, userManager.CurrentUser.UserId, DateTime.Now.Date);
-			var lunchMealList = dBQueries.ViewToGetMeals(MealType.Lunch, userManager.CurrentUser.UserId, DateTime.Now.Date);
-			var dinnerMealList = dBQueries.ViewToGetMeals(MealType.Dinner, userManager.CurrentUser.UserId, DateTime.Now.Date);
-			var snackMealList = dBQueries.ViewToGetMeals(MealType.Snack, userManager.CurrentUser.UserId, DateTime.Now.Date);
+            #region Database e user girilince açılacak.
+            _userDetail = userManager.CurrentUser.UserDetail;
 
-			double totalCalori = 0;
+            ClearLabels();
 
-			foreach (var item in breakfastMealList)
-			{
-				totalCalori += item.TotalCalorie;
-			}
+            if (_userDetail != null)
+                FillLabel();
 
-			foreach (var item in lunchMealList)
-			{
-				totalCalori += item.TotalCalorie;
-			}
+
+            #endregion
+
+        }
+
+        private void FillLabel()
+        {
+            int boy = Convert.ToInt32(_userDetail.Height);
+            int kilo = Convert.ToInt32(_userDetail.CurrentWeight);
+            int neckCircum = Convert.ToInt32(_userDetail.NeckCircumference);
+            int waistCircum = Convert.ToInt32(_userDetail.WaistCircumference);
+            int hipCircum = Convert.ToInt32(_userDetail.HipCircumference);
+            Gender gender = _userDetail.Gender;
+            string cinsiyet = gender.ToString();
+            DateTime dateTime = _userDetail.BirthDate;
+            int yas = DateTime.Now.Year - dateTime.Year;
+            ActivityLevel activity = _userDetail.ActivityLevel;
+            TrainingLevel training = _userDetail.TrainingLevel;
+
+
+            lblGuncelVKI.Text = CalculatorExtensions.VKİHesapla(kilo, boy).ToString();
+            lblGuncelBMH.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString() + " Kalori / Gün";
+            lblGuncelVYO.Text = CalculatorExtensions.VücutYağOraniHesapla(waistCircum, neckCircum, hipCircum, boy, cinsiyet).ToString();
+            lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString() + " kg";
+            lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString() + " Kalori / Gün";
+            lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString() + " lt";
+            lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString() + " atım/dakika";
+
+            lblKilo.Text = kilo.ToString();
+            lblHarcananKalori.Text = _userDetail.UserTarget == null ? "Hedeflerinizi giriniz." : _userDetail.UserTarget.TargetCalorie.ToString() + " Kcal";
+            lblAlinanKalori.Text = CalculateCalori().ToString() + " Kcal";
+        }
+
+        private double CalculateCalori()
+        {
+            var breakfastMealList = dBQueries.ViewToGetMeals(MealType.Breakfast, userManager.CurrentUser.UserId, DateTime.Now.Date);
+            var lunchMealList = dBQueries.ViewToGetMeals(MealType.Lunch, userManager.CurrentUser.UserId, DateTime.Now.Date);
+            var dinnerMealList = dBQueries.ViewToGetMeals(MealType.Dinner, userManager.CurrentUser.UserId, DateTime.Now.Date);
+            var snackMealList = dBQueries.ViewToGetMeals(MealType.Snack, userManager.CurrentUser.UserId, DateTime.Now.Date);
+
+            double totalCalori = 0;
+
+            foreach (var item in breakfastMealList)
+            {
+                totalCalori += item.TotalCalorie;
+            }
+
+            foreach (var item in lunchMealList)
+            {
+                totalCalori += item.TotalCalorie;
+            }
+
+            foreach (var item in dinnerMealList)
+            {
+                totalCalori += item.TotalCalorie;
+            }
+
 
 			foreach (var item in dinnerMealList)
 			{
@@ -127,6 +136,12 @@ namespace GetBalance.UI
 			}
 			return Math.Round(totalCalori, 2);
 		}
+    foreach (var item in snackMealList)
+            {
+                totalCalori += item.TotalCalorie;
+            }
+            return Math.Round(totalCalori, 2);
+        }
 
 		private void ClearLabels()
 		{
@@ -144,14 +159,22 @@ namespace GetBalance.UI
 
 		}
 
-		private void pictureBox6_Click(object sender, EventArgs e)
-		{
-			formHedef = new FormHedef() { TopLevel = false, TopMost = true };
-			if (formDuzenle != null)
-				formDuzenle.Hide();
-			pnlYanPanel.Controls.Add(formHedef);
-			formHedef.Show();
-		}
-	}
+	
+=======
+            
+
+      
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (formDuzenle != null)
+                formDuzenle.Hide();
+            formHedef = new FormHedef() { TopLevel = false, TopMost = true };
+            pnlYanPanel.Controls.Add(formHedef);
+            formHedef.Show();
+            
+        }
+    }
+
 
 }
