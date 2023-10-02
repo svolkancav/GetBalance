@@ -42,17 +42,13 @@ namespace GetBalance.UI
 
 
 
-				UserTarget userTarget = new UserTarget()
-				{
-					StartingWeight = userDetail.CurrentWeight,
-					TargetWeight = hedeflenenKilo,
-					StartingDate = DateTime.Now,
-					TargetCalorie = hedeflenenKalori,
-					TargetCarbPercentage = hedeflenenCarb,
-					TargetProteinPercentage = hedeflenenProtein,
-					TargetFatPercentage = hedeflenenYag,
-					UserDetailId = userDetail.UserDetailId
-				};
+				UserTarget userTarget = userManager.CurrentUser.UserDetail.UserTarget;
+
+				userTarget.TargetProteinPercentage = hedeflenenProtein;
+				userTarget.TargetCarbPercentage = hedeflenenCarb;
+				userTarget.TargetFatPercentage = hedeflenenYag;
+				userTarget.TargetCalorie = hedeflenenKalori;
+				userTarget.TargetWeight = hedeflenenKilo;
 
 
 				if (userManager.CurrentUser.UserDetail.UserTarget == null)
@@ -114,7 +110,7 @@ namespace GetBalance.UI
 
 		private void FillTextBox()
 		{
-			txtHedefKilo.Text = userDetail.CurrentWeight.ToString();
+			txtHedefKilo.Text = userDetail.UserTarget.TargetWeight.ToString();
 			txtHedefKalori.Text = userDetail.UserTarget.TargetCalorie.ToString();
 			txtHedefCarbon.Text = userDetail.UserTarget.TargetCarbPercentage.ToString();
 			txtHedefProtein.Text = userDetail.UserTarget.TargetProteinPercentage.ToString();

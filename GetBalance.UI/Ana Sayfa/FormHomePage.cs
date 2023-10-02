@@ -54,8 +54,8 @@ namespace GetBalance.UI
 			pnlAnaPanel.Controls.Add(formHesaplamalar);
 			pnlAnaPanel.Controls.Add(formRapor);
 
-			userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-			userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
+			//userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
+			//userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 
 			formAnasayfa.Show();
 		}
