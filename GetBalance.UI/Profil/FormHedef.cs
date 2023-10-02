@@ -37,13 +37,26 @@ namespace GetBalance.UI
         {
             try
             {
-                double hedeflenenProtein = double.Parse(txtHedefProtein.Text);
+				double hedeflenenProtein = double.Parse(txtHedefProtein.Text);
                 double hedeflenenCarb = double.Parse(txtHedefCarbon.Text);
                 double hedeflenenYag = double.Parse(txtHedefYag.Text);
                 double hedeflenenKalori = double.Parse(txtHedefKalori.Text);
                 double hedeflenenKilo = double.Parse(txtHedefKilo.Text);
 
+				if(hedeflenenProtein <= 0.0 || hedeflenenYag <= 0.0 || hedeflenenCarb <= 0.0 || hedeflenenKalori <= 0.0 || hedeflenenKilo <= 0.0)
+				{
+                    MessageBox.Show("Girilen değerler 0'dan küçük olamaz!");
+                    return;
+                }
 
+				double toplamBesinDegeri = hedeflenenProtein + hedeflenenCarb + hedeflenenYag;
+
+                if (toplamBesinDegeri != 100)
+				{
+					MessageBox.Show("Hedeflenen besin değerlerinin toplamı 100 olmalıdır!");
+					return;
+				}
+				
 
 
 				UserTarget userTarget = new UserTarget();

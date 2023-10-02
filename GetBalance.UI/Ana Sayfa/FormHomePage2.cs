@@ -46,9 +46,9 @@ namespace GetBalance.UI
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
             if (formHedef != null)
                 formHedef.Hide();
-            formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
             pnlYanPanel.Controls.Add(formDuzenle);
             formDuzenle.Show();
             
@@ -147,9 +147,9 @@ namespace GetBalance.UI
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
+            formHedef = new FormHedef() { TopLevel = false, TopMost = true };
             if (formDuzenle != null)
                 formDuzenle.Hide();
-            formHedef = new FormHedef() { TopLevel = false, TopMost = true };
             pnlYanPanel.Controls.Add(formHedef);
             formHedef.Show();
             

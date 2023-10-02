@@ -55,6 +55,7 @@
             lblOrta1 = new Label();
             lblGuclu = new Label();
             btnGeri = new Button();
+            lblSifreGuvenligi = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -152,7 +153,7 @@
             // 
             // dtpDogumTarihi
             // 
-            dtpDogumTarihi.Location = new Point(319, 324);
+            dtpDogumTarihi.Location = new Point(319, 333);
             dtpDogumTarihi.Name = "dtpDogumTarihi";
             dtpDogumTarihi.Size = new Size(200, 23);
             dtpDogumTarihi.TabIndex = 7;
@@ -160,7 +161,7 @@
             // rdnErkek
             // 
             rdnErkek.AutoSize = true;
-            rdnErkek.Location = new Point(319, 369);
+            rdnErkek.Location = new Point(319, 378);
             rdnErkek.Name = "rdnErkek";
             rdnErkek.Size = new Size(53, 19);
             rdnErkek.TabIndex = 8;
@@ -171,7 +172,7 @@
             // rdnKadin
             // 
             rdnKadin.AutoSize = true;
-            rdnKadin.Location = new Point(398, 369);
+            rdnKadin.Location = new Point(398, 378);
             rdnKadin.Name = "rdnKadin";
             rdnKadin.Size = new Size(55, 19);
             rdnKadin.TabIndex = 9;
@@ -248,7 +249,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(162, 324);
+            label6.Location = new Point(162, 333);
             label6.Name = "label6";
             label6.Size = new Size(118, 21);
             label6.TabIndex = 16;
@@ -258,7 +259,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(209, 369);
+            label7.Location = new Point(209, 378);
             label7.Name = "label7";
             label7.Size = new Size(79, 21);
             label7.TabIndex = 17;
@@ -323,11 +324,20 @@
             btnGeri.UseVisualStyleBackColor = false;
             btnGeri.Click += btnGeri_Click;
             // 
+            // lblSifreGuvenligi
+            // 
+            lblSifreGuvenligi.Location = new Point(319, 309);
+            lblSifreGuvenligi.Name = "lblSifreGuvenligi";
+            lblSifreGuvenligi.Size = new Size(318, 15);
+            lblSifreGuvenligi.TabIndex = 23;
+            lblSifreGuvenligi.Text = "Sifre min. 6 haneli olmalı. En az bir harf ve sayı içermelidir.";
+            // 
             // FormYeniKayit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblSifreGuvenligi);
             Controls.Add(lblGuclu);
             Controls.Add(lblOrta1);
             Controls.Add(lblCokZayif1);
@@ -397,5 +407,6 @@
         private Label lblOrta1;
         private Label lblGuclu;
         private Button btnGeri;
+        private Label lblSifreGuvenligi;
     }
 }

@@ -18,13 +18,13 @@ namespace GetBalance.UI
     public partial class FormYeniKayit : Form
     {
         UserManager userManager;
+        
 
         public FormYeniKayit()
         {
             InitializeComponent();
 
             userManager = UserManager.Instance;
-
         }
 
 
@@ -47,7 +47,7 @@ namespace GetBalance.UI
                 MessageBox.Show("Şifreler uyuşmuyor.");
                 return;
             }
-            else if(dtpDogumTarihi.Value >  DateTime.Now)
+            else if (dtpDogumTarihi.Value > DateTime.Now)
             {
                 MessageBox.Show("Doğum tarihi ileri bir tarih seçilemez!");
                 return;
@@ -101,6 +101,7 @@ namespace GetBalance.UI
         {
             txtSifre.PasswordChar = '*';
             txtSifre2.PasswordChar = '*';
+            btnIleri.Enabled = false;
         }
 
         #region parola güvenlik seviyesi
@@ -118,6 +119,7 @@ namespace GetBalance.UI
                 lblZayif1.BringToFront();
                 lblZayif1.Visible = true;
                 lblCokZayif1.Visible = lblOrta1.Visible = lblGuclu.Visible = false;
+                btnIleri.Enabled=false;
             }
             else if (sifreDuzeyi == "Orta")
             {
@@ -125,6 +127,7 @@ namespace GetBalance.UI
                 lblOrta1.BringToFront();
                 lblOrta1.Visible = true;
                 lblCokZayif1.Visible = lblZayif1.Visible = lblGuclu.Visible = false;
+                btnIleri.Enabled = true;
             }
             else if (sifreDuzeyi == "Güçlü")
             {
@@ -132,7 +135,7 @@ namespace GetBalance.UI
                 lblGuclu.BringToFront();
                 lblCokZayif1.Visible = lblZayif1.Visible = lblOrta1.Visible = false;
                 lblGuclu.Visible = true;
-
+                btnIleri.Enabled = true;
 
             }
             else
@@ -141,6 +144,7 @@ namespace GetBalance.UI
                 lblCokZayif1.BringToFront();
                 lblCokZayif1.Visible = true;
                 lblZayif1.Visible = lblOrta1.Visible = lblGuclu.Visible = false;
+                btnIleri.Enabled = false;
             }
         }
 
