@@ -1,7 +1,8 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DAL;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Events;
 using GetBalance.UI.Extensions;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
@@ -67,6 +68,7 @@ namespace GetBalance.UI
 
 				MessageBox.Show($"{(btnGuncelle.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
 
+                FormEventService.Instance.OnUserDetailUpdated();
 			}
             catch (Exception)
             {

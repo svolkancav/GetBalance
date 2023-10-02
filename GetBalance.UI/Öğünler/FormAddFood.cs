@@ -1,6 +1,7 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Events;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
 using System;
@@ -13,17 +14,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GetBalance.UI.FormHomePage;
 
 namespace GetBalance.UI
 {
-	public partial class FormAddFood : Form
+    public partial class FormAddFood : Form
 	{
 		UserManager userManager;
 		FoodRepository _foodRepo;
 		FoodMealRepository _foodMealRepo;
 		GenericRepository<FoodCategory> _foodCategoryRepo;
 		GenericRepository<Meal> _mealRepo;
-
 
 		MealType seciliMealType;
 		Food seciliYemek;
@@ -185,6 +186,7 @@ namespace GetBalance.UI
 					_foodMeal.Food = seciliYemek;
 					_foodMealRepo.Update(_foodMeal);
 					this.Close();
+					
 				}
 				else
 				{
@@ -214,6 +216,7 @@ namespace GetBalance.UI
 		private void pbKapat_Click(object sender, EventArgs e)
 		{
 			this.Close();
+			FormEventService.Instance.OnNewItemAdded();
 		}
 
 		private void cmbKategoriler_SelectedIndexChanged(object sender, EventArgs e)

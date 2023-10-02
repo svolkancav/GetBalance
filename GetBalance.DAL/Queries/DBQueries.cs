@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GetBalance.DAL;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 
 namespace GetBalance.UI.Queries
 {
-	public class DBQueries
+    public class DBQueries
 	{
 		AppDbContext _context;
 

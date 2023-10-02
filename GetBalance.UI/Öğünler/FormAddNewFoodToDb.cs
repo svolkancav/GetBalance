@@ -1,5 +1,5 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Extensions;
 using System;

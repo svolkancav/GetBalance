@@ -1,7 +1,8 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DAL;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
+using GetBalance.UI.Events;
 using GetBalance.UI.Extensions;
 using GetBalance.UI.Queries;
 using GetBalance.UI.Singeltons;
@@ -17,7 +18,7 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-	public partial class FormHomePage2 : Form
+    public partial class FormHomePage2 : Form
 	{
 
 		Form formDuzenle, formHedef;
@@ -33,6 +34,10 @@ namespace GetBalance.UI
 			InitializeComponent();
 			userManager = UserManager.Instance;
 			dBQueries = new DBQueries();
+
+
+			FormEventService.Instance.UserDetailUpdated += FillLabel;
+			FormEventService.Instance.UserTagetUpdated += FillLabel;
 		}
 
 
@@ -53,6 +58,15 @@ namespace GetBalance.UI
 
 			ClearLabels();
 
+			FillLabel();
+
+
+			#endregion
+
+		}
+
+		private void FillLabel()
+		{
 			int boy = Convert.ToInt32(_userDetail.Height);
 			int kilo = Convert.ToInt32(_userDetail.CurrentWeight);
 			int neckCircum = Convert.ToInt32(_userDetail.NeckCircumference);
@@ -75,11 +89,8 @@ namespace GetBalance.UI
 			lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString() + " atım/dakika";
 
 			lblKilo.Text = kilo.ToString();
-			lblHarcananKalori.Text = _userDetail.UserTarget.TargetCalorie.ToString()+" Kcal";
-			lblAlinanKalori.Text = CalculateCalori().ToString()+" Kcal";
-
-			#endregion
-
+			lblHarcananKalori.Text = _userDetail.UserTarget.TargetCalorie.ToString() + " Kcal";
+			lblAlinanKalori.Text = CalculateCalori().ToString() + " Kcal";
 		}
 
 		private double CalculateCalori()

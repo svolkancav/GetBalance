@@ -16,28 +16,13 @@ namespace GetBalance.UI
 {
 	public partial class FormHomePage : Form
 	{
-		UserManager userManager;
-
-		GenericRepository<UserDetail> userDetailrepository;
-
-		GenericRepository<UserTarget> userTargetRepository;
-
 		Form formGunluk, formProfil, formAnasayfa, formHesaplamalar, formRapor;
-
 
 		public Point downPoint = Point.Empty;
 
 		public FormHomePage()
 		{
 			InitializeComponent();
-
-			userManager = UserManager.Instance;
-
-			userDetailrepository = new GenericRepository<UserDetail>();
-
-			userTargetRepository = new GenericRepository<UserTarget>();
-
-
 		}
 
 
@@ -54,8 +39,6 @@ namespace GetBalance.UI
 			pnlAnaPanel.Controls.Add(formHesaplamalar);
 			pnlAnaPanel.Controls.Add(formRapor);
 
-			//userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-			//userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 
 			formAnasayfa.Show();
 		}

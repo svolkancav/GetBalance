@@ -1,7 +1,7 @@
 ﻿
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DAL;
-using GetBalance.DATA;
+using GetBalance.DATA.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
