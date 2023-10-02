@@ -31,9 +31,8 @@ namespace GetBalance.UI
         public FormDuzenle()
         {
             InitializeComponent();
-            userManager = UserManager.Instance;
+            
 			userTargetRepository = new UserTargetRepository();
-
 
 		}
 
@@ -53,7 +52,9 @@ namespace GetBalance.UI
                 ActivityLevel activity = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
                 TrainingLevel training = (TrainingLevel)cmbTraining.SelectedValue;
 
-                _userDetail = userDetailrepository.GetById(userManager.CurrentUser.UserId);
+
+                _userDetail = _userDetailRepo.GetAll().Find(x => x.UserId == userManager.CurrentUser.UserId);
+
                 _userDetail.Height = boy;
                 _userDetail.CurrentWeight = kilo;
                 _userDetail.NeckCircumference = boyun;
@@ -95,9 +96,11 @@ namespace GetBalance.UI
         private void FormDuzenle_Load(object sender, EventArgs e)
         {
             context = new AppDbContext();
-            userDetailrepository = new GenericRepository<UserDetail>();
 
-			btnGuncelle.Text = userManager.CurrentUser.UserDetail==null? "Kaydet":"Güncelle";
+            _userDetailRepo = new GenericRepository<UserDetail>();
+            userManager = UserManager.Instance;
+            btnGuncelle.Text = userManager.CurrentUser.UserDetail==null? "Kaydet":"Güncelle";
+
 
 			LoadComboBoxes();
             if (userManager.CurrentUser.UserDetail!=null)

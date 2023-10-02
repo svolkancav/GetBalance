@@ -16,6 +16,7 @@ using GetBalance.UI.Singeltons;
 namespace GetBalance.UI
 {
 
+
 	public partial class FormYeniKayit : Form
 	{
 		UserManager userManager;
@@ -121,92 +122,97 @@ namespace GetBalance.UI
 
 
 
-		private void FormYeniKayit_Load(object sender, EventArgs e)
-		{
-			txtSifre.PasswordChar = '*';
-			txtSifre2.PasswordChar = '*';
-		}
+		 private void FormYeniKayit_Load(object sender, EventArgs e)
+        {
+            txtSifre.PasswordChar = '*';
+            txtSifre2.PasswordChar = '*';
+            btnIleri.Enabled = false;
+        }
 
-		#region parola güvenlik seviyesi
+        #region parola güvenlik seviyesi
 
-		private string specialCharacter = "!@#$%^&*()-_+=[]{}|\\/?<>,.";
-		private void txtSifre_TextChanged(object sender, EventArgs e)
-		{
-			string sifre = txtSifre.Text;
-			string sifreDuzeyi = SifreGuvenligi(sifre);
-			lblSifreDuzeyi.Text = "Parola Güvenlik Seviyesi: " + sifreDuzeyi;
+        private string specialCharacter = "!@#$%^&*()-_+=[]{}|\\/?<>,.";
+        private void txtSifre_TextChanged(object sender, EventArgs e)
+        {
+            string sifre = txtSifre.Text;
+            string sifreDuzeyi = SifreGuvenligi(sifre);
+            lblSifreDuzeyi.Text = "Parola Güvenlik Seviyesi: " + sifreDuzeyi;
 
-			if (sifreDuzeyi == "Zayıf")
-			{
-				lblZayif1.BackColor = Color.Orange;
-				lblZayif1.BringToFront();
-				lblZayif1.Visible = true;
-				lblCokZayif1.Visible = lblOrta1.Visible = lblGuclu.Visible = false;
-			}
-			else if (sifreDuzeyi == "Orta")
-			{
-				lblOrta1.BackColor = Color.Yellow;
-				lblOrta1.BringToFront();
-				lblOrta1.Visible = true;
-				lblCokZayif1.Visible = lblZayif1.Visible = lblGuclu.Visible = false;
-			}
-			else if (sifreDuzeyi == "Güçlü")
-			{
-				lblGuclu.BackColor = Color.Blue;
-				lblGuclu.BringToFront();
-				lblCokZayif1.Visible = lblZayif1.Visible = lblOrta1.Visible = false;
-				lblGuclu.Visible = true;
+            if (sifreDuzeyi == "Zayıf")
+            {
+                lblZayif1.BackColor = Color.Orange;
+                lblZayif1.BringToFront();
+                lblZayif1.Visible = true;
+                lblCokZayif1.Visible = lblOrta1.Visible = lblGuclu.Visible = false;
+                btnIleri.Enabled=false;
+            }
+            else if (sifreDuzeyi == "Orta")
+            {
+                lblOrta1.BackColor = Color.Yellow;
+                lblOrta1.BringToFront();
+                lblOrta1.Visible = true;
+                lblCokZayif1.Visible = lblZayif1.Visible = lblGuclu.Visible = false;
+                btnIleri.Enabled = true;
+            }
+            else if (sifreDuzeyi == "Güçlü")
+            {
+                lblGuclu.BackColor = Color.Blue;
+                lblGuclu.BringToFront();
+                lblCokZayif1.Visible = lblZayif1.Visible = lblOrta1.Visible = false;
+                lblGuclu.Visible = true;
+                btnIleri.Enabled = true;
 
-
-			}
-			else
-			{
-				lblCokZayif1.BackColor = Color.Red;
-				lblCokZayif1.BringToFront();
-				lblCokZayif1.Visible = true;
-				lblZayif1.Visible = lblOrta1.Visible = lblGuclu.Visible = false;
-			}
-		}
-
-
-
-
-		private string SifreGuvenligi(string sifre)
-		{
-			if (sifre.Length < 6)
-			{
-				return "Çok Zayıf";
-			}
-			else if (sifre.Length >= 6 && sifre.Length <= 14)
-			{
-				bool hasDigit = sifre.Any(char.IsDigit);
-				bool hasLetter = sifre.Any(char.IsLetter);
-				bool hasSpecialCharacter = sifre.Any(c => specialCharacter.Contains(c));
-
-				if (hasDigit && !hasLetter && !hasSpecialCharacter)
-				{
-					return "Zayıf";
-				}
-				else if (hasDigit && hasLetter && !hasSpecialCharacter)
-				{
-					return "Orta";
-				}
-				else if (hasDigit && hasLetter && hasSpecialCharacter)
-				{
-					return "Güçlü";
-				}
-			}
-			return "Geçersiz";
-		}
-		#endregion
+            }
+            else
+            {
+                lblCokZayif1.BackColor = Color.Red;
+                lblCokZayif1.BringToFront();
+                lblCokZayif1.Visible = true;
+                lblZayif1.Visible = lblOrta1.Visible = lblGuclu.Visible = false;
+                btnIleri.Enabled = false;
+            }
+        }
 
 
-		private void btnGeri_Click(object sender, EventArgs e)
-		{
-			FormGiris formGiris = new FormGiris();
-			formGiris.Show();
-			this.Close();
-		}
+
+
+        private string SifreGuvenligi(string sifre)
+        {
+            if (sifre.Length < 6)
+            {
+                return "Çok Zayıf";
+            }
+            else if (sifre.Length >= 6 && sifre.Length <= 14)
+            {
+                bool hasDigit = sifre.Any(char.IsDigit);
+                bool hasLetter = sifre.Any(char.IsLetter);
+                bool hasSpecialCharacter = sifre.Any(c => specialCharacter.Contains(c));
+
+                if (hasDigit && !hasLetter && !hasSpecialCharacter)
+                {
+                    return "Zayıf";
+                }
+                else if (hasDigit && hasLetter && !hasSpecialCharacter)
+                {
+                    return "Orta";
+                }
+                else if (hasDigit && hasLetter && hasSpecialCharacter)
+                {
+                    return "Güçlü";
+                }
+            }
+            return "Geçersiz";
+        }
+        #endregion
+
+
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            FormGiris formGiris = new FormGiris();
+            formGiris.Show();
+            this.Close();
+        }
+    }
 		int space = 0;
 		private void txt_KeyPress(object sender, KeyPressEventArgs e)
 		{
@@ -267,6 +273,7 @@ namespace GetBalance.UI
 			}
 		}
 	}
+
 
 
 }
