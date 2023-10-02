@@ -19,7 +19,8 @@ using System.Windows.Forms;
 
 namespace GetBalance.UI
 {
-    public partial class FormHomePage2 : Form
+
+	public partial class FormHomePage2 : Form
 
 	{
 
@@ -60,7 +61,8 @@ namespace GetBalance.UI
 
 			ClearLabels();
 
-			FillLabel();
+			if (_userDetail != null)
+				FillLabel();
 
 
 			#endregion
@@ -91,7 +93,7 @@ namespace GetBalance.UI
 			lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString() + " atım/dakika";
 
 			lblKilo.Text = kilo.ToString();
-			lblHarcananKalori.Text = _userDetail.UserTarget.TargetCalorie.ToString() + " Kcal";
+			lblHarcananKalori.Text = _userDetail.UserTarget == null ? "Hedeflerinizi giriniz." : _userDetail.UserTarget.TargetCalorie.ToString() + " Kcal";
 			lblAlinanKalori.Text = CalculateCalori().ToString() + " Kcal";
 		}
 

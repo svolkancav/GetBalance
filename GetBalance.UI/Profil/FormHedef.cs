@@ -17,7 +17,7 @@ using GetBalance.UI.Singeltons;
 
 namespace GetBalance.UI
 {
-    public partial class FormHedef : Form
+	public partial class FormHedef : Form
 
 	{
 		UserManager userManager;
@@ -45,19 +45,22 @@ namespace GetBalance.UI
 
 
 
-                UserTarget userTarget = userManager.CurrentUser.UserDetail.UserTarget;
 
-                userTarget.TargetProteinPercentage = hedeflenenProtein;
-                userTarget.TargetCarbPercentage = hedeflenenCarb;
-                userTarget.TargetFatPercentage = hedeflenenYag;
-                userTarget.TargetCalorie = hedeflenenKalori;
-                userTarget.TargetWeight = hedeflenenKilo;
+				UserTarget userTarget = new UserTarget();
+
+				userTarget.TargetProteinPercentage = hedeflenenProtein;
+				userTarget.TargetCarbPercentage = hedeflenenCarb;
+				userTarget.TargetFatPercentage = hedeflenenYag;
+				userTarget.TargetCalorie = hedeflenenKalori;
+				userTarget.TargetWeight = hedeflenenKilo;
+				userTarget.UserDetailId = userManager.CurrentUser.UserDetail.UserDetailId;
+
+				if (userManager.CurrentUser.UserDetail.UserTarget == null)
+					userTargetRepository.Add(userTarget);
+				else
+					userTargetRepository.Update(userTarget, userManager.CurrentUser.UserDetail.UserTarget.UserTargetId);
 
 
-                if (userManager.CurrentUser.UserDetail.UserTarget == null)
-                    userTargetRepository.Add(userTarget);
-
-                userTargetRepository.Update(userTarget);
 
                 userManager.CurrentUser.UserDetail.UserTarget = userTarget;
 
@@ -68,62 +71,60 @@ namespace GetBalance.UI
 				MessageBox.Show($"{(btnKaydet.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
 				FormEventService.Instance.OnUserTagetUpdated();
 
+			}
+			catch (Exception)
+			{
 
-            }
-            catch (Exception)
-            {
+				MessageBox.Show("Geçerli bir değer giriniz !");
 
-                MessageBox.Show("Geçerli bir değer giriniz !");
+			}
 
-            }
+		}
+		private void ClearFields()
+		{
+			txtHedefCarbon.Text = string.Empty;
+			txtHedefKalori.Text = string.Empty;
+			txtHedefKilo.Text = string.Empty;
+			txtHedefProtein.Text = string.Empty;
+			txtHedefYag.Text = string.Empty;
+		}
 
-        }
-        private void ClearFields()
-        {
-            txtHedefCarbon.Text = string.Empty;
-            txtHedefKalori.Text = string.Empty;
-            txtHedefKilo.Text = string.Empty;
-            txtHedefProtein.Text = string.Empty;
-            txtHedefYag.Text = string.Empty;
-        }
+		private void FormHedef_Load(object sender, EventArgs e)
+		{
+			userDetail = userManager.CurrentUser.UserDetail;
+			int günlükKaloriİhtiyaci = 0;
+			btnKaydet.Text = userDetail == null ? "Kaydet" : "Güncelle";
 
-        private void FormHedef_Load(object sender, EventArgs e)
-        {
-            userDetail = userManager.CurrentUser.UserDetail;
-            int günlükKaloriİhtiyaci = 0;
-            btnKaydet.Text = userDetail == null ? "Kaydet" : "Güncelle";
+			#region KiloAlma-Verme Label doldurma
 
-            #region KiloAlma-Verme Label doldurma
+			if (userDetail != null)
+			{
+				int boy = Convert.ToInt32(userDetail.Height);
+				int kilo = Convert.ToInt32(userDetail.CurrentWeight);
+				Gender gender = userDetail.Gender;
+				string cinsiyet = gender.ToString();
+				DateTime dateTime = userDetail.BirthDate;
+				int yas = DateTime.Now.Year - dateTime.Year;
+				ActivityLevel activity = userDetail.ActivityLevel;
+				günlükKaloriİhtiyaci = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet);
+				if (userDetail.UserTarget != null)
+					FillTextBox();
+			}
 
-            if (userDetail != null)
-            {
-                int boy = Convert.ToInt32(userDetail.Height);
-                int kilo = Convert.ToInt32(userDetail.CurrentWeight);
-                Gender gender = userDetail.Gender;
-                string cinsiyet = gender.ToString();
-                DateTime dateTime = userDetail.BirthDate;
-                int yas = DateTime.Now.Year - dateTime.Year;
-                ActivityLevel activity = userDetail.ActivityLevel;
-                günlükKaloriİhtiyaci = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet);
-                if (userDetail.UserTarget != null)
-                    FillTextBox();
-            }
+			lblKiloAlmaBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci + 300} Kcal ";
+			lblKiloVermeBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci - 300} Kcal ";
 
-            lblKiloAlmaBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci + 300} Kcal ";
-            lblKiloVermeBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci - 300} Kcal ";
+			#endregion
+		}
 
-            #endregion
-        }
+		private void FillTextBox()
+		{
+			txtHedefKilo.Text = userDetail.UserTarget.TargetWeight.ToString();
+			txtHedefKalori.Text = userDetail.UserTarget.TargetCalorie.ToString();
+			txtHedefCarbon.Text = userDetail.UserTarget.TargetCarbPercentage.ToString();
+			txtHedefProtein.Text = userDetail.UserTarget.TargetProteinPercentage.ToString();
+			txtHedefYag.Text = userDetail.UserTarget.TargetFatPercentage.ToString();
 
-        private void FillTextBox()
-        {
-
-            txtHedefKilo.Text = userDetail.UserTarget.TargetWeight.ToString();
-            txtHedefKalori.Text = userDetail.UserTarget.TargetCalorie.ToString();
-            txtHedefCarbon.Text = userDetail.UserTarget.TargetCarbPercentage.ToString();
-            txtHedefProtein.Text = userDetail.UserTarget.TargetProteinPercentage.ToString();
-            txtHedefYag.Text = userDetail.UserTarget.TargetFatPercentage.ToString();
-
-        }
-    }
+		}
+	}
 }
