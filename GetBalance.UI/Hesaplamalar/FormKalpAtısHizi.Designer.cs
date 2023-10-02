@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKalpAtısHizi));
             panel1 = new Panel();
-            label8 = new Label();
-            label7 = new Label();
             lblHedefKalpHizi = new Label();
             label5 = new Label();
             lblMaxKalpAtisi = new Label();
@@ -49,8 +47,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
             panel1.Controls.Add(lblHedefKalpHizi);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(lblMaxKalpAtisi);
@@ -60,65 +56,45 @@
             panel1.Size = new Size(287, 236);
             panel1.TabIndex = 15;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(133, 187);
-            label8.Name = "label8";
-            label8.Size = new Size(103, 21);
-            label8.TabIndex = 6;
-            label8.Text = "atım/dakika";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(133, 93);
-            label7.Name = "label7";
-            label7.Size = new Size(103, 21);
-            label7.TabIndex = 5;
-            label7.Text = "atım/dakika";
-            // 
             // lblHedefKalpHizi
             // 
-            lblHedefKalpHizi.AutoSize = true;
             lblHedefKalpHizi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHedefKalpHizi.Location = new Point(66, 187);
+            lblHedefKalpHizi.Location = new Point(3, 167);
             lblHedefKalpHizi.Name = "lblHedefKalpHizi";
-            lblHedefKalpHizi.Size = new Size(19, 21);
+            lblHedefKalpHizi.Size = new Size(281, 21);
             lblHedefKalpHizi.TabIndex = 4;
             lblHedefKalpHizi.Text = "0";
+            lblHedefKalpHizi.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(53, 143);
+            label5.Location = new Point(3, 119);
             label5.Name = "label5";
-            label5.Size = new Size(183, 25);
+            label5.Size = new Size(281, 25);
             label5.TabIndex = 3;
             label5.Text = "Hedef Kalp Atış Hızı";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblMaxKalpAtisi
             // 
-            lblMaxKalpAtisi.AutoSize = true;
             lblMaxKalpAtisi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMaxKalpAtisi.Location = new Point(66, 93);
+            lblMaxKalpAtisi.Location = new Point(3, 75);
             lblMaxKalpAtisi.Name = "lblMaxKalpAtisi";
-            lblMaxKalpAtisi.Size = new Size(19, 21);
+            lblMaxKalpAtisi.Size = new Size(281, 21);
             lblMaxKalpAtisi.TabIndex = 2;
             lblMaxKalpAtisi.Text = "0";
+            lblMaxKalpAtisi.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(31, 27);
+            label4.Location = new Point(3, 27);
             label4.Name = "label4";
-            label4.Size = new Size(227, 25);
+            label4.Size = new Size(281, 25);
             label4.TabIndex = 1;
             label4.Text = "Maksimum Kalp Atış Hızı";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnHesapla
             // 
@@ -166,7 +142,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(207, 60);
+            label1.Location = new Point(331, 44);
             label1.Name = "label1";
             label1.Size = new Size(142, 25);
             label1.TabIndex = 8;
@@ -208,7 +184,6 @@
             Text = "FormKalpAtısHizi";
             Load += FormKalpAtısHizi_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -227,8 +202,6 @@
         private Label label2;
         private Label label1;
         private ComboBox cmbxAntremanSeviyesi;
-        private Label label8;
-        private Label label7;
         private PictureBox pictureBox1;
     }
 }

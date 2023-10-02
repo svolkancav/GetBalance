@@ -35,7 +35,6 @@
             txtYas = new TextBox();
             label5 = new Label();
             panel1 = new Panel();
-            label7 = new Label();
             lblGKIDeger = new Label();
             label4 = new Label();
             btnHesapla = new Button();
@@ -103,43 +102,32 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(label7);
             panel1.Controls.Add(lblGKIDeger);
             panel1.Controls.Add(label4);
-            panel1.Location = new Point(389, 182);
+            panel1.Location = new Point(466, 169);
             panel1.Name = "panel1";
             panel1.Size = new Size(332, 100);
             panel1.TabIndex = 28;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(162, 55);
-            label7.Name = "label7";
-            label7.Size = new Size(101, 21);
-            label7.TabIndex = 3;
-            label7.Text = "Kalori / Gün";
-            // 
             // lblGKIDeger
             // 
-            lblGKIDeger.AutoSize = true;
             lblGKIDeger.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGKIDeger.Location = new Point(93, 55);
+            lblGKIDeger.Location = new Point(3, 55);
             lblGKIDeger.Name = "lblGKIDeger";
-            lblGKIDeger.Size = new Size(19, 21);
+            lblGKIDeger.Size = new Size(326, 21);
             lblGKIDeger.TabIndex = 2;
-            lblGKIDeger.Text = "0";
+            lblGKIDeger.Text = "0 Kalori/Gün";
+            lblGKIDeger.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(14, 10);
+            label4.Location = new Point(3, 10);
             label4.Name = "label4";
-            label4.Size = new Size(239, 25);
+            label4.Size = new Size(326, 25);
             label4.TabIndex = 1;
             label4.Text = "GÜNLÜK KALORİ İHTİYACI";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnHesapla
             // 
@@ -195,7 +183,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(280, 38);
+            label1.Location = new Point(280, 44);
             label1.Name = "label1";
             label1.Size = new Size(239, 25);
             label1.TabIndex = 21;
@@ -254,7 +242,6 @@
             Text = "FormGunlukKaloriIhtiyaci";
             Load += FormGunlukKaloriIhtiyaci_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -268,7 +255,6 @@
         private TextBox txtYas;
         private Label label5;
         private Panel panel1;
-        private Label label7;
         private Label lblGKIDeger;
         private Label label4;
         private Button btnHesapla;

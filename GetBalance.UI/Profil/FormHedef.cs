@@ -18,28 +18,31 @@ using GetBalance.UI.Singeltons;
 namespace GetBalance.UI
 {
 	public partial class FormHedef : Form
+
 	{
 		UserManager userManager;
 
-		UserTargetRepository userTargetRepository;
-		UserDetail userDetail;
-		public FormHedef()
-		{
-			InitializeComponent();
-			userManager = UserManager.Instance;
-			userTargetRepository = new UserTargetRepository();
 
-		}
+        UserTargetRepository userTargetRepository;
+        UserDetail userDetail;
+        public FormHedef()
+        {
+            InitializeComponent();
+            userManager = UserManager.Instance;
+            userTargetRepository = new UserTargetRepository();
 
-		private void btnKaydet_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				double hedeflenenProtein = double.Parse(txtHedefProtein.Text);
-				double hedeflenenCarb = double.Parse(txtHedefCarbon.Text);
-				double hedeflenenYag = double.Parse(txtHedefYag.Text);
-				double hedeflenenKalori = double.Parse(txtHedefKalori.Text);
-				double hedeflenenKilo = double.Parse(txtHedefKilo.Text);
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double hedeflenenProtein = double.Parse(txtHedefProtein.Text);
+                double hedeflenenCarb = double.Parse(txtHedefCarbon.Text);
+                double hedeflenenYag = double.Parse(txtHedefYag.Text);
+                double hedeflenenKalori = double.Parse(txtHedefKalori.Text);
+                double hedeflenenKilo = double.Parse(txtHedefKilo.Text);
+
 
 
 
@@ -57,10 +60,13 @@ namespace GetBalance.UI
 				else
 					userTargetRepository.Update(userTarget, userManager.CurrentUser.UserDetail.UserTarget.UserTargetId);
 
-				userManager.CurrentUser.UserDetail.UserTarget = userTarget;
 
 
-				ClearFields();
+                userManager.CurrentUser.UserDetail.UserTarget = userTarget;
+
+
+                ClearFields();
+
 
 				MessageBox.Show($"{(btnKaydet.Text == "Kaydet" ? "Kaydetme" : "Güncelleme")} başarılı");
 				FormEventService.Instance.OnUserTagetUpdated();

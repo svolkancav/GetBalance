@@ -35,6 +35,7 @@
             txtEmailYenileme = new TextBox();
             label2 = new Label();
             btnSifreYenile = new Button();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -118,25 +119,41 @@
             btnSifreYenile.BackColor = Color.FromArgb(15, 194, 192);
             btnSifreYenile.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnSifreYenile.ForeColor = Color.White;
-            btnSifreYenile.Location = new Point(197, 255);
+            btnSifreYenile.Location = new Point(278, 255);
             btnSifreYenile.Name = "btnSifreYenile";
             btnSifreYenile.Size = new Size(130, 47);
             btnSifreYenile.TabIndex = 4;
             btnSifreYenile.Text = "Şifre Yenile";
             btnSifreYenile.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(15, 194, 192);
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(120, 255);
+            button1.Name = "button1";
+            button1.Size = new Size(130, 47);
+            button1.TabIndex = 4;
+            button1.Text = "Geri";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // FormSifreYenile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(497, 331);
+            Controls.Add(button1);
             Controls.Add(btnSifreYenile);
             Controls.Add(label2);
             Controls.Add(txtEmailYenileme);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
             Name = "FormSifreYenile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormSifreYenile";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -154,5 +171,6 @@
         private TextBox txtEmailYenileme;
         private Label label2;
         private Button btnSifreYenile;
+        private Button button1;
     }
 }

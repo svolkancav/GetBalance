@@ -26,8 +26,8 @@ namespace GetBalance.UI
 
             try
             {
-                int boy = Convert.ToInt32(txtBoy.Text);
-                int kilo = Convert.ToInt32(txtKilo.Text);
+                int boy = Convert.ToInt32(txtBoy.Text.Trim());
+                int kilo = Convert.ToInt32(txtKilo.Text.Trim());
                 decimal sonuc = CalculatorExtensions.VKİHesapla(kilo, boy);
                 lblVKIDeger.Text = sonuc.ToString();
                 cpbVKI.Value = Convert.ToInt64(sonuc);

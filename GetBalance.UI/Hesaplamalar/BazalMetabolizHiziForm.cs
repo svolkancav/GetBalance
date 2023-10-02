@@ -22,11 +22,11 @@ namespace GetBalance.UI
         {
             try
             {
-                int boy = Convert.ToInt32(txtBoy.Text);
-                int kilo = Convert.ToInt32(txtKilo.Text);
-                int yas = Convert.ToInt32(txtYas.Text);
+                int boy = Convert.ToInt32(txtBoy.Text.Trim());
+                int kilo = Convert.ToInt32(txtKilo.Text.Trim());
+                int yas = Convert.ToInt32(txtYas.Text.Trim());
                 string cinsiyet = rdbErkek.Checked ? "erkek" : "kadın";
-                lblBMHDeger.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString();
+                lblBMHDeger.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString() + " Kalori/Gün";
             }
             catch (Exception)
             {

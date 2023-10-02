@@ -22,10 +22,10 @@ namespace GetBalance.UI
         {
             try
             {
-                int boy = Convert.ToInt32(txtBoy.Text);
-                int bel = Convert.ToInt32(txtBelCevresi.Text);
-                int boyun = Convert.ToInt32(txtBoyunCevresi.Text);
-                int kalca = Convert.ToInt32(txtKalcaCevresi.Text);
+                int boy = Convert.ToInt32(txtBoy.Text.Trim());
+                int bel = Convert.ToInt32(txtBelCevresi.Text.Trim());
+                int boyun = Convert.ToInt32(txtBoyunCevresi.Text.Trim());
+                int kalca = Convert.ToInt32(txtKalcaCevresi.Text.Trim());
                 string cinsiyet = rdbErkek.Checked ? "erkek" : "kadın";
                 decimal sonuc = CalculatorExtensions.VücutYağOraniHesapla(bel, boyun, kalca, boy, cinsiyet);
                 lblVYODeger.Text = "%" + sonuc.ToString();
