@@ -17,9 +17,9 @@ namespace GetBalance.UI.Repositories
 			context = new AppDbContext();
 		}
 
-		public void Update(UserTarget ut)
+		public void Update(UserTarget ut,int id)
 		{
-			UserTarget userTarget = GetAll().First(x => x.UserTargetId == ut.UserTargetId);
+			UserTarget userTarget = GetAll().First(x => x.UserTargetId == id);
 			userTarget.TargetWeight = ut.TargetWeight;
 			userTarget.TargetCalorie = ut.TargetCalorie;
 			userTarget.TargetCarbPercentage = ut.TargetCarbPercentage;
