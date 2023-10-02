@@ -24,7 +24,7 @@ namespace GetBalance.UI
 
         UserDetail _userDetail;
         UserManager userManager;
-        
+
 
         public FormHomePage2()
         {
@@ -63,12 +63,12 @@ namespace GetBalance.UI
 
 
             lblGuncelVKI.Text = CalculatorExtensions.VKİHesapla(kilo, boy).ToString();
-            lblGuncelBMH.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString();
+            lblGuncelBMH.Text = CalculatorExtensions.BMRHesapla(boy, kilo, yas, cinsiyet).ToString() + " Kalori / Gün";
             lblGuncelVYO.Text = CalculatorExtensions.VücutYağOraniHesapla(waistCircum, neckCircum, hipCircum, boy, cinsiyet).ToString();
-            lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString();
-            lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString();
-            lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString();
-            //lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString();
+            lblGuncelIdealKilo.Text = CalculatorExtensions.IdealKiloHesapla(boy, cinsiyet).ToString() + " kg";
+            lblGuncelGKI.Text = CalculatorExtensions.GunlukKaloriIhtiyaci(boy, kilo, yas, activity, cinsiyet).ToString() + " Kalori / Gün";
+            lblGuncelGSI.Text = CalculatorExtensions.GünlükSuIhtiyaciHesapla(kilo).ToString() + " lt";
+            lblGuncelKAH.Text = CalculatorExtensions.KalpAtisHiziHesapla(yas).ToString() + " atım/dakika";
             #endregion
 
 

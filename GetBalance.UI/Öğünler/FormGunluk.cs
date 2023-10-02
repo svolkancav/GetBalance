@@ -116,328 +116,354 @@ namespace GetBalance.UI
             Meal meal = new Meal();
 
 
-			foreach (ListViewItem item in listView.Items)
-			{
-				FoodMeal fm = (FoodMeal)item.Tag;
-				meal.MealFoods.Add(fm);
-			}
-			tCalorie = Math.Round(meal.TotalCalories, 2);
-			tCarb = Math.Round(meal.TotalCarbohydrate);
-			tProtein = Math.Round(meal.TotalProtein);
-			tFat = Math.Round(meal.TotalFat);
-		}
+            foreach (ListViewItem item in listView.Items)
+            {
+                FoodMeal fm = (FoodMeal)item.Tag;
+                meal.MealFoods.Add(fm);
+            }
+            tCalorie = Math.Round(meal.TotalCalories, 2);
+            tCarb = Math.Round(meal.TotalCarbohydrate);
+            tProtein = Math.Round(meal.TotalProtein);
+            tFat = Math.Round(meal.TotalFat);
+        }
 
-		private void RefreshListView()
-		{
-			IList<LsvItem> filteredBreakteasts = GetMeals(MealType.Breakfast);
-			IList<LsvItem> filteredLunches = GetMeals(MealType.Lunch);
-			IList<LsvItem> filteredDinners = GetMeals(MealType.Dinner);
-			IList<LsvItem> filteredSnacks = GetMeals(MealType.Snack);
-
-
-
-			FillListViewWithFoods(lsvKahvalti, filteredBreakteasts);
-			FillListViewWithFoods(lsvOgle, filteredLunches);
-			FillListViewWithFoods(lsvAksam, filteredDinners);
-			FillListViewWithFoods(lsvAperatif, filteredSnacks);
-
-			MealTotal(lsvKahvalti, out double tCalorie, out double tCarb, out double tProtein, out double tFat);
-			lblKahvaltiTopKalori.Text = tCalorie.ToString() + " Kcal";
-			lblKahvaltiTopKarb.Text = tCarb.ToString() + " gr";
-			lblKahvaltiTopProtein.Text = tProtein.ToString() + " gr";
-			lblKahvaltiTopYag.Text = tFat.ToString() + " gr";
-
-			MealTotal(lsvOgle, out tCalorie, out tCarb, out tProtein, out tFat);
-			lblOgleTopKalori.Text = tCalorie.ToString() + " Kcal";
-			lblOgleTopKarb.Text = tCarb.ToString() + " gr";
-			lblOgleTopProtein.Text = tProtein.ToString() + " gr";
-			lblOgleTopYag.Text = tFat.ToString() + " gr";
-
-			MealTotal(lsvAksam, out tCalorie, out tCarb, out tProtein, out tFat);
-			lblAksamTopKalori.Text = tCalorie.ToString() + " Kcal";
-			lblAksamTopKarb.Text = tCarb.ToString() + " gr";
-			lblAksamTopProtein.Text = tProtein.ToString() + " gr";
-			lblAksamTopYag.Text = tFat.ToString() + " gr";
-
-			MealTotal(lsvAperatif, out tCalorie, out tCarb, out tProtein, out tFat);
-			lblAperatifTopKalori.Text = tCalorie.ToString() + " Kcal";
-			lblAperatifTopKarb.Text = tCarb.ToString() + " gr";
-			lblAperatifTopProtein.Text = tProtein.ToString() + " gr";
-			lblAperatifTopYag.Text = tFat.ToString() + " gr";
-
-			lblSuankiKalori.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopKalori.Text)) + Convert.ToDouble(FormatText(lblOgleTopKalori.Text)) + Convert.ToDouble(FormatText(lblAksamTopKalori.Text)) + Convert.ToDouble(FormatText(lblAperatifTopKalori.Text))).ToString() + " Kcal";
-			lblSuankiKarb.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopKarb.Text)) + Convert.ToDouble(FormatText(lblOgleTopKarb.Text)) + Convert.ToDouble(FormatText(lblAksamTopKarb.Text)) + Convert.ToDouble(FormatText(lblAperatifTopKarb.Text))).ToString() + " gr";
-			lblSuankiProtein.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopProtein.Text)) + Convert.ToDouble(FormatText(lblOgleTopProtein.Text)) + Convert.ToDouble(FormatText(lblAksamTopProtein.Text)) + Convert.ToDouble(FormatText(lblAperatifTopProtein.Text))).ToString() + " gr";
-			lblSuankiYag.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopYag.Text)) + Convert.ToDouble(FormatText(lblOgleTopYag.Text)) + Convert.ToDouble(FormatText(lblAksamTopYag.Text)) + Convert.ToDouble(FormatText(lblAperatifTopYag.Text))).ToString() + " gr";
-
-			double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
-			lblHedefKalori.Text = Math.Round(targetCalori,2).ToString() + " Kcal";
-
-			double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
-			lblHedefKarb.Text = Math.Round(targetCarb*targetCalori/400.00,2).ToString() + " gr";
-
-			double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
-			lblHedefProtein.Text= Math.Round(targetProtein*targetCalori/400.00,2).ToString() + " gr";
-
-			double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
-			lblHedefYag.Text = Math.Round(targetFat*targetCalori/900.00,2).ToString() + " gr";
-
-			parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
-		}
-
-		string FormatText(string text)
-		{
-			string[] parts = text.Split(' ');
-			if (parts.Length > 0)
-			{
-				return parts[0];
-			}
-			return text;
-		}
-
-		private IList<LsvItem> GetMeals(MealType mealType)
-		{
-			IList<Meal> meals = _meal.GetAll();
-
-			IList<FoodMeal> foodMeals = _foodMeal.GetAll();
-			foreach (var item in foodMeals)
-			{
-				item.Food = _food.GetAll().Find(f => f.FoodId == item.FoodId);
-			}
-
-			IList<Food> foods = _food.GetAll();
-
-			IList<LsvItem> filteredMeals = foodMeals
-				.Join(meals, fm => fm.MealId, m => m.MealId, (fm, m) => new { fm, m })
-				.Where(joined => joined.m.UserId == userManager.CurrentUser.UserId &&
-				joined.m.MealType == mealType && joined.m.Date == Convert.ToDateTime(lblTarih.Text)
-				)
-				.Select(joined => new LsvItem
-				{
-					FoodMeal = joined.fm,
-					Food = joined.fm.Food,
-					Name = joined.fm.Food.Name,
-					Amount = joined.fm.FoodAmount,
-					TotalCalorie = joined.fm.TotalCalori,
-					TotalCarb = joined.fm.TotalCarb,
-					TotalProtein = joined.fm.TotalProtein,
-					TotalFat = joined.fm.TotalFat
-				}).ToList();
-			return filteredMeals;
-		}
-
-		#region Öğünlerin Açılıp Kapanması
-		private void btnKahvalti_Click(object sender, EventArgs e)
-		{
-			pnlKahveLsv.Visible = !kahvaltiAcikMi;
-			kahvaltiAcikMi = !kahvaltiAcikMi;
-			RefreshListView();
-		}
-
-		private void btnOgleYemegi_Click(object sender, EventArgs e)
-		{
-			pnlOgleLsv.Visible = !ogleAcikMi;
-			ogleAcikMi = !ogleAcikMi;
-			RefreshListView();
-		}
-
-		private void btnAksamYmegi_Click(object sender, EventArgs e)
-		{
-			pnlAksamLsv.Visible = !aksamAcikMi;
-			aksamAcikMi = !aksamAcikMi;
-			RefreshListView();
-		}
-
-		private void btnAperatif_Click(object sender, EventArgs e)
-		{
-			pnlAperatifLsv.Visible = !aperatifAcikMi;
-			aperatifAcikMi = !aperatifAcikMi;
-			RefreshListView();
-		}
-		#endregion
-
-		private void FillListViewWithFoods(ListView listView, IList<LsvItem> lsvItem)
-		{
-			listView.Items.Clear();
-
-			foreach (var item in lsvItem)
-			{
-				ListViewItem listViewItem = new ListViewItem();
-				listViewItem.Text = item.Name;
-				listViewItem.SubItems.Add(item.Amount.ToString());
-				listViewItem.SubItems.Add(item.TotalCalorie.ToString());
-				listViewItem.SubItems.Add(item.TotalCarb.ToString());
-				listViewItem.SubItems.Add(item.TotalProtein.ToString());
-				listViewItem.SubItems.Add(item.TotalFat.ToString());
-
-				listViewItem.Tag = item.FoodMeal;
-
-				listView.Items.Add(listViewItem);
-			}
-		}
-
-		private void ListViewEdit(ListView lsv)
-		{
-			lsv.View = View.Details;
-			lsv.GridLines = true;
-			lsv.FullRowSelect = true;
-
-			ColumnHeader[] headers =
-			{
-				new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsv.Width-500, TextAlign = HorizontalAlignment.Left},
-				new ColumnHeader() { Name = "Portion", Text = "Porsiyon Miktarı", Width = 100, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = 100, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 100, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 100, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = 100, TextAlign = HorizontalAlignment.Center}
-			};
-
-			lsv.Columns.AddRange(headers);
-
-		}
-
-		private void TsmClick(object sender, EventArgs e)
-		{
-			ToolStripMenuItem tsmItem = (ToolStripMenuItem)sender;
-			string tsmName = tsmItem.Name;
-
-			if (tsmName == "tsmDuzenle")
-			{
-				if (lsvKahvalti.SelectedItems.Count > 0)
-					TsmUpdateClicked(lsvKahvalti);
-				else if (lsvOgle.SelectedItems.Count > 0)
-					TsmUpdateClicked(lsvOgle);
-				else if (lsvAksam.SelectedItems.Count > 0)
-					TsmUpdateClicked(lsvAksam);
-				else if (lsvAperatif.SelectedItems.Count > 0)
-					TsmUpdateClicked(lsvAperatif);
-			}
-			else if (tsmName == "tsmKaldir")
-			{
-				if (lsvKahvalti.SelectedItems.Count > 0)
-					TsmDeleteClicked(lsvKahvalti);
-				else if (lsvOgle.SelectedItems.Count > 0)
-					TsmDeleteClicked(lsvOgle);
-				else if (lsvAksam.SelectedItems.Count > 0)
-					TsmDeleteClicked(lsvAksam);
-				else if (lsvAperatif.SelectedItems.Count > 0)
-					TsmDeleteClicked(lsvAperatif);
-			}
-		}
-
-		private void TsmDeleteClicked(ListView lsv)
-		{
-
-			if (lsv.SelectedItems.Count <= 0) return;
-
-			DialogResult dialogResult = MessageBox.Show("Yemeği öğünden kaldırmak istediğinizden emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			if (dialogResult != DialogResult.Yes) return;
-
-			FoodMeal foodMeal = (FoodMeal)lsv.SelectedItems[0].Tag;
-
-			_foodMeal.Delete(foodMeal);
-
-			RefreshListView();
-		}
-
-		private void TsmUpdateClicked(ListView lsv)
-		{
-			int count = lsv.SelectedItems.Count;
-
-			if (count <= 0) return;
+        private void RefreshListView()
+        {
+            IList<LsvItem> filteredBreakteasts = GetMeals(MealType.Breakfast);
+            IList<LsvItem> filteredLunches = GetMeals(MealType.Lunch);
+            IList<LsvItem> filteredDinners = GetMeals(MealType.Dinner);
+            IList<LsvItem> filteredSnacks = GetMeals(MealType.Snack);
 
 
-			FormAddFood formUpdateFood = new FormAddFood((FoodMeal)lsv.SelectedItems[0].Tag);
-			formUpdateFood.Show();
-		}
 
-		#region ListViewAçılıpKapanması
-		private void lsv_MouseClick(object sender, MouseEventArgs e)
-		{
-			ListView listView = sender as ListView;
+            FillListViewWithFoods(lsvKahvalti, filteredBreakteasts);
+            FillListViewWithFoods(lsvOgle, filteredLunches);
+            FillListViewWithFoods(lsvAksam, filteredDinners);
+            FillListViewWithFoods(lsvAperatif, filteredSnacks);
 
-			switch (listView.Name)
-			{
-				case "lsvKahvalti": LsvTiklandi(lsvKahvalti, e); break;
-				case "lsvOgle": LsvTiklandi(lsvOgle, e); break;
-				case "lsvAksam": LsvTiklandi(lsvAksam, e); break;
-				case "lsvAperatif": LsvTiklandi(lsvAperatif, e); break;
-			}
-		}
+            MealTotal(lsvKahvalti, out double tCalorie, out double tCarb, out double tProtein, out double tFat);
+            lblKahvaltiTopKalori.Text = tCalorie.ToString() + " Kcal";
+            lblKahvaltiTopKarb.Text = tCarb.ToString() + " gr";
+            lblKahvaltiTopProtein.Text = tProtein.ToString() + " gr";
+            lblKahvaltiTopYag.Text = tFat.ToString() + " gr";
 
-		private void LsvTiklandi(ListView lsv, MouseEventArgs e)
-		{
-			MouseButtons button = e.Button;
-			if (button != MouseButtons.Right) return;
+            MealTotal(lsvOgle, out tCalorie, out tCarb, out tProtein, out tFat);
+            lblOgleTopKalori.Text = tCalorie.ToString() + " Kcal";
+            lblOgleTopKarb.Text = tCarb.ToString() + " gr";
+            lblOgleTopProtein.Text = tProtein.ToString() + " gr";
+            lblOgleTopYag.Text = tFat.ToString() + " gr";
 
-			ListViewItem lvi = lsv.FocusedItem;
-			bool isBound = lvi.Bounds.Contains(e.Location);
+            MealTotal(lsvAksam, out tCalorie, out tCarb, out tProtein, out tFat);
+            lblAksamTopKalori.Text = tCalorie.ToString() + " Kcal";
+            lblAksamTopKarb.Text = tCarb.ToString() + " gr";
+            lblAksamTopProtein.Text = tProtein.ToString() + " gr";
+            lblAksamTopYag.Text = tFat.ToString() + " gr";
 
-			if (lvi == null || !isBound) return;
+            MealTotal(lsvAperatif, out tCalorie, out tCarb, out tProtein, out tFat);
+            lblAperatifTopKalori.Text = tCalorie.ToString() + " Kcal";
+            lblAperatifTopKarb.Text = tCarb.ToString() + " gr";
+            lblAperatifTopProtein.Text = tProtein.ToString() + " gr";
+            lblAperatifTopYag.Text = tFat.ToString() + " gr";
 
-			cmsSagTik.Show(Cursor.Position);
-		}
+            lblSuankiKalori.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopKalori.Text)) + Convert.ToDouble(FormatText(lblOgleTopKalori.Text)) + Convert.ToDouble(FormatText(lblAksamTopKalori.Text)) + Convert.ToDouble(FormatText(lblAperatifTopKalori.Text))).ToString() + " Kcal";
+            lblSuankiKarb.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopKarb.Text)) + Convert.ToDouble(FormatText(lblOgleTopKarb.Text)) + Convert.ToDouble(FormatText(lblAksamTopKarb.Text)) + Convert.ToDouble(FormatText(lblAperatifTopKarb.Text))).ToString() + " gr";
+            lblSuankiProtein.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopProtein.Text)) + Convert.ToDouble(FormatText(lblOgleTopProtein.Text)) + Convert.ToDouble(FormatText(lblAksamTopProtein.Text)) + Convert.ToDouble(FormatText(lblAperatifTopProtein.Text))).ToString() + " gr";
+            lblSuankiYag.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopYag.Text)) + Convert.ToDouble(FormatText(lblOgleTopYag.Text)) + Convert.ToDouble(FormatText(lblAksamTopYag.Text)) + Convert.ToDouble(FormatText(lblAperatifTopYag.Text))).ToString() + " gr";
 
-		#endregion
-		private void pbAdd_Clicked(object sender, EventArgs e)
-		{
+            if (userManager.CurrentUser.UserDetail.UserTarget != null)
+            {
+                double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
+                lblHedefKalori.Text = Math.Round(targetCalori, 2).ToString() + " Kcal";
 
-			PictureBox pbAdd = sender as PictureBox;
-			switch (pbAdd.Name)
-			{
-				case "pbAddKahvalti": OpenFormYemekEkleme(MealType.Breakfast, Convert.ToDateTime(lblTarih.Text)); break;
-				case "pbAddOgle": OpenFormYemekEkleme(MealType.Lunch, Convert.ToDateTime(lblTarih.Text)); break;
-				case "pbAddAksam": OpenFormYemekEkleme(MealType.Dinner, Convert.ToDateTime(lblTarih.Text)); break;
-				case "pbAddAperatif": OpenFormYemekEkleme(MealType.Snack, Convert.ToDateTime(lblTarih.Text)); break;
+                double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
+                lblHedefKarb.Text = Math.Round(targetCarb * targetCalori / 400.00, 2).ToString() + " gr";
 
-			}
-		}
+                double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
+                lblHedefProtein.Text = Math.Round(targetProtein * targetCalori / 400.00, 2).ToString() + " gr";
 
-		private void OpenFormYemekEkleme(MealType mealtype, DateTime dateTime)
-		{
-			FormAddFood formAddFood = new FormAddFood(mealtype, dateTime);
-			formAddFood.ShowDialog();
-		}
+                double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
+                lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
 
-		private void btnRight_Click(object sender, EventArgs e)
-		{
-			date = date.AddDays(1);
-			lblTarih.Text = date.ToShortDateString();
-			RefreshListView();
-		}
+                parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
 
-		private void btnLeft_Click(object sender, EventArgs e)
-		{
-			date = date.AddDays(-1);
-			lblTarih.Text = date.ToShortDateString();
-			RefreshListView();
-		}
 
-		private void lblTarih_DoubleClick(object sender, EventArgs e)
-		{
-			monthCalendar.Visible = true;
-			monthCalendar.BringToFront();
-		}
+                if (parrotCircleProgressBar1.percentage > 100)
+                {
+                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
+                }
+                else { parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160); }
+            }
+            else
+            {
+                lblHedefKalori.Text = "0";
+                lblHedefKarb.Text = "0";
+                lblHedefProtein.Text = "0";
+                lblHedefYag.Text = "0";
+                parrotCircleProgressBar1.percentage = 0;
 
-		private void MonthCalendar_DateSelected(object? sender, DateRangeEventArgs e)
-		{
-			date = monthCalendar.SelectionStart;
-			lblTarih.Text = date.ToShortDateString();
-			monthCalendar.Visible = false;
-		}
-	}
-	class LsvItem
-	{
-		public FoodMeal FoodMeal { get; set; }
-		public Food Food { get; set; }
-		public string Name { get; set; }
-		public int Amount { get; set; }
-		public double TotalCalorie { get; set; }
-		public double TotalCarb { get; set; }
-		public double TotalProtein { get; set; }
-		public double TotalFat { get; set; }
+            }
 
-	}
+
+
+
+
+
+        }
+
+        string FormatText(string text)
+        {
+            string[] parts = text.Split(' ');
+            if (parts.Length > 0)
+            {
+                return parts[0];
+            }
+            return text;
+        }
+
+        private IList<LsvItem> GetMeals(MealType mealType)
+        {
+            IList<Meal> meals = _meal.GetAll();
+
+            IList<FoodMeal> foodMeals = _foodMeal.GetAll();
+            foreach (var item in foodMeals)
+            {
+                item.Food = _food.GetAll().Find(f => f.FoodId == item.FoodId);
+            }
+
+            IList<Food> foods = _food.GetAll();
+
+            IList<LsvItem> filteredMeals = foodMeals
+                .Join(meals, fm => fm.MealId, m => m.MealId, (fm, m) => new { fm, m })
+                .Where(joined => joined.m.UserId == userManager.CurrentUser.UserId &&
+                joined.m.MealType == mealType && joined.m.Date == Convert.ToDateTime(lblTarih.Text)
+                )
+                .Select(joined => new LsvItem
+                {
+                    FoodMeal = joined.fm,
+                    Food = joined.fm.Food,
+                    Name = joined.fm.Food.Name,
+                    Amount = joined.fm.FoodAmount,
+                    TotalCalorie = joined.fm.TotalCalori,
+                    TotalCarb = joined.fm.TotalCarb,
+                    TotalProtein = joined.fm.TotalProtein,
+                    TotalFat = joined.fm.TotalFat
+                }).ToList();
+            return filteredMeals;
+        }
+
+        #region Öğünlerin Açılıp Kapanması
+        private void btnKahvalti_Click(object sender, EventArgs e)
+        {
+            pnlKahveLsv.Visible = !kahvaltiAcikMi;
+            kahvaltiAcikMi = !kahvaltiAcikMi;
+            RefreshListView();
+        }
+
+        private void btnOgleYemegi_Click(object sender, EventArgs e)
+        {
+            pnlOgleLsv.Visible = !ogleAcikMi;
+            ogleAcikMi = !ogleAcikMi;
+            RefreshListView();
+        }
+
+        private void btnAksamYmegi_Click(object sender, EventArgs e)
+        {
+            pnlAksamLsv.Visible = !aksamAcikMi;
+            aksamAcikMi = !aksamAcikMi;
+            RefreshListView();
+        }
+
+        private void btnAperatif_Click(object sender, EventArgs e)
+        {
+            pnlAperatifLsv.Visible = !aperatifAcikMi;
+            aperatifAcikMi = !aperatifAcikMi;
+            RefreshListView();
+        }
+        #endregion
+
+        private void FillListViewWithFoods(ListView listView, IList<LsvItem> lsvItem)
+        {
+            listView.Items.Clear();
+
+            foreach (var item in lsvItem)
+            {
+                ListViewItem listViewItem = new ListViewItem();
+                listViewItem.Text = item.Name;
+                listViewItem.SubItems.Add(item.Amount.ToString());
+                listViewItem.SubItems.Add(item.TotalCalorie.ToString());
+                listViewItem.SubItems.Add(item.TotalCarb.ToString());
+                listViewItem.SubItems.Add(item.TotalProtein.ToString());
+                listViewItem.SubItems.Add(item.TotalFat.ToString());
+
+                listViewItem.Tag = item.FoodMeal;
+
+                listView.Items.Add(listViewItem);
+            }
+        }
+
+        private void ListViewEdit(ListView lsv)
+        {
+            lsv.View = View.Details;
+            lsv.GridLines = true;
+            lsv.FullRowSelect = true;
+
+            ColumnHeader[] headers =
+            {
+                new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsv.Width-500, TextAlign = HorizontalAlignment.Left},
+                new ColumnHeader() { Name = "Portion", Text = "Porsiyon Miktarı", Width = 100, TextAlign = HorizontalAlignment.Center},
+                new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = 100, TextAlign = HorizontalAlignment.Center},
+                new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 100, TextAlign = HorizontalAlignment.Center},
+                new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 100, TextAlign = HorizontalAlignment.Center},
+                new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = 100, TextAlign = HorizontalAlignment.Center}
+            };
+
+            lsv.Columns.AddRange(headers);
+
+        }
+
+        private void TsmClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmItem = (ToolStripMenuItem)sender;
+            string tsmName = tsmItem.Name;
+
+            if (tsmName == "tsmDuzenle")
+            {
+                if (lsvKahvalti.SelectedItems.Count > 0)
+                    TsmUpdateClicked(lsvKahvalti);
+                else if (lsvOgle.SelectedItems.Count > 0)
+                    TsmUpdateClicked(lsvOgle);
+                else if (lsvAksam.SelectedItems.Count > 0)
+                    TsmUpdateClicked(lsvAksam);
+                else if (lsvAperatif.SelectedItems.Count > 0)
+                    TsmUpdateClicked(lsvAperatif);
+            }
+            else if (tsmName == "tsmKaldir")
+            {
+                if (lsvKahvalti.SelectedItems.Count > 0)
+                    TsmDeleteClicked(lsvKahvalti);
+                else if (lsvOgle.SelectedItems.Count > 0)
+                    TsmDeleteClicked(lsvOgle);
+                else if (lsvAksam.SelectedItems.Count > 0)
+                    TsmDeleteClicked(lsvAksam);
+                else if (lsvAperatif.SelectedItems.Count > 0)
+                    TsmDeleteClicked(lsvAperatif);
+            }
+        }
+
+        private void TsmDeleteClicked(ListView lsv)
+        {
+
+            if (lsv.SelectedItems.Count <= 0) return;
+
+            DialogResult dialogResult = MessageBox.Show("Yemeği öğünden kaldırmak istediğinizden emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult != DialogResult.Yes) return;
+
+            FoodMeal foodMeal = (FoodMeal)lsv.SelectedItems[0].Tag;
+
+            _foodMeal.Delete(foodMeal);
+
+            RefreshListView();
+        }
+
+        private void TsmUpdateClicked(ListView lsv)
+        {
+            int count = lsv.SelectedItems.Count;
+
+            if (count <= 0) return;
+
+
+            FormAddFood formUpdateFood = new FormAddFood((FoodMeal)lsv.SelectedItems[0].Tag);
+            formUpdateFood.Show();
+        }
+
+        #region ListViewAçılıpKapanması
+        private void lsv_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListView listView = sender as ListView;
+
+            switch (listView.Name)
+            {
+                case "lsvKahvalti": LsvTiklandi(lsvKahvalti, e); break;
+                case "lsvOgle": LsvTiklandi(lsvOgle, e); break;
+                case "lsvAksam": LsvTiklandi(lsvAksam, e); break;
+                case "lsvAperatif": LsvTiklandi(lsvAperatif, e); break;
+            }
+        }
+
+        private void LsvTiklandi(ListView lsv, MouseEventArgs e)
+        {
+            MouseButtons button = e.Button;
+            if (button != MouseButtons.Right) return;
+
+            ListViewItem lvi = lsv.FocusedItem;
+            bool isBound = lvi.Bounds.Contains(e.Location);
+
+            if (lvi == null || !isBound) return;
+
+            cmsSagTik.Show(Cursor.Position);
+        }
+
+        #endregion
+        private void pbAdd_Clicked(object sender, EventArgs e)
+        {
+
+            PictureBox pbAdd = sender as PictureBox;
+            switch (pbAdd.Name)
+            {
+                case "pbAddKahvalti": OpenFormYemekEkleme(MealType.Breakfast, Convert.ToDateTime(lblTarih.Text)); break;
+                case "pbAddOgle": OpenFormYemekEkleme(MealType.Lunch, Convert.ToDateTime(lblTarih.Text)); break;
+                case "pbAddAksam": OpenFormYemekEkleme(MealType.Dinner, Convert.ToDateTime(lblTarih.Text)); break;
+                case "pbAddAperatif": OpenFormYemekEkleme(MealType.Snack, Convert.ToDateTime(lblTarih.Text)); break;
+
+            }
+        }
+
+        private void OpenFormYemekEkleme(MealType mealtype, DateTime dateTime)
+        {
+            FormAddFood formAddFood = new FormAddFood(mealtype, dateTime);
+            formAddFood.ShowDialog();
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            date = date.AddDays(1);
+            lblTarih.Text = date.ToShortDateString();
+            RefreshListView();
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            date = date.AddDays(-1);
+            lblTarih.Text = date.ToShortDateString();
+            RefreshListView();
+        }
+
+        private void lblTarih_DoubleClick(object sender, EventArgs e)
+        {
+            monthCalendar.Visible = true;
+            monthCalendar.BringToFront();
+        }
+
+        private void MonthCalendar_DateSelected(object? sender, DateRangeEventArgs e)
+        {
+            date = monthCalendar.SelectionStart;
+            lblTarih.Text = date.ToShortDateString();
+            monthCalendar.Visible = false;
+        }
+
+    }
+    class LsvItem
+    {
+        public FoodMeal FoodMeal { get; set; }
+        public Food Food { get; set; }
+        public string Name { get; set; }
+        public int Amount { get; set; }
+        public double TotalCalorie { get; set; }
+        public double TotalCarb { get; set; }
+        public double TotalProtein { get; set; }
+        public double TotalFat { get; set; }
+
+    }
 
 
 }

@@ -72,7 +72,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(323, 140);
+            pictureBox5.Location = new Point(331, 140);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(74, 60);
             pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -112,7 +112,7 @@
             // 
             pnlHarcananKalori.Controls.Add(lblHarcananKalori);
             pnlHarcananKalori.Controls.Add(pictureBox3);
-            pnlHarcananKalori.Location = new Point(372, 12);
+            pnlHarcananKalori.Location = new Point(389, 12);
             pnlHarcananKalori.Name = "pnlHarcananKalori";
             pnlHarcananKalori.Size = new Size(132, 60);
             pnlHarcananKalori.TabIndex = 7;
@@ -191,16 +191,16 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(47, 241);
+            panel1.Location = new Point(12, 241);
             panel1.Name = "panel1";
-            panel1.Size = new Size(478, 365);
+            panel1.Size = new Size(509, 365);
             panel1.TabIndex = 10;
             // 
             // lblGuncelKAH
             // 
             lblGuncelKAH.AutoSize = true;
             lblGuncelKAH.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelKAH.Location = new Point(400, 325);
+            lblGuncelKAH.Location = new Point(365, 325);
             lblGuncelKAH.Name = "lblGuncelKAH";
             lblGuncelKAH.Size = new Size(36, 20);
             lblGuncelKAH.TabIndex = 63;
@@ -210,7 +210,7 @@
             // 
             lblGuncelGSI.AutoSize = true;
             lblGuncelGSI.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelGSI.Location = new Point(400, 275);
+            lblGuncelGSI.Location = new Point(365, 275);
             lblGuncelGSI.Name = "lblGuncelGSI";
             lblGuncelGSI.Size = new Size(36, 20);
             lblGuncelGSI.TabIndex = 62;
@@ -220,7 +220,7 @@
             // 
             lblGuncelGKI.AutoSize = true;
             lblGuncelGKI.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelGKI.Location = new Point(400, 225);
+            lblGuncelGKI.Location = new Point(365, 225);
             lblGuncelGKI.Name = "lblGuncelGKI";
             lblGuncelGKI.Size = new Size(36, 20);
             lblGuncelGKI.TabIndex = 61;
@@ -230,7 +230,7 @@
             // 
             lblGuncelIdealKilo.AutoSize = true;
             lblGuncelIdealKilo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelIdealKilo.Location = new Point(400, 175);
+            lblGuncelIdealKilo.Location = new Point(365, 175);
             lblGuncelIdealKilo.Name = "lblGuncelIdealKilo";
             lblGuncelIdealKilo.Size = new Size(36, 20);
             lblGuncelIdealKilo.TabIndex = 60;
@@ -240,7 +240,7 @@
             // 
             lblGuncelVYO.AutoSize = true;
             lblGuncelVYO.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelVYO.Location = new Point(400, 125);
+            lblGuncelVYO.Location = new Point(365, 125);
             lblGuncelVYO.Name = "lblGuncelVYO";
             lblGuncelVYO.Size = new Size(36, 20);
             lblGuncelVYO.TabIndex = 58;
@@ -250,7 +250,7 @@
             // 
             lblGuncelBMH.AutoSize = true;
             lblGuncelBMH.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelBMH.Location = new Point(400, 75);
+            lblGuncelBMH.Location = new Point(365, 75);
             lblGuncelBMH.Name = "lblGuncelBMH";
             lblGuncelBMH.Size = new Size(36, 20);
             lblGuncelBMH.TabIndex = 57;
@@ -260,7 +260,7 @@
             // 
             lblGuncelVKI.AutoSize = true;
             lblGuncelVKI.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGuncelVKI.Location = new Point(400, 25);
+            lblGuncelVKI.Location = new Point(365, 25);
             lblGuncelVKI.Name = "lblGuncelVKI";
             lblGuncelVKI.Size = new Size(36, 20);
             lblGuncelVKI.TabIndex = 56;
@@ -353,7 +353,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(430, 140);
+            pictureBox6.Location = new Point(447, 140);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(74, 60);
             pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;

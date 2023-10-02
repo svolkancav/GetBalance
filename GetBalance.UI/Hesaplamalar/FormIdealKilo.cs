@@ -40,7 +40,8 @@ namespace GetBalance.UI
 				rdbErkek.Checked = false;
 				rdbKadin.Checked = false;
 
-
+			}
+		}
     }
 
 }
