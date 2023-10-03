@@ -158,7 +158,7 @@ namespace GetBalance.UI
 			lblSuankiProtein.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopProtein.Text)) + Convert.ToDouble(FormatText(lblOgleTopProtein.Text)) + Convert.ToDouble(FormatText(lblAksamTopProtein.Text)) + Convert.ToDouble(FormatText(lblAperatifTopProtein.Text))).ToString() + " gr";
 			lblSuankiYag.Text = (Convert.ToDouble(FormatText(lblKahvaltiTopYag.Text)) + Convert.ToDouble(FormatText(lblOgleTopYag.Text)) + Convert.ToDouble(FormatText(lblAksamTopYag.Text)) + Convert.ToDouble(FormatText(lblAperatifTopYag.Text))).ToString() + " gr";
 
-			//TODO: userTarget null gelirse burası patlıyor. Kontrol olmalı.
+			
 
 			if (userManager.CurrentUser.UserDetail.UserTarget != null)
 			{
@@ -272,7 +272,7 @@ namespace GetBalance.UI
 			listView.Items.Clear();
 
 			ImageList imageList = new ImageList();
-			imageList.ImageSize = new Size(60, 60);
+			imageList.ImageSize = new Size(30, 30);
 
 			foreach (var item in lsvItem)
 			{
@@ -447,6 +447,7 @@ namespace GetBalance.UI
 		{
 			date = monthCalendar.SelectionStart;
 			lblTarih.Text = date.ToShortDateString();
+			RefreshListView();
 			monthCalendar.Visible = false;
 		}
 	}

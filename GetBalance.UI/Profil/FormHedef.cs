@@ -73,6 +73,7 @@ namespace GetBalance.UI
 				else
 					userTargetRepository.Update(userTarget, userManager.CurrentUser.UserDetail.UserTarget.UserTargetId);
 
+				userManager.CurrentUser.UserDetail.UserTarget = userTarget;
 
 				ClearFields();
 
@@ -102,7 +103,7 @@ namespace GetBalance.UI
 		{
 			userDetail = userManager.CurrentUser.UserDetail;
 			int günlükKaloriİhtiyaci = 0;
-			btnKaydet.Text = userDetail == null ? "Kaydet" : "Güncelle";
+			btnKaydet.Text = userDetail.UserTarget == null ? "Kaydet" : "Güncelle";
 
 			#region KiloAlma-Verme Label doldurma
 
