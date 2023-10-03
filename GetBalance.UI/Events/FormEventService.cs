@@ -13,6 +13,8 @@ namespace GetBalance.UI.Events
 		public event AddedInfo NewItemAdded;
 		public event AddedInfo UserDetailUpdated;
 		public event AddedInfo UserTagetUpdated;
+		public event AddedInfo TargetFormOpen;
+		public event AddedInfo DetailFormOpen;
 
 		public void OnNewItemAdded()
 		{
@@ -27,6 +29,16 @@ namespace GetBalance.UI.Events
 		public void OnUserTagetUpdated()
 		{
 			UserTagetUpdated?.Invoke();
+		}
+
+		public void OnTargetFormOpen()
+		{
+			TargetFormOpen?.Invoke();
+		}
+
+		public void OnDetailFormOpen()
+		{
+			DetailFormOpen?.Invoke();
 		}
 
 		private static FormEventService _instance;

@@ -21,18 +21,18 @@ namespace GetBalance.UI
 	{
 		UserManager userManager;
 
-		GenericRepository<UserDetail> userDetailrepository;
-
 		UserTargetRepository userTargetRepository;
         UserDetail userDetail;
-        public FormHedef()
+
+		int günlükKaloriİhtiyaci;
+
+		public FormHedef()
         {
             InitializeComponent();
             userManager = UserManager.Instance;
             userTargetRepository = new UserTargetRepository();
-			userDetailrepository = new GenericRepository<UserDetail>();
 
-
+			FormEventService.Instance.TargetFormOpen += KiloAlmaVermeHesapla;
 		}
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -102,11 +102,18 @@ namespace GetBalance.UI
 		private void FormHedef_Load(object sender, EventArgs e)
 		{
 			userDetail = userManager.CurrentUser.UserDetail;
-			int günlükKaloriİhtiyaci = 0;
+			günlükKaloriİhtiyaci = 0;
 			btnKaydet.Text = userDetail.UserTarget == null ? "Kaydet" : "Güncelle";
 
-			#region KiloAlma-Verme Label doldurma
+			
 
+			KiloAlmaVermeHesapla();
+
+			
+		}
+		#region KiloAlma-Verme Label doldurma
+		private void KiloAlmaVermeHesapla()
+		{
 			if (userDetail != null)
 			{
 				int boy = Convert.ToInt32(userDetail.Height);
@@ -121,12 +128,10 @@ namespace GetBalance.UI
 					FillTextBox();
 			}
 
-			lblKiloAlmaBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci + 300} Kcal ";
+			lblKiloAlmaBilgi.Text = $"Kilo almak için önerilen Hedef Kalori : {günlükKaloriİhtiyaci + 300} Kcal ";
 			lblKiloVermeBilgi.Text = $"Kilo vermek için önerilen Hedef Kalori : {günlükKaloriİhtiyaci - 300} Kcal ";
-
-			#endregion
 		}
-
+		#endregion
 		private void FillTextBox()
 		{
 			userDetail = userManager.CurrentUser.UserDetail;

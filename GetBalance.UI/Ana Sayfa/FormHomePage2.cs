@@ -45,20 +45,16 @@ namespace GetBalance.UI
 		}
 
 
-		private void pictureBox5_Click(object sender, EventArgs e)
-		{
-			formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
-			pnlYanPanel.Controls.Add(formDuzenle);
-			if (formHedef != null)
-				formHedef.Close();
-			formDuzenle.Show();
 
-		}
 
 
 		private void FormHomePage2_Load(object sender, EventArgs e)
 		{
+			formDuzenle = new FormDuzenle() { TopLevel = false, TopMost = true };
+			formHedef = new FormHedef() { TopLevel = false, TopMost = true };
 
+			pnlYanPanel.Controls.Add(formHedef);
+			pnlYanPanel.Controls.Add(formDuzenle);
 
 			#region Database e user girilince açılacak.
 
@@ -158,14 +154,19 @@ namespace GetBalance.UI
 
 		}
 
+		private void pictureBox5_Click(object sender, EventArgs e)
+		{
+			formHedef.Hide();
+			FormEventService.Instance.OnTargetFormOpen();
+			formDuzenle.Show();
+
+		}
 
 
 		private void pictureBox6_Click(object sender, EventArgs e)
 		{
-			formHedef = new FormHedef() { TopLevel = false, TopMost = true };
-			pnlYanPanel.Controls.Add(formHedef);
-			if (formDuzenle != null)
-				formDuzenle.Close();
+			formDuzenle.Hide();
+				FormEventService.Instance.OnTargetFormOpen();
 			formHedef.Show();
 
 		}
