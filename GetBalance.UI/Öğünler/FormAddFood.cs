@@ -2,6 +2,7 @@
 using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Events;
+using GetBalance.UI.Properties;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
 using System;
@@ -145,7 +146,7 @@ namespace GetBalance.UI
 
 			foreach (Food food in foods)
 			{
-				Bitmap bmp=new Bitmap("C:\\Users\\osman\\Documents\\HS-12\\EF\\Get_Balance\\GetBalance\\GetBalance.UI\\icons\\foods.jpg");
+				Bitmap bmp=new Bitmap(Resources.foodicon);
 				if (food.Picture != null)
 				{
 				 bmp = new Bitmap(food.Picture);
