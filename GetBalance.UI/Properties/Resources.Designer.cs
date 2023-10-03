@@ -163,6 +163,16 @@ namespace GetBalance.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap foodicon {
+            get {
+                object obj = ResourceManager.GetObject("foodicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_7_32 {
             get {
                 object obj = ResourceManager.GetObject("home-7-32", resourceCulture);
