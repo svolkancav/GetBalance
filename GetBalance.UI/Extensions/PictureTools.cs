@@ -29,6 +29,8 @@ namespace GetBalance.UI.Extensions
 		public static string CopyPicture(string sourcePath ) // sourcePath: resmin kaynak yolu, destinationPath: resmin kopyalanacağı yol
 		{
 			string destinationFolder =CreatePictureFolder();
+			if(sourcePath==null)
+				return null;
 			try
 			{
 				string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(sourcePath);
