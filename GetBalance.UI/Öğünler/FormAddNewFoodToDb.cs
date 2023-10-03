@@ -149,6 +149,26 @@ namespace GetBalance.UI
 
 		}
 
+		int space = 0;
+		private void txt_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			char ch = e.KeyChar;
+			if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
+			{
+				e.Handled = true;
+			}
+			else if (Char.IsLetter(ch)) space = 0;
+
+			if (ch == 32)
+			{
+				space++;
+				if (space > 1)
+				{
+					e.Handled = true;
+				}
+			}
+		}
+
 		private void btnGeri_Click(object sender, EventArgs e)
 		{
 			this.Hide();

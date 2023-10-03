@@ -2,6 +2,7 @@
 using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Events;
+using GetBalance.UI.Extensions;
 using GetBalance.UI.Properties;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
@@ -33,7 +34,7 @@ namespace GetBalance.UI
 		DateTime dateTime1;
 		bool cmbCategoryFlag = false;
 
-		List<Food> foods ;
+		List<Food> foods;
 
 		public FormAddFood(MealType mealType, DateTime dateTime)
 		{
@@ -106,14 +107,9 @@ namespace GetBalance.UI
 
 		}
 
-		private void FillLblPorsiyonlar(int foodId)
+		private void FillLblPorsiyonlar()
 		{
-			List<Food> foods = _foodRepo.GetAll().FindAll(x => x.FoodId == foodId);
-
-			foreach (Food food in foods)
-			{
-				lblPorsiyonDetayi.Text = food.PortionName.ToString();
-			}
+			lblPorsiyonDetayi.Text = seciliYemek.PortionName.DisplayName();
 		}
 
 		private void ListViewEdit()
@@ -128,7 +124,7 @@ namespace GetBalance.UI
 			ColumnHeader[] headers =
 			{
 				new ColumnHeader() { Name = "Food", Text = "Yemek", Width = width*2, TextAlign = HorizontalAlignment.Left},
-                new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = width, TextAlign = HorizontalAlignment.Center},
+				new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = width, TextAlign = HorizontalAlignment.Center},
 				new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = width, TextAlign = HorizontalAlignment.Center},
 				new ColumnHeader() { Name = "Protein", Text = "Protein", Width = width, TextAlign = HorizontalAlignment.Center},
 				new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = width, TextAlign = HorizontalAlignment.Center}
@@ -146,10 +142,10 @@ namespace GetBalance.UI
 
 			foreach (Food food in foods)
 			{
-				Bitmap bmp=new Bitmap(Resources.foodicon);
+				Bitmap bmp = new Bitmap(Resources.foodicon);
 				if (food.Picture != null)
 				{
-				 bmp = new Bitmap(food.Picture);
+					bmp = new Bitmap(food.Picture);
 				}
 
 
@@ -257,7 +253,7 @@ namespace GetBalance.UI
 			btnOguneEkle.Enabled = true;
 			seciliYemek = lsvFoods.SelectedItems[0].Tag as Food;
 
-			FillLblPorsiyonlar(seciliYemek.FoodId);
+			FillLblPorsiyonlar();
 
 		}
 
