@@ -18,7 +18,7 @@ using static GetBalance.UI.FormHomePage;
 
 namespace GetBalance.UI
 {
-    public partial class FormAddFood : Form
+	public partial class FormAddFood : Form
 	{
 		UserManager userManager;
 		FoodRepository _foodRepo;
@@ -32,6 +32,8 @@ namespace GetBalance.UI
 		DateTime dateTime1;
 		bool cmbCategoryFlag = false;
 
+		List<Food> foods ;
+
 		public FormAddFood(MealType mealType, DateTime dateTime)
 		{
 			InitializeForm();
@@ -43,11 +45,13 @@ namespace GetBalance.UI
 		private void InitializeForm()
 		{
 			InitializeComponent();
+
 			userManager = UserManager.Instance;
 			_foodRepo = new FoodRepository();
 			_foodMealRepo = new FoodMealRepository();
 			_foodCategoryRepo = new GenericRepository<FoodCategory>();
 			_mealRepo = new GenericRepository<Meal>();
+			foods = new List<Food>();
 		}
 
 		public FormAddFood()
@@ -58,6 +62,7 @@ namespace GetBalance.UI
 		{
 			InitializeForm();
 			_foodMeal = foodMeal;
+
 
 			if (_foodMeal != null)
 			{
@@ -76,6 +81,7 @@ namespace GetBalance.UI
 		private void FormAddFood_Load(object sender, EventArgs e)
 		{
 			ListViewEdit();
+
 			FillComboBoxKategoriler(_foodMeal);
 			if (_foodMeal != null) return;
 			FillListViewWithFoods(_foodRepo.GetAll());
@@ -115,14 +121,16 @@ namespace GetBalance.UI
 			lsvFoods.GridLines = true;
 			lsvFoods.FullRowSelect = true;
 
+			int width = lsvFoods.Width / 6;
+
+
 			ColumnHeader[] headers =
 			{
-				new ColumnHeader() { Name = "Food", Text = "Yemek", Width = lsvFoods.Width-250, TextAlign = HorizontalAlignment.Left},
-                //new ColumnHeader() { Name = "Portion", Text = "Posiyon Miktarı", Width = 50, TextAlign = HorizontalAlignment.Center},
-                new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = 50, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = 50, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Protein", Text = "Protein", Width = 50, TextAlign = HorizontalAlignment.Center},
-				new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = 50, TextAlign = HorizontalAlignment.Center}
+				new ColumnHeader() { Name = "Food", Text = "Yemek", Width = width*2, TextAlign = HorizontalAlignment.Left},
+                new ColumnHeader() { Name = "Calorie", Text = "Kalori", Width = width, TextAlign = HorizontalAlignment.Center},
+				new ColumnHeader() { Name = "Carb", Text = "Karbonhidrat", Width = width, TextAlign = HorizontalAlignment.Center},
+				new ColumnHeader() { Name = "Protein", Text = "Protein", Width = width, TextAlign = HorizontalAlignment.Center},
+				new ColumnHeader() { Name = "Fat", Text = "Yağ", Width = width, TextAlign = HorizontalAlignment.Center}
 			};
 
 			lsvFoods.Columns.AddRange(headers);
@@ -132,11 +140,23 @@ namespace GetBalance.UI
 		{
 			lsvFoods.Items.Clear();
 
+			ImageList imageList = new ImageList();
+			imageList.ImageSize = new Size(60, 60);
+
 			foreach (Food food in foods)
 			{
+				Bitmap bmp=new Bitmap("C:\\Users\\osman\\Documents\\HS-12\\EF\\Get_Balance\\GetBalance\\GetBalance.UI\\icons\\foods.jpg");
+				if (food.Picture != null)
+				{
+				 bmp = new Bitmap(food.Picture);
+				}
+
+
+				imageList.Images.Add(food.FoodId.ToString(), bmp);
+
 				ListViewItem listViewItem = new ListViewItem();
+				listViewItem.ImageKey = food.FoodId.ToString();
 				listViewItem.Text = food.Name;
-				//listViewItem.SubItems.Add("100 gr");
 				listViewItem.SubItems.Add(food.Calories.ToString());
 				listViewItem.SubItems.Add(food.Carbohydrate.ToString());
 				listViewItem.SubItems.Add(food.Protein.ToString());
@@ -146,6 +166,7 @@ namespace GetBalance.UI
 
 				lsvFoods.Items.Add(listViewItem);
 			}
+			lsvFoods.SmallImageList = imageList;
 		}
 
 		private void txtYemekAra_TextChanged(object sender, EventArgs e)
@@ -186,7 +207,7 @@ namespace GetBalance.UI
 					_foodMeal.Food = seciliYemek;
 					_foodMealRepo.Update(_foodMeal);
 					this.Close();
-					
+
 				}
 				else
 				{

@@ -19,8 +19,8 @@ using static GetBalance.UI.Queries.DBQueries;
 
 namespace GetBalance.UI
 {
-    //Todo : meal'i öğün ekleme sayfasında oluşturup ekleyeceğiz.daha sonra seçilen yemek öğünle foodmeal tablosuna eklenecek.
-    public partial class FormGunluk : Form
+	//Todo : meal'i öğün ekleme sayfasında oluşturup ekleyeceğiz.daha sonra seçilen yemek öğünle foodmeal tablosuna eklenecek.
+	public partial class FormGunluk : Form
 	{
 		UserManager userManager;
 
@@ -162,48 +162,48 @@ namespace GetBalance.UI
 
 			if (userManager.CurrentUser.UserDetail.UserTarget != null)
 			{
-                double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
-                lblHedefKalori.Text = Math.Round(targetCalori, 2).ToString() + " Kcal";
+				double targetCalori = userManager.CurrentUser.UserDetail.UserTarget.TargetCalorie;
+				lblHedefKalori.Text = Math.Round(targetCalori, 2).ToString() + " Kcal";
 
-                double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
-                lblHedefKarb.Text = Math.Round(targetCarb * targetCalori / 400.00, 2).ToString() + " gr";
+				double targetCarb = userManager.CurrentUser.UserDetail.UserTarget.TargetCarbPercentage;
+				lblHedefKarb.Text = Math.Round(targetCarb * targetCalori / 400.00, 2).ToString() + " gr";
 
-                double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
-                lblHedefProtein.Text = Math.Round(targetProtein * targetCalori / 400.00, 2).ToString() + " gr";
+				double targetProtein = userManager.CurrentUser.UserDetail.UserTarget.TargetProteinPercentage;
+				lblHedefProtein.Text = Math.Round(targetProtein * targetCalori / 400.00, 2).ToString() + " gr";
 
-                double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
-                lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
+				double targetFat = userManager.CurrentUser.UserDetail.UserTarget.TargetFatPercentage;
+				lblHedefYag.Text = Math.Round(targetFat * targetCalori / 900.00, 2).ToString() + " gr";
 
-                parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
+				parrotCircleProgressBar1.percentage = Convert.ToInt32((Convert.ToDouble(FormatText(lblSuankiKalori.Text)) / targetCalori) * 100);
 
 
-                if (parrotCircleProgressBar1.percentage > 100)
-                {
-                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
-                }
-                else if (parrotCircleProgressBar1.percentage > 75)
-                {
-                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 192, 0);
-                }
-                else if (parrotCircleProgressBar1.percentage > 50)
-                {
-                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 255, 0);
-                }
-                else if (parrotCircleProgressBar1.percentage > 25)
-                {
-                    parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 192, 0);
-                }
-            }
+				if (parrotCircleProgressBar1.percentage > 100)
+				{
+					parrotCircleProgressBar1.FilledColor = Color.FromArgb(192, 0, 0);
+				}
+				else if (parrotCircleProgressBar1.percentage > 75)
+				{
+					parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 192, 0);
+				}
+				else if (parrotCircleProgressBar1.percentage > 50)
+				{
+					parrotCircleProgressBar1.FilledColor = Color.FromArgb(255, 255, 0);
+				}
+				else if (parrotCircleProgressBar1.percentage > 25)
+				{
+					parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 192, 0);
+				}
+			}
 			else
 			{
-                parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160);
-                lblHedefKalori.Text = "0";
-                lblHedefKarb.Text = "0";
-                lblHedefProtein.Text = "0";
-                lblHedefYag.Text = "0";
-                parrotCircleProgressBar1.percentage = 0;
+				parrotCircleProgressBar1.FilledColor = Color.FromArgb(0, 163, 160);
+				lblHedefKalori.Text = "0";
+				lblHedefKarb.Text = "0";
+				lblHedefProtein.Text = "0";
+				lblHedefYag.Text = "0";
+				parrotCircleProgressBar1.percentage = 0;
 
-            }
+			}
 
 		}
 
@@ -271,10 +271,22 @@ namespace GetBalance.UI
 		{
 			listView.Items.Clear();
 
+			ImageList imageList = new ImageList();
+			imageList.ImageSize = new Size(60, 60);
+
 			foreach (var item in lsvItem)
 			{
+				Bitmap bmp = new Bitmap("C:\\Users\\osman\\Documents\\HS-12\\EF\\Get_Balance\\GetBalance\\GetBalance.UI\\icons\\foods.jpg");
+				if (item.Food.Picture != null)
+				{
+					bmp = new Bitmap(item.Food.Picture);
+				}
+
+				imageList.Images.Add(item.Food.FoodId.ToString(), bmp);
+
 				ListViewItem listViewItem = new ListViewItem();
 				listViewItem.Text = item.Name;
+				listViewItem.ImageKey = item.Food.FoodId.ToString();
 				listViewItem.SubItems.Add(item.Amount.ToString());
 				listViewItem.SubItems.Add(item.TotalCalorie.ToString());
 				listViewItem.SubItems.Add(item.TotalCarb.ToString());
@@ -285,6 +297,7 @@ namespace GetBalance.UI
 
 				listView.Items.Add(listViewItem);
 			}
+			listView.SmallImageList = imageList;
 		}
 
 		private void ListViewEdit(ListView lsv)

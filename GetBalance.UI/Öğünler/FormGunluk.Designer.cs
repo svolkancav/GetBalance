@@ -32,7 +32,7 @@
 		{
 			components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGunluk));
-			ListViewItem listViewItem2 = new ListViewItem(new string[] { "egg", "1", "2", "10", "5" }, -1);
+			ListViewItem listViewItem1 = new ListViewItem(new string[] { "egg", "1", "2", "10", "5" }, -1);
 			pnlLeftSide = new Panel();
 			parrotCircleProgressBar1 = new ReaLTaiizor.Controls.ParrotCircleProgressBar();
 			pictureBox2 = new PictureBox();
@@ -413,8 +413,8 @@
 			lsvKahvalti.FullRowSelect = true;
 			lsvKahvalti.GridLines = true;
 			lsvKahvalti.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-			listViewItem2.StateImageIndex = 0;
-			lsvKahvalti.Items.AddRange(new ListViewItem[] { listViewItem2 });
+			listViewItem1.StateImageIndex = 0;
+			lsvKahvalti.Items.AddRange(new ListViewItem[] { listViewItem1 });
 			lsvKahvalti.Location = new Point(0, 0);
 			lsvKahvalti.Name = "lsvKahvalti";
 			lsvKahvalti.Size = new Size(873, 140);
@@ -473,7 +473,8 @@
 			btnRight.Name = "btnRight";
 			btnRight.Size = new Size(250, 50);
 			btnRight.TabIndex = 15;
-			btnRight.TextAlign = ContentAlignment.MiddleLeft;
+			btnRight.Text = "Sonraki Gün";
+			btnRight.TextAlign = ContentAlignment.MiddleRight;
 			btnRight.UseVisualStyleBackColor = false;
 			btnRight.Click += btnRight_Click;
 			// 
@@ -489,7 +490,8 @@
 			btnLeft.Name = "btnLeft";
 			btnLeft.Size = new Size(250, 50);
 			btnLeft.TabIndex = 16;
-			btnLeft.TextAlign = ContentAlignment.MiddleRight;
+			btnLeft.Text = "Önceki Gün";
+			btnLeft.TextAlign = ContentAlignment.MiddleLeft;
 			btnLeft.UseVisualStyleBackColor = false;
 			btnLeft.Click += btnLeft_Click;
 			// 
