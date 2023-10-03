@@ -44,7 +44,7 @@ namespace GetBalance.UI
 
 			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString() + " kg";
 			lblBaslangicKilo.Text = user.UserDetail.UserTarget.StartingWeight.ToString() + " kg";
-			lblHedefKilo.Text = user.UserDetail.UserTarget.TargetWeight.ToString() + " kg";
+			lblMevcutKilo.Text = user.UserDetail.CurrentWeight.ToString() + " kg";
 			lblVerilenKilo.Text = (user.UserDetail.CurrentWeight - user.UserDetail.UserTarget.StartingWeight).ToString() + " kg";
 		}
 	}
