@@ -58,10 +58,9 @@ namespace GetBalance.UI
 					MessageBox.Show("Hedeflenen besin değerlerinin toplamı 100 olmalıdır!");
 					return;
 				}
-				
 
 				UserTarget userTarget = new UserTarget();
-
+				userTarget= userManager.CurrentUser.UserDetail.UserTarget ?? new UserTarget();
 
 				userTarget.TargetProteinPercentage = hedeflenenProtein;
 				userTarget.TargetCarbPercentage = hedeflenenCarb;
@@ -73,9 +72,6 @@ namespace GetBalance.UI
 					userTargetRepository.Add(userTarget);
 				else
 					userTargetRepository.Update(userTarget, userManager.CurrentUser.UserDetail.UserTarget.UserTargetId);
-
-				userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
-				userManager.CurrentUser.UserDetail.UserTarget = userTargetRepository.GetAll().Find(ud => ud.UserDetailId == userManager.CurrentUser.UserDetail.UserDetailId);
 
 
 				ClearFields();

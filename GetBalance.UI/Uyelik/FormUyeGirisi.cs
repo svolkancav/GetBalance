@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
+using GetBalance.DAL.Repositories;
 using GetBalance.DATA.Entities;
 using GetBalance.UI.Repositories;
 using GetBalance.UI.Singeltons;
@@ -18,7 +19,7 @@ namespace GetBalance.UI
 	{
 		GenericRepository<User> _userRepo;
 
-		GenericRepository<UserDetail> userDetailrepository;
+		UserDetailRepository userDetailrepository;
 
 		UserTargetRepository userTargetRepository;
 
@@ -29,7 +30,7 @@ namespace GetBalance.UI
 			InitializeComponent();
 			_userRepo = new GenericRepository<User>();
 			userTargetRepository = new UserTargetRepository();
-			userDetailrepository = new GenericRepository<UserDetail>();
+			userDetailrepository = new UserDetailRepository();
 			userManager = UserManager.Instance;
 		}
 

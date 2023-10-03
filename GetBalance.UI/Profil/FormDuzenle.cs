@@ -1,5 +1,6 @@
 ﻿using _16_DBFirst_RepositoryDesing_Nortwind.Repositories;
 using GetBalance.DAL;
+using GetBalance.DAL.Repositories;
 using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Events;
@@ -20,11 +21,7 @@ namespace GetBalance.UI
 {
     public partial class FormDuzenle : Form
     {
-
-        UserDetail _userDetail;
-        AppDbContext context;
-        GenericRepository<UserDetail> userDetailrepository;
-        UserTargetRepository userTargetRepository;
+		UserDetailRepository userDetailrepository;
 
 		UserManager userManager;
 
@@ -32,7 +29,7 @@ namespace GetBalance.UI
         {
             InitializeComponent();
             
-			userTargetRepository = new UserTargetRepository();
+            userDetailrepository = new UserDetailRepository();
 
 		}
 
@@ -52,8 +49,7 @@ namespace GetBalance.UI
                 ActivityLevel activity = (ActivityLevel)cbxAktiviteSeviyesi.SelectedValue;
                 TrainingLevel training = (TrainingLevel)cmbTraining.SelectedValue;
 
-
-                _userDetail = _userDetailRepo.GetAll().Find(x => x.UserId == userManager.CurrentUser.UserId);
+				UserDetail _userDetail= userManager.CurrentUser.UserDetail;
 
                 _userDetail.Height = boy;
                 _userDetail.CurrentWeight = kilo;
@@ -62,10 +58,10 @@ namespace GetBalance.UI
                 _userDetail.HipCircumference = kalca;
                 _userDetail.ActivityLevel = activity;
                 _userDetail.TrainingLevel = training;
-                context.UserDetails.Update(_userDetail);
-                context.SaveChanges();
 
-				userManager.CurrentUser.UserDetail = userDetailrepository.GetAll().Find(us => us.UserId == userManager.CurrentUser.UserId);
+                userDetailrepository.Update(_userDetail, userManager.CurrentUser.UserId);
+
+
 				ClearFields();
 
 				FormEventService.Instance.OnUserDetailUpdated();
@@ -95,9 +91,9 @@ namespace GetBalance.UI
 
         private void FormDuzenle_Load(object sender, EventArgs e)
         {
-            context = new AppDbContext();
+           
 
-            _userDetailRepo = new GenericRepository<UserDetail>();
+			userDetailrepository = new UserDetailRepository();
             userManager = UserManager.Instance;
             btnGuncelle.Text = userManager.CurrentUser.UserDetail==null? "Kaydet":"Güncelle";
 
