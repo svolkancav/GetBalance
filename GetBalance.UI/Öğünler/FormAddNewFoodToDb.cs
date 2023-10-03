@@ -58,8 +58,15 @@ namespace GetBalance.UI
 		private void FillComboBoxPorsiyonlar()
 		{
 			cmbPorsiyonlar.Items.Clear();
-			cmbPorsiyonlar.DataSource = Enum.GetValues(typeof(PortionName));
+			cmbPorsiyonlar.DataSource = Enum.GetValues(typeof(PortionName)).Cast<PortionName>().Select
+				(x => new
+				{
+					Value = (PortionName)x,
+					DisplayName = x.DisplayName()
 
+				}).ToList();
+			cmbPorsiyonlar.DisplayMember = "DisplayName";
+			cmbPorsiyonlar.ValueMember = "Value";
 			cmbPorsiyonlar.SelectedIndex = -1;
 			cmbPorsiyonlar.SelectedText = "Seçiniz";
 
@@ -94,16 +101,17 @@ namespace GetBalance.UI
 
 				string yemekAdi = txtYemekAdi.Text.Trim();
 
-				bool yemekVarMi = foods.Find(f => f.Name == yemekAdi) != null;
+				List<Food> foodKontrolList= foods.FindAll(f => f.Name == yemekAdi);
+				bool yemekVarMi = !(foodKontrolList.Count==0);
 				bool yemekAdiBosMu = String.IsNullOrEmpty(yemekAdi);
-				bool porsiyonIsmiVarMi = foods.Find(f => f.PortionName == (PortionName)cmbPorsiyonlar.SelectedItem) != null;
+				bool porsiyonIsmiVarMi = foodKontrolList.Find(f => f.PortionName == (PortionName)cmbPorsiyonlar.SelectedValue) != null;
 
 				if ((yemekVarMi || porsiyonIsmiVarMi))
 				{
 					txtBilgi.ForeColor = Color.Red;
 					txtBilgi.Text = "Girilen yiyecekten aynı porsiyon tipinde mevcut!";
 				}
-				else if (dogruMuPorMik && dogruMuKarb && dogruMuPro && dogruMuYag && yemekAdiBosMu)
+				else if (dogruMuPorMik && dogruMuKarb && dogruMuPro && dogruMuYag && !yemekAdiBosMu)
 				{
 					try
 					{
@@ -111,7 +119,7 @@ namespace GetBalance.UI
 						{
 							Name = yemekAdi,
 							UnitPortionQuantity = porsiyonMiktari,
-							PortionName = (PortionName)cmbPorsiyonlar.SelectedItem,
+							PortionName = (PortionName)cmbPorsiyonlar.SelectedValue,
 							Calories = CalculatorExtensions.KaloriHesapla(karb, protein, yag),
 							Carbohydrate = karb,
 							Protein = protein,
