@@ -96,9 +96,9 @@ namespace GetBalance.UI
 			else
 			{
 				bool dogruMuPorMik = int.TryParse(txtPorsiyonMiktari.Text.Trim(), out int porsiyonMiktari);
-				bool dogruMuKarb = int.TryParse(txtKarb.Text.Trim(), out int karb);
-				bool dogruMuPro = int.TryParse(txtProtein.Text.Trim(), out int protein);
-				bool dogruMuYag = int.TryParse(txtYag.Text.Trim(), out int yag);
+				bool dogruMuKarb = double.TryParse(txtKarb.Text.Trim(), out double karb);
+				bool dogruMuPro = double.TryParse(txtProtein.Text.Trim(), out double protein);
+				bool dogruMuYag = double.TryParse(txtYag.Text.Trim(), out double yag);
 
 				string yemekAdi = txtYemekAdi.Text.Trim();
 
@@ -107,7 +107,7 @@ namespace GetBalance.UI
 				bool yemekAdiBosMu = String.IsNullOrEmpty(yemekAdi);
 				bool porsiyonIsmiVarMi = foodKontrolList.Find(f => f.PortionName == (PortionName)cmbPorsiyonlar.SelectedValue) != null;
 
-				if ((yemekVarMi || porsiyonIsmiVarMi))
+				if ((yemekVarMi && porsiyonIsmiVarMi))
 				{
 					txtBilgi.ForeColor = Color.Red;
 					txtBilgi.Text = "Girilen yiyecekten aynı porsiyon tipinde mevcut!";
