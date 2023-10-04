@@ -156,7 +156,6 @@ namespace GetBalance.UI
 			System.Windows.Forms.TextBox txt = (System.Windows.Forms.TextBox)sender;
 
 			char ch = e.KeyChar;
-
 			if (Char.IsLetter(e.KeyChar) && (txt.Text.Length == 0 || (txt.SelectionStart > 0 && txt.Text[txt.SelectionStart - 1] == ' ')))
 			{
 				e.KeyChar = Char.ToUpper(e.KeyChar);
@@ -166,15 +165,15 @@ namespace GetBalance.UI
 				e.Handled = true;
 			}
 			else if (Char.IsLetter(ch)) space = 0;
-
-			if (ch == 32)
-			{
-				space++;
-				if (space > 1)
+			
+				if (ch == 32)
 				{
-					e.Handled = true;
+					space++;
+					if (space > 1)
+					{
+						e.Handled = true;
+					}
 				}
-			}
 		}
 		private void btnGeri_Click(object sender, EventArgs e)
 		{

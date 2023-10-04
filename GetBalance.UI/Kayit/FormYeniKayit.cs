@@ -219,18 +219,20 @@ namespace GetBalance.UI
 		{
 			TextBox txt = (TextBox)sender;
 			char ch = e.KeyChar;
+
+
 			if (Char.IsLetter(e.KeyChar) && (txt.Text.Length == 0 || (txt.SelectionStart > 0 && txt.Text[txt.SelectionStart - 1] == ' ')))
 			{
-				e.KeyChar = Char.ToUpper(e.KeyChar);
+				ch = Char.ToUpper(ch);
 			}
-			else  if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
+			else if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
 			{
 				e.Handled = true;
 			}
-			else if (Char.IsLetter(ch))
-			{
-				space = 0;
-			}
+			else if (Char.IsLetter(ch)) space = 0;
+
+
+
 			if (ch == 32)
 			{
 				space++;
