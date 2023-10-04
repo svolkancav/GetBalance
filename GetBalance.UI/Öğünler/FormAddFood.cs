@@ -203,8 +203,8 @@ namespace GetBalance.UI
 					_foodMeal.FoodAmount = porsiyonMiktari;
 					_foodMeal.Food = seciliYemek;
 					_foodMealRepo.Update(_foodMeal);
+					FormEventService.Instance.OnNewItemAdded();
 					this.Close();
-
 				}
 				else
 				{
