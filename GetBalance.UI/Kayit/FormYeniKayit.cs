@@ -12,6 +12,7 @@ using GetBalance.DATA;
 using GetBalance.DATA.Entities;
 using GetBalance.DATA.Enums;
 using GetBalance.UI.Singeltons;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GetBalance.UI
 {
@@ -216,12 +217,20 @@ namespace GetBalance.UI
 		int space = 0;
 		private void txt_KeyPress(object sender, KeyPressEventArgs e)
 		{
+			TextBox txt = (TextBox)sender;
 			char ch = e.KeyChar;
-			if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
+
+			if (Char.IsLetter(e.KeyChar) && (txt.Text.Length == 0 || (txt.SelectionStart > 0 && txt.Text[txt.SelectionStart - 1] == ' ')))
+			{
+				ch = Char.ToUpper(ch);
+			}
+			else if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
 			{
 				e.Handled = true;
 			}
 			else if (Char.IsLetter(ch)) space = 0;
+
+
 
 			if (ch == 32)
 			{

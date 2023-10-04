@@ -166,7 +166,7 @@ namespace GetBalance.UI
 		private void pictureBox6_Click(object sender, EventArgs e)
 		{
 			formDuzenle.Hide();
-				FormEventService.Instance.OnTargetFormOpen();
+			FormEventService.Instance.OnTargetFormOpen();
 			formHedef.Show();
 
 		}

@@ -57,6 +57,8 @@
 			label2 = new Label();
 			pnlYanPanel = new Panel();
 			pictureBox6 = new PictureBox();
+			label7 = new Label();
+			label9 = new Label();
 			((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
 			pnlKilo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -366,11 +368,33 @@
 			pictureBox6.TabStop = false;
 			pictureBox6.Click += pictureBox6_Click;
 			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label7.Location = new Point(358, 131);
+			label7.Name = "label7";
+			label7.Size = new Size(58, 19);
+			label7.TabIndex = 2;
+			label7.Text = "Düzenle";
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+			label9.Location = new Point(455, 132);
+			label9.Name = "label9";
+			label9.Size = new Size(60, 19);
+			label9.TabIndex = 13;
+			label9.Text = "Hedefler";
+			// 
 			// FormHomePage2
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1075, 634);
+			Controls.Add(label9);
+			Controls.Add(label7);
 			Controls.Add(pictureBox6);
 			Controls.Add(pnlYanPanel);
 			Controls.Add(panel1);
@@ -398,6 +422,7 @@
 			panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
 			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
@@ -430,5 +455,7 @@
 		private Label lblGuncelVKI;
 		private Panel pnlYanPanel;
 		private PictureBox pictureBox6;
+		private Label label7;
+		private Label label9;
 	}
 }
