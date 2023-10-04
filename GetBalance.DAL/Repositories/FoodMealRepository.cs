@@ -21,7 +21,7 @@ namespace GetBalance.UI.Repositories
 			FoodMeal foodMeal = GetAll().First(x => x.FoodId == fm.FoodId && x.MealId == fm.MealId);
 			foodMeal.FoodId = fm.FoodId;
 			foodMeal.FoodAmount = fm.FoodAmount;
-
+			context.FoodMeal.Update(foodMeal);
 			context.SaveChanges();
 
 		}
