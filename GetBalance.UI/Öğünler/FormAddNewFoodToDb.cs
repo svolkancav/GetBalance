@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GetBalance.UI
@@ -101,8 +102,8 @@ namespace GetBalance.UI
 
 				string yemekAdi = txtYemekAdi.Text.Trim();
 
-				List<Food> foodKontrolList= foods.FindAll(f => f.Name == yemekAdi);
-				bool yemekVarMi = !(foodKontrolList.Count==0);
+				List<Food> foodKontrolList = foods.FindAll(f => f.Name == yemekAdi);
+				bool yemekVarMi = !(foodKontrolList.Count == 0);
 				bool yemekAdiBosMu = String.IsNullOrEmpty(yemekAdi);
 				bool porsiyonIsmiVarMi = foodKontrolList.Find(f => f.PortionName == (PortionName)cmbPorsiyonlar.SelectedValue) != null;
 
@@ -152,8 +153,15 @@ namespace GetBalance.UI
 		int space = 0;
 		private void txt_KeyPress(object sender, KeyPressEventArgs e)
 		{
+			System.Windows.Forms.TextBox txt = (System.Windows.Forms.TextBox)sender;
+
 			char ch = e.KeyChar;
-			if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
+
+			if (Char.IsLetter(e.KeyChar) && (txt.Text.Length == 0 || (txt.SelectionStart > 0 && txt.Text[txt.SelectionStart - 1] == ' ')))
+			{
+				e.KeyChar = Char.ToUpper(e.KeyChar);
+			}
+			else if (!Char.IsLetter(ch) && ch != 8 && ch != 32)
 			{
 				e.Handled = true;
 			}
@@ -168,7 +176,6 @@ namespace GetBalance.UI
 				}
 			}
 		}
-
 		private void btnGeri_Click(object sender, EventArgs e)
 		{
 			this.Hide();
