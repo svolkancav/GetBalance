@@ -158,9 +158,9 @@ namespace GetBalance.UI.Extensions
 		}
 
 
-		public static int KaloriHesapla(int karbonhidrat, int protein, int yag)
+		public static double KaloriHesapla(double karbonhidrat, double protein, double yag)
 		{
-			return (karbonhidrat + protein) * 4 + (yag * 9);
+			return (karbonhidrat + protein) * 4.0 + (yag * 9.0);
 
 
 
