@@ -220,6 +220,7 @@ namespace GetBalance.UI
 			TextBox txt = (TextBox)sender;
 			char ch = e.KeyChar;
 
+
 			if (Char.IsLetter(e.KeyChar) && (txt.Text.Length == 0 || (txt.SelectionStart > 0 && txt.Text[txt.SelectionStart - 1] == ' ')))
 			{
 				ch = Char.ToUpper(ch);

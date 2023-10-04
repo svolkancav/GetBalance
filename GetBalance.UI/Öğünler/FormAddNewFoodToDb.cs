@@ -102,8 +102,8 @@ namespace GetBalance.UI
 
 				string yemekAdi = txtYemekAdi.Text.Trim();
 
-				List<Food> foodKontrolList= foods.FindAll(f => f.Name == yemekAdi);
-				bool yemekVarMi = !(foodKontrolList.Count==0);
+				List<Food> foodKontrolList = foods.FindAll(f => f.Name == yemekAdi);
+				bool yemekVarMi = !(foodKontrolList.Count == 0);
 				bool yemekAdiBosMu = String.IsNullOrEmpty(yemekAdi);
 				bool porsiyonIsmiVarMi = foodKontrolList.Find(f => f.PortionName == (PortionName)cmbPorsiyonlar.SelectedValue) != null;
 
@@ -154,6 +154,7 @@ namespace GetBalance.UI
 		private void txt_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			System.Windows.Forms.TextBox txt = (System.Windows.Forms.TextBox)sender;
+
 			char ch = e.KeyChar;
 			if (Char.IsLetter(e.KeyChar) && (txt.Text.Length == 0 || (txt.SelectionStart > 0 && txt.Text[txt.SelectionStart - 1] == ' ')))
 			{
